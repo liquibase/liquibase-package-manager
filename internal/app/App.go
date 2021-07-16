@@ -5,12 +5,5 @@ import (
 )
 
 func Exec(cp string) {
-	//files, err := ioutil.ReadDir(cp)
-	//if err != nil {
-	//	panic(err)
-	//}
-	//for _, f := range files {
-	//	fmt.Println(f.Name())
-	//}
-	commands.Execute()
+	commands.Execute(cp)
 }

@@ -1,6 +1,7 @@
 package commands
 
 import (
+	"fmt"
 	"github.com/spf13/cobra"
 )
 
@@ -10,6 +11,11 @@ var listCmd = &cobra.Command{
 	Short: "List Installed Packages",
 
 	Run: func(cmd *cobra.Command, args []string) {
+		for _, e := range extensions {
+			if e.InClassPath(classpathFiles) {
+				fmt.Println(e.Name)
+			}
+		}
 	},
 }
 
