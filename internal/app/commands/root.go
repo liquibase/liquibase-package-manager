@@ -20,7 +20,7 @@ var rootCmd = &cobra.Command{
 	Use:   "lpm",
 	Short: "Liquibase Package Manager",
 	Long: `Easily manage external dependencies for Database Development.
-Search for, install and uninstall drivers, extensions, and utilities.`,
+Search for, install, and uninstall liquibase drivers, extensions, and utilities.`,
 }
 
 func Execute(cp string) {
@@ -40,6 +40,7 @@ func init() {
 	cobra.OnInitialize(initConfig)
 
 	//Global params
+	rootCmd.CompletionOptions.DisableDefaultCmd = true
 	rootCmd.PersistentFlags().StringVar(&category, "category","", "extension, driver, or utility")
 	rootCmd.Version = "0.0.1"
 }
