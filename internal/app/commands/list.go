@@ -11,10 +11,25 @@ var listCmd = &cobra.Command{
 	Short: "List Installed Packages",
 
 	Run: func(cmd *cobra.Command, args []string) {
+		// Collect installed packages
+		var installed []string
 		for _, e := range extensions {
 			if e.InClassPath(classpathFiles) {
-				fmt.Println(e.Name)
+				installed = append(installed, e.Name)
 			}
+		}
+
+		// Format output
+		fmt.Println(classpath)
+		var prefix string
+		for i, s := range installed {
+			if (i+1) == len(installed) {
+				prefix = "└──"
+			} else {
+				prefix = "├──"
+			}
+			l := fmt.Sprintf("%s %s",  prefix, s)
+			fmt.Println(l)
 		}
 	},
 }
