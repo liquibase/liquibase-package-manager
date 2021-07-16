@@ -2,21 +2,43 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
+	"os/exec"
 	"package-manager/internal/app"
+	"path/filepath"
+	"strings"
 )
 
 func main() {
-	jh := os.Getenv("JAVA_HOME")
-	cp := os.Getenv("CLASSPATH")
 
-	if jh == "" {
-		fmt.Println("JAVA_HOME not found.")
+	var liquibasepath string
+
+	// Find Liquibase Command
+	out, err := exec.Command("which", "liquibase").CombinedOutput()
+	if err != nil {
+		fmt.Println("Unable to locate Liquibase.")
 		os.Exit(1)
 	}
-	if cp == "" {
-		cp = jh + "/lib/"
+
+	// Determine if Command is Symlink
+	loc := strings.TrimRight(string(out), "\n")
+	fi, err := os.Lstat(loc)
+	if err != nil {
+		log.Fatal(err)
 	}
 
-	app.Exec(cp)
+	if fi.Mode()&os.ModeSymlink != 0 {
+		link, err := os.Readlink(loc)
+		if err != nil {
+			log.Fatal(err)
+		}
+		// Is Symlink
+		liquibasepath, _ = filepath.Split(link)
+	} else {
+		// Not Symlink
+		liquibasepath, _ = filepath.Split(loc)
+	}
+
+	app.Exec(liquibasepath + "lib/")
 }
