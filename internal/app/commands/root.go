@@ -10,7 +10,8 @@ import (
 )
 
 var  (
-	classpath      string
+	category string
+	classpath string
 	classpathFiles []fs.FileInfo
 	extensions packages.Packages
 )
@@ -29,9 +30,23 @@ func Execute(cp string) {
 	if err != nil {
 		panic(err)
 	}
-	extensions = packages.LoadExtensions()
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
+	}
+}
+
+func init() {
+	cobra.OnInitialize(initConfig)
+
+	//Global params
+	rootCmd.PersistentFlags().StringVar(&category, "category","", "extension, driver, or utility")
+	rootCmd.Version = "0.0.1"
+}
+
+func initConfig()  {
+	extensions = packages.LoadPackages()
+	if category != "" {
+		extensions = extensions.FilterByCategory(category)
 	}
 }

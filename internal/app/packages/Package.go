@@ -9,6 +9,7 @@ import (
 
 type Package struct {
 	Name  string `json:"name"`
+	Category string `json:"category"`
 	Path string `json:"path"`
 	CheckSum string `json:"checksum"`
 	IsInstalled bool `json:"isInstalled"`
@@ -16,7 +17,7 @@ type Package struct {
 
 type Packages []Package
 
-func LoadExtensions() Packages {
+func LoadPackages() Packages {
 	data, _ := ioutil.ReadFile("./manifests/extensions.json")
 	var e []Package
 	json.Unmarshal(data, &e)
@@ -33,6 +34,16 @@ func (ps Packages) GetByName(n string) Package {
 	for _, p := range ps {
 		if p.Name == n {
 			r = p
+		}
+	}
+	return r
+}
+
+func (ps Packages) FilterByCategory(c string) Packages {
+	var r Packages
+	for _, p := range ps {
+		if p.Category == c {
+			r = append(r, p)
 		}
 	}
 	return r
