@@ -18,7 +18,7 @@ type Package struct {
 type Packages []Package
 
 func LoadPackages() Packages {
-	data, _ := ioutil.ReadFile("./manifests/extensions.json")
+	data, _ := ioutil.ReadFile("./packages.json")
 	var e []Package
 	json.Unmarshal(data, &e)
 	return e
