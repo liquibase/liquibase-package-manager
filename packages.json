@@ -3,12 +3,84 @@
     "name": "dbmarlin_extension",
     "category": "extension",
     "path": "/Users/mcred/projects/liquibase/liquibase-dbmarlin-extension/target/dbmarlin-0.0.1.jar",
+    "algorithm": "SHA1",
     "checksum": ""
   },
   {
     "name": "postgresql",
     "category": "driver",
     "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.23/postgresql-42.2.23.jar",
+    "algorithm": "SHA1",
     "checksum": "9cb217a3d5b640567ed7c6e8c11f389613c81c4d"
+  },
+  {
+    "name": "mssql",
+    "category": "driver",
+    "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/9.2.1.jre11/mssql-jdbc-9.2.1.jre11.jar",
+    "algorithm": "SHA1",
+    "checksum": "7af72fb8f832634f7717f971a85ba199729b7eaa"
+  },
+  {
+    "name": "mariadb",
+    "category": "driver",
+    "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.7.3/mariadb-java-client-2.7.3.jar",
+    "algorithm": "SHA1",
+    "checksum": "4a2edc05bd882ad19371d2615c2635dccf8d74f0"
+  },
+  {
+    "name": "h2",
+    "category": "driver",
+    "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.200/h2-1.4.200.jar",
+    "algorithm": "SHA1",
+    "checksum": "f7533fe7cb8e99c87a43d325a77b4b678ad9031a"
+  },
+  {
+    "name": "db2",
+    "category": "driver",
+    "path": "https://repo1.maven.org/maven2/com/ibm/db2/jcc/11.5.6.0/jcc-11.5.6.0.jar",
+    "algorithm": "SHA1",
+    "checksum": "34704e47398c467e256fd181c75ffb85d1fac9a9"
+  },
+  {
+    "name": "snowflake",
+    "category": "driver",
+    "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/${SNOWFLAKE_VERSION}/snowflake-jdbc-${SNOWFLAKE_VERSION}.jar",
+    "algorithm": "SHA1",
+    "checksum": "5cf0b933bc7125894138bdf9befd7547e0783553"
+  },
+  {
+    "name": "sybase",
+    "category": "driver",
+    "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/sybase/3.5.0/sybase-3.5.0.jar",
+    "algorithm": "SHA1",
+    "checksum": "4a939221fe3023da2ddfc63ecf902a0f970d4d70"
+  },
+  {
+    "name": "firebird",
+    "category": "driver",
+    "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/firebird/3.5.0/firebird-3.5.0.jar",
+    "algorithm": "SHA1",
+    "checksum": "40386c1fb29971ab96451a2d0c0d6aafaedea0c0"
+  },
+  {
+    "name": "sqlite",
+    "category": "driver",
+    "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.36.0.1/sqlite-jdbc-3.36.0.1.jar",
+    "algorithm": "SHA1",
+    "checksum": "7bd89ad11392210f8e86282004519b36d53cb9ee"
+  },
+  {
+    "name": "oracle",
+    "category": "driver",
+    "path": "https://repo1.maven.org/maven2/com/oracle/ojdbc/ojdbc8/19.3.0.0/ojdbc8-19.3.0.0.jar",
+    "algorithm": "SHA1",
+    "checksum": "967c0b1a2d5b1435324de34a9b8018d294f8f47b"
+  },
+  {
+    "name": "mysql",
+    "category": "driver",
+    "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.25/mysql-connector-java-8.0.25.jar",
+    "algorithm": "SHA256",
+    "checksum": "a0a1be0389e541dad8841b326e79c51d39abbe1ca52267304d76d1cf4801ce96"
   }
 ]

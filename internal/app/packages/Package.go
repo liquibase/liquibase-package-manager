@@ -2,6 +2,7 @@ package packages
 
 import (
 	"crypto/sha1"
+	"crypto/sha256"
 	"fmt"
 	"io"
 	"io/fs"
@@ -16,6 +17,7 @@ type Package struct {
 	Name  string `json:"name"`
 	Category string `json:"category"`
 	Path string `json:"path"`
+	Algorithm string `json:"algorithm"`
 	CheckSum string `json:"checksum"`
 }
 
@@ -62,6 +64,20 @@ func (p Package) CopyToClassPath(cp string) {
 	writeToDestination(cp + p.GetFilename(), source, p.GetFilename())
 }
 
+func (p Package) calcChecksum(b []byte) string {
+	var r string
+	switch p.Algorithm {
+	case "SHA1":
+		r = fmt.Sprintf("%x", sha1.Sum(b))
+	case "SHA256":
+		r = fmt.Sprintf("%x", sha256.Sum256(b))
+	default:
+		fmt.Println("Unknown Algorithm.")
+		os.Exit(1)
+	}
+	return r
+}
+
 func (p Package) DownloadToClassPath(cp string) {
 	client := http.Client{
 		CheckRedirect: func(r *http.Request, via []*http.Request) error {
@@ -77,7 +93,7 @@ func (p Package) DownloadToClassPath(cp string) {
 	}
 	defer r.Body.Close()
 	body, err := ioutil.ReadAll(r.Body)
-	sha := fmt.Sprintf("%x", sha1.Sum(body))
+	sha := p.calcChecksum(body)
 	if sha == p.CheckSum {
 		fmt.Println("Checksum verified. Installing " + p.GetFilename() + " to " + cp)
 	} else {
