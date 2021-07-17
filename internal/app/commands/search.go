@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 	"os"
+	"package-manager/internal/app/packages"
 	"strings"
 )
 
@@ -23,18 +24,17 @@ var searchCmd = &cobra.Command{
 		} else {
 			name = ""
 		}
-		var out []string
+		var found packages.Packages
 		for _, p := range packs {
 			if strings.Contains(p.Name, name) || name == "" {
-				out = append(out, p.Name)
+				found = append(found, p)
 			}
 		}
-		if len(out) == 0 {
+		if len(found) == 0 {
 			fmt.Println("No results found.")
+			os.Exit(1)
 		}
-		for _, o := range out {
-			fmt.Println(o)
-		}
+		found.Display()
 	},
 }
 

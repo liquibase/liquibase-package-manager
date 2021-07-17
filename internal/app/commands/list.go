@@ -3,6 +3,8 @@ package commands
 import (
 	"fmt"
 	"github.com/spf13/cobra"
+	"os"
+	"package-manager/internal/app/packages"
 )
 
 // listCmd represents the list command
@@ -12,25 +14,19 @@ var listCmd = &cobra.Command{
 
 	Run: func(cmd *cobra.Command, args []string) {
 		// Collect installed packages
-		var installed []string
+		var installed packages.Packages
 		for _, e := range packs {
 			if e.InClassPath(classpathFiles) {
-				installed = append(installed, e.Name)
+				installed = append(installed, e)
 			}
 		}
 
 		// Format output
 		fmt.Println(classpath)
-		var prefix string
-		for i, s := range installed {
-			if (i+1) == len(installed) {
-				prefix = "└──"
-			} else {
-				prefix = "├──"
-			}
-			l := fmt.Sprintf("%s %s",  prefix, s)
-			fmt.Println(l)
+		if len(installed) == 0 {
+			os.Exit(1)
 		}
+		installed.Display()
 	},
 }
 
