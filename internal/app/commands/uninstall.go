@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 	"os"
+	"package-manager/internal/app"
 )
 
 // uninstallCmd represents the install command
@@ -15,17 +16,14 @@ var uninstallCmd = &cobra.Command{
 		name := args[0]
 		p := packs.GetByName(name)
 		if p.Name == "" {
-			fmt.Println("Package '" + name + "' not found.")
-			os.Exit(1)
+			app.Exit("Package '" + name + "' not found.", 1)
 		}
 		if !p.InClassPath(classpathFiles) {
-			fmt.Println(name + " is not installed.")
-			os.Exit(1)
+			app.Exit(name + " is not installed.", 1)
 		}
 		err := os.Remove(classpath + p.GetFilename())
 		if err != nil {
-			fmt.Println("Unable to delete " + p.GetFilename() + " from classpath.")
-			os.Exit(1)
+			app.Exit("Unable to delete " + p.GetFilename() + " from classpath.", 1)
 		}
 		fmt.Println(p.GetFilename() + " successfully uninstalled from classpath.")
 	},

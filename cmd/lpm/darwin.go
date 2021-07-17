@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
-	"package-manager/internal/app"
+	"package-manager/internal/app/commands"
 	"path/filepath"
 	"strings"
 )
@@ -39,6 +39,6 @@ func main() {
 		// Not Symlink
 		liquibasepath, _ = filepath.Split(loc)
 	}
-
-	app.Exec(liquibasepath + "lib/")
+	
+	commands.Execute(liquibasepath + "lib/")
 }

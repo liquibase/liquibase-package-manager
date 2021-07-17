@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"package-manager/internal/app"
 	"path/filepath"
 	"strings"
 )
@@ -43,22 +44,19 @@ func (p Package) PathIsHttp() bool {
 func writeToDestination(d string, r io.Reader, f string) {
 	destination, err := os.Create(d)
 	if err != nil {
-		fmt.Println("Unable to access classpath located at " + d)
-		os.Exit(1)
+		app.Exit("Unable to access classpath located at " + d, 1)
 	}
 	defer destination.Close()
 	_, err = io.Copy(destination, r)
 	if err != nil {
-		fmt.Println("Unable to install " + f + " in classpath.")
-		os.Exit(1)
+		app.Exit("Unable to install " + f + " in classpath.", 1)
 	}
 }
 
 func (p Package) CopyToClassPath(cp string) {
 	source, err := os.Open(p.Path)
 	if err != nil {
-		fmt.Println("Unable to open " + p.Path)
-		os.Exit(1)
+		app.Exit("Unable to open " + p.Path, 1)
 	}
 	defer source.Close()
 	writeToDestination(cp + p.GetFilename(), source, p.GetFilename())
@@ -72,8 +70,7 @@ func (p Package) calcChecksum(b []byte) string {
 	case "SHA256":
 		r = fmt.Sprintf("%x", sha256.Sum256(b))
 	default:
-		fmt.Println("Unknown Algorithm.")
-		os.Exit(1)
+		app.Exit("Unknown Algorithm.", 1)
 	}
 	return r
 }
@@ -87,8 +84,7 @@ func (p Package) DownloadToClassPath(cp string) {
 	}
 	r, err := client.Get(p.Path)
 	if err != nil {
-		fmt.Println("Unable to download from " + p.Path)
-		os.Exit(1)
+		app.Exit("Unable to download from " + p.Path, 1)
 
 	}
 	defer r.Body.Close()
@@ -97,8 +93,7 @@ func (p Package) DownloadToClassPath(cp string) {
 	if sha == p.CheckSum {
 		fmt.Println("Checksum verified. Installing " + p.GetFilename() + " to " + cp)
 	} else {
-		fmt.Println("Checksum validation failed. Aborting download.")
-		os.Exit(1)
+		app.Exit("Checksum validation failed. Aborting download.", 1)
 	}
 	writeToDestination(cp + p.GetFilename(), r.Body, p.GetFilename())
 }

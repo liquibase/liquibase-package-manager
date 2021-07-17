@@ -1,9 +1,11 @@
 package app
 
 import (
-	"package-manager/internal/app/commands"
+	"fmt"
+	"os"
 )
 
-func Exec(cp string) {
-	commands.Execute(cp)
+func Exit(message string, code int) {
+	fmt.Println(message)
+	os.Exit(code)
 }
