@@ -82,5 +82,145 @@
     "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.25/mysql-connector-java-8.0.25.jar",
     "algorithm": "SHA256",
     "checksum": "a0a1be0389e541dad8841b326e79c51d39abbe1ca52267304d76d1cf4801ce96"
+  },
+  {
+    "name": "liquibase-percona",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.4.0/liquibase-percona-4.4.0.jar",
+    "algorithm": "sha1",
+    "checksum": "35129b68faa3a4a17c3ad3e26068fb3f31ae911c"
+  },
+  {
+    "name": "liquibase-redshift",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-redshift/4.4.0/liquibase-redshift-4.4.0.jar",
+    "algorithm": "sha1",
+    "checksum": "48edb1b27718f68332f2e9f1adbcedbfe166b1b0"
+  },
+  {
+    "name": "liquibase-hanadb",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hanadb/4.3.3/liquibase-hanadb-4.3.3.jar",
+    "algorithm": "sha1",
+    "checksum": "d8b177d26d19bd292aff52c267030ea45db3d30e"
+  },
+  {
+    "name": "liquibase-neo4j",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.4.1/liquibase-neo4j-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "b9378d4112c75909b416107e384d496ea61f905f"
+  },
+  {
+    "name": "liquibase-cosmosdb",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cosmosdb/4.4.1/liquibase-cosmosdb-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "599bb0be82a368bb33e22de2e73165530f3f0698"
+  },
+  {
+    "name": "liquibase-verticaDatabase",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-verticaDatabase/4.4.1/liquibase-verticaDatabase-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "c05c0df246f75026a3de5b0fe9e7493d98fff8dc"
+  },
+  {
+    "name": "liquibase-db2i",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-db2i/4.4.1/liquibase-db2i-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "f4361cafeedfd8bf7c69073782d2361899e512e2"
+  },
+  {
+    "name": "liquibase-hibernate5",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hibernate5/4.4.1/liquibase-hibernate5-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "55c56a27785409e92fc0222d57b137e0364c3303"
+  },
+  {
+    "name": "liquibase-cassandra",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra/4.4.1/liquibase-cassandra-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "9575d9ae473201fb0dffe2e26b09ea04b77a83e4"
+  },
+  {
+    "name": "liquibase-teradata",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-teradata/4.4.1/liquibase-teradata-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "3194b04bf0161985d89adcbf9ca9464135e8fe09"
+  },
+  {
+    "name": "liquibase-sqlfire",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-sqlfire/4.4.1/liquibase-sqlfire-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "28764a2270c3795c2dec8288cf25eadb9150568c"
+  },
+  {
+    "name": "liquibase-mongodb",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb/4.4.1/liquibase-mongodb-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "ed1f21361facd9cbaf4800433184f89bde8c6b28"
+  },
+  {
+    "name": "liquibase-snowflake",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-snowflake/4.4.1/liquibase-snowflake-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "6a522cde19e400499bbe1982898de14b5bbd7f51"
+  },
+  {
+    "name": "liquibase-postgresql",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-postgresql/4.4.1/liquibase-postgresql-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "b97633be799f51f81529cad3d996c46353b69f9c"
+  },
+  {
+    "name": "liquibase-oracle",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-oracle/4.4.1/liquibase-oracle-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "9820706e6a32f7d7134ca030e7c167bde2971eaa"
+  },
+  {
+    "name": "liquibase-mssql",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mssql/4.4.1/liquibase-mssql-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "5f018fdadc53a63d65922120d8dae725f80a0d47"
+  },
+  {
+    "name": "liquibase-modify-column",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-modify-column/4.4.1/liquibase-modify-column-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "39bbdb755feb6b2ab12505b03d4762930bc0b70e"
+  },
+  {
+    "name": "liquibase-maxdb",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-maxdb/4.4.1/liquibase-maxdb-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "a9779f14fd292881a721822a6e6950c16527a582"
+  },
+  {
+    "name": "liquibase-filechangelog",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-filechangelog/4.4.1/liquibase-filechangelog-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "cf55ccf7b519dbce7289c64c08326bf9a816361e"
+  },
+  {
+    "name": "liquibase-cache",
+    "category": "extension",
+    "path:": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cache/4.4.1/liquibase-cache-4.4.1.jar",
+    "algorithm": "sha1",
+    "checksum": "90b0d4bb2378fe7fc1e99e3a8d75555b43bdf592"
   }
 ]
