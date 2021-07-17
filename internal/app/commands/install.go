@@ -3,7 +3,7 @@ package commands
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"package-manager/internal/app"
+	"package-manager/internal/app/errors"
 )
 
 // installCmd represents the install command
@@ -15,10 +15,10 @@ var installCmd = &cobra.Command{
 		name := args[0]
 		p := packs.GetByName(name)
 		if p.Name == "" {
-			app.Exit("Package '" + name + "' not found.", 1)
+			errors.Exit("Package '" + name + "' not found.", 1)
 		}
 		if p.InClassPath(classpathFiles) {
-			app.Exit(name + " is already installed.", 1)
+			errors.Exit(name + " is already installed.", 1)
 		}
 		if !p.PathIsHttp() {
 			p.CopyToClassPath(classpath)

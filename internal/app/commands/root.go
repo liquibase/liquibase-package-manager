@@ -5,6 +5,7 @@ import (
 	"io/fs"
 	"io/ioutil"
 	"package-manager/internal/app"
+	"package-manager/internal/app/errors"
 	"package-manager/internal/app/packages"
 )
 
@@ -30,7 +31,7 @@ func Execute(cp string) {
 		panic(err)
 	}
 	if err := rootCmd.Execute(); err != nil {
-		app.Exit(err.Error(), 1)
+		errors.Exit(err.Error(), 1)
 	}
 }
 
@@ -44,7 +45,10 @@ func init() {
 }
 
 func initConfig()  {
-	packs = packages.LoadPackages()
+	if !app.PackagesInClassPath(classpath) {
+		app.CopyPackagesToClassPath(classpath)
+	}
+	packs = app.LoadPackages(classpath)
 	if category != "" {
 		packs = packs.FilterByCategory(category)
 	}

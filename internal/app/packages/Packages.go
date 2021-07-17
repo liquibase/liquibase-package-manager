@@ -1,24 +1,10 @@
 package packages
 
 import (
-	_ "embed"
-	"encoding/json"
 	"fmt"
 )
 
 type Packages []Package
-
-//go:embed "packages.json"
-var packagesJSON []byte
-
-func LoadPackages() Packages {
-	var e Packages
-	err := json.Unmarshal(packagesJSON, &e)
-	if err != nil {
-		return nil
-	}
-	return e
-}
 
 func (ps Packages) GetByName(n string) Package {
 	var r Package
