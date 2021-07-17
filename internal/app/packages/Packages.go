@@ -1,17 +1,19 @@
 package packages
 
 import (
+	_ "embed"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 )
 
 type Packages []Package
 
+//go:embed "packages.json"
+var packagesJSON []byte
+
 func LoadPackages() Packages {
-	data, _ := ioutil.ReadFile("./packages.json")
 	var e Packages
-	err := json.Unmarshal(data, &e)
+	err := json.Unmarshal(packagesJSON, &e)
 	if err != nil {
 		return nil
 	}
