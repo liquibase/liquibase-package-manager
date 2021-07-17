@@ -3,7 +3,12 @@
     "name": "dbmarlin_extension",
     "category": "extension",
     "path": "/Users/mcred/projects/liquibase/liquibase-dbmarlin-extension/target/dbmarlin-0.0.1.jar",
-    "checksum": "",
-    "isInstalled": false
+    "checksum": ""
+  },
+  {
+    "name": "postgresql",
+    "category": "driver",
+    "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.23/postgresql-42.2.23.jar",
+    "checksum": "9cb217a3d5b640567ed7c6e8c11f389613c81c4d"
   }
 ]

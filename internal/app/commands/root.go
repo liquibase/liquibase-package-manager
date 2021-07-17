@@ -13,7 +13,7 @@ var  (
 	category string
 	classpath string
 	classpathFiles []fs.FileInfo
-	extensions packages.Packages
+	packs packages.Packages
 )
 
 var rootCmd = &cobra.Command{
@@ -46,8 +46,8 @@ func init() {
 }
 
 func initConfig()  {
-	extensions = packages.LoadPackages()
+	packs = packages.LoadPackages()
 	if category != "" {
-		extensions = extensions.FilterByCategory(category)
+		packs = packs.FilterByCategory(category)
 	}
 }

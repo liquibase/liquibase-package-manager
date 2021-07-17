@@ -13,7 +13,7 @@ var listCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		// Collect installed packages
 		var installed []string
-		for _, e := range extensions {
+		for _, e := range packs {
 			if e.InClassPath(classpathFiles) {
 				installed = append(installed, e.Name)
 			}

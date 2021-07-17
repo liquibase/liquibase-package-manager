@@ -13,7 +13,7 @@ var uninstallCmd = &cobra.Command{
 
 	Run: func(cmd *cobra.Command, args []string) {
 		name := args[0]
-		p := extensions.GetByName(name)
+		p := packs.GetByName(name)
 		if p.Name == "" {
 			fmt.Println("Package '" + name + "' not found.")
 			os.Exit(1)

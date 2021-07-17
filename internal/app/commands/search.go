@@ -23,13 +23,17 @@ var searchCmd = &cobra.Command{
 		} else {
 			name = ""
 		}
-		for _, p := range extensions {
+		var out []string
+		for _, p := range packs {
 			if strings.Contains(p.Name, name) || name == "" {
-				fmt.Println(p.Name)
-			} else  {
-				fmt.Println("Package '" + name + "' not found." )
-				os.Exit(1)
+				out = append(out, p.Name)
 			}
+		}
+		if len(out) == 0 {
+			fmt.Println("No results found.")
+		}
+		for _, o := range out {
+			fmt.Println(o)
 		}
 	},
 }
