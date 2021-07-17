@@ -22,7 +22,7 @@ func main() {
 	}
 
 	// Determine if Command is Symlink
-	loc := strings.TrimRight(string(out), "\n")
+	loc := strings.TrimRight(strings.Split(string(out), "\n")[0], "\r")
 	fi, err := os.Lstat(loc)
 	if err != nil {
 		log.Fatal(err)
@@ -40,6 +40,6 @@ func main() {
 		liquibasepath, _ = filepath.Split(loc)
 	}
 
-	app.Exec(liquibasepath + "lib/")
+	app.Exec(liquibasepath + "lib\\")
 
 }
