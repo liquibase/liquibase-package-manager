@@ -1,4 +1,8 @@
+VERSION=`cat VERSION`
+
 .PHONY: build darwin windows
+
+release: updateVersion darwin windows
 
 windows:
 	GOOS=windows GOARCH=amd64 go build -o $(PWD)/bin/windows/lpm.exe $(PWD)/cmd/lpm/windows.go
