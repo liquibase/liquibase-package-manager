@@ -1,11 +1,10 @@
 package commands
 
 import (
-	"fmt"
 	"github.com/spf13/cobra"
 	"io/fs"
 	"io/ioutil"
-	"os"
+	"package-manager/internal/app"
 	"package-manager/internal/app/packages"
 )
 
@@ -31,8 +30,7 @@ func Execute(cp string) {
 		panic(err)
 	}
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		app.Exit(err.Error(), 1)
 	}
 }
 
@@ -42,7 +40,7 @@ func init() {
 	//Global params
 	rootCmd.CompletionOptions.DisableDefaultCmd = true
 	rootCmd.PersistentFlags().StringVar(&category, "category","", "extension, driver, or utility")
-	rootCmd.Version = "0.0.1"
+	rootCmd.Version = app.Version()
 }
 
 func initConfig()  {

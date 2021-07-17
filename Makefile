@@ -8,5 +8,8 @@ darwin:
 	GOOS=darwin GOARCH=amd64 go build -o $(PWD)/bin/darwin/lpm $(PWD)/cmd/lpm/darwin.go
 	zip ./bin/darwin/lpm-$(VERSION)-darwin.zip ./bin/lpm
 
-build:
+updateVersion:
+	cp $(PWD)/VERSION $(PWD)/internal/app/VERSION
+
+build: updateVersion
 	go build -o $(PWD)/bin/lpm $(PWD)/cmd/lpm/darwin.go
