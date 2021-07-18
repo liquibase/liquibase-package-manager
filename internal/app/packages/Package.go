@@ -1,15 +1,16 @@
 package packages
 
 import (
+	"bytes"
 	"crypto/sha1"
 	"crypto/sha256"
 	"fmt"
 	"io"
 	"io/fs"
 	"io/ioutil"
-	"net/http"
 	"os"
 	"package-manager/internal/app/errors"
+	"package-manager/internal/app/utils"
 	"path/filepath"
 	"strings"
 )
@@ -41,13 +42,13 @@ func (p Package) PathIsHttp() bool {
 	return strings.HasPrefix(p.Path, "http")
 }
 
-func writeToDestination(d string, r io.Reader, f string) {
+func writeToDestination(d string, b []byte, f string) {
 	destination, err := os.Create(d)
 	if err != nil {
 		errors.Exit("Unable to access classpath located at " + d, 1)
 	}
 	defer destination.Close()
-	_, err = io.Copy(destination, r)
+	_, err = io.Copy(destination, bytes.NewReader(b))
 	if err != nil {
 		errors.Exit("Unable to install " + f + " in classpath.", 1)
 	}
@@ -59,7 +60,11 @@ func (p Package) CopyToClassPath(cp string) {
 		errors.Exit("Unable to open " + p.Path, 1)
 	}
 	defer source.Close()
-	writeToDestination(cp + p.GetFilename(), source, p.GetFilename())
+	b, err := ioutil.ReadAll(source)
+	if err != nil {
+		errors.Exit(err.Error(), 1)
+	}
+	writeToDestination(cp + p.GetFilename(), b, p.GetFilename())
 }
 
 func (p Package) calcChecksum(b []byte) string {
@@ -76,24 +81,12 @@ func (p Package) calcChecksum(b []byte) string {
 }
 
 func (p Package) DownloadToClassPath(cp string) {
-	client := http.Client{
-		CheckRedirect: func(r *http.Request, via []*http.Request) error {
-			r.URL.Opaque = r.URL.Path
-			return nil
-		},
-	}
-	r, err := client.Get(p.Path)
-	if err != nil {
-		errors.Exit("Unable to download from " + p.Path, 1)
-
-	}
-	defer r.Body.Close()
-	body, err := ioutil.ReadAll(r.Body)
+	body := utils.HttpUtil{}.Get(p.Path)
 	sha := p.calcChecksum(body)
 	if sha == p.CheckSum {
 		fmt.Println("Checksum verified. Installing " + p.GetFilename() + " to " + cp)
 	} else {
 		errors.Exit("Checksum validation failed. Aborting download.", 1)
 	}
-	writeToDestination(cp + p.GetFilename(), r.Body, p.GetFilename())
+	writeToDestination(cp + p.GetFilename(), body, p.GetFilename())
 }

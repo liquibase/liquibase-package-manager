@@ -4,6 +4,7 @@ import (
 	"github.com/spf13/cobra"
 	"io/fs"
 	"io/ioutil"
+	"os"
 	"package-manager/internal/app"
 	"package-manager/internal/app/errors"
 	"package-manager/internal/app/packages"
@@ -45,10 +46,20 @@ func init() {
 }
 
 func initConfig()  {
+	//Install Embedded Package File
 	if !app.PackagesInClassPath(classpath) {
-		app.CopyPackagesToClassPath(classpath)
+		app.CopyPackagesToClassPath(classpath, app.PackagesJSON)
 	}
-	packs = app.LoadPackages(classpath)
+
+	//Get Bytes from Package File
+	jsonFile, err := os.Open(classpath + app.PackageFile)
+	if err != nil {
+		errors.Exit(err.Error(), 1)
+	}
+	b, err := ioutil.ReadAll(jsonFile)
+
+	//Load Bytes to Packages
+	packs = app.LoadPackages(b)
 	if category != "" {
 		packs = packs.FilterByCategory(category)
 	}
