@@ -16,8 +16,7 @@ var listCmd = &cobra.Command{
 		// Collect installed packages
 		var installed packages.Packages
 		for _, e := range packs {
-			//TODO Update for multiple versions
-			v := e.GetDefaultVersion()
+			v := e.GetInstalledVersion(classpathFiles)
 			if v.InClassPath(classpathFiles) {
 				installed = append(installed, e)
 			}

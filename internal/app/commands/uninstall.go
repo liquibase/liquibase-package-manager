@@ -15,7 +15,7 @@ var uninstallCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		name := args[0]
 		p := packs.GetByName(name)
-		v := p.GetDefaultVersion()
+		v := p.GetInstalledVersion(classpathFiles)
 		if p.Name == "" {
 			errors.Exit("Package '" + name + "' not found.", 1)
 		}

@@ -37,10 +37,7 @@ func (ps Packages) Display(files []fs.FileInfo) {
 		} else {
 			prefix = "├──"
 		}
-		var v string
-		if s.GetDefaultVersion().InClassPath(files) {
-			v = "@" + s.GetDefaultVersion().Tag
-		}
+		v := "@" + s.GetInstalledVersion(files).Tag
 		l := fmt.Sprintf("%-4s %-38s %s", prefix, s.Name + v, s.Category)
 		fmt.Println(l)
 	}
