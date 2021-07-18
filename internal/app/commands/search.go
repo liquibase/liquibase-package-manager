@@ -34,7 +34,7 @@ var searchCmd = &cobra.Command{
 			fmt.Println("No results found.")
 			os.Exit(1)
 		}
-		found.Display()
+		found.Display(classpathFiles)
 	},
 }
 

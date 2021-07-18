@@ -15,31 +15,41 @@ import (
 	"strings"
 )
 
-type Package struct {
-	Name  string `json:"name"`
-	Category string `json:"category"`
+type Version struct {
+	Tag string `json:"tag"`
 	Path string `json:"path"`
 	Algorithm string `json:"algorithm"`
 	CheckSum string `json:"checksum"`
 }
 
-func (p Package) GetFilename() string {
-	_, f := filepath.Split(p.Path)
+type Package struct {
+	Name  string `json:"name"`
+	Category string `json:"category"`
+	Versions []Version `json:"versions"`
+}
+
+func (p Package) GetDefaultVersion() Version {
+	//TODO Update when multiple versions are available.
+	return p.Versions[0]
+}
+
+func (v Version) GetFilename() string {
+	_, f := filepath.Split(v.Path)
 	return f
 }
 
-func (p Package) InClassPath(cp []fs.FileInfo) bool {
+func (v Version) InClassPath(cp []fs.FileInfo) bool {
 	r := false
 	for _, f := range cp {
-		if f.Name() == p.GetFilename() {
+		if f.Name() == v.GetFilename() {
 			r = true
 		}
 	}
 	return r
 }
 
-func (p Package) PathIsHttp() bool {
-	return strings.HasPrefix(p.Path, "http")
+func (v Version) PathIsHttp() bool {
+	return strings.HasPrefix(v.Path, "http")
 }
 
 func writeToDestination(d string, b []byte, f string) {
@@ -54,22 +64,22 @@ func writeToDestination(d string, b []byte, f string) {
 	}
 }
 
-func (p Package) CopyToClassPath(cp string) {
-	source, err := os.Open(p.Path)
+func (v Version) CopyToClassPath(cp string) {
+	source, err := os.Open(v.Path)
 	if err != nil {
-		errors.Exit("Unable to open " + p.Path, 1)
+		errors.Exit("Unable to open " + v.Path, 1)
 	}
 	defer source.Close()
 	b, err := ioutil.ReadAll(source)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
-	writeToDestination(cp + p.GetFilename(), b, p.GetFilename())
+	writeToDestination(cp + v.GetFilename(), b, v.GetFilename())
 }
 
-func (p Package) calcChecksum(b []byte) string {
+func (v Version) calcChecksum(b []byte) string {
 	var r string
-	switch p.Algorithm {
+	switch v.Algorithm {
 	case "SHA1":
 		r = fmt.Sprintf("%x", sha1.Sum(b))
 	case "SHA256":
@@ -80,13 +90,13 @@ func (p Package) calcChecksum(b []byte) string {
 	return r
 }
 
-func (p Package) DownloadToClassPath(cp string) {
-	body := utils.HttpUtil{}.Get(p.Path)
-	sha := p.calcChecksum(body)
-	if sha == p.CheckSum {
-		fmt.Println("Checksum verified. Installing " + p.GetFilename() + " to " + cp)
+func (v Version) DownloadToClassPath(cp string) {
+	body := utils.HttpUtil{}.Get(v.Path)
+	sha := v.calcChecksum(body)
+	if sha == v.CheckSum {
+		fmt.Println("Checksum verified. Installing " + v.GetFilename() + " to " + cp)
 	} else {
 		errors.Exit("Checksum validation failed. Aborting download.", 1)
 	}
-	writeToDestination(cp + p.GetFilename(), body, p.GetFilename())
+	writeToDestination(cp + v.GetFilename(), body, v.GetFilename())
 }

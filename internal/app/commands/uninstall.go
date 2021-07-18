@@ -15,17 +15,18 @@ var uninstallCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		name := args[0]
 		p := packs.GetByName(name)
+		v := p.GetDefaultVersion()
 		if p.Name == "" {
 			errors.Exit("Package '" + name + "' not found.", 1)
 		}
-		if !p.InClassPath(classpathFiles) {
+		if !v.InClassPath(classpathFiles) {
 			errors.Exit(name + " is not installed.", 1)
 		}
-		err := os.Remove(classpath + p.GetFilename())
+		err := os.Remove(classpath + v.GetFilename())
 		if err != nil {
-			errors.Exit("Unable to delete " + p.GetFilename() + " from classpath.", 1)
+			errors.Exit("Unable to delete " + v.GetFilename() + " from classpath.", 1)
 		}
-		fmt.Println(p.GetFilename() + " successfully uninstalled from classpath.")
+		fmt.Println(v.GetFilename() + " successfully uninstalled from classpath.")
 	},
 }
 

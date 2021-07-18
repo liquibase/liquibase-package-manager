@@ -17,16 +17,17 @@ var installCmd = &cobra.Command{
 		if p.Name == "" {
 			errors.Exit("Package '" + name + "' not found.", 1)
 		}
-		if p.InClassPath(classpathFiles) {
+		v := p.GetDefaultVersion()
+		if v.InClassPath(classpathFiles) {
 			errors.Exit(name + " is already installed.", 1)
 		}
-		if !p.PathIsHttp() {
-			p.CopyToClassPath(classpath)
+		if !v.PathIsHttp() {
+			v.CopyToClassPath(classpath)
 		} else {
-			p.DownloadToClassPath(classpath)
+			v.DownloadToClassPath(classpath)
 		}
 
-		fmt.Println(p.GetFilename() + " successfully installed in classpath.")
+		fmt.Println(v.GetFilename() + " successfully installed in classpath.")
 	},
 }
 
