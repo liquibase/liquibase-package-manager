@@ -28,7 +28,7 @@
     "category": "driver",
     "versions": [
       {
-        "tag": "9.2.1.jre11",
+        "tag": "9.2.1",
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/9.2.1.jre11/mssql-jdbc-9.2.1.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "7af72fb8f832634f7717f971a85ba199729b7eaa"

@@ -5,6 +5,7 @@ import (
 	"crypto/sha1"
 	"crypto/sha256"
 	"fmt"
+	"github.com/hashicorp/go-version"
 	"io"
 	"io/fs"
 	"io/ioutil"
@@ -28,9 +29,27 @@ type Package struct {
 	Versions []Version `json:"versions"`
 }
 
-func (p Package) GetDefaultVersion() Version {
-	//TODO Update when multiple versions are available.
-	return p.Versions[0]
+func (p Package) GetLatestVersion() Version {
+	var ver Version
+	old, _ := version.NewVersion("0.0.0")
+	for _, v := range p.Versions {
+		new, _ := version.NewVersion(v.Tag)
+		if old.LessThan(new) {
+			old = new
+			ver = v
+		}
+	}
+	return ver
+}
+
+func (p Package) GetVersion(v string) Version {
+	var r Version
+	for _, ver := range p.Versions {
+		if ver.Tag == v {
+			r = ver
+		}
+	}
+	return r
 }
 
 func (v Version) GetFilename() string {
@@ -38,9 +57,21 @@ func (v Version) GetFilename() string {
 	return f
 }
 
-func (v Version) InClassPath(cp []fs.FileInfo) bool {
+func (p Package) GetInstalledVersion(files []fs.FileInfo) Version {
+	var r Version
+	for _, f := range files {
+		for _, v := range p.Versions {
+			if f.Name() == v.GetFilename() {
+				r = v
+			}
+		}
+	}
+	return r
+}
+
+func (v Version) InClassPath(files []fs.FileInfo) bool {
 	r := false
-	for _, f := range cp {
+	for _, f := range files {
 		if f.Name() == v.GetFilename() {
 			r = true
 		}
