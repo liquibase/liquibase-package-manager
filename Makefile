@@ -17,3 +17,6 @@ updateVersion:
 
 build: updateVersion
 	go build -o $(PWD)/bin/lpm $(PWD)/cmd/lpm/darwin.go
+
+genrateExentionPackages:
+	go run cmd/populator/Populator.go liquibase-cache >> temp_packages.json
