@@ -43,6 +43,8 @@ func main() {
 			liquibasepath, _ = filepath.Split(loc)
 		}
 	}
-
+	if !strings.HasSuffix(liquibasepath, "\\") {
+		liquibasepath = liquibasepath + "\\"
+	}
 	commands.Execute(liquibasepath + "lib\\")
 }

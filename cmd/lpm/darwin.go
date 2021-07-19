@@ -44,5 +44,8 @@ func main() {
 		}
 	}
 
+	if !strings.HasSuffix(liquibasepath, "/") {
+		liquibasepath = liquibasepath + "/"
+	}
 	commands.Execute(liquibasepath + "lib/")
 }
