@@ -37,6 +37,7 @@ func (ps Packages) Display(files []fs.FileInfo) {
 		} else {
 			prefix = "├──"
 		}
+		//TODO installed vs uninstalled
 		v := "@" + s.GetInstalledVersion(files).Tag
 		l := fmt.Sprintf("%-4s %-38s %s", prefix, s.Name + v, s.Category)
 		fmt.Println(l)
