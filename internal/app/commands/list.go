@@ -9,7 +9,7 @@ import (
 
 // listCmd represents the list command
 var listCmd = &cobra.Command{
-	Use:   "ls",
+	Use:   "list",
 	Short: "List Installed Packages",
 
 	Run: func(cmd *cobra.Command, args []string) {
