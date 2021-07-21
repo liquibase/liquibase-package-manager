@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 	"os"
+	"package-manager/internal/app"
 	"package-manager/internal/app/errors"
 )
 
@@ -13,17 +14,21 @@ var removeCmd = &cobra.Command{
 	Short: "Removes Package",
 	Args: cobra.ArbitraryArgs,
 	Run: func(cmd *cobra.Command, args []string) {
-		// Install Each Package
+
+		// Set global vs local classpath
+		app.SetClasspath(global, globalpath, globalpathFiles)
+
+		// Remove Each Package
 		for _, name := range args {
 			p := packs.GetByName(name)
-			v := p.GetInstalledVersion(classpathFiles)
+			v := p.GetInstalledVersion(app.ClasspathFiles)
 			if p.Name == "" {
 				errors.Exit("Package '" + name + "' not found.", 1)
 			}
-			if !v.InClassPath(classpathFiles) {
+			if !v.InClassPath(app.ClasspathFiles) {
 				errors.Exit(name + " is not installed.", 1)
 			}
-			err := os.Remove(classpath + v.GetFilename())
+			err := os.Remove(app.Classpath + v.GetFilename())
 			if err != nil {
 				errors.Exit("Unable to delete " + v.GetFilename() + " from classpath.", 1)
 			}
@@ -34,4 +39,5 @@ var removeCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(removeCmd)
+	removeCmd.Flags().BoolVarP(&global, "global", "g", false, "remove package globally")
 }

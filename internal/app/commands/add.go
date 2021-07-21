@@ -3,6 +3,7 @@ package commands
 import (
 	"fmt"
 	"github.com/spf13/cobra"
+	"package-manager/internal/app"
 	"package-manager/internal/app/errors"
 	"package-manager/internal/app/packages"
 	"strings"
@@ -14,6 +15,10 @@ var addCmd = &cobra.Command{
 	Short: "Add Packages",
 	Args: cobra.ArbitraryArgs,
 	Run: func(cmd *cobra.Command, args []string) {
+
+		// Set global vs local classpath
+		app.SetClasspath(global, globalpath, globalpathFiles)
+
 		for _, name := range args {
 			var p packages.Package
 			var v packages.Version
@@ -30,13 +35,13 @@ var addCmd = &cobra.Command{
 			if p.Name == "" {
 				errors.Exit("Package '"+name+"' not found.", 1)
 			}
-			if v.InClassPath(classpathFiles) {
+			if v.InClassPath(app.ClasspathFiles) {
 				errors.Exit(name+" is already installed.", 1)
 			}
 			if !v.PathIsHttp() {
-				v.CopyToClassPath(classpath)
+				v.CopyToClassPath(app.Classpath)
 			} else {
-				v.DownloadToClassPath(classpath)
+				v.DownloadToClassPath(app.Classpath)
 			}
 
 			fmt.Println(v.GetFilename() + " successfully installed in classpath.")
@@ -46,4 +51,5 @@ var addCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(addCmd)
+	addCmd.Flags().BoolVarP(&global, "global", "g", false, "add package globally")
 }

@@ -3,6 +3,7 @@ package app
 import (
 	_ "embed"
 	"encoding/json"
+	"io/fs"
 	"io/ioutil"
 	"os"
 	"package-manager/internal/app/errors"
@@ -17,8 +18,32 @@ var PackagesJSON []byte
 
 var PackageFile = "packages.json"
 
+var Classpath string
+var ClasspathFiles []fs.FileInfo
+
 func Version() string {
 	return version
+}
+
+func SetClasspath(global bool, globalpath string, globalpathFiles []fs.FileInfo) {
+	if global {
+		Classpath = globalpath
+		ClasspathFiles = globalpathFiles
+	} else {
+		pwd, err := os.Getwd()
+		if err != nil {
+			errors.Exit(err.Error(), 1)
+		}
+		Classpath = pwd + "/liquibase_modules/"
+		os.Mkdir(Classpath, 0775)
+		if err != nil {
+			errors.Exit(err.Error(), 1)
+		}
+		ClasspathFiles, err = ioutil.ReadDir(Classpath)
+		if err != nil {
+			errors.Exit(err.Error(), 1)
+		}
+	}
 }
 
 func PackagesInClassPath(cp string) bool {
