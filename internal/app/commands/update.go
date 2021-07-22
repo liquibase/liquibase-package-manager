@@ -46,7 +46,7 @@ var updateCmd = &cobra.Command{
 		if p.GetByName("postgres").Name == "postgres" {
 			errors.Exit("Unable to validate package contents.", 1)
 		}
-		app.CopyPackagesToClassPath(classpath, bytes)
+		app.CopyPackagesToClassPath(globalpath, bytes)
 		fmt.Println("Package manifest updated from " + path)
 	},
 }

@@ -11,10 +11,12 @@ import (
 )
 
 var  (
-	category string
-	classpath string
-	classpathFiles []fs.FileInfo
-	packs packages.Packages
+	category        string
+	liquibaseHome	string
+	globalpath      string
+	globalpathFiles []fs.FileInfo
+	packs           packages.Packages
+	global          bool
 )
 
 var rootCmd = &cobra.Command{
@@ -26,10 +28,11 @@ Search for, install, and uninstall liquibase drivers, extensions, and utilities.
 
 func Execute(cp string) {
 	var err error
-	classpath = cp
-	classpathFiles, err = ioutil.ReadDir(cp)
+	liquibaseHome = cp
+	globalpath = liquibaseHome + "lib/"
+	globalpathFiles, err = ioutil.ReadDir(globalpath)
 	if err != nil {
-		panic(err)
+		errors.Exit(err.Error(), 1)
 	}
 	if err := rootCmd.Execute(); err != nil {
 		errors.Exit(err.Error(), 1)
@@ -48,12 +51,12 @@ func init() {
 
 func initConfig()  {
 	//Install Embedded Package File
-	if !app.PackagesInClassPath(classpath) {
-		app.CopyPackagesToClassPath(classpath, app.PackagesJSON)
+	if !app.PackagesInClassPath(globalpath) {
+		app.CopyPackagesToClassPath(globalpath, app.PackagesJSON)
 	}
 
 	//Get Bytes from Package File
-	jsonFile, err := os.Open(classpath + app.PackageFile)
+	jsonFile, err := os.Open(globalpath + app.PackageFile)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
