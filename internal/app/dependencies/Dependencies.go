@@ -29,18 +29,40 @@ func (d Dependencies) CreateFile() {
 		errors.Exit(err.Error(), 1)
 	}
 	defer file.Close()
-	e := `{"dependencies":[]}`
-	err = json.Unmarshal([]byte(e), &d)
+	d.Write()
+}
+
+func (d Dependencies) Write() {
+	file, err := json.MarshalIndent(d, "", " ")
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
-	err = ioutil.WriteFile(fileLocation, []byte(e), 0664)
+	err = ioutil.WriteFile(fileLocation, file, 0664)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
+	}
+}
+
+func (d *Dependencies) Read() {
+	file, _ := os.Open(fileLocation)
+	defer file.Close()
+	decoder := json.NewDecoder(file)
+	for decoder.More() {
+		decoder.Decode(d)
 	}
 }
 
 func (d Dependencies) FileExists() bool {
 	_, err := os.Stat(fileLocation)
 	return err == nil
+}
+
+func (d *Dependencies) Remove(n string) {
+	for i, m := range d.Dependencies {
+		for k := range m {
+			if k == n {
+				d.Dependencies = append(d.Dependencies[:i], d.Dependencies[i+1:]...)
+			}
+		}
+	}
 }

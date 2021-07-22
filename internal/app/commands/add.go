@@ -20,6 +20,8 @@ var addCmd = &cobra.Command{
 		// Set global vs local classpath
 		app.SetClasspath(global, globalpath, globalpathFiles)
 
+		d := dependencies.Dependencies{}
+
 		for _, name := range args {
 			var p packages.Package
 			var v packages.Version
@@ -45,20 +47,22 @@ var addCmd = &cobra.Command{
 				v.DownloadToClassPath(app.Classpath)
 			}
 			fmt.Println(v.GetFilename() + " successfully installed in classpath.")
-			if !global {
-				//Add package to local manifest
-				d := dependencies.Dependencies{}
-				if !d.FileExists() {
-					d.CreateFile()
-				}
+			d.Dependencies = append(d.Dependencies, dependencies.Dependency{p.Name: v.Tag})
+		}
 
-				// Output helper for JAVA_OPTS
-				p := "-cp liquibase_modules/*:" + globalpath + "*:" + liquibaseHome + "liquibase.jar"
-				fmt.Println()
-				fmt.Println("---------- IMPORTANT ----------")
-				fmt.Println("Add the following JAVA_OPTS to your CLI:")
-				fmt.Println("export JAVA_OPTS=\"" + p + "\"")
+		if !global {
+			//Add package to local manifest
+			if !d.FileExists() {
+				d.CreateFile()
 			}
+			d.Write()
+
+			// Output helper for JAVA_OPTS
+			p := "-cp liquibase_modules/*:" + globalpath + "*:" + liquibaseHome + "liquibase.jar"
+			fmt.Println()
+			fmt.Println("---------- IMPORTANT ----------")
+			fmt.Println("Add the following JAVA_OPTS to your CLI:")
+			fmt.Println("export JAVA_OPTS=\"" + p + "\"")
 		}
 	},
 }
