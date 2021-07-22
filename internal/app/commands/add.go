@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-// addCmd represents the install command
+// addCmd represents the add command
 var addCmd = &cobra.Command{
 	Use:   "add [PACKAGE]...",
 	Short: "Add Packages",

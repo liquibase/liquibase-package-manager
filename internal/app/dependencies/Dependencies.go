@@ -57,12 +57,26 @@ func (d Dependencies) FileExists() bool {
 	return err == nil
 }
 
+func (d Dependency) GetName() string {
+	var r string
+	for k := range d {
+		r = k
+	}
+	return r
+}
+
+func (d Dependency) GetVersion() string {
+	var r string
+	for _, v := range d {
+		r = v
+	}
+	return r
+}
+
 func (d *Dependencies) Remove(n string) {
 	for i, m := range d.Dependencies {
-		for k := range m {
-			if k == n {
-				d.Dependencies = append(d.Dependencies[:i], d.Dependencies[i+1:]...)
-			}
+		if m.GetName() == n {
+			d.Dependencies = append(d.Dependencies[:i], d.Dependencies[i+1:]...)
 		}
 	}
 }

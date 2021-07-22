@@ -20,7 +20,7 @@ var removeCmd = &cobra.Command{
 		// Set global vs local classpath
 		app.SetClasspath(global, globalpath, globalpathFiles)
 
-		//TODO recheck against gloabl
+		//TODO recheck against global
 		d := dependencies.Dependencies{}
 		d.Read()
 		// Remove Each Package
