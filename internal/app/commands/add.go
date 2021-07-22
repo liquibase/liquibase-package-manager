@@ -43,8 +43,17 @@ var addCmd = &cobra.Command{
 			} else {
 				v.DownloadToClassPath(app.Classpath)
 			}
-
 			fmt.Println(v.GetFilename() + " successfully installed in classpath.")
+			if !global {
+				//Add package to local manifest
+
+				// Output helper for JAVA_OPTS
+				p := "-cp liquibase_modules/*:" + globalpath + "*:" + liquibaseHome + "liquibase.jar"
+				fmt.Println()
+				fmt.Println("---------- IMPORTANT ----------")
+				fmt.Println("Add the following JAVA_OPTS to your CLI:")
+				fmt.Println("export JAVA_OPTS=\"" + p + "\"")
+			}
 		}
 	},
 }

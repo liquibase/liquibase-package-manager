@@ -12,6 +12,7 @@ import (
 var removeCmd = &cobra.Command{
 	Use:   "remove [PACKAGE]...",
 	Short: "Removes Package",
+	Aliases: []string{"rm"},
 	Args: cobra.ArbitraryArgs,
 	Run: func(cmd *cobra.Command, args []string) {
 

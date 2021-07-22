@@ -17,7 +17,6 @@ var version string
 var PackagesJSON []byte
 
 var PackageFile = "packages.json"
-
 var Classpath string
 var ClasspathFiles []fs.FileInfo
 
