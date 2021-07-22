@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 	"package-manager/internal/app"
+	"package-manager/internal/app/dependencies"
 	"package-manager/internal/app/errors"
 	"package-manager/internal/app/packages"
 	"strings"
@@ -46,6 +47,10 @@ var addCmd = &cobra.Command{
 			fmt.Println(v.GetFilename() + " successfully installed in classpath.")
 			if !global {
 				//Add package to local manifest
+				d := dependencies.Dependencies{}
+				if !d.FileExists() {
+					d.CreateFile()
+				}
 
 				// Output helper for JAVA_OPTS
 				p := "-cp liquibase_modules/*:" + globalpath + "*:" + liquibaseHome + "liquibase.jar"

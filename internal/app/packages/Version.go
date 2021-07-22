@@ -64,10 +64,6 @@ func writeToDestination(d string, b []byte, f string) {
 	if err != nil {
 		errors.Exit("Unable to install " + f + " in classpath.", 1)
 	}
-	//err = os.Chmod(d, 0664)
-	//if err != nil {
-	//	errors.Exit(err.Error(), 1)
-	//}
 }
 
 func (v Version) calcChecksum(b []byte) string {
