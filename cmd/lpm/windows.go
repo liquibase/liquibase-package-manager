@@ -12,10 +12,10 @@ import (
 
 func main() {
 
-	var liquibasepath string
+	var liquibasehome string
 
 	if _, ok := os.LookupEnv("LIQUIBASE_HOME"); ok {
-		liquibasepath = os.Getenv("LIQUIBASE_HOME")
+		liquibasehome = os.Getenv("LIQUIBASE_HOME")
 	} else {
 		// Find Liquibase Command
 		out, err := exec.Command("where", "liquibase").CombinedOutput()
@@ -37,14 +37,14 @@ func main() {
 				log.Fatal(err)
 			}
 			// Is Symlink
-			liquibasepath, _ = filepath.Split(link)
+			liquibasehome, _ = filepath.Split(link)
 		} else {
 			// Not Symlink
-			liquibasepath, _ = filepath.Split(loc)
+			liquibasehome, _ = filepath.Split(loc)
 		}
 	}
-	if !strings.HasSuffix(liquibasepath, "\\") {
-		liquibasepath = liquibasepath + "\\"
+	if !strings.HasSuffix(liquibasehome, "\\") {
+		liquibasehome = liquibasehome + "\\"
 	}
-	commands.Execute(liquibasepath + "lib\\")
+	commands.Execute(liquibasehome) //TODO confirm path separator
 }

@@ -20,9 +20,11 @@ var removeCmd = &cobra.Command{
 		// Set global vs local classpath
 		app.SetClasspath(global, globalpath, globalpathFiles)
 
-		//TODO recheck against global
 		d := dependencies.Dependencies{}
-		d.Read()
+		if !global {
+			d.Read()
+		}
+
 		// Remove Each Package
 		for _, name := range args {
 			p := packs.GetByName(name)
@@ -38,9 +40,13 @@ var removeCmd = &cobra.Command{
 				errors.Exit("Unable to delete " + v.GetFilename() + " from classpath.", 1)
 			}
 			fmt.Println(v.GetFilename() + " successfully uninstalled from classpath.")
-			d.Remove(p.Name)
+			if !global{
+				d.Remove(p.Name)
+			}
 		}
-		d.Write()
+		if !global{
+			d.Write()
+		}
 	},
 }
 

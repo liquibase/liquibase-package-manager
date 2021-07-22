@@ -30,7 +30,7 @@ func Execute(cp string) {
 	var err error
 	liquibaseHome = cp
 	globalpath = liquibaseHome + "lib/"
-	globalpathFiles, err = ioutil.ReadDir(cp)
+	globalpathFiles, err = ioutil.ReadDir(globalpath)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
