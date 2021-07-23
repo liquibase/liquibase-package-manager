@@ -27,10 +27,10 @@ func (ps Packages) FilterByCategory(c string) Packages {
 	return r
 }
 
-func (ps Packages) Display(files []fs.FileInfo) {
+func (ps Packages) Display(files []fs.FileInfo) []string {
+	var r []string
 	var prefix string
-	h := fmt.Sprintf("%-4s %-38s %s", "   ", "Package", "Category")
-	fmt.Println(h)
+	r = append(r, fmt.Sprintf("%-4s %-38s %s", "   ", "Package", "Category"))
 	for i, s := range ps {
 		if (i+1) == len(ps) {
 			prefix = "└──"
@@ -39,7 +39,7 @@ func (ps Packages) Display(files []fs.FileInfo) {
 		}
 		//TODO installed vs uninstalled
 		v := "@" + s.GetInstalledVersion(files).Tag
-		l := fmt.Sprintf("%-4s %-38s %s", prefix, s.Name + v, s.Category)
-		fmt.Println(l)
+		r = append(r, fmt.Sprintf("%-4s %-38s %s", prefix, s.Name + v, s.Category))
 	}
+	return r
 }

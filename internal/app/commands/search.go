@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 	"os"
+	"package-manager/internal/app"
 	"package-manager/internal/app/packages"
 	"strings"
 )
@@ -34,7 +35,9 @@ var searchCmd = &cobra.Command{
 			fmt.Println("No results found.")
 			os.Exit(1)
 		}
-		found.Display(globalpathFiles)
+		for _, out := range found.Display(app.ClasspathFiles) {
+			fmt.Println(out)
+		}
 	},
 }
 

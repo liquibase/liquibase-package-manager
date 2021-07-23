@@ -9,15 +9,27 @@ import (
 	"testing"
 )
 
-var v1 = Version{
+var driverV1 = Version{
 	"0.0.1",
-	"/tests/mocks/files/mock-0.0.1.txt",
+	"/tests/mocks/files/driver-0.0.1.txt",
 	"SHA1",
 	"",
 }
-var v2 = Version{
+var driverV2 = Version{
 	"0.2.0",
-	"/tests/mocks/files/mock-0.2.0.txt",
+	"/tests/mocks/files/driver-0.2.0.txt",
+	"SHA1",
+	"",
+}
+var extensionV1 = Version{
+	"0.0.2",
+	"/tests/mocks/files/extension-0.0.2.txt",
+	"SHA1",
+	"",
+}
+var extensionV2 = Version{
+	"1.0.0",
+	"/tests/mocks/files/extension-1.0.0.txt",
 	"SHA1",
 	"",
 }
@@ -38,9 +50,9 @@ func TestPackage_GetLatestVersion(t *testing.T) {
 			fields: fields{
 				"test",
 				"driver",
-				[]Version{v1, v2},
+				[]Version{driverV1, driverV2},
 			},
-			want: v2,
+			want: driverV2,
 		},
 	}
 	for _, tt := range tests {
@@ -77,10 +89,10 @@ func TestPackage_GetVersion(t *testing.T) {
 			fields: fields{
 				"test",
 				"driver",
-				[]Version{v1},
+				[]Version{driverV1},
 			},
 			args: args{"0.0.1"},
-			want: v1,
+			want: driverV1,
 		},
 	}
 	for _, tt := range tests {
@@ -121,10 +133,10 @@ func TestPackage_GetInstalledVersion(t *testing.T) {
 			fields: fields{
 				"test",
 				"driver",
-				[]Version{v1, v2},
+				[]Version{driverV1, driverV2},
 			},
 			args: args{files},
-			want: v1,
+			want: driverV1,
 		},
 	}
 	for _, tt := range tests {

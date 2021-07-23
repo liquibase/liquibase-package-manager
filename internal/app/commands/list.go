@@ -32,7 +32,9 @@ var listCmd = &cobra.Command{
 		if len(installed) == 0 {
 			os.Exit(1)
 		}
-		installed.Display(app.ClasspathFiles)
+		for _, out := range installed.Display(app.ClasspathFiles) {
+			fmt.Println(out)
+		}
 	},
 }
 
