@@ -20,3 +20,9 @@ build: updateVersion
 
 genrateExentionPackages:
 	go run cmd/populator/Populator.go >> temp_packages.json
+
+test:
+	go test -v ./internal/app/... -coverprofile=coverage.out
+
+cover: test
+	go tool cover -html=coverage.out

@@ -3,3 +3,4 @@ bin
 temp_packages.json
 liquibase_modules
 liquibase.json
+coverage.out
