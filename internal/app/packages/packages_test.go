@@ -10,16 +10,6 @@ import (
 )
 
 var ps = Packages{driver, extension}
-var driver = Package{
-	"driver",
-	"driver",
-	[]Version{driverV1, driverV2},
-}
-var extension = Package{
-	"extension",
-	"extension",
-	[]Version{extensionV1, extensionV2},
-}
 
 func TestPackages_FilterByCategory(t *testing.T) {
 	type args struct {

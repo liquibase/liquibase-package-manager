@@ -9,29 +9,15 @@ import (
 	"testing"
 )
 
-var driverV1 = Version{
-	"0.0.1",
-	"/tests/mocks/files/driver-0.0.1.txt",
-	"SHA1",
-	"",
+var driver = Package{
+	"driver",
+	"driver",
+	[]Version{driverV1, driverV2},
 }
-var driverV2 = Version{
-	"0.2.0",
-	"/tests/mocks/files/driver-0.2.0.txt",
-	"SHA1",
-	"",
-}
-var extensionV1 = Version{
-	"0.0.2",
-	"/tests/mocks/files/extension-0.0.2.txt",
-	"SHA1",
-	"",
-}
-var extensionV2 = Version{
-	"1.0.0",
-	"/tests/mocks/files/extension-1.0.0.txt",
-	"SHA1",
-	"",
+var extension = Package{
+	"extension",
+	"extension",
+	[]Version{extensionV1, extensionV2},
 }
 
 func TestPackage_GetLatestVersion(t *testing.T) {
