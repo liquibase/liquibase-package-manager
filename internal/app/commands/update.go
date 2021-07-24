@@ -26,7 +26,7 @@ var updateCmd = &cobra.Command{
 		var bytes []byte
 		if strings.HasPrefix(path, "http") {
 			// Update Package from Remote URL
-			bytes = utils.HttpUtil{}.Get(path)
+			bytes = utils.HTTPUtil{}.Get(path)
 		} else {
 			// Update Packages from Local File
 			file, err := os.Open(path)

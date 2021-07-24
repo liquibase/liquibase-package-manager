@@ -6,9 +6,11 @@ import (
 	"package-manager/internal/app/errors"
 )
 
-type HttpUtil struct {}
+//HTTPUtil struct
+type HTTPUtil struct {}
 
-func (h HttpUtil) Get(url string) []byte {
+//Get contencts from URL as bytes
+func (h HTTPUtil) Get(url string) []byte {
 	client := http.Client{
 		CheckRedirect: func(r *http.Request, via []*http.Request) error {
 			r.URL.Opaque = r.URL.Path

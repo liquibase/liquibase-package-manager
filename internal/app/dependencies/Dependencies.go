@@ -7,6 +7,7 @@ import (
 	"package-manager/internal/app/errors"
 )
 
+//FileLocation exported for testing overwrite
 var FileLocation string
 
 func init() {
@@ -17,10 +18,12 @@ func init() {
 	FileLocation = pwd + "/liquibase.json"
 }
 
+//Dependencies main wrapper for liquibase.json objects
 type Dependencies struct {
 	Dependencies []Dependency `json:"dependencies"`
 }
 
+//CreateFile init liquibase.json file in pwd
 func (d Dependencies) CreateFile() {
 	file, err := os.Create(FileLocation)
 	if err != nil {
@@ -30,6 +33,7 @@ func (d Dependencies) CreateFile() {
 	d.Write()
 }
 
+//Write dump contents to liquibase.json
 func (d Dependencies) Write() {
 	file, err := json.MarshalIndent(d, "", " ")
 	if err != nil {
@@ -41,6 +45,7 @@ func (d Dependencies) Write() {
 	}
 }
 
+//Read get contents from liquibase.json
 func (d *Dependencies) Read() {
 	file, _ := os.Open(FileLocation)
 	defer file.Close()
@@ -50,11 +55,13 @@ func (d *Dependencies) Read() {
 	}
 }
 
+//FileExists does the liquibase.json file exist
 func (d Dependencies) FileExists() bool {
 	_, err := os.Stat(FileLocation)
 	return err == nil
 }
 
+//Remove remove specific dependency from group
 func (d *Dependencies) Remove(n string) {
 	for i, m := range d.Dependencies {
 		if m.GetName() == n {

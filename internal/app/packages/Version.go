@@ -15,6 +15,7 @@ import (
 	"strings"
 )
 
+//Version struct
 type Version struct {
 	Tag string `json:"tag"`
 	Path string `json:"path"`
@@ -22,11 +23,13 @@ type Version struct {
 	CheckSum string `json:"checksum"`
 }
 
+//GetFilename from version
 func (v Version) GetFilename() string {
 	_, f := filepath.Split(v.Path)
 	return f
 }
 
+//InClassPath version is installed in classpath
 func (v Version) InClassPath(files []fs.FileInfo) bool {
 	r := false
 	for _, f := range files {
@@ -37,10 +40,12 @@ func (v Version) InClassPath(files []fs.FileInfo) bool {
 	return r
 }
 
-func (v Version) PathIsHttp() bool {
+//PathIsHTTP remote or local file path
+func (v Version) PathIsHTTP() bool {
 	return strings.HasPrefix(v.Path, "http")
 }
 
+//CopyToClassPath install local version to classpath
 func (v Version) CopyToClassPath(cp string) {
 	source, err := os.Open(v.Path)
 	if err != nil {
@@ -79,8 +84,9 @@ func (v Version) calcChecksum(b []byte) string {
 	return r
 }
 
+//DownloadToClassPath install remote version to classpath
 func (v Version) DownloadToClassPath(cp string) {
-	body := utils.HttpUtil{}.Get(v.Path)
+	body := utils.HTTPUtil{}.Get(v.Path)
 	sha := v.calcChecksum(body)
 	if sha == v.CheckSum {
 		fmt.Println("Checksum verified. Installing " + v.GetFilename() + " to " + cp)

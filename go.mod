@@ -11,6 +11,8 @@ require (
 	github.com/hashicorp/go-version v1.3.0 // indirect
 	github.com/spf13/cobra v1.2.1
 	github.com/temoto/robotstxt v1.1.2 // indirect
+	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616 // indirect
 	golang.org/x/net v0.0.0-20210716203947-853a461950ff // indirect
+	golang.org/x/tools v0.1.5 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 )
