@@ -26,6 +26,7 @@ var rootCmd = &cobra.Command{
 Search for, install, and uninstall liquibase drivers, extensions, and utilities.`,
 }
 
+//Execute main entry point for CLI
 func Execute(cp string) {
 	var err error
 	liquibaseHome = cp

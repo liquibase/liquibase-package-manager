@@ -150,8 +150,8 @@ func TestVersion_PathIsHttp(t *testing.T) {
 				Algorithm: tt.version.Algorithm,
 				CheckSum:  tt.version.CheckSum,
 			}
-			if got := v.PathIsHttp(); got != tt.want {
-				t.Errorf("PathIsHttp() = %v, want %v", got, tt.want)
+			if got := v.PathIsHTTP(); got != tt.want {
+				t.Errorf("PathIsHTTP() = %v, want %v", got, tt.want)
 			}
 		})
 	}

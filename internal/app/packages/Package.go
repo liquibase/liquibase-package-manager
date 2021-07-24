@@ -5,12 +5,14 @@ import (
 	"io/fs"
 )
 
+//Package struct
 type Package struct {
 	Name  string `json:"name"`
 	Category string `json:"category"`
 	Versions []Version `json:"versions"`
 }
 
+//GetLatestVersion from Package
 func (p Package) GetLatestVersion() Version {
 	var ver Version
 	old, _ := version.NewVersion("0.0.0")
@@ -24,6 +26,7 @@ func (p Package) GetLatestVersion() Version {
 	return ver
 }
 
+//GetVersion from package by version name
 func (p Package) GetVersion(v string) Version {
 	var r Version
 	for _, ver := range p.Versions {
@@ -34,6 +37,7 @@ func (p Package) GetVersion(v string) Version {
 	return r
 }
 
+//GetInstalledVersion from classpath files
 func (p Package) GetInstalledVersion(files []fs.FileInfo) Version {
 	var r Version
 	for _, f := range files {

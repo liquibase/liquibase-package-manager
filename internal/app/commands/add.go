@@ -41,7 +41,7 @@ var addCmd = &cobra.Command{
 			if v.InClassPath(app.ClasspathFiles) {
 				errors.Exit(name+" is already installed.", 1)
 			}
-			if !v.PathIsHttp() {
+			if !v.PathIsHTTP() {
 				v.CopyToClassPath(app.Classpath)
 			} else {
 				v.DownloadToClassPath(app.Classpath)

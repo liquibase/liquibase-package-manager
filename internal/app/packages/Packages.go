@@ -5,8 +5,10 @@ import (
 	"io/fs"
 )
 
+//Packages type
 type Packages []Package
 
+//GetByName individual package from packages
 func (ps Packages) GetByName(n string) Package {
 	var r Package
 	for _, p := range ps {
@@ -17,6 +19,7 @@ func (ps Packages) GetByName(n string) Package {
 	return r
 }
 
+//FilterByCategory get packages by catetory
 func (ps Packages) FilterByCategory(c string) Packages {
 	var r Packages
 	for _, p := range ps {
@@ -27,6 +30,7 @@ func (ps Packages) FilterByCategory(c string) Packages {
 	return r
 }
 
+//Display generate display table for packages
 func (ps Packages) Display(files []fs.FileInfo) []string {
 	var r []string
 	var prefix string

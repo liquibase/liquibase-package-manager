@@ -22,6 +22,7 @@ genrateExentionPackages:
 	go run cmd/populator/Populator.go >> temp_packages.json
 
 test:
+	golint ./...
 	go test -v ./internal/app/... -coverprofile=coverage.out -covermode count
 
 cover: test

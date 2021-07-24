@@ -40,7 +40,7 @@ var exentions = []string{
 	"liquibase-verticaDatabase",
 }
 
-func populateJson(n string) {
+func populateJSON(n string) {
 	var pack packages.Package
 	pack.Name = n
 	pack.Category = "extension"
@@ -71,7 +71,7 @@ func populateJson(n string) {
 		ver.Tag = v.String()
 		ver.Path = url + "/" + v.String() + "/" + pack.Name + "-" + v.String() + ".jar"
 		ver.Algorithm = "SHA1"
-		sha := string(utils.HttpUtil{}.Get(ver.Path + ".sha1"))
+		sha := string(utils.HTTPUtil{}.Get(ver.Path + ".sha1"))
 		if strings.Contains(sha, "html") {
 			sha = ""
 		}
@@ -88,6 +88,6 @@ func populateJson(n string) {
 
 func main(){
 	for _, e := range exentions {
-		populateJson(e)
+		populateJSON(e)
 	}
 }
