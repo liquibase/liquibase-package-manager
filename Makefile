@@ -18,7 +18,7 @@ updateVersion:
 build: updateVersion
 	go build -o $(PWD)/bin/lpm $(PWD)/cmd/lpm/darwin.go
 
-genrateExentionPackages:
+generateExtensionPackages:
 	go run cmd/populator/Populator.go >> temp_packages.json
 
 test:
