@@ -18,9 +18,45 @@ echo  'export LIQUIBASE_HOME=/usr/local/opt/liquibase/libexec' >> ~/.bashrc
 lpm <command>
 ```
 ### Available Commands
-* help        Help about any command
-* install     Install Packages
-* ls          List Installed Packages
-* search      Search for Packages
-* uninstall   Uninstall Package
-* update      Updates the Package Manifest
+* add
+* completion
+* help
+* install
+* list
+* remove
+* search
+* update
+
+## Autocompletion
+lpm can generate shell completions for multiple shells. The following shells are available:
+
+### bash
+Generate the autocompletion script for lpm for the bash shell.
+To load completions in your current shell session:
+`source <(lpm completion bash)`
+
+To load completions for every new session, execute once:
+- Linux:
+```shell
+lpm completion bash > /etc/bash_completion.d/lpm
+```
+- MacOS:
+```shell
+lpm completion bash > /usr/local/etc/bash_completion.d/lpm
+```
+
+### zsh
+To load completions in your current shell session:
+`source <(lpm completion zsh)`
+
+To load completions for every new session, execute once:
+`lpm completion zsh > "${fpath[1]}/_lpm"`
+
+### fish
+To load completions in your current shell session:
+`lpm completion fish | source`
+
+To load completions for every new session, execute once:
+`lpm completion fish > ~/.config/fish/completions/lpm.fish`
+
+You will need to start a new shell for this setup to take effect.

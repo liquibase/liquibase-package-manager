@@ -44,7 +44,7 @@ func init() {
 	cobra.OnInitialize(initConfig)
 
 	//Global params
-	rootCmd.CompletionOptions.DisableDefaultCmd = true
+	//rootCmd.CompletionOptions.DisableDefaultCmd = true
 	rootCmd.PersistentFlags().StringVar(&category, "category","", "extension, driver, or utility")
 	rootCmd.Version = app.Version()
 	rootCmd.SetVersionTemplate("{{with .Name}}{{printf \"%s \" .}}{{end}}{{with .Short}}{{printf \"(%s) \" .}}{{end}}{{printf \"version %s\" .Version}}\n")
