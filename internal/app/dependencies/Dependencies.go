@@ -7,24 +7,22 @@ import (
 	"package-manager/internal/app/errors"
 )
 
-var fileLocation string
+var FileLocation string
 
 func init() {
 	pwd, err := os.Getwd()
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
-	fileLocation = pwd + "/liquibase.json"
+	FileLocation = pwd + "/liquibase.json"
 }
 
 type Dependencies struct {
 	Dependencies []Dependency `json:"dependencies"`
 }
 
-type Dependency map[string]string
-
 func (d Dependencies) CreateFile() {
-	file, err := os.Create(fileLocation)
+	file, err := os.Create(FileLocation)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
@@ -37,14 +35,14 @@ func (d Dependencies) Write() {
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
-	err = ioutil.WriteFile(fileLocation, file, 0664)
+	err = ioutil.WriteFile(FileLocation, file, 0664)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
 }
 
 func (d *Dependencies) Read() {
-	file, _ := os.Open(fileLocation)
+	file, _ := os.Open(FileLocation)
 	defer file.Close()
 	decoder := json.NewDecoder(file)
 	for decoder.More() {
@@ -53,24 +51,8 @@ func (d *Dependencies) Read() {
 }
 
 func (d Dependencies) FileExists() bool {
-	_, err := os.Stat(fileLocation)
+	_, err := os.Stat(FileLocation)
 	return err == nil
-}
-
-func (d Dependency) GetName() string {
-	var r string
-	for k := range d {
-		r = k
-	}
-	return r
-}
-
-func (d Dependency) GetVersion() string {
-	var r string
-	for _, v := range d {
-		r = v
-	}
-	return r
 }
 
 func (d *Dependencies) Remove(n string) {
