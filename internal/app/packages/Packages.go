@@ -35,15 +35,20 @@ func (ps Packages) Display(files []fs.FileInfo) []string {
 	var r []string
 	var prefix string
 	r = append(r, fmt.Sprintf("%-4s %-38s %s", "   ", "Package", "Category"))
-	for i, s := range ps {
+	for i, p := range ps {
 		if (i+1) == len(ps) {
 			prefix = "└──"
 		} else {
 			prefix = "├──"
 		}
-		//TODO installed vs uninstalled
-		v := "@" + s.GetInstalledVersion(files).Tag
-		r = append(r, fmt.Sprintf("%-4s %-38s %s", prefix, s.Name + v, s.Category))
+		var v string
+		tag := p.GetInstalledVersion(files).Tag
+		if tag != "" {
+			v = "@" + tag
+		} else {
+			v = tag
+		}
+		r = append(r, fmt.Sprintf("%-4s %-38s %s", prefix, p.Name + v, p.Category))
 	}
 	return r
 }
