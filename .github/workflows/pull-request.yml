@@ -22,10 +22,6 @@ jobs:
         run: |
           golint -set_exit_status ./...
 
-      - name: Vet
-        run: |
-          go vet ./...
-
       - name: Unit tests
         run: |
           make test
