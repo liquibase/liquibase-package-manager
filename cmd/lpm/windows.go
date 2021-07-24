@@ -46,5 +46,5 @@ func main() {
 	if !strings.HasSuffix(liquibasehome, "\\") {
 		liquibasehome = liquibasehome + "\\"
 	}
-	commands.Execute(liquibasehome) //TODO confirm path separator
+	commands.Execute(liquibasehome, "\\")
 }

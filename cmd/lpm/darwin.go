@@ -47,5 +47,5 @@ func main() {
 	if !strings.HasSuffix(liquibasehome, "/") {
 		liquibasehome = liquibasehome + "/"
 	}
-	commands.Execute(liquibasehome)
+	commands.Execute(liquibasehome, "/")
 }

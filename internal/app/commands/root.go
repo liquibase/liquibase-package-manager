@@ -27,10 +27,10 @@ Search for, install, and uninstall liquibase drivers, extensions, and utilities.
 }
 
 //Execute main entry point for CLI
-func Execute(cp string) {
+func Execute(cp string, s string) {
 	var err error
 	liquibaseHome = cp
-	globalpath = liquibaseHome + "lib/"
+	globalpath = liquibaseHome + "lib" + s
 	globalpathFiles, err = ioutil.ReadDir(globalpath)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
