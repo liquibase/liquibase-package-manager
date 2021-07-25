@@ -81,7 +81,8 @@ func TestPackages_Display(t *testing.T) {
 	}
 
 	rootPath, _ := exec.Command("git", "rev-parse", "--show-toplevel").Output()
-	var files, _ = ioutil.ReadDir(strings.TrimRight(string(rootPath), "\n") + "/tests/mocks/installed")
+	var installed, _ = ioutil.ReadDir(strings.TrimRight(string(rootPath), "\n") + "/tests/mocks/installed")
+	var files, _ = ioutil.ReadDir(strings.TrimRight(string(rootPath), "\n") + "/tests/mocks/classpath")
 
 	tests := []struct {
 		name string
@@ -90,13 +91,23 @@ func TestPackages_Display(t *testing.T) {
 		want []string
 	}{
 		{
-			name: "Can Display Formatted Lists",
+			name: "Can Display Installed Formatted Lists",
 			ps: ps,
-			args: args{files},
+			args: args{installed},
 			want: []string{
 				"     Package                                Category",
 				"├──  driver@0.0.1                           driver",
 				"└──  extension@1.0.0                        extension",
+			},
+		},
+		{
+			name: "Can Display Uninstalled Formatted Lists",
+			ps: ps,
+			args: args{files},
+			want : []string{
+				"     Package                                Category",
+				"├──  driver                                 driver",
+				"└──  extension                              extension",
 			},
 		},
 	}

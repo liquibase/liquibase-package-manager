@@ -3,6 +3,7 @@ package packages
 import (
 	"io/fs"
 	"io/ioutil"
+	"os"
 	"os/exec"
 	"strings"
 	"testing"
@@ -48,6 +49,9 @@ func TestVersion_CopyToClassPath(t *testing.T) {
 	if files[1].Name() != "extension-0.0.2.txt" {
 		t.Fatalf("Expected %s but got %s", "extension-0.0.2.txt", files[0].Name())
 	}
+	t.Cleanup(func() {
+		os.Remove(testPath + "/tests/mocks/classpath/extension-0.0.2.txt")
+	})
 }
 
 func TestVersion_GetFilename(t *testing.T) {

@@ -22,7 +22,7 @@ generateExtensionPackages:
 	go run cmd/populator/Populator.go >> temp_packages.json
 
 test:
-	golint ./...
+	golint ./internal/app/...
 	go test -v ./internal/app/... -coverprofile=coverage.out -covermode count
 
 cover: test
