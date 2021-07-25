@@ -1,0 +1,29 @@
+tests:
+  - "can search all":
+      command: lpm search
+      stout:
+        contains:
+          - ├──  mysql                                  driver
+          - ├──  liquibase-cache                        extension
+          - ├──  liquibase-postgresql@4.4.1             extension
+  - "can search drivers":
+      command: [lpm, search, --category, driver]
+      stdout:
+        contains:
+         - ├──  mssql                                  driver
+        excludes:
+         - ├──  liquibase-cache                        extension
+  - "can search extensions":
+      command: [lpm, search, --category, extension]
+      stdout:
+        contains: ├──  liquibase-cache                        extension
+        excludes: ├──  mysql                                  driver
+  - "can search by term":
+      command: lpm search sql
+      stdout:
+        contains:
+          - ├──  liquibase-mssql                        extension
+          - ├──  sqlite                                 driver
+        excludes:
+          - ├──  liquibase-teradata                     extension
+          - ├──  mariadb                                driver

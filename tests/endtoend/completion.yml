@@ -1,0 +1,27 @@
+tests:
+  - "can generate bash completion":
+      command: lpm completion bash
+      stdout:
+        contains:
+          - bash completion V2 for lpm
+          - __lpm_handle_standard_completion_case()
+  - "can generate zfs completion":
+      command: lpm completion zsh
+      stdout:
+        contains:
+          - zsh completion for lpm
+          - __lpm_debug()
+  - "can generate fish completion":
+      command: lpm completion fish
+      stdout:
+        contains:
+          - fish completion for lpm
+          - function __lpm_debug
+          - function __lpm_perform_completion
+  - "can generate powershell completion":
+      command: lpm completion powershell
+      stdout:
+        contains:
+          - powershell completion for lpm
+          - function __lpm_debug
+          - Register-ArgumentCompleter -CommandName 'lpm' -ScriptBlock

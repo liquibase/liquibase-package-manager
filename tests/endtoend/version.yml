@@ -1,0 +1,7 @@
+tests:
+  - "can get proper version from lpm":
+      command: lpm --version
+      stdout: lpm (Liquibase Package Manager) version $VERSION
+      env:
+        get:
+          - VERSION

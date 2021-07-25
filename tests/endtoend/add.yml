@@ -1,0 +1,22 @@
+tests:
+  - "can add one package":
+      command: lpm add liquibase-postgresql
+      stdout:
+        contains: liquibase-postgresql-4.4.1.jar successfully installed in classpath.
+  - "verify one package":
+      command: stat ./liquibase_modules/liquibase-postgresql-4.4.1.jar
+  - "can add multi packages":
+      command: lpm add postgresql mysql mssql
+      stdout:
+        contains:
+          - postgresql-42.2.23.jar successfully installed in classpath.
+          - mysql-connector-java-8.0.25.jar successfully installed in classpath.
+          - mssql-jdbc-9.2.1.jre11.jar successfully installed in classpath.
+  - "verify multi packages":
+      command: stat ./liquibase_modules/mssql-jdbc-9.2.1.jre11.jar
+  - "can add specific version":
+      command: lpm add liquibase-percona@4.3.1
+      stdout:
+        contains: liquibase-percona-4.3.1.jar successfully installed in classpath.
+  - "verify specific version":
+      command: stat ./liquibase_modules/liquibase-percona-4.3.1.jar

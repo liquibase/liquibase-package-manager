@@ -21,6 +21,9 @@ var addCmd = &cobra.Command{
 		app.SetClasspath(global, globalpath, globalpathFiles)
 
 		d := dependencies.Dependencies{}
+		if !global {
+			d.Read()
+		}
 
 		for _, name := range args {
 			var p packages.Package

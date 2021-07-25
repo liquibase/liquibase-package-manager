@@ -1,0 +1,11 @@
+tests:
+  - "can run clean liquibase_modules":
+      command: rm -Rf $PWD/liquibase_modules
+      env:
+        get:
+          - PWD
+  - "can remove liquibase.json":
+      command: rm liquibase.json
+      env:
+        get:
+          - PWD
