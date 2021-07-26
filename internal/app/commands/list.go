@@ -15,9 +15,6 @@ var listCmd = &cobra.Command{
 	Aliases: []string{"ls"},
 	Run: func(cmd *cobra.Command, args []string) {
 
-		// Set global vs local classpath
-		app.SetClasspath(global, globalpath, globalpathFiles)
-
 		// Collect installed packages
 		var installed packages.Packages
 		for _, e := range packs {

@@ -17,9 +17,6 @@ var addCmd = &cobra.Command{
 	Args: cobra.ArbitraryArgs,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		// Set global vs local classpath
-		app.SetClasspath(global, globalpath, globalpathFiles)
-
 		d := dependencies.Dependencies{}
 		if !global {
 			d.Read()

@@ -68,4 +68,7 @@ func initConfig()  {
 	if category != "" {
 		packs = packs.FilterByCategory(category)
 	}
+
+	// Set global vs local classpath
+	app.SetClasspath(global, globalpath, globalpathFiles)
 }

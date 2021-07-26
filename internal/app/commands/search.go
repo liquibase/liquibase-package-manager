@@ -15,10 +15,6 @@ var searchCmd = &cobra.Command{
 	Short: "Search for Packages",
 
 	Run: func(cmd *cobra.Command, args []string) {
-
-		// Set global vs local classpath
-		app.SetClasspath(global, globalpath, globalpathFiles)
-
 		var name string
 		if len(args) > 0 {
 			name = args[0]

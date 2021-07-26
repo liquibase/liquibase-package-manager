@@ -13,8 +13,7 @@ var installCmd = &cobra.Command{
 	Use:   "install",
 	Short: "Install Packages from liquibase.json",
 	Run: func(cmd *cobra.Command, args []string) {
-		// Set global vs local classpath
-		app.SetClasspath(global, globalpath, globalpathFiles)
+
 		d := dependencies.Dependencies{}
 		d.Read()
 
