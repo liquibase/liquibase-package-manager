@@ -14,6 +14,10 @@ var installCmd = &cobra.Command{
 	Short: "Install Packages from liquibase.json",
 	Run: func(cmd *cobra.Command, args []string) {
 
+		if global {
+			errors.Exit("Can not install packages from liquibase.json globally", 1)
+		}
+
 		d := dependencies.Dependencies{}
 		d.Read()
 
