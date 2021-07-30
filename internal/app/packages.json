@@ -5,9 +5,9 @@
     "versions": [
       {
         "tag": "0.0.1",
-        "path": "/Users/mcred/projects/liquibase/liquibase-dbmarlin/target/dbmarlin-0.0.1.jar",
+        "path": "https://github.com/liquibase/liquibase-dbmarlin/releases/download/liquibase-dbmarlin-0.0.1/dbmarlin-0.0.1.jar",
         "algorithm": "SHA1",
-        "checksum": ""
+        "checksum": "aa04d8b77132903de9debe580a1e3d64959335f2"
       }
     ]
   },

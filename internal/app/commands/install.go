@@ -37,6 +37,7 @@ var installCmd = &cobra.Command{
 		}
 
 		// Output helper for JAVA_OPTS
+		// TODO Test this on windows
 		p := "-cp liquibase_modules/*:" + globalpath + "*:" + liquibaseHome + "liquibase.jar"
 		fmt.Println()
 		fmt.Println("---------- IMPORTANT ----------")
