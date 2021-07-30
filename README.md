@@ -1,5 +1,8 @@
-# LPM - Liquibase Package Manager
+# lpm - Liquibase Package Manager
 Easily manage external dependencies for Database Development. Search for, install, and uninstall liquibase drivers, extensions, and utilities.
+
+## lpm is experimental and not officially supported
+lpm is an experimental project. Issues can be reported [here](https://github.com/mcred/liquibase-package-manager/issues), but there is no guarantee of support. 
 
 ## Installation
 lpm is distributed as a single binary. Install lpm by downloading, unzipping, and moving it to a directory included in your system's PATH. Releases are available [here](https://github.com/mcred/liquibase-package-manager/releases).
