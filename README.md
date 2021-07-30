@@ -1,6 +1,6 @@
 # lpm - Liquibase Package Manager
 ![GitHub Release Date](https://img.shields.io/github/release-date/mcred/liquibase-package-manager?style=flat-square)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/mcred/liquibase-package-manager)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/mcred/liquibase-package-manager?style=flat-square)
 ![GitHub all releases](https://img.shields.io/github/downloads/mcred/liquibase-package-manager/total?style=flat-square)
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/mcred/liquibase-package-manager?style=flat-square)
 
