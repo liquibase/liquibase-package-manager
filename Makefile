@@ -1,18 +1,22 @@
-VERSION=`cat VERSION`
+VERSION=`cat $(PWD)/VERSION`
 VEXRUN_FILE := $(PWD)/utils/vexrun.jar
 VEXRUN := java -jar $(VEXRUN_FILE)
 
-.PHONY: build darwin windows
+.PHONY: build darwin windows linux
 
-release: updateVersion darwin windows
+release: updateVersion darwin windows linux
 
 windows:
 	GOOS=windows GOARCH=amd64 go build -o $(PWD)/bin/windows/lpm.exe $(PWD)/cmd/lpm/windows.go
-	zip ./bin/windows/lpm-$(VERSION)-windows.zip ./bin/windows/lpm.exe
+	cd $(PWD)/bin/windows && zip lpm-$(VERSION)-windows.zip lpm.exe
 
 darwin:
 	GOOS=darwin GOARCH=amd64 go build -o $(PWD)/bin/darwin/lpm $(PWD)/cmd/lpm/darwin.go
-	zip ./bin/darwin/lpm-$(VERSION)-darwin.zip ./bin/lpm
+	cd $(PWD)/bin/darwin && zip lpm-$(VERSION)-darwin.zip lpm
+
+linux:
+	GOOS=linux GOARCH=amd64 GOARM=7 go build -o $(PWD)/bin/linux/lpm $(PWD)/cmd/lpm/darwin.go
+	cd $(PWD)/bin/linux && zip lpm-$(VERSION)-linux.zip lpm
 
 updateVersion:
 	cp $(PWD)/VERSION $(PWD)/internal/app/VERSION
