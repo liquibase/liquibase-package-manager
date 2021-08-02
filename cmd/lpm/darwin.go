@@ -32,7 +32,7 @@ func main() {
 		}
 
 		if fi.Mode()&os.ModeSymlink != 0 {
-			link, err := os.Readlink(loc)
+			link, err := filepath.EvalSymlinks(loc)
 			if err != nil {
 				log.Fatal(err)
 			}
@@ -43,7 +43,10 @@ func main() {
 			liquibasehome, _ = filepath.Split(loc)
 		}
 	}
-
+	//handles homebrew installation of liquibase
+	if strings.Contains(liquibasehome, "Cellar") {
+		liquibasehome = strings.Replace(liquibasehome, "/bin", "/libexec", 1)
+	}
 	if !strings.HasSuffix(liquibasehome, "/") {
 		liquibasehome = liquibasehome + "/"
 	}
