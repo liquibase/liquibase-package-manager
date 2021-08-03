@@ -1,7 +1,9 @@
 name: Run Tests
 
-on: push
-
+on:
+  schedule:
+    - cron: '5 6 * * *'
+      
 jobs:
   e2e-tests:
     runs-on: ubuntu-latest
@@ -19,8 +21,11 @@ jobs:
       - name: Build
         run: make build
 
-      - name: Add bin to Path
-        run: export PATH=bin/:$PATH
+      - name: Setup
+        run: |
+          cp $PWD/bin/lpm /usr/local/bin/lpm
+          mkdir $PWD/lib
+          make test-setup
 
-      - name: test lpm
-        run: lpm
+      - name: End to End Tests
+        run: LIQUIBASE_HOME=$PWD make e2e
