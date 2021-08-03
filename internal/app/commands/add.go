@@ -59,7 +59,7 @@ var addCmd = &cobra.Command{
 
 			// Output helper for JAVA_OPTS
 			//TODO Test this on windows
-			p := "-cp liquibase_modules/*:" + globalpath + "*:" + liquibaseHome + "liquibase.jar"
+			p := "-cp liquibase_libs/*:" + globalpath + "*:" + liquibaseHome + "liquibase.jar"
 			fmt.Println()
 			fmt.Println("---------- IMPORTANT ----------")
 			fmt.Println("Add the following JAVA_OPTS to your CLI:")

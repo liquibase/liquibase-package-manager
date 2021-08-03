@@ -1,6 +1,6 @@
 bin
 .idea
 temp_packages.json
-liquibase_modules
+liquibase_libs
 liquibase.json
 coverage.out
