@@ -1,0 +1,26 @@
+name: Run Tests
+
+on: push
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '^1.16.0'
+
+      - name: Setup GO environment
+        run: |
+          go mod download
+
+      - name: Build
+        run: make build
+
+      - name: Add bin to Path
+        run: export PATH=bin/:$PATH
+
+      - name: test lpm
+        run: lpm
