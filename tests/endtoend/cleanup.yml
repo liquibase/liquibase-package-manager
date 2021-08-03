@@ -1,6 +1,6 @@
 tests:
-  - "can run clean liquibase_modules":
-      command: rm -Rf $PWD/liquibase_modules
+  - "can run clean liquibase_libs":
+      command: rm -Rf $PWD/liquibase_libs
       env:
         get:
           - PWD

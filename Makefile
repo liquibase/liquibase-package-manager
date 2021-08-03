@@ -40,7 +40,7 @@ test-setup:
 e2e: test-version test-add test-completion test-help test-install test-list test-remove test-search test-cleanup
 
 test-cleanup:
-	-rm -Rf $(PWD)/liquibase_modules
+	-rm -Rf $(PWD)/liquibase_libs
 	-rm $(PWD)/liquibase.json
 
 test-version:

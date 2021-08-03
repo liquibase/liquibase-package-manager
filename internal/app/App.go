@@ -42,7 +42,7 @@ func SetClasspath(global bool, globalpath string, globalpathFiles []fs.FileInfo)
 
 		//TODO rework this order to prevent creating an empty directory before add/install
 		// probably separate into separate methods
-		Classpath = pwd + "/liquibase_modules/"
+		Classpath = pwd + "/liquibase_libs/"
 		os.Mkdir(Classpath, 0775)
 		if err != nil {
 			errors.Exit(err.Error(), 1)
