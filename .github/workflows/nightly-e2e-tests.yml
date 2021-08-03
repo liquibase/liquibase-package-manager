@@ -1,0 +1,31 @@
+name: Run Tests
+
+on:
+  schedule:
+    - cron: '5 6 * * *'
+      
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '^1.16.0'
+
+      - name: Setup GO environment
+        run: |
+          go mod download
+
+      - name: Build
+        run: make build
+
+      - name: Setup
+        run: |
+          cp $PWD/bin/lpm /usr/local/bin/lpm
+          mkdir $PWD/lib
+          make test-setup
+
+      - name: End to End Tests
+        run: LIQUIBASE_HOME=$PWD make e2e
