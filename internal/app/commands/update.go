@@ -57,7 +57,7 @@ func init() {
 		&path,
 		"path",
 		"p",
-		"https://raw.githubusercontent.com/mcred/liquibase-package-manager/master/internal/app/packages.json",
+		"https://raw.githubusercontent.com/liquibase/liquibase-package-manager/master/internal/app/packages.json",
 		"path to new packages.json manifest",
 	)
 }

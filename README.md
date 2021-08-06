@@ -1,16 +1,16 @@
 # lpm - Liquibase Package Manager
-![GitHub Release Date](https://img.shields.io/github/release-date/mcred/liquibase-package-manager?style=flat-square)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/mcred/liquibase-package-manager?style=flat-square)
-![GitHub all releases](https://img.shields.io/github/downloads/mcred/liquibase-package-manager/total?style=flat-square)
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/mcred/liquibase-package-manager?style=flat-square)
+![GitHub Release Date](https://img.shields.io/github/release-date/liquibase/liquibase-package-manager?style=flat-square)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/liquibase/liquibase-package-manager?style=flat-square)
+![GitHub all releases](https://img.shields.io/github/downloads/liquibase/liquibase-package-manager/total?style=flat-square)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/liquibase/liquibase-package-manager?style=flat-square)
 
 Easily manage external dependencies for Database Development. Search for, install, and uninstall liquibase drivers, extensions, and utilities.
 
 ## lpm is experimental and not officially supported
-lpm is an experimental project. Issues can be reported [here](https://github.com/mcred/liquibase-package-manager/issues), but there is no guarantee of support. 
+lpm is an experimental project. Issues can be reported [here](https://github.com/liquibase/liquibase-package-manager/issues), but there is no guarantee of support. 
 
 ## Installation
-lpm is distributed as a single binary. Install lpm by downloading, unzipping, and moving it to a directory included in your system's PATH. Releases are available [here](https://github.com/mcred/liquibase-package-manager/releases).
+lpm is distributed as a single binary. Install lpm by downloading, unzipping, and moving it to a directory included in your system's PATH. Releases are available [here](https://github.com/liquibase/liquibase-package-manager/releases).
 
 ## Setup
 lpm will make a best effort to locate the location of the liquibase lib directory. It is recommended to set the LIQUIBASE_HOME environment variable.
