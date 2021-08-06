@@ -1,4 +1,4 @@
-name: Run Tests
+name: E2E Tests
 
 on:
   schedule:
