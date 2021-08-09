@@ -2,6 +2,7 @@
 ![GitHub Release Date](https://img.shields.io/github/release-date/liquibase/liquibase-package-manager?style=flat-square)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/liquibase/liquibase-package-manager?style=flat-square)
 ![GitHub all releases](https://img.shields.io/github/downloads/liquibase/liquibase-package-manager/total?style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/liquibase/liquibase-package-manager/E2E%20Tests?label=E2E%20Tests&style=flat-square)
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/liquibase/liquibase-package-manager?style=flat-square)
 
 Easily manage external dependencies for Database Development. Search for, install, and uninstall liquibase drivers, extensions, and utilities.
