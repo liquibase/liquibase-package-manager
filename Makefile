@@ -25,7 +25,7 @@ build: updateVersion
 	go build -o $(PWD)/bin/lpm $(PWD)/cmd/lpm/darwin.go
 
 generateExtensionPackages:
-	go run cmd/populator/Populator.go >> temp_packages.json
+	go run cmd/populator/Populator.go
 
 test:
 	golint ./internal/app/...
