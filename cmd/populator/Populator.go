@@ -5,58 +5,74 @@ import (
 	"fmt"
 	"github.com/gocolly/colly/v2"
 	"github.com/hashicorp/go-version"
+	"package-manager/internal/app"
 	"package-manager/internal/app/packages"
 	"package-manager/internal/app/utils"
 	"sort"
 	"strings"
 )
 
-var exentions = []string{
-	"liquibase-cache",
-	"liquibase-cassandra",
-	//"liquibase-compat",
-	"liquibase-cosmosdb",
-	"liquibase-db2i",
-	"liquibase-filechangelog",
-	"liquibase-hanadb",
-	"liquibase-hibernate5",
-	//"liquibase-javalogger",
-	"liquibase-maxdb",
-	"liquibase-modify-column",
-	"liquibase-mongodb",
-	"liquibase-mssql",
-	"liquibase-neo4j",
-	//"liquibase-nochangeloglock",
-	//"liquibase-nochangelogupdate",
-	"liquibase-oracle",
-	"liquibase-percona",
-	"liquibase-postgresql",
-	"liquibase-redshift",
-	//"liquibase-sequencetable",
-	"liquibase-snowflake",
-	"liquibase-sqlfire",
-	"liquibase-teradata",
-	//"liquibase-vertica",
-	"liquibase-verticaDatabase",
+type module struct {
+	name string
+	category string
+	url string
+}
+type modules []module
+var mods modules
+
+func init() {
+	mods = []module{
+		{"liquibase-cache", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cache"},
+		{"liquibase-cassandra", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra"},
+		{"liquibase-cosmosdb", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cosmosdb"},
+		{"liquibase-db2i", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-db2i"},
+		{"liquibase-filechangelog", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-filechangelog"},
+		{"liquibase-hanadb", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hanadb"},
+		{"liquibase-hibernate5", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hibernate5"},
+		{"liquibase-maxdb", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-maxdb"},
+		{"liquibase-modify-column", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-modify"},
+		{"liquibase-mongodb", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb"},
+		{"liquibase-mssql", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mssql"},
+		{"liquibase-neo4j", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j"},
+		{"liquibase-oracle", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-oracle"},
+		{"liquibase-percona", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona"},
+		{"liquibase-postgresql", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-postgresql"},
+		{"liquibase-redshift", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-redshift"},
+		{"liquibase-snowflake", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-snowflake"},
+		{"liquibase-sqlfire", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-sqlfire"},
+		{"liquibase-teradata", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-teradata"},
+		{"liquibase-verticaDatabase", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-verticaDatabase"},
+		//"liquibase-compat",
+		//"liquibase-javalogger",
+		//"liquibase-nochangeloglock",
+		//"liquibase-nochangelogupdate",
+		//"liquibase-sequencetable",
+		//"liquibase-vertica",
+	}
 }
 
-func populateJSON(n string) {
-	var pack packages.Package
-	pack.Name = n
-	pack.Category = "extension"
-	url := "https://repo1.maven.org/maven2/org/liquibase/ext/" + pack.Name
+func (es modules) getByName(n string) module {
+	var r module
+	for _, e := range es {
+		if e.name == n {
+			r = e
+		}
+	}
+	return r
+}
 
+func populateJSON(m module, p packages.Package) {
 	var versionsRaw []string
 
 	// Get Versions from Root package site
 	c := colly.NewCollector()
 	// Find and visit all links
-	c.OnHTML("a[href]", func(e *colly.HTMLElement) {
-		if !strings.Contains(e.Text, "../") && !strings.Contains(e.Text, "maven-metadata.") {
-			versionsRaw = append(versionsRaw, strings.TrimRight(e.Text, "/"))
+	c.OnHTML("a[href]", func(f *colly.HTMLElement) {
+		if !strings.Contains(f.Text, "../") && !strings.Contains(f.Text, "maven-metadata.") {
+			versionsRaw = append(versionsRaw, strings.TrimRight(f.Text, "/"))
 		}
 	})
-	c.Visit(url)
+	c.Visit(m.url)
 
 	// Sort Versions
 	versions := make([]*version.Version, len(versionsRaw))
@@ -66,20 +82,27 @@ func populateJSON(n string) {
 	}
 	sort.Sort(version.Collection(versions))
 
+	//Look for new versions
 	for _, v := range versions {
+
+		pv := p.GetVersion(v.String())
+		if pv.Tag != "" {
+			continue
+		}
+
 		var ver packages.Version
 		ver.Tag = v.String()
-		ver.Path = url + "/" + v.String() + "/" + pack.Name + "-" + v.String() + ".jar"
+		ver.Path = m.url + "/" + v.String() + "/" + p.Name + "-" + v.String() + ".jar"
 		ver.Algorithm = "SHA1"
 		sha := string(utils.HTTPUtil{}.Get(ver.Path + ".sha1"))
 		if strings.Contains(sha, "html") {
 			sha = ""
 		}
 		ver.CheckSum = sha
-		pack.Versions = append(pack.Versions, ver)
+		p.Versions = append(p.Versions, ver)
 	}
 
-	json, err := json.MarshalIndent(pack, "", "  ")
+	json, err := json.MarshalIndent(p, "", "  ")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -87,7 +110,11 @@ func populateJSON(n string) {
 }
 
 func main(){
-	for _, e := range exentions {
-		populateJSON(e)
+	packs := app.LoadPackages(app.PackagesJSON)
+	for _, p := range packs {
+		m := mods.getByName(p.Name)
+		if m.name != "" {
+			populateJSON(m, p)
+		}
 	}
 }
