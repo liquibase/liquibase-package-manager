@@ -14,32 +14,45 @@ type module struct {
 	name string
 	category string
 	url string
+	includeSuffix string
+	excludeSuffix string
 }
 type modules []module
 var mods modules
 
 func init() {
 	mods = []module{
-		{"liquibase-cache", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cache"},
-		{"liquibase-cassandra", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra"},
-		{"liquibase-cosmosdb", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cosmosdb"},
-		{"liquibase-db2i", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-db2i"},
-		{"liquibase-filechangelog", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-filechangelog"},
-		{"liquibase-hanadb", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hanadb"},
-		{"liquibase-hibernate5", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hibernate5"},
-		{"liquibase-maxdb", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-maxdb"},
-		{"liquibase-modify-column", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-modify"},
-		{"liquibase-mongodb", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb"},
-		{"liquibase-mssql", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mssql"},
-		{"liquibase-neo4j", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j"},
-		{"liquibase-oracle", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-oracle"},
-		{"liquibase-percona", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona"},
-		{"liquibase-postgresql", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-postgresql"},
-		{"liquibase-redshift", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-redshift"},
-		{"liquibase-snowflake", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-snowflake"},
-		{"liquibase-sqlfire", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-sqlfire"},
-		{"liquibase-teradata", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-teradata"},
-		{"liquibase-verticaDatabase", "module", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-verticaDatabase"},
+		//{"postgresql", "driver", "https://repo1.maven.org/maven2/org/postgresql/postgresql", "", ".jre"},
+		{"mssql", "driver", "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc",".jre11",".jre11-preview"},
+		//{"mariadb", "driver", "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client","",""},
+		//{"h2", "driver", "https://repo1.maven.org/maven2/com/h2database/h2","",""},
+		//{"db2", "driver", "https://repo1.maven.org/maven2/com/ibm/db2/jcc","","db2"},
+		//{"snowflake", "driver", "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc","",""},
+		//{"sybase", "driver", "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/sybase","",""},
+		//{"firebird", "driver", "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/firebird","",""},
+		//{"sqlite", "driver", "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc","",""},
+		//{"oracle", "driver", "https://repo1.maven.org/maven2/com/oracle/ojdbc/ojdbc8","",""},
+		//{"mysql", "driver", "https://repo1.maven.org/maven2/mysql/mysql-connector-java","",""},
+		//{"liquibase-cache", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cache","",""},
+		//{"liquibase-cassandra", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra","",""},
+		//{"liquibase-cosmosdb", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cosmosdb","",""},
+		//{"liquibase-db2i", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-db2i","",""},
+		//{"liquibase-filechangelog", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-filechangelog","",""},
+		//{"liquibase-hanadb", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hanadb","",""},
+		//{"liquibase-hibernate5", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hibernate5","",""},
+		//{"liquibase-maxdb", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-maxdb","",""},
+		//{"liquibase-modify-column", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-modify","",""},
+		//{"liquibase-mongodb", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb","",""},
+		//{"liquibase-mssql", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mssql","",""},
+		//{"liquibase-neo4j", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j","",""},
+		//{"liquibase-oracle", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-oracle","",""},
+		//{"liquibase-percona", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona","",""},
+		//{"liquibase-postgresql", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-postgresql","",""},
+		//{"liquibase-redshift", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-redshift","",""},
+		//{"liquibase-snowflake", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-snowflake","",""},
+		//{"liquibase-sqlfire", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-sqlfire","",""},
+		//{"liquibase-teradata", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-teradata","",""},
+		//{"liquibase-verticaDatabase", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-verticaDatabase","",""},
 		//"liquibase-compat",
 		//"liquibase-javalogger",
 		//"liquibase-nochangeloglock",
@@ -67,7 +80,24 @@ func getNewVersions(m module, p packages.Package) packages.Package {
 	// Find and visit all links
 	c.OnHTML("a[href]", func(f *colly.HTMLElement) {
 		if !strings.Contains(f.Text, "../") && !strings.Contains(f.Text, "maven-metadata.") {
-			versionsRaw = append(versionsRaw, strings.TrimRight(f.Text, "/"))
+			if m.excludeSuffix != "" && m.includeSuffix == "" {
+				if !strings.Contains(f.Text, m.excludeSuffix) {
+					versionsRaw = append(versionsRaw, strings.TrimRight(f.Text, "/"))
+				}
+			}
+			if m.excludeSuffix == "" && m.includeSuffix != "" {
+				if strings.Contains(f.Text, m.includeSuffix) {
+					versionsRaw = append(versionsRaw, strings.TrimRight(f.Text, "/"))
+				}
+			}
+			if m.excludeSuffix != "" && m.includeSuffix != "" {
+				if strings.Contains(f.Text, m.includeSuffix) && !strings.Contains(f.Text, m.includeSuffix) {
+					versionsRaw = append(versionsRaw, strings.TrimRight(f.Text, "/"))
+				}
+			}
+			if m.excludeSuffix == "" && m.includeSuffix == "" {
+				versionsRaw = append(versionsRaw, strings.TrimRight(f.Text, "/"))
+			}
 		}
 	})
 	c.Visit(m.url)
@@ -96,7 +126,11 @@ func getNewVersions(m module, p packages.Package) packages.Package {
 			sha = ""
 		}
 		ver.CheckSum = sha
-		p.Versions = append(p.Versions, ver)
+
+		// Older versions might have bad version patters ending up with a missing sha. Don't add them.
+		if ver.CheckSum != "" {
+			p.Versions = append(p.Versions, ver)
+		}
 	}
 	return p
 }
