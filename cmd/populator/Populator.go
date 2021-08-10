@@ -2,9 +2,11 @@ package main
 
 import (
 	"github.com/gocolly/colly/v2"
+	"github.com/hashicorp/go-version"
 	"package-manager/internal/app"
 	"package-manager/internal/app/packages"
 	"package-manager/internal/app/utils"
+	"sort"
 	"strings"
 )
 
@@ -72,7 +74,7 @@ func (es modules) getByName(n string) module {
 }
 
 func getNewVersions(m module, p packages.Package) packages.Package {
-	var versions []string
+	var versionsRaw []string
 
 	// Get Versions from Root package site
 	c := colly.NewCollector()
@@ -81,40 +83,52 @@ func getNewVersions(m module, p packages.Package) packages.Package {
 		if !strings.Contains(f.Text, "../") && !strings.Contains(f.Text, "maven-metadata.") {
 			if m.excludeSuffix != "" && m.includeSuffix == "" {
 				if !strings.Contains(f.Text, m.excludeSuffix) {
-					versions = append(versions, strings.TrimRight(f.Text, "/"))
+					versionsRaw = append(versionsRaw, strings.TrimRight(f.Text, "/"))
 				}
 			}
 			if m.excludeSuffix == "" && m.includeSuffix != "" {
 				if strings.Contains(f.Text, m.includeSuffix) {
-					versions = append(versions, strings.TrimRight(f.Text, "/"))
+					versionsRaw = append(versionsRaw, strings.TrimRight(f.Text,  m.includeSuffix + "/"))
 				}
 			}
 			if m.excludeSuffix != "" && m.includeSuffix != "" {
 				if strings.Contains(f.Text, m.includeSuffix) && !strings.Contains(f.Text, m.excludeSuffix) {
-					versions = append(versions, strings.TrimRight(f.Text, "/"))
+					versionsRaw = append(versionsRaw, strings.TrimRight(f.Text,  m.includeSuffix + "/"))
 				}
 			}
 			if m.excludeSuffix == "" && m.includeSuffix == "" {
-				versions = append(versions, strings.TrimRight(f.Text, "/"))
+				versionsRaw = append(versionsRaw, strings.TrimRight(f.Text, "/"))
 			}
 		}
 	})
 	c.Visit(m.url)
 
+	// Sort Versions
+	versions := make([]*version.Version, len(versionsRaw))
+	for i, raw := range versionsRaw {
+		v, _ := version.NewVersion(raw)
+		versions[i] = v
+	}
+	sort.Sort(version.Collection(versions))
+
 	//Look for new versions
 	for _, v := range versions {
-		pv := p.GetVersion(v)
+		pv := p.GetVersion(v.String())
 		if pv.Tag != "" {
 			// if remove version is already in package manifest skip it
 			continue
 		}
 
 		var ver packages.Version
-		ver.Tag = v
-		if m.filePrefix != "" {
-			ver.Path = m.url + "/" + v + "/" + m.filePrefix + v + ".jar"
+		if m.includeSuffix != "" {
+			ver.Tag = v.String() + m.includeSuffix
 		} else {
-			ver.Path = m.url + "/" + v + "/" + p.Name + "-" + v + ".jar"
+			ver.Tag = v.String()
+		}
+		if m.filePrefix != "" {
+			ver.Path = m.url + "/" + ver.Tag + "/" + m.filePrefix + ver.Tag + ".jar"
+		} else {
+			ver.Path = m.url + "/" + ver.Tag + "/" + p.Name + "-" + ver.Tag + ".jar"
 		}
 		ver.Algorithm = "SHA1"
 		sha := string(utils.HTTPUtil{}.Get(ver.Path + ".sha1"))
