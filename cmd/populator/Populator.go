@@ -102,7 +102,6 @@ func getNewVersions(m module, p packages.Package) packages.Package {
 }
 
 func main(){
-
 	var newPacks = packages.Packages{}
 
 	// read packages from embedded file
@@ -112,6 +111,8 @@ func main(){
 		if m.name != "" {
 			// Get new versions for a package
 			newPacks = append(newPacks, getNewVersions(m, p))
+		} else {
+			newPacks = append(newPacks, p)
 		}
 	}
 
