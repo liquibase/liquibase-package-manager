@@ -113,18 +113,19 @@ func getNewVersions(m module, p packages.Package) packages.Package {
 
 	//Look for new versions
 	for _, v := range versions {
-		pv := p.GetVersion(v.String())
-		if pv.Tag != "" {
-			// if remove version is already in package manifest skip it
-			continue
-		}
-
 		var ver packages.Version
 		if m.includeSuffix != "" {
 			ver.Tag = v.String() + m.includeSuffix
 		} else {
 			ver.Tag = v.String()
 		}
+
+		pv := p.GetVersion(ver.Tag)
+		if pv.Tag != "" {
+			// if remote version is already in package manifest skip it
+			continue
+		}
+
 		if m.filePrefix != "" {
 			ver.Path = m.url + "/" + ver.Tag + "/" + m.filePrefix + ver.Tag + ".jar"
 		} else {
