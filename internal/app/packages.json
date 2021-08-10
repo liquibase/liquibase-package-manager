@@ -16,6 +16,216 @@
     "category": "driver",
     "versions": [
       {
+        "tag": "9.4.1207",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4.1207/postgresql-9.4.1207.jar",
+        "algorithm": "SHA1",
+        "checksum": "f2ea471fbe4446057991e284a6b4b3263731f319"
+      },
+      {
+        "tag": "9.4.1208",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4.1208/postgresql-9.4.1208.jar",
+        "algorithm": "SHA1",
+        "checksum": "5c7e80698b80a5045fe64daa67426051bbd16a56"
+      },
+      {
+        "tag": "9.4.1209",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4.1209/postgresql-9.4.1209.jar",
+        "algorithm": "SHA1",
+        "checksum": "7f25826357976ed495184938b6a464acdf0ea3f8"
+      },
+      {
+        "tag": "9.4.1210",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4.1210/postgresql-9.4.1210.jar",
+        "algorithm": "SHA1",
+        "checksum": "261a6ff45a0d8519f30247668b0e048e4da4a4d9"
+      },
+      {
+        "tag": "9.4.1211",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4.1211/postgresql-9.4.1211.jar",
+        "algorithm": "SHA1",
+        "checksum": "721e3017fab68db9f0b08537ec91b8d757973ca8"
+      },
+      {
+        "tag": "9.4.1212",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4.1212/postgresql-9.4.1212.jar",
+        "algorithm": "SHA1",
+        "checksum": "38931d70811d9bfcecf9c06f7222973c038a12de"
+      },
+      {
+        "tag": "42.0.0",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.0.0/postgresql-42.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "938ede0cdf862cc4eaba5023a86254783af1d261"
+      },
+      {
+        "tag": "42.1.0",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.1.0/postgresql-42.1.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "9f364306dab5ba8d225ad2e0c4f83e347445fff5"
+      },
+      {
+        "tag": "42.1.1",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.1.1/postgresql-42.1.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "8a0b76d763f5382d6357c412eeb14970ba4405f3"
+      },
+      {
+        "tag": "42.1.2",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.1.2/postgresql-42.1.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "6af76feda821340d01a60b476305dac64906f9b8"
+      },
+      {
+        "tag": "42.1.3",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.1.3/postgresql-42.1.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "3cdf827324001b02105aa38f56ca45535ef1d138"
+      },
+      {
+        "tag": "42.1.4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.1.4/postgresql-42.1.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "1c7788d16b67d51f2f38ae99e474ece968bf715a"
+      },
+      {
+        "tag": "42.2.0",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.0/postgresql-42.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "7a7824a6ddbf4e43c08d4ee4e92e93485f27d1d7"
+      },
+      {
+        "tag": "42.2.1",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.1/postgresql-42.2.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "b7f61848ac43ae9fa6e38935bfd75628b7fc9086"
+      },
+      {
+        "tag": "42.2.2",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.2/postgresql-42.2.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "7ebd60d15eec1f9e796d68212121d92e3dd566b2"
+      },
+      {
+        "tag": "42.2.3",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.3/postgresql-42.2.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "ef24413ccdbf0a5583662e204156e1f5b31ac3a2"
+      },
+      {
+        "tag": "42.2.4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.4/postgresql-42.2.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "dff98730c28a4b3a3263f0cf4abb9a3392f815a7"
+      },
+      {
+        "tag": "42.2.5",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.5/postgresql-42.2.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "951b7eda125f3137538a94e2cbdcf744088ad4c2"
+      },
+      {
+        "tag": "42.2.6",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.6/postgresql-42.2.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "58586d617d57746853fc0b8f37c83a8384fcd0ca"
+      },
+      {
+        "tag": "42.2.7",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.7/postgresql-42.2.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "8cae37cde4dd228f0137c58323d15e2885071b15"
+      },
+      {
+        "tag": "42.2.8",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.8/postgresql-42.2.8.jar",
+        "algorithm": "SHA1",
+        "checksum": "6f394c7df5600d11b221f356ff020440d2ece44f"
+      },
+      {
+        "tag": "42.2.9",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.9/postgresql-42.2.9.jar",
+        "algorithm": "SHA1",
+        "checksum": "c01ad1251420f5e25ea9af5c3f9e9477d05808c7"
+      },
+      {
+        "tag": "42.2.10",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.10/postgresql-42.2.10.jar",
+        "algorithm": "SHA1",
+        "checksum": "338af492789fd198dbd52735a22b1946030ecc96"
+      },
+      {
+        "tag": "42.2.11",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.11/postgresql-42.2.11.jar",
+        "algorithm": "SHA1",
+        "checksum": "e9a90d880f0340784d61b1188227fde47c0a9116"
+      },
+      {
+        "tag": "42.2.12",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.12/postgresql-42.2.12.jar",
+        "algorithm": "SHA1",
+        "checksum": "1ed5b5f16a67f312a50d420e8bcb7d30b40b033d"
+      },
+      {
+        "tag": "42.2.13",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.13/postgresql-42.2.13.jar",
+        "algorithm": "SHA1",
+        "checksum": "750a4e6dbc753308f50e998920b760b2b5c048ad"
+      },
+      {
+        "tag": "42.2.14",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.14/postgresql-42.2.14.jar",
+        "algorithm": "SHA1",
+        "checksum": "45fa6eef266aa80024ef2ab3688d9faa38c642e5"
+      },
+      {
+        "tag": "42.2.15",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.15/postgresql-42.2.15.jar",
+        "algorithm": "SHA1",
+        "checksum": "6a004b2ce1b6f62c6a9068e86c39ac52f1237efa"
+      },
+      {
+        "tag": "42.2.16",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.16/postgresql-42.2.16.jar",
+        "algorithm": "SHA1",
+        "checksum": "a9ee12f737bd5dc7d046e4c065e391d38d6a3cfc"
+      },
+      {
+        "tag": "42.2.17",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.17/postgresql-42.2.17.jar",
+        "algorithm": "SHA1",
+        "checksum": "b3a214aa89d0fe146f216c2f4a3a4dfbe35d63bf"
+      },
+      {
+        "tag": "42.2.18",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.18/postgresql-42.2.18.jar",
+        "algorithm": "SHA1",
+        "checksum": "a0a9c1d43c7727eeaf1b729477891185d3c71751"
+      },
+      {
+        "tag": "42.2.19",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.19/postgresql-42.2.19.jar",
+        "algorithm": "SHA1",
+        "checksum": "85cb20fe8151b6d90900d5ae5cfe0ad7c3e8f921"
+      },
+      {
+        "tag": "42.2.20",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.20/postgresql-42.2.20.jar",
+        "algorithm": "SHA1",
+        "checksum": "36cc2142f46e8f4b77ffc1840ada1ba33d96324f"
+      },
+      {
+        "tag": "42.2.21",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.21/postgresql-42.2.21.jar",
+        "algorithm": "SHA1",
+        "checksum": "9e7e7299d19c619a162b24d4761e6ca7d7f226a6"
+      },
+      {
+        "tag": "42.2.22",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.22/postgresql-42.2.22.jar",
+        "algorithm": "SHA1",
+        "checksum": "9edcdd5bb2acfbb4354c92e0b9a67fc6a6ab9046"
+      },
+      {
         "tag": "42.2.23",
         "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.23/postgresql-42.2.23.jar",
         "algorithm": "SHA1",
@@ -28,10 +238,82 @@
     "category": "driver",
     "versions": [
       {
-        "tag": "9.2.1",
-        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/9.2.1.jre11/mssql-jdbc-9.2.1.jre11.jar",
+        "tag": "7.2.0.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/7.2.0.jre11/mssql-jdbc-7.2.0.jre11.jar",
         "algorithm": "SHA1",
-        "checksum": "7af72fb8f832634f7717f971a85ba199729b7eaa"
+        "checksum": "77747c1a6e45358352b1eabf74082857c972e5ca"
+      },
+      {
+        "tag": "7.2.0.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/7.2.0.jre11/mssql-jdbc-7.2.0.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "77747c1a6e45358352b1eabf74082857c972e5ca"
+      },
+      {
+        "tag": "7.2.2.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/7.2.2.jre11/mssql-jdbc-7.2.2.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "797dc49934f590f1b7b08465cfce3fc9d88ccc1f"
+      },
+      {
+        "tag": "7.4.0.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/7.4.0.jre11/mssql-jdbc-7.4.0.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "c9a8772d80343462f0ffb2ff50c9b0acda69b1a6"
+      },
+      {
+        "tag": "7.4.0.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/7.4.0.jre11/mssql-jdbc-7.4.0.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "c9a8772d80343462f0ffb2ff50c9b0acda69b1a6"
+      },
+      {
+        "tag": "8.2.0.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/8.2.0.jre11/mssql-jdbc-8.2.0.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "63a4414971f9606d5b817e12229f20b679ba0658"
+      },
+      {
+        "tag": "8.2.0.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/8.2.0.jre11/mssql-jdbc-8.2.0.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "63a4414971f9606d5b817e12229f20b679ba0658"
+      },
+      {
+        "tag": "8.2.2.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/8.2.2.jre11/mssql-jdbc-8.2.2.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "27e1be35b1e102d7b374b9834a0bdc815c5325b3"
+      },
+      {
+        "tag": "8.4.0.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/8.4.0.jre11/mssql-jdbc-8.4.0.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "012591498ac236be4b935a36729e554ac37a9376"
+      },
+      {
+        "tag": "8.4.0.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/8.4.0.jre11/mssql-jdbc-8.4.0.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "012591498ac236be4b935a36729e554ac37a9376"
+      },
+      {
+        "tag": "9.2.0.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/9.2.0.jre11/mssql-jdbc-9.2.0.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "a8b101fdbe64be8c3194bc67a8ac0eebf95d4bc8"
+      },
+      {
+        "tag": "9.2.0.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/9.2.0.jre11/mssql-jdbc-9.2.0.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "a8b101fdbe64be8c3194bc67a8ac0eebf95d4bc8"
+      },
+      {
+        "tag": "9.4.0.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/9.4.0.jre11/mssql-jdbc-9.4.0.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "a6f15b77f9a37aaaaeec829a5040efd1ddec2261"
       }
     ]
   },
@@ -40,10 +322,502 @@
     "category": "driver",
     "versions": [
       {
+        "tag": "1.1.7",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.1.7/mariadb-java-client-1.1.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "f0677164cf3456da1541621145a69a768f3fb68c"
+      },
+      {
+        "tag": "1.1.8",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.1.8/mariadb-java-client-1.1.8.jar",
+        "algorithm": "SHA1",
+        "checksum": "d1fb44c703db1b116e946735eb8ea95f3510a18f"
+      },
+      {
+        "tag": "1.1.9",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.1.9/mariadb-java-client-1.1.9.jar",
+        "algorithm": "SHA1",
+        "checksum": "e3a28e80bd16e5c78ea8e1c9aeacc24295dd5ba3"
+      },
+      {
+        "tag": "1.1.10",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.1.10/mariadb-java-client-1.1.10.jar",
+        "algorithm": "SHA1",
+        "checksum": "28c3a3173306500f8b97314185111f7e6caabd20"
+      },
+      {
+        "tag": "1.2.0",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.2.0/mariadb-java-client-1.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "0cecb1a03101dadcdc90da6ffd388b16f58dd1bb"
+      },
+      {
+        "tag": "1.2.1",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.2.1/mariadb-java-client-1.2.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "d392748f8ffa0882b32e235e77f90e6872c42063"
+      },
+      {
+        "tag": "1.2.2",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.2.2/mariadb-java-client-1.2.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "d3696bc675c7eca12b9bd3ba8b9553a3b47f4616"
+      },
+      {
+        "tag": "1.2.3",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.2.3/mariadb-java-client-1.2.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "4d0f16d7a27b505e845d497d9d7251015d9a8a27"
+      },
+      {
+        "tag": "1.3.0-beta-1",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.3.0-beta-1/mariadb-java-client-1.3.0-beta-1.jar",
+        "algorithm": "SHA1",
+        "checksum": "0e180a9c45b11ff92daa8d3864e6813e5dfaaae0"
+      },
+      {
+        "tag": "1.3.0-beta-2",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.3.0-beta-2/mariadb-java-client-1.3.0-beta-2.jar",
+        "algorithm": "SHA1",
+        "checksum": "06ef6f869090cfd6e74720dcadb7c3ac9d300c39"
+      },
+      {
+        "tag": "1.3.0",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.3.0/mariadb-java-client-1.3.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "6b930b5592d3bb90d8f44558fc72039f801e678b"
+      },
+      {
+        "tag": "1.3.1",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.3.1/mariadb-java-client-1.3.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "49e2243908f08122a95988e71d8a6468ef77470d"
+      },
+      {
+        "tag": "1.3.2",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.3.2/mariadb-java-client-1.3.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "1930a702cfec1f2d86a4b1f46e93ef039878a2f5"
+      },
+      {
+        "tag": "1.3.3",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.3.3/mariadb-java-client-1.3.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "43ba315b20801add8789c2eac3e5cdee6016e434"
+      },
+      {
+        "tag": "1.3.4",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.3.4/mariadb-java-client-1.3.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "7a491a4fcd6416ca29dd4f35d3625c4205f6ecbd"
+      },
+      {
+        "tag": "1.3.5",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.3.5/mariadb-java-client-1.3.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "5fefc23deb6fa13cd832cee8613a04663e702e41"
+      },
+      {
+        "tag": "1.3.6",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.3.6/mariadb-java-client-1.3.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "e58c379455708bf466f78dd39d8c8f56cdb2b397"
+      },
+      {
+        "tag": "1.3.7",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.3.7/mariadb-java-client-1.3.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "8a74907150e9ddced8cb51b7ee6d38e2657655f5"
+      },
+      {
+        "tag": "1.4.0-beta-1",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.4.0-beta-1/mariadb-java-client-1.4.0-beta-1.jar",
+        "algorithm": "SHA1",
+        "checksum": "79bd064b10ca0fd660d554046c8aa7a878256b37"
+      },
+      {
+        "tag": "1.4.0",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.4.0/mariadb-java-client-1.4.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "05a0145ed1bd6b1beb958bc2677c960eb1a818ed"
+      },
+      {
+        "tag": "1.4.1",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.4.1/mariadb-java-client-1.4.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "68484159e0bf23b4171d3f0ddd346284bab07bd0"
+      },
+      {
+        "tag": "1.4.2",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.4.2/mariadb-java-client-1.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "02f02de75181de55b2833b133257968464e9b581"
+      },
+      {
+        "tag": "1.4.3",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.4.3/mariadb-java-client-1.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "18eec642af83ad81849c010cfa84a2618d593cef"
+      },
+      {
+        "tag": "1.4.4",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.4.4/mariadb-java-client-1.4.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "a0743a973c28944ff30ba527e2005e5b3320eb78"
+      },
+      {
+        "tag": "1.4.5",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.4.5/mariadb-java-client-1.4.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "f9f1b6dd83ed8e02d395d75e705f74cedfbc46a1"
+      },
+      {
+        "tag": "1.4.6",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.4.6/mariadb-java-client-1.4.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "baf6436cd74b45e36fafd30786d51bbe363f59b4"
+      },
+      {
+        "tag": "1.5.0-RC1",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.5.0-RC1/mariadb-java-client-1.5.0-RC1.jar",
+        "algorithm": "SHA1",
+        "checksum": "1fb50cb55ee5791af9f121540ec574b0648a6c97"
+      },
+      {
+        "tag": "1.5.1-RC",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.5.1-RC/mariadb-java-client-1.5.1-RC.jar",
+        "algorithm": "SHA1",
+        "checksum": "40577ab4d86fc12348f89ffc0d6371a466e6d81b"
+      },
+      {
+        "tag": "1.5.2",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.5.2/mariadb-java-client-1.5.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "1e7a22bb51e7a90a5b42217af6badc42ac0a3026"
+      },
+      {
+        "tag": "1.5.3",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.5.3/mariadb-java-client-1.5.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "b82d8375cd6a5ecfc17972658a01d81318a65882"
+      },
+      {
+        "tag": "1.5.4",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.5.4/mariadb-java-client-1.5.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "bd0e2e8494245c2885a79fc92bc3693c88cbfab4"
+      },
+      {
+        "tag": "1.5.5",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.5.5/mariadb-java-client-1.5.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "48603aa9dca7eaac8073260e7f6c206f1c8dc09c"
+      },
+      {
+        "tag": "1.5.6",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.5.6/mariadb-java-client-1.5.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "86a475eae120a88f85953d3d460d0a6c9c171eca"
+      },
+      {
+        "tag": "1.5.7",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.5.7/mariadb-java-client-1.5.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "88a39589a93750f54b28a376c12b19ee5d4c399a"
+      },
+      {
+        "tag": "1.5.8",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.5.8/mariadb-java-client-1.5.8.jar",
+        "algorithm": "SHA1",
+        "checksum": "5d0a07d4a8dcd3be10b0ebc7dc3bc6f487bb4a7d"
+      },
+      {
+        "tag": "1.5.9",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.5.9/mariadb-java-client-1.5.9.jar",
+        "algorithm": "SHA1",
+        "checksum": "75d4d6e4cdb9a551a102e92a14c640768174e214"
+      },
+      {
+        "tag": "1.6.0",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.6.0/mariadb-java-client-1.6.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "16df62fdf58cfeca3bcc57479a7d648bea7b99ee"
+      },
+      {
+        "tag": "1.6.1",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.6.1/mariadb-java-client-1.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "430d51c3d3c95fabbcf32f24e31c9db49d0973d4"
+      },
+      {
+        "tag": "1.6.2",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.6.2/mariadb-java-client-1.6.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "47bd4f3c4c1ac105461b5014d80a6a30cf83a144"
+      },
+      {
+        "tag": "1.6.3",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.6.3/mariadb-java-client-1.6.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "378eb69aae28807993be41331f2873f83958dae1"
+      },
+      {
+        "tag": "1.6.4",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.6.4/mariadb-java-client-1.6.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "d78298105516737322552e71f3ab948c1e08f189"
+      },
+      {
+        "tag": "1.6.5",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.6.5/mariadb-java-client-1.6.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "27c2b50694c93ff63df27a246c647e41f9a57fbc"
+      },
+      {
+        "tag": "1.7.0",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.7.0/mariadb-java-client-1.7.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "3d7156724050c23539c3300728ab14a30da08bf7"
+      },
+      {
+        "tag": "1.7.1",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.7.1/mariadb-java-client-1.7.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "1831dedee50a72f198e610ca17866506bd536a60"
+      },
+      {
+        "tag": "1.7.2",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.7.2/mariadb-java-client-1.7.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "60e3d54b3373242cfceb476da4f0beb7467002b9"
+      },
+      {
+        "tag": "1.7.3",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.7.3/mariadb-java-client-1.7.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "45ef5073e71c1b5144327498c984010763ce2c29"
+      },
+      {
+        "tag": "1.7.4",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.7.4/mariadb-java-client-1.7.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "fc07a80cf17857573632d950d7387232474007ba"
+      },
+      {
+        "tag": "1.7.5",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.7.5/mariadb-java-client-1.7.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "b002be3d9f3f7f0ae1671c7c24a045d5a2225aff"
+      },
+      {
+        "tag": "1.7.6",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.7.6/mariadb-java-client-1.7.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "77f2411733b3b6abea60e225ca77d1d80bdbe38f"
+      },
+      {
+        "tag": "1.8.0",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/1.8.0/mariadb-java-client-1.8.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "d24912575eca070d85416f1c72da2eed164306c1"
+      },
+      {
+        "tag": "2.0.0-RC",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.0.0-RC/mariadb-java-client-2.0.0-RC.jar",
+        "algorithm": "SHA1",
+        "checksum": "abd817a5f9e5a2f42af46da3fe824f55ae77aaf2"
+      },
+      {
+        "tag": "2.0.1",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.0.1/mariadb-java-client-2.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "86958da99eb75eeffd33b77ef4ddb508b45bc6da"
+      },
+      {
+        "tag": "2.0.2",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.0.2/mariadb-java-client-2.0.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "7cf39fc8beffd75f5e2633096ec74d35ab08e4d1"
+      },
+      {
+        "tag": "2.0.3",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.0.3/mariadb-java-client-2.0.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "128d51910aaf1904da862bc36c22dd79df44ab52"
+      },
+      {
+        "tag": "2.1.0",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.1.0/mariadb-java-client-2.1.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "639be502c0d191e1cc21e4e86d388486358fddf8"
+      },
+      {
+        "tag": "2.1.1",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.1.1/mariadb-java-client-2.1.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "cf8b2e49f507bb92cb10bfec7f35ec3836dfd1df"
+      },
+      {
+        "tag": "2.1.2",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.1.2/mariadb-java-client-2.1.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "002484a99a6a86491531d17d491c931de8942ae0"
+      },
+      {
+        "tag": "2.2.0",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.2.0/mariadb-java-client-2.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "cbad0797cd528a899f39b1b5ef833e11b8fc3a20"
+      },
+      {
+        "tag": "2.2.1",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.2.1/mariadb-java-client-2.2.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "6bb128d50c59e1fa51d85df41ed4751653fa9276"
+      },
+      {
+        "tag": "2.2.2",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.2.2/mariadb-java-client-2.2.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "1b8ac55cda2a90dfe921133bc5967d54d7af6015"
+      },
+      {
+        "tag": "2.2.3",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.2.3/mariadb-java-client-2.2.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "3a91df529fa4367b2693ed001b53e4899a4258b4"
+      },
+      {
+        "tag": "2.2.4",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.2.4/mariadb-java-client-2.2.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "a30605bd44fd1cf0ea9636517a9968c8e4512867"
+      },
+      {
+        "tag": "2.2.5",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.2.5/mariadb-java-client-2.2.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "3d1406a8ed02ca69cc389ae715cee8913871a81e"
+      },
+      {
+        "tag": "2.2.6",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.2.6/mariadb-java-client-2.2.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "df13bba4c7b5377dcf4daf939b2958eb611fe37c"
+      },
+      {
+        "tag": "2.3.0",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.3.0/mariadb-java-client-2.3.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "c2b1a6002a169757d0649449288e9b3b776af76b"
+      },
+      {
+        "tag": "2.4.0",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.4.0/mariadb-java-client-2.4.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "87f88656d9cf5381fc3c11c8e52d42f9eb23247c"
+      },
+      {
+        "tag": "2.4.1",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.4.1/mariadb-java-client-2.4.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "39e4b7b5cac8ba2ccd5399bf62294fcc9463324d"
+      },
+      {
+        "tag": "2.4.2",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.4.2/mariadb-java-client-2.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "c2f23996449c4ba556b1b1a457108edf38c96af0"
+      },
+      {
+        "tag": "2.4.3",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.4.3/mariadb-java-client-2.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "498230302248a3f825ec450ab72b48085017f8c0"
+      },
+      {
+        "tag": "2.4.4",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.4.4/mariadb-java-client-2.4.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "f71fbfbb478a861f9554fa206d0fd51869be3630"
+      },
+      {
+        "tag": "2.5.0",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.5.0/mariadb-java-client-2.5.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "819742c86ddcd66c3e0263ee16a86cdc896edfc1"
+      },
+      {
+        "tag": "2.5.1",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.5.1/mariadb-java-client-2.5.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "eeddfc676ca7abb49d052c904bd310e07705c7ac"
+      },
+      {
+        "tag": "2.5.2",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.5.2/mariadb-java-client-2.5.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "8fed328fca3296878e2513ce7d98353f794b940a"
+      },
+      {
+        "tag": "2.5.3",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.5.3/mariadb-java-client-2.5.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "11696077d1681323d714f9a1ca347f9908dffdd7"
+      },
+      {
+        "tag": "2.5.4",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.5.4/mariadb-java-client-2.5.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "adb3dbc97684a254b9ecf488167bbf177a33d8ba"
+      },
+      {
+        "tag": "2.6.0",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.6.0/mariadb-java-client-2.6.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "7ada3fc7b30ae8fa4616f47ef6d505bdda933605"
+      },
+      {
+        "tag": "2.6.1",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.6.1/mariadb-java-client-2.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "59dd916e0add8cd32eade36e420e91095cd61396"
+      },
+      {
+        "tag": "2.6.2",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.6.2/mariadb-java-client-2.6.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "84c26dee8604138bd59077921414d96c8016eaa0"
+      },
+      {
+        "tag": "2.7.0",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.7.0/mariadb-java-client-2.7.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "89235bf40670dd030da1d2407081f19b2ae26097"
+      },
+      {
+        "tag": "2.7.1",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.7.1/mariadb-java-client-2.7.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "3b8c972f7518d4e0e2a070e9e877ebcfba2d2db8"
+      },
+      {
+        "tag": "2.7.2",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.7.2/mariadb-java-client-2.7.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "138fb9b8caee700bf4793bc42947113a1dbc8532"
+      },
+      {
         "tag": "2.7.3",
         "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.7.3/mariadb-java-client-2.7.3.jar",
         "algorithm": "SHA1",
         "checksum": "4a2edc05bd882ad19371d2615c2635dccf8d74f0"
+      },
+      {
+        "tag": "3.0.0-alpha",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.0.0-alpha/mariadb-java-client-3.0.0-alpha.jar",
+        "algorithm": "SHA1",
+        "checksum": "0af18fbcb5aa3d971d2a1d4967dec0710cc1f435"
       }
     ]
   },
@@ -51,6 +825,768 @@
     "name": "h2",
     "category": "driver",
     "versions": [
+      {
+        "tag": "1.0.57",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.57/h2-1.0.57.jar",
+        "algorithm": "SHA1",
+        "checksum": "dd94d778e64cad4ad452b33b1084665a73db93ee"
+      },
+      {
+        "tag": "1.0.58",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.58/h2-1.0.58.jar",
+        "algorithm": "SHA1",
+        "checksum": "bb6d99af3c7137b230a57b5122c1d96352bafbf4"
+      },
+      {
+        "tag": "1.0.59",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.59/h2-1.0.59.jar",
+        "algorithm": "SHA1",
+        "checksum": "40c116fdb2d8382e6b685a01d18c760ab8a975bb"
+      },
+      {
+        "tag": "1.0.60",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.60/h2-1.0.60.jar",
+        "algorithm": "SHA1",
+        "checksum": "bce45deceba13e33ee265e07804741f36cfcad72"
+      },
+      {
+        "tag": "1.0.61",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.61/h2-1.0.61.jar",
+        "algorithm": "SHA1",
+        "checksum": "ad1c35f38df82bc5f62c86be22c3b9cc6cc0ee89"
+      },
+      {
+        "tag": "1.0.62",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.62/h2-1.0.62.jar",
+        "algorithm": "SHA1",
+        "checksum": "ef9ae6682ff0228447e3ed34d1b790538c2bfeca"
+      },
+      {
+        "tag": "1.0.63",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.63/h2-1.0.63.jar",
+        "algorithm": "SHA1",
+        "checksum": "f317e715afa57fbad850fe8859f0bff9b505b9cc"
+      },
+      {
+        "tag": "1.0.64",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.64/h2-1.0.64.jar",
+        "algorithm": "SHA1",
+        "checksum": "2aaaf573dbd7dd125c777190185f4e7fa52d5f55"
+      },
+      {
+        "tag": "1.0.65",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.65/h2-1.0.65.jar",
+        "algorithm": "SHA1",
+        "checksum": "ee1ba6c1598f756c400a135f35d87db4c0c80690"
+      },
+      {
+        "tag": "1.0.66",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.66/h2-1.0.66.jar",
+        "algorithm": "SHA1",
+        "checksum": "e7d7e11a4bdb5e5bf047716cae9cc5bc35f75ca2"
+      },
+      {
+        "tag": "1.0.67",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.67/h2-1.0.67.jar",
+        "algorithm": "SHA1",
+        "checksum": "19b61a99fb6fafc352498225d6c20a96caeab6a8"
+      },
+      {
+        "tag": "1.0.68",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.68/h2-1.0.68.jar",
+        "algorithm": "SHA1",
+        "checksum": "aec9e171e5b2a74dec65fd23bc04abae26fc7148"
+      },
+      {
+        "tag": "1.0.69",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.69/h2-1.0.69.jar",
+        "algorithm": "SHA1",
+        "checksum": "f6f980db09d2aa83c7995fb08cf0f25511c7265c"
+      },
+      {
+        "tag": "1.0.70",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.70/h2-1.0.70.jar",
+        "algorithm": "SHA1",
+        "checksum": "881e43eb1f9777399b29db2d02b001545499ce8a"
+      },
+      {
+        "tag": "1.0.71",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.71/h2-1.0.71.jar",
+        "algorithm": "SHA1",
+        "checksum": "cce21010ea88a619f1b9b2fe87613358191bb931"
+      },
+      {
+        "tag": "1.0.72",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.72/h2-1.0.72.jar",
+        "algorithm": "SHA1",
+        "checksum": "5c72ed0e1ca1f1a092bbc14ec94af61de8d71173"
+      },
+      {
+        "tag": "1.0.73",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.73/h2-1.0.73.jar",
+        "algorithm": "SHA1",
+        "checksum": "c0e20d40b214a1d90c5d64610fbcdf70d6b50998"
+      },
+      {
+        "tag": "1.0.74",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.74/h2-1.0.74.jar",
+        "algorithm": "SHA1",
+        "checksum": "31740e3365df93bf5e080eedb2e2c444f3bd470f"
+      },
+      {
+        "tag": "1.0.75",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.75/h2-1.0.75.jar",
+        "algorithm": "SHA1",
+        "checksum": "b3e3e3ba91a798514d7399cb517e9b969d69cccc"
+      },
+      {
+        "tag": "1.0.76",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.76/h2-1.0.76.jar",
+        "algorithm": "SHA1",
+        "checksum": "0c1ddacf0f72e7ad51e1aec35eec0e3a3853ccc7"
+      },
+      {
+        "tag": "1.0.77",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.77/h2-1.0.77.jar",
+        "algorithm": "SHA1",
+        "checksum": "d1a4f6f2f4f843218822bea43f586aa44b9fde56"
+      },
+      {
+        "tag": "1.0.78",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.78/h2-1.0.78.jar",
+        "algorithm": "SHA1",
+        "checksum": "bc1717ace8b90f9bd941c62ec0994c8596320ba9"
+      },
+      {
+        "tag": "1.0.79",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.79/h2-1.0.79.jar",
+        "algorithm": "SHA1",
+        "checksum": "c81404d7b65169505e0260777f7985d86728bd83"
+      },
+      {
+        "tag": "1.0.20061217",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.20061217/h2-1.0.20061217.jar",
+        "algorithm": "SHA1",
+        "checksum": "b3c8f883d3b832cf5d865a6c747462a3ce963f47  /home/maven/repository-staging/to-ibiblio/maven2/com/h2database/h2/1.0.20061217/h2-1.0.20061217.jar\n"
+      },
+      {
+        "tag": "1.0.20070304",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.20070304/h2-1.0.20070304.jar",
+        "algorithm": "SHA1",
+        "checksum": "e365f74b364fbfb56f4908c6136788514abe80ff  /home/maven/repository-staging/to-ibiblio/maven2/com/h2database/h2/1.0.20070304/h2-1.0.20070304.jar\n"
+      },
+      {
+        "tag": "1.0.20070429",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.20070429/h2-1.0.20070429.jar",
+        "algorithm": "SHA1",
+        "checksum": "18073bd214e4eae47aec4b36f5b5ccd2eb52b127  /home/maven/repository-staging/to-ibiblio/maven2/com/h2database/h2/1.0.20070429/h2-1.0.20070429.jar\n"
+      },
+      {
+        "tag": "1.0.20070617",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.20070617/h2-1.0.20070617.jar",
+        "algorithm": "SHA1",
+        "checksum": "a100427aad398da3ef70ca9087e371eb093b31a4  /home/maven/repository-staging/to-ibiblio/maven2/com/h2database/h2/1.0.20070617/h2-1.0.20070617.jar\n"
+      },
+      {
+        "tag": "1.1.100",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.100/h2-1.1.100.jar",
+        "algorithm": "SHA1",
+        "checksum": "f9b90ba26645c87cfe755df00a8de9c0b97e5560"
+      },
+      {
+        "tag": "1.1.101",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.101/h2-1.1.101.jar",
+        "algorithm": "SHA1",
+        "checksum": "556a7b4bc6b71fe613cc367ea4c820ed7a7cdca8"
+      },
+      {
+        "tag": "1.1.102",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.102/h2-1.1.102.jar",
+        "algorithm": "SHA1",
+        "checksum": "edcb4961f8d7c75591bc582a03d82dadd9f81e98"
+      },
+      {
+        "tag": "1.1.103",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.103/h2-1.1.103.jar",
+        "algorithm": "SHA1",
+        "checksum": "198e2d9fa9390239efdaf2d153819ae6b2b78dba"
+      },
+      {
+        "tag": "1.1.104",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.104/h2-1.1.104.jar",
+        "algorithm": "SHA1",
+        "checksum": "64a76ccc565a18cc9313c27f2f254ed6aec0dfd5"
+      },
+      {
+        "tag": "1.1.105",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.105/h2-1.1.105.jar",
+        "algorithm": "SHA1",
+        "checksum": "3877474afecd6f720d6dbb3b5f897c7f6f8c2e31"
+      },
+      {
+        "tag": "1.1.106",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.106/h2-1.1.106.jar",
+        "algorithm": "SHA1",
+        "checksum": "8c55ec1481ddd55b97bc2fbe9ed36032b89d88d2"
+      },
+      {
+        "tag": "1.1.107",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.107/h2-1.1.107.jar",
+        "algorithm": "SHA1",
+        "checksum": "2424fa6c761fb4bee8c5b41dd5ef7e43c8805641"
+      },
+      {
+        "tag": "1.1.108",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.108/h2-1.1.108.jar",
+        "algorithm": "SHA1",
+        "checksum": "d728510a333e4989ae002bd05d6afe6b6f121e89"
+      },
+      {
+        "tag": "1.1.109",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.109/h2-1.1.109.jar",
+        "algorithm": "SHA1",
+        "checksum": "d2f3b54cd4093437d56f4cd11f7b1ce7c41950ce"
+      },
+      {
+        "tag": "1.1.110",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.110/h2-1.1.110.jar",
+        "algorithm": "SHA1",
+        "checksum": "95937d53637460ba7319591879c6a7f2771f2390"
+      },
+      {
+        "tag": "1.1.111",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.111/h2-1.1.111.jar",
+        "algorithm": "SHA1",
+        "checksum": "3f879de35d840f6145dd5505ac19e455fd33bdb8"
+      },
+      {
+        "tag": "1.1.112",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.112/h2-1.1.112.jar",
+        "algorithm": "SHA1",
+        "checksum": "ce7732067493c38a20304ae7a2cd5ed2f03376cf"
+      },
+      {
+        "tag": "1.1.113",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.113/h2-1.1.113.jar",
+        "algorithm": "SHA1",
+        "checksum": "40e1888f68f82b941c9cc5dc6e215f375998f2ec"
+      },
+      {
+        "tag": "1.1.114",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.114/h2-1.1.114.jar",
+        "algorithm": "SHA1",
+        "checksum": "5320faf944eccfa97fc3763da051e1e2377e389e"
+      },
+      {
+        "tag": "1.1.115",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.115/h2-1.1.115.jar",
+        "algorithm": "SHA1",
+        "checksum": "73029b6f4eb9a4aefefeed3c8275c1c01ccd06d9"
+      },
+      {
+        "tag": "1.1.116",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.116/h2-1.1.116.jar",
+        "algorithm": "SHA1",
+        "checksum": "71a03e3eaad86a959a7322cd37259cc3f375bf17"
+      },
+      {
+        "tag": "1.1.117",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.117/h2-1.1.117.jar",
+        "algorithm": "SHA1",
+        "checksum": "3cd5b55594c0fb92d6c3b5910901fd350e52e4e4"
+      },
+      {
+        "tag": "1.1.118",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.118/h2-1.1.118.jar",
+        "algorithm": "SHA1",
+        "checksum": "a5ae8bb7c907460b4a1f50ac85d90513978e735a"
+      },
+      {
+        "tag": "1.1.119",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.1.119/h2-1.1.119.jar",
+        "algorithm": "SHA1",
+        "checksum": "c1841760f5d99d4bb9d3c7daf45053e27d9da5b2"
+      },
+      {
+        "tag": "1.2.120",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.120/h2-1.2.120.jar",
+        "algorithm": "SHA1",
+        "checksum": "995c5b7c59a2208fd9644c59f828735b862ddc27"
+      },
+      {
+        "tag": "1.2.121",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.121/h2-1.2.121.jar",
+        "algorithm": "SHA1",
+        "checksum": "b51814d1542ff233dd217bf15c1ba3bb3c689b9e"
+      },
+      {
+        "tag": "1.2.122",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.122/h2-1.2.122.jar",
+        "algorithm": "SHA1",
+        "checksum": "10d83a863b2ae6ce0796672ac98926b43262dc3c"
+      },
+      {
+        "tag": "1.2.123",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.123/h2-1.2.123.jar",
+        "algorithm": "SHA1",
+        "checksum": "0d89affe58a92b9350b3f8bdb2e8b6f24e5cc35b"
+      },
+      {
+        "tag": "1.2.124",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.124/h2-1.2.124.jar",
+        "algorithm": "SHA1",
+        "checksum": "3d5c9cce35225ebbc826c33577967de73b83350f"
+      },
+      {
+        "tag": "1.2.125",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.125/h2-1.2.125.jar",
+        "algorithm": "SHA1",
+        "checksum": "b096d94bfcaf49cc0cd03125fafb945b2436a21e"
+      },
+      {
+        "tag": "1.2.126",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.126/h2-1.2.126.jar",
+        "algorithm": "SHA1",
+        "checksum": "704fbc964f27f57338e0533d3a1cc204567bda32"
+      },
+      {
+        "tag": "1.2.127",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.127/h2-1.2.127.jar",
+        "algorithm": "SHA1",
+        "checksum": "056e784c7cf009483366ab9cd8d21d02fe47031a"
+      },
+      {
+        "tag": "1.2.128",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.128/h2-1.2.128.jar",
+        "algorithm": "SHA1",
+        "checksum": "f78d5b5cc7f5e25111451df1610f36ed60a4bbec"
+      },
+      {
+        "tag": "1.2.129",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.129/h2-1.2.129.jar",
+        "algorithm": "SHA1",
+        "checksum": "cbe28adb77a8c5e957825cce7157d46318a3fbcb"
+      },
+      {
+        "tag": "1.2.130",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.130/h2-1.2.130.jar",
+        "algorithm": "SHA1",
+        "checksum": "5a5ae23f0c538578c6021ae1c52c576c088d4861"
+      },
+      {
+        "tag": "1.2.131",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.131/h2-1.2.131.jar",
+        "algorithm": "SHA1",
+        "checksum": "3c31ecdb5edd899565f29fb492710860eaee145b"
+      },
+      {
+        "tag": "1.2.132",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.132/h2-1.2.132.jar",
+        "algorithm": "SHA1",
+        "checksum": "1e0f568ffcd3c3b3e64043887b4d235268c4c453"
+      },
+      {
+        "tag": "1.2.133",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.133/h2-1.2.133.jar",
+        "algorithm": "SHA1",
+        "checksum": "d131f20e34f5beb8c2d61705a896a948424b1e50"
+      },
+      {
+        "tag": "1.2.134",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.134/h2-1.2.134.jar",
+        "algorithm": "SHA1",
+        "checksum": "c2654f6a58eb7ba0cbc66d057f82f2703761ff8d"
+      },
+      {
+        "tag": "1.2.135",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.135/h2-1.2.135.jar",
+        "algorithm": "SHA1",
+        "checksum": "2f8085ea1f386cb035135fd42c9d84f0b74f10e0"
+      },
+      {
+        "tag": "1.2.136",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.136/h2-1.2.136.jar",
+        "algorithm": "SHA1",
+        "checksum": "8995d3616b786d000b310f9c5e23cb2b7c01b3d5"
+      },
+      {
+        "tag": "1.2.137",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.137/h2-1.2.137.jar",
+        "algorithm": "SHA1",
+        "checksum": "fdbaeea32f551dd87567761a247d8b639478ef1a"
+      },
+      {
+        "tag": "1.2.138",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.138/h2-1.2.138.jar",
+        "algorithm": "SHA1",
+        "checksum": "a8ac1cc952d4671a3f429c803cfa37d56faa4031"
+      },
+      {
+        "tag": "1.2.139",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.139/h2-1.2.139.jar",
+        "algorithm": "SHA1",
+        "checksum": "ff8016fd0fe489028e242984ec26b21a5d9606e9"
+      },
+      {
+        "tag": "1.2.140",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.140/h2-1.2.140.jar",
+        "algorithm": "SHA1",
+        "checksum": "e1e74fe336a6226e9ef97a3da711050582dcd08c"
+      },
+      {
+        "tag": "1.2.141",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.141/h2-1.2.141.jar",
+        "algorithm": "SHA1",
+        "checksum": "0ee9999b45c6bd8d634ee2b69d44f5b6db001365"
+      },
+      {
+        "tag": "1.2.142",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.142/h2-1.2.142.jar",
+        "algorithm": "SHA1",
+        "checksum": "a43756911b4d03d511e93305cacbf9b3bb8f36ae"
+      },
+      {
+        "tag": "1.2.143",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.143/h2-1.2.143.jar",
+        "algorithm": "SHA1",
+        "checksum": "c3b246503ec6534185da0c4a2191fccbe8aed137"
+      },
+      {
+        "tag": "1.2.144",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.144/h2-1.2.144.jar",
+        "algorithm": "SHA1",
+        "checksum": "44c586ff89df3229a156f9baedcc787fd1cb12c9"
+      },
+      {
+        "tag": "1.2.145",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.145/h2-1.2.145.jar",
+        "algorithm": "SHA1",
+        "checksum": "d9751e1135b9267e5b21811bd2be3b2ed89a6864"
+      },
+      {
+        "tag": "1.2.147",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.2.147/h2-1.2.147.jar",
+        "algorithm": "SHA1",
+        "checksum": "edbfcef6c656b0d309c973fa5f3cccabfa9d8e69"
+      },
+      {
+        "tag": "1.3.146",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.146/h2-1.3.146.jar",
+        "algorithm": "SHA1",
+        "checksum": "acb7dbd149444fb9286befd94ac816a6dc702832"
+      },
+      {
+        "tag": "1.3.148",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.148/h2-1.3.148.jar",
+        "algorithm": "SHA1",
+        "checksum": "ce09b82b041aed744c94cb1b1addd8a8ba244e54"
+      },
+      {
+        "tag": "1.3.149",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.149/h2-1.3.149.jar",
+        "algorithm": "SHA1",
+        "checksum": "3dec085e6503cde6aa4afe6d141c6afc8856b234"
+      },
+      {
+        "tag": "1.3.150",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.150/h2-1.3.150.jar",
+        "algorithm": "SHA1",
+        "checksum": "257cfb471141a4c32727f8e15b66786045e67602"
+      },
+      {
+        "tag": "1.3.151",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.151/h2-1.3.151.jar",
+        "algorithm": "SHA1",
+        "checksum": "191a4d439cb421f4f84b5abb3214a8cfc9bde6a9"
+      },
+      {
+        "tag": "1.3.152",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.152/h2-1.3.152.jar",
+        "algorithm": "SHA1",
+        "checksum": "460e25f1e4b1c7dae80a10b4e0d8c5ecbeda176a"
+      },
+      {
+        "tag": "1.3.153",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.153/h2-1.3.153.jar",
+        "algorithm": "SHA1",
+        "checksum": "57bd2633c363d9309fb10de28b15dad0e24dc251"
+      },
+      {
+        "tag": "1.3.154",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.154/h2-1.3.154.jar",
+        "algorithm": "SHA1",
+        "checksum": "f5813943ca7ed3164ad5d4b57534fd72d41da481"
+      },
+      {
+        "tag": "1.3.155",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.155/h2-1.3.155.jar",
+        "algorithm": "SHA1",
+        "checksum": "3fc136ba4c2aa0b5b1c252a62afcf0483cc58256"
+      },
+      {
+        "tag": "1.3.156",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.156/h2-1.3.156.jar",
+        "algorithm": "SHA1",
+        "checksum": "c56dff0333e00d23ae5156aab5d023a46e752435"
+      },
+      {
+        "tag": "1.3.157",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.157/h2-1.3.157.jar",
+        "algorithm": "SHA1",
+        "checksum": "2985ae5a57d714b6d1cf4e275bc4b5b21701b3ea"
+      },
+      {
+        "tag": "1.3.158",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.158/h2-1.3.158.jar",
+        "algorithm": "SHA1",
+        "checksum": "4bac13427caeb32ef6e93b70101e61f370c7b5e2"
+      },
+      {
+        "tag": "1.3.159",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.159/h2-1.3.159.jar",
+        "algorithm": "SHA1",
+        "checksum": "dd89f939661eb5593909584e1c243db0c25de130"
+      },
+      {
+        "tag": "1.3.160",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.160/h2-1.3.160.jar",
+        "algorithm": "SHA1",
+        "checksum": "e5df74e741da2260b825511ce08de5d7730c684a"
+      },
+      {
+        "tag": "1.3.161",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.161/h2-1.3.161.jar",
+        "algorithm": "SHA1",
+        "checksum": "71f05555093b3189a8ac0f55b14414213837a6d0"
+      },
+      {
+        "tag": "1.3.162",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.162/h2-1.3.162.jar",
+        "algorithm": "SHA1",
+        "checksum": "fb381c2cb2805c7135cde33045955fb6e6fa94fd"
+      },
+      {
+        "tag": "1.3.163",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.163/h2-1.3.163.jar",
+        "algorithm": "SHA1",
+        "checksum": "978de63cea2f9f71c20217ef2e2054d621a940e8"
+      },
+      {
+        "tag": "1.3.164",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.164/h2-1.3.164.jar",
+        "algorithm": "SHA1",
+        "checksum": "2dc5743ae11b87b218087b57f4e2a86ce08b8f1d"
+      },
+      {
+        "tag": "1.3.165",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.165/h2-1.3.165.jar",
+        "algorithm": "SHA1",
+        "checksum": "b72ecdabd94ca72069e65b48be7094b0c6e90d65"
+      },
+      {
+        "tag": "1.3.166",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.166/h2-1.3.166.jar",
+        "algorithm": "SHA1",
+        "checksum": "cab5ca78e3773d2229e7eb0dcf87011bcb628a80"
+      },
+      {
+        "tag": "1.3.167",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.167/h2-1.3.167.jar",
+        "algorithm": "SHA1",
+        "checksum": "d3867d586f087e53eb12fc65e5693d8ee9a5da17"
+      },
+      {
+        "tag": "1.3.168",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.168/h2-1.3.168.jar",
+        "algorithm": "SHA1",
+        "checksum": "eb32936a239d95220f5b2d2973a7b17372f98b54"
+      },
+      {
+        "tag": "1.3.169",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.169/h2-1.3.169.jar",
+        "algorithm": "SHA1",
+        "checksum": "98330537871f7ded493a9386a210ee64fe21814d"
+      },
+      {
+        "tag": "1.3.170",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.170/h2-1.3.170.jar",
+        "algorithm": "SHA1",
+        "checksum": "7200aeef0a3c6889d049f4d8f6f26266721ccc48"
+      },
+      {
+        "tag": "1.3.171",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.171/h2-1.3.171.jar",
+        "algorithm": "SHA1",
+        "checksum": "a9871003cf07f51a332548818b57521fc8476daf"
+      },
+      {
+        "tag": "1.3.172",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.172/h2-1.3.172.jar",
+        "algorithm": "SHA1",
+        "checksum": "911584bdd0a319fa9aa24bed33af0fecff9727f5"
+      },
+      {
+        "tag": "1.3.173",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.173/h2-1.3.173.jar",
+        "algorithm": "SHA1",
+        "checksum": "3d9cc700d2c6b0b7a9bb59bd2b850e6518b6c209"
+      },
+      {
+        "tag": "1.3.174",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.174/h2-1.3.174.jar",
+        "algorithm": "SHA1",
+        "checksum": "2fb55391f525bc3ef9f320a379d19350af96a554"
+      },
+      {
+        "tag": "1.3.175",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.175/h2-1.3.175.jar",
+        "algorithm": "SHA1",
+        "checksum": "408ed316edddbce6db031c6bdceee73a09647d9e"
+      },
+      {
+        "tag": "1.3.176",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.3.176/h2-1.3.176.jar",
+        "algorithm": "SHA1",
+        "checksum": "fd369423346b2f1525c413e33f8cf95b09c92cbd"
+      },
+      {
+        "tag": "1.4.177",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.177/h2-1.4.177.jar",
+        "algorithm": "SHA1",
+        "checksum": "bac07c73443d14ea5959b3f82508623e2ff24a27"
+      },
+      {
+        "tag": "1.4.178",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.178/h2-1.4.178.jar",
+        "algorithm": "SHA1",
+        "checksum": "a7821215a4f4b7e8ab0d42698e5c24eb50d1f58f"
+      },
+      {
+        "tag": "1.4.179",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.179/h2-1.4.179.jar",
+        "algorithm": "SHA1",
+        "checksum": "689c840eeb2b393a99b836ac388e239e764c29d1"
+      },
+      {
+        "tag": "1.4.180",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.180/h2-1.4.180.jar",
+        "algorithm": "SHA1",
+        "checksum": "155fd1e4926093df7b97b09a6954ab9964f6a54b"
+      },
+      {
+        "tag": "1.4.181",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.181/h2-1.4.181.jar",
+        "algorithm": "SHA1",
+        "checksum": "a7b513c019283791c5e582c40350747673155551"
+      },
+      {
+        "tag": "1.4.182",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.182/h2-1.4.182.jar",
+        "algorithm": "SHA1",
+        "checksum": "fc66091e2aa166713fa830a02a9261e54f020044"
+      },
+      {
+        "tag": "1.4.183",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.183/h2-1.4.183.jar",
+        "algorithm": "SHA1",
+        "checksum": "1f3d906d596b327bb80979bad8aeb82f8920a268"
+      },
+      {
+        "tag": "1.4.184",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.184/h2-1.4.184.jar",
+        "algorithm": "SHA1",
+        "checksum": "4506eb0d844dc310a962b8691adebd7f6f57d3e8"
+      },
+      {
+        "tag": "1.4.185",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.185/h2-1.4.185.jar",
+        "algorithm": "SHA1",
+        "checksum": "b88c610b2df842752b889a438d0034f08e5fc2ce"
+      },
+      {
+        "tag": "1.4.186",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.186/h2-1.4.186.jar",
+        "algorithm": "SHA1",
+        "checksum": "cd59cafd63c07654a406cc675719e80dc313ffb9"
+      },
+      {
+        "tag": "1.4.187",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.187/h2-1.4.187.jar",
+        "algorithm": "SHA1",
+        "checksum": "f6b109788d196430458309ea28ce9a77830b3ed8"
+      },
+      {
+        "tag": "1.4.188",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.188/h2-1.4.188.jar",
+        "algorithm": "SHA1",
+        "checksum": "a955e0f5598a7bc9df5c7b5c3ab31ffd350a035e"
+      },
+      {
+        "tag": "1.4.189",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.189/h2-1.4.189.jar",
+        "algorithm": "SHA1",
+        "checksum": "729cc6463437e87238e85aa81dd3771c3b8e2a0f"
+      },
+      {
+        "tag": "1.4.190",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.190/h2-1.4.190.jar",
+        "algorithm": "SHA1",
+        "checksum": "df71536d44e3b07f0c15bb632cac51956c55fc3e"
+      },
+      {
+        "tag": "1.4.191",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.191/h2-1.4.191.jar",
+        "algorithm": "SHA1",
+        "checksum": "dec3540178ea889b2871b0ed56db14bbec9cfdfc"
+      },
+      {
+        "tag": "1.4.192",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.192/h2-1.4.192.jar",
+        "algorithm": "SHA1",
+        "checksum": "1106492605db135523d2817881cdf029d9292afa"
+      },
+      {
+        "tag": "1.4.193",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.193/h2-1.4.193.jar",
+        "algorithm": "SHA1",
+        "checksum": "369b51e2090c4e6714d9d5e42010b6330c2cea26"
+      },
+      {
+        "tag": "1.4.194",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.194/h2-1.4.194.jar",
+        "algorithm": "SHA1",
+        "checksum": "a180e95af52ad8116d52beb5f1d28596dcafa9d8"
+      },
+      {
+        "tag": "1.4.195",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.195/h2-1.4.195.jar",
+        "algorithm": "SHA1",
+        "checksum": "b25cc38f12b977694b8c85848e5bbecb2d88fd96"
+      },
+      {
+        "tag": "1.4.196",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.196/h2-1.4.196.jar",
+        "algorithm": "SHA1",
+        "checksum": "dd0034398d593aa3588c6773faac429bbd9aea0e"
+      },
+      {
+        "tag": "1.4.197",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.197/h2-1.4.197.jar",
+        "algorithm": "SHA1",
+        "checksum": "bb391050048ca8ae3e32451b5a3714ecd3596a46"
+      },
+      {
+        "tag": "1.4.198",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.198/h2-1.4.198.jar",
+        "algorithm": "SHA1",
+        "checksum": "c5693092efef44cc4587828afe12f7f7208a67f4"
+      },
+      {
+        "tag": "1.4.199",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.199/h2-1.4.199.jar",
+        "algorithm": "SHA1",
+        "checksum": "7bf08152984ed8859740ae3f97fae6c72771ae45"
+      },
       {
         "tag": "1.4.200",
         "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.4.200/h2-1.4.200.jar",
@@ -64,6 +1600,30 @@
     "category": "driver",
     "versions": [
       {
+        "tag": "11.1.4.4",
+        "path": "https://repo1.maven.org/maven2/com/ibm/db2/jcc/11.1.4.4/jcc-11.1.4.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "0e11ac28039c7476e53a3d222e815f62d76c16be"
+      },
+      {
+        "tag": "11.5.0.0",
+        "path": "https://repo1.maven.org/maven2/com/ibm/db2/jcc/11.5.0.0/jcc-11.5.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "f04a054182a078d521e39971bd907d62bd87388e"
+      },
+      {
+        "tag": "11.5.4.0",
+        "path": "https://repo1.maven.org/maven2/com/ibm/db2/jcc/11.5.4.0/jcc-11.5.4.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "52969445d49929b9026aef2b88184480c13046f6"
+      },
+      {
+        "tag": "11.5.5.0",
+        "path": "https://repo1.maven.org/maven2/com/ibm/db2/jcc/11.5.5.0/jcc-11.5.5.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "902856c6b9f979facc6f75fad40da6b048df5df8"
+      },
+      {
         "tag": "11.5.6.0",
         "path": "https://repo1.maven.org/maven2/com/ibm/db2/jcc/11.5.6.0/jcc-11.5.6.0.jar",
         "algorithm": "SHA1",
@@ -76,10 +1636,748 @@
     "category": "driver",
     "versions": [
       {
+        "tag": "2.8.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/2.8.0/snowflake-jdbc-2.8.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "3f0c13af8e9722683dce4dfb8e82c5df3c2ddff5"
+      },
+      {
+        "tag": "2.8.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/2.8.1/snowflake-jdbc-2.8.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "d389a41f14bec9d23849a0ab96966df53d7493db"
+      },
+      {
+        "tag": "2.8.2",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/2.8.2/snowflake-jdbc-2.8.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "96687c6bd55dba6ea7dbaf354171b307bf161bdf"
+      },
+      {
+        "tag": "3.0.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.0/snowflake-jdbc-3.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "c5917f86bbb5d260a678b493e56a9d797df76fc8"
+      },
+      {
+        "tag": "3.0.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.1/snowflake-jdbc-3.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "91b76e987c77703c48f0a7881bd02120e5c9b08b"
+      },
+      {
+        "tag": "3.0.2",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.2/snowflake-jdbc-3.0.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "ef33b88b4108c83fd65a135a8d5c64c569760072"
+      },
+      {
+        "tag": "3.0.3",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.3/snowflake-jdbc-3.0.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "5df2549f9fc9b1e4c210ddb2cd7ee1a2c91ae05d"
+      },
+      {
+        "tag": "3.0.4",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.4/snowflake-jdbc-3.0.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "45e5719129fd018dde1a6640b74e8efb966cd14c"
+      },
+      {
+        "tag": "3.0.5",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.5/snowflake-jdbc-3.0.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "8cc4776f4004ad8c4c80812c6fd6b14867e80df3"
+      },
+      {
+        "tag": "3.0.6",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.6/snowflake-jdbc-3.0.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "5a64c23d18167d74d254af28854ddf5ad30ab1f7"
+      },
+      {
+        "tag": "3.0.7",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.7/snowflake-jdbc-3.0.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "4d260e0fc79a65ea0f8805129e5b04fe1655d419"
+      },
+      {
+        "tag": "3.0.8",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.8/snowflake-jdbc-3.0.8.jar",
+        "algorithm": "SHA1",
+        "checksum": "2e0b89bc5ece957b7124aebb43908e157fa67379"
+      },
+      {
+        "tag": "3.0.9",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.9/snowflake-jdbc-3.0.9.jar",
+        "algorithm": "SHA1",
+        "checksum": "9b2dccbc3170d2e21343ca7325ce609184131a49"
+      },
+      {
+        "tag": "3.0.10",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.10/snowflake-jdbc-3.0.10.jar",
+        "algorithm": "SHA1",
+        "checksum": "275de8aafaa7667f68dceeac23b01835672ecef9"
+      },
+      {
+        "tag": "3.0.11",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.11/snowflake-jdbc-3.0.11.jar",
+        "algorithm": "SHA1",
+        "checksum": "21f7b866b2ab6401addd8e95720dd86d152d852e"
+      },
+      {
+        "tag": "3.0.12",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.12/snowflake-jdbc-3.0.12.jar",
+        "algorithm": "SHA1",
+        "checksum": "b7cf17a139177127d822d83f07db8c9e56f6ee5b"
+      },
+      {
+        "tag": "3.0.13",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.13/snowflake-jdbc-3.0.13.jar",
+        "algorithm": "SHA1",
+        "checksum": "63eba838500b8e7367d7367753d19703ece520d7"
+      },
+      {
+        "tag": "3.0.14",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.14/snowflake-jdbc-3.0.14.jar",
+        "algorithm": "SHA1",
+        "checksum": "a7de2ecfdbdc968f932f411d8bf7e0f98d1569fd"
+      },
+      {
+        "tag": "3.0.15",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.15/snowflake-jdbc-3.0.15.jar",
+        "algorithm": "SHA1",
+        "checksum": "e571ed11a0e0ce973d0505f3128940246982a842"
+      },
+      {
+        "tag": "3.0.16",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.16/snowflake-jdbc-3.0.16.jar",
+        "algorithm": "SHA1",
+        "checksum": "ed9fdb2ff020380301f338cf18f484c0176fc9ae"
+      },
+      {
+        "tag": "3.0.17",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.17/snowflake-jdbc-3.0.17.jar",
+        "algorithm": "SHA1",
+        "checksum": "31fe2d0ce4b157b66005acfa29a6dbdd957237d3"
+      },
+      {
+        "tag": "3.0.18",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.18/snowflake-jdbc-3.0.18.jar",
+        "algorithm": "SHA1",
+        "checksum": "b40b62e3584acf4627f1a72d083fd551506eb6b2"
+      },
+      {
+        "tag": "3.0.19",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.19/snowflake-jdbc-3.0.19.jar",
+        "algorithm": "SHA1",
+        "checksum": "6e71985fcae9719fc329b1a2763bf2df7e98f7a1"
+      },
+      {
+        "tag": "3.0.20",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.20/snowflake-jdbc-3.0.20.jar",
+        "algorithm": "SHA1",
+        "checksum": "0a0d2179de7b749c5856b2027e4c8c713cd92e74"
+      },
+      {
+        "tag": "3.0.21",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.0.21/snowflake-jdbc-3.0.21.jar",
+        "algorithm": "SHA1",
+        "checksum": "449a60668060a1dc28a511820b908044c934362e"
+      },
+      {
+        "tag": "3.1.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.1.0/snowflake-jdbc-3.1.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "01763d2c4db294d7af6a4a71eda83d25417260a1"
+      },
+      {
+        "tag": "3.1.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.1.1/snowflake-jdbc-3.1.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "c6ab428f99750e223fbcf967489c09d2629caad9"
+      },
+      {
+        "tag": "3.2.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.2.0/snowflake-jdbc-3.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "cf0a98032a782a0874e13420c5a33ff8986fe842"
+      },
+      {
+        "tag": "3.2.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.2.1/snowflake-jdbc-3.2.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "b4f1d1863dd6ecde9b23324a233145a152472e65"
+      },
+      {
+        "tag": "3.2.2",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.2.2/snowflake-jdbc-3.2.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "6ecb8e253dddcf5c5e743a3a198667363db5f29a"
+      },
+      {
+        "tag": "3.2.3",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.2.3/snowflake-jdbc-3.2.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "06617cef1a2af736a4757c51e4756df3922a4973"
+      },
+      {
+        "tag": "3.2.4",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.2.4/snowflake-jdbc-3.2.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "ce25ca8969c958ad1b9367d1f221f629ffbaee4e"
+      },
+      {
+        "tag": "3.2.5",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.2.5/snowflake-jdbc-3.2.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "0fc3ada2b4b9883a87e92fde3e69f3ccbc371307"
+      },
+      {
+        "tag": "3.2.6",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.2.6/snowflake-jdbc-3.2.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "cb51457a08bd7fbde2f3adb1d60ab38742c788c5"
+      },
+      {
+        "tag": "3.2.7",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.2.7/snowflake-jdbc-3.2.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "c299cab04f73c5693d83a286f8b4f155fe15bdfb"
+      },
+      {
+        "tag": "3.3.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.3.0/snowflake-jdbc-3.3.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "af9804ec6a9cdea0de923f37090aa4e2d962b811"
+      },
+      {
+        "tag": "3.3.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.3.1/snowflake-jdbc-3.3.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "2d58340ebfe53ff9b1d7a90f01e7f1088745f0e6"
+      },
+      {
+        "tag": "3.3.2",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.3.2/snowflake-jdbc-3.3.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "576fee0adbbae7c8592ad0d4ba128b6e852b9a50"
+      },
+      {
+        "tag": "3.3.3",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.3.3/snowflake-jdbc-3.3.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "0f9f4bb4c5dc456391e9fe43b22fe9812ba531a5"
+      },
+      {
+        "tag": "3.4.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.4.0/snowflake-jdbc-3.4.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "7e45793b0ce4b3a59372bc75bd82f398eb31d1e0"
+      },
+      {
+        "tag": "3.4.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.4.1/snowflake-jdbc-3.4.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "4959a4f9d9fd0ec79616a54deb5b09407a05a3d2"
+      },
+      {
+        "tag": "3.4.2",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.4.2/snowflake-jdbc-3.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "69712a9fe08b4cd272ac9d6d8f829e1aa9bc0bfd"
+      },
+      {
+        "tag": "3.4.3",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.4.3/snowflake-jdbc-3.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "0d8875c2d1b39d8d77c390a23655fb069cb36058"
+      },
+      {
+        "tag": "3.5.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.5.0/snowflake-jdbc-3.5.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "a4e2f29486e2c703d26e9908288f787ea0f57786"
+      },
+      {
+        "tag": "3.5.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.5.1/snowflake-jdbc-3.5.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "218ed32b51b9db0d9c6e110db974a65e6547f16a"
+      },
+      {
+        "tag": "3.5.2",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.5.2/snowflake-jdbc-3.5.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "5080a679f5590ae82ef77ac75581ad9b55dc6510"
+      },
+      {
+        "tag": "3.5.3",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.5.3/snowflake-jdbc-3.5.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "b0a486312e762e58f471a2456174ad34a091fbb3"
+      },
+      {
+        "tag": "3.5.4",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.5.4/snowflake-jdbc-3.5.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "45f038523657f072f123eb304d5ed88ea2a736d5"
+      },
+      {
+        "tag": "3.5.5",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.5.5/snowflake-jdbc-3.5.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "7ff8ecab8d311e7498a29f379bd58462c57620ca"
+      },
+      {
+        "tag": "3.6.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.0/snowflake-jdbc-3.6.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "9d9ea40bf4cdd0e076e467ee628a11928d443bcb"
+      },
+      {
+        "tag": "3.6.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.1/snowflake-jdbc-3.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "7c1259dbc6d83ac876a3a559ffeeaf04f2195bf4"
+      },
+      {
+        "tag": "3.6.2",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.2/snowflake-jdbc-3.6.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "7df707f1dc560a9081c3fe3115863313b3c4ed19"
+      },
+      {
+        "tag": "3.6.3",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.3/snowflake-jdbc-3.6.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "daaf4a18ec80a3af500f6adcb5ad66154f8f9208"
+      },
+      {
+        "tag": "3.6.4",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.4/snowflake-jdbc-3.6.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "50d82fb921b404a2eda4fa09bca02bff7b121188"
+      },
+      {
+        "tag": "3.6.5",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.5/snowflake-jdbc-3.6.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "37369c2ba15ec229b4228f6e1cdeddaa3f8a3dda"
+      },
+      {
+        "tag": "3.6.6",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.6/snowflake-jdbc-3.6.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "e54193a1c7b83a9dda305ccefff2274c57eb8f51"
+      },
+      {
+        "tag": "3.6.7",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.7/snowflake-jdbc-3.6.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "37580e0385a3f95ea07aee26e91f3e22d947f952"
+      },
+      {
+        "tag": "3.6.8",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.8/snowflake-jdbc-3.6.8.jar",
+        "algorithm": "SHA1",
+        "checksum": "44e60f55ba554e4319702db2aa53e086df00a701"
+      },
+      {
+        "tag": "3.6.9",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.9/snowflake-jdbc-3.6.9.jar",
+        "algorithm": "SHA1",
+        "checksum": "bae85dbbbec82c1572c3172c9e2a90927db868c4"
+      },
+      {
+        "tag": "3.6.10",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.10/snowflake-jdbc-3.6.10.jar",
+        "algorithm": "SHA1",
+        "checksum": "e93ae8e91fc722a8fb3c420f23cb83d00e843c1b"
+      },
+      {
+        "tag": "3.6.11",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.11/snowflake-jdbc-3.6.11.jar",
+        "algorithm": "SHA1",
+        "checksum": "efa8d5968cdc32adc5d557359046520cb07c980e"
+      },
+      {
+        "tag": "3.6.12",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.12/snowflake-jdbc-3.6.12.jar",
+        "algorithm": "SHA1",
+        "checksum": "385754b6397ffea6d97eded214bf58767258816d"
+      },
+      {
+        "tag": "3.6.13",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.13/snowflake-jdbc-3.6.13.jar",
+        "algorithm": "SHA1",
+        "checksum": "4e61abbc4ce35131f60ff32f2f6251a903b9c674"
+      },
+      {
+        "tag": "3.6.14",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.14/snowflake-jdbc-3.6.14.jar",
+        "algorithm": "SHA1",
+        "checksum": "e6d5c86995b17ba181652312c110e9cbfd09e356"
+      },
+      {
+        "tag": "3.6.15",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.15/snowflake-jdbc-3.6.15.jar",
+        "algorithm": "SHA1",
+        "checksum": "5a9398f69b851f0b0292e830a0b7d53bf899463f"
+      },
+      {
+        "tag": "3.6.16",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.16/snowflake-jdbc-3.6.16.jar",
+        "algorithm": "SHA1",
+        "checksum": "0d3934a59df5d45a1bfe6b1aec5390aa843a1255"
+      },
+      {
+        "tag": "3.6.17",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.17/snowflake-jdbc-3.6.17.jar",
+        "algorithm": "SHA1",
+        "checksum": "756ca12c0a2f2af582ea7399bb82e7dc7442036e"
+      },
+      {
+        "tag": "3.6.18",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.18/snowflake-jdbc-3.6.18.jar",
+        "algorithm": "SHA1",
+        "checksum": "8fc882a5252f8deaaa2b7c70b4779a0cc6fe1c67"
+      },
+      {
+        "tag": "3.6.19",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.19/snowflake-jdbc-3.6.19.jar",
+        "algorithm": "SHA1",
+        "checksum": "ed4e57da5a8d41b6827dd6579027ed81c0a24852"
+      },
+      {
+        "tag": "3.6.20",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.20/snowflake-jdbc-3.6.20.jar",
+        "algorithm": "SHA1",
+        "checksum": "a9a2881a73b63d875e34583d2aa77987de3b294d"
+      },
+      {
+        "tag": "3.6.21",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.21/snowflake-jdbc-3.6.21.jar",
+        "algorithm": "SHA1",
+        "checksum": "a4779d424f6bf065c89b77cbd72340e126799f12"
+      },
+      {
+        "tag": "3.6.22",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.22/snowflake-jdbc-3.6.22.jar",
+        "algorithm": "SHA1",
+        "checksum": "95a5a43f93ccfb60ffc5a91cfcef71549975d3ff"
+      },
+      {
+        "tag": "3.6.23",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.23/snowflake-jdbc-3.6.23.jar",
+        "algorithm": "SHA1",
+        "checksum": "e472c43b24f1b8c5ff6d0d7380615b3ff7df69ab"
+      },
+      {
+        "tag": "3.6.24",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.24/snowflake-jdbc-3.6.24.jar",
+        "algorithm": "SHA1",
+        "checksum": "0b1792c0ee25297fbb43c4900ce28e30b032be69"
+      },
+      {
+        "tag": "3.6.25",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.25/snowflake-jdbc-3.6.25.jar",
+        "algorithm": "SHA1",
+        "checksum": "cfe8afff64d229e74c5c0a087677f8b8cd2d046a"
+      },
+      {
+        "tag": "3.6.26",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.26/snowflake-jdbc-3.6.26.jar",
+        "algorithm": "SHA1",
+        "checksum": "39eb0049ad2f5ae696a2915130a8c0a26a7eab57"
+      },
+      {
+        "tag": "3.6.27",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.27/snowflake-jdbc-3.6.27.jar",
+        "algorithm": "SHA1",
+        "checksum": "5dd1a6f8cb3d8624142000c47cd72ae46413c860"
+      },
+      {
+        "tag": "3.6.28",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.6.28/snowflake-jdbc-3.6.28.jar",
+        "algorithm": "SHA1",
+        "checksum": "368f38b29fb54c456aaafee955d428f962b4c2cd"
+      },
+      {
+        "tag": "3.7.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.7.0/snowflake-jdbc-3.7.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "5095ca11bfc5b4be2dd1fc73fee1162a1c5733de"
+      },
+      {
+        "tag": "3.7.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.7.1/snowflake-jdbc-3.7.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "1f88f3ae257c97b4c0b22eebf116f0b9b93ab07e"
+      },
+      {
+        "tag": "3.7.2",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.7.2/snowflake-jdbc-3.7.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "5a6633f18d637e30c39bd61b795202302013872d"
+      },
+      {
+        "tag": "3.8.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.8.0/snowflake-jdbc-3.8.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "8b814de7395e740ae9ffb1cc30dc5b1f1bd06ff0"
+      },
+      {
+        "tag": "3.8.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.8.1/snowflake-jdbc-3.8.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "bcff7c2073fc3c9bf50d89ec5dd14f6c3d040ba9"
+      },
+      {
+        "tag": "3.8.2",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.8.2/snowflake-jdbc-3.8.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "c24313f35f51b6520db3ad8404efd2dbac92de5c"
+      },
+      {
+        "tag": "3.8.3",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.8.3/snowflake-jdbc-3.8.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "2caab32564a6d4d0033e268758a4f87f34552c9c"
+      },
+      {
+        "tag": "3.8.4",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.8.4/snowflake-jdbc-3.8.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "e56d3088d9dd635de61c2edb65cfc2eb220d4f18"
+      },
+      {
+        "tag": "3.8.5",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.8.5/snowflake-jdbc-3.8.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "9820f644c119eabec19131345a6abbb5a54fce65"
+      },
+      {
+        "tag": "3.8.6",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.8.6/snowflake-jdbc-3.8.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "9c9199fb266afe7acf0e38e8dcdea74268f8ee7a"
+      },
+      {
+        "tag": "3.8.7",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.8.7/snowflake-jdbc-3.8.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "b690eff83ee16f1295a66c95b3bc36b0e3df28df"
+      },
+      {
+        "tag": "3.8.8",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.8.8/snowflake-jdbc-3.8.8.jar",
+        "algorithm": "SHA1",
+        "checksum": "b98d82019e26289051bed9bba32db9190744b5b7"
+      },
+      {
+        "tag": "3.9.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.9.0/snowflake-jdbc-3.9.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "109ee6890389f63116a81f7f3afc369187947738"
+      },
+      {
+        "tag": "3.9.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.9.1/snowflake-jdbc-3.9.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "226dd6c39fec12812765beb3dd16ba663a55ab01"
+      },
+      {
+        "tag": "3.9.2",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.9.2/snowflake-jdbc-3.9.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "ad6bade4cf80d2cc7bd830535a20d7303c26f6be"
+      },
+      {
+        "tag": "3.10.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.10.0/snowflake-jdbc-3.10.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "5d643cb6cda562a6c8ec9fedbe6f6563ca46a3fe"
+      },
+      {
+        "tag": "3.10.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.10.1/snowflake-jdbc-3.10.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "ab8b98b576a71959b6e341d5da195abbedf836bc"
+      },
+      {
+        "tag": "3.10.2",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.10.2/snowflake-jdbc-3.10.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "5017da8b57ab2610695945e8541aa7727ee986a3"
+      },
+      {
+        "tag": "3.10.3",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.10.3/snowflake-jdbc-3.10.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "981d01c493e47fbaf9a7141180f4e5cf91cf427c"
+      },
+      {
+        "tag": "3.11.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.11.0/snowflake-jdbc-3.11.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "4ec383123b6931e37c78bfea056222f41ea81e7d"
+      },
+      {
+        "tag": "3.11.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.11.1/snowflake-jdbc-3.11.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "7227fe6e541eb8a0cece5c68f4d1be5a8e723c6e"
+      },
+      {
+        "tag": "3.12.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.0/snowflake-jdbc-3.12.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "dacdd45e1cfee19491a08e4b76aec0ae7ba5e0e2"
+      },
+      {
+        "tag": "3.12.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.1/snowflake-jdbc-3.12.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "55c6bc95fe382a879e69125006e7ac1f14b5183b"
+      },
+      {
+        "tag": "3.12.2",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.2/snowflake-jdbc-3.12.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "9338f6a1e7ea9c5dd80fcbf64927c24afe61afd9"
+      },
+      {
+        "tag": "3.12.3",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.3/snowflake-jdbc-3.12.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "ea2280f496bbd8e31c628edca2cfff6ee0aa4c24"
+      },
+      {
+        "tag": "3.12.4",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.4/snowflake-jdbc-3.12.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "d1c71eb1b661d4a9746b550be1f3c122ce57167d"
+      },
+      {
+        "tag": "3.12.5",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.5/snowflake-jdbc-3.12.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "58ff816d8b7a504e94a963fbf96380cdea7d9306"
+      },
+      {
+        "tag": "3.12.6",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.6/snowflake-jdbc-3.12.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "4c6850272f7b3fac94f0659bb8bc92d7eb332eb0"
+      },
+      {
+        "tag": "3.12.7",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.7/snowflake-jdbc-3.12.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "e47fa73b85037285b887c63602f9c509df27b2be"
+      },
+      {
+        "tag": "3.12.8",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.8/snowflake-jdbc-3.12.8.jar",
+        "algorithm": "SHA1",
+        "checksum": "05247ff64bff9d466fd6076ede441e7b08eb0526"
+      },
+      {
+        "tag": "3.12.9",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.9/snowflake-jdbc-3.12.9.jar",
+        "algorithm": "SHA1",
+        "checksum": "47460234429888b0f6533a735c58733fbe1b7c4a"
+      },
+      {
+        "tag": "3.12.10",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.10/snowflake-jdbc-3.12.10.jar",
+        "algorithm": "SHA1",
+        "checksum": "0d7875984ecad2ee566af97bf053ed0a191e2cfe"
+      },
+      {
+        "tag": "3.12.11",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.11/snowflake-jdbc-3.12.11.jar",
+        "algorithm": "SHA1",
+        "checksum": "be6c0a0dbc92679d87d723d6b5667d39878bb4ef"
+      },
+      {
+        "tag": "3.12.12",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.12/snowflake-jdbc-3.12.12.jar",
+        "algorithm": "SHA1",
+        "checksum": "f63907bce42c32b8e174572aef8d66e8154e2a6d"
+      },
+      {
+        "tag": "3.12.13",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.13/snowflake-jdbc-3.12.13.jar",
+        "algorithm": "SHA1",
+        "checksum": "0e39b6d5da76fa2507e95d1867371c800280db98"
+      },
+      {
+        "tag": "3.12.14",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.14/snowflake-jdbc-3.12.14.jar",
+        "algorithm": "SHA1",
+        "checksum": "ac25124948f4d935a6f7053c3bce1aae4a6ed0d2"
+      },
+      {
+        "tag": "3.12.15",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.15/snowflake-jdbc-3.12.15.jar",
+        "algorithm": "SHA1",
+        "checksum": "8aa6bc7de1c3c49a8adf3582390628f195fed224"
+      },
+      {
+        "tag": "3.12.16",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.16/snowflake-jdbc-3.12.16.jar",
+        "algorithm": "SHA1",
+        "checksum": "0832e4d5b5388a49d2247c6d391d4bc93d2db8c3"
+      },
+      {
+        "tag": "3.12.17",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.12.17/snowflake-jdbc-3.12.17.jar",
+        "algorithm": "SHA1",
+        "checksum": "fab4621f6e346acf2ece873063d150581fd7b658"
+      },
+      {
+        "tag": "3.13.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.0/snowflake-jdbc-3.13.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "153b55ec0990a48ffd84778b8ee2461cbfcc10b4"
+      },
+      {
+        "tag": "3.13.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.1/snowflake-jdbc-3.13.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "33d436d13eacdd34d78d5089fae29e31a3e3abb5"
+      },
+      {
+        "tag": "3.13.2",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.2/snowflake-jdbc-3.13.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "89e3ddea664c6be222661cc22c8e4682cee9bbae"
+      },
+      {
+        "tag": "3.13.3",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.3/snowflake-jdbc-3.13.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "b391b3d6b760bd0408e327793288782d28dc211e"
+      },
+      {
+        "tag": "3.13.4",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.4/snowflake-jdbc-3.13.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "bb31bc46f2023910bc71fb12fa0b24ee20ffea25"
+      },
+      {
         "tag": "3.13.5",
         "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.5/snowflake-jdbc-3.13.5.jar",
         "algorithm": "SHA1",
         "checksum": "5cf0b933bc7125894138bdf9befd7547e0783553"
+      },
+      {
+        "tag": "3.13.6",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.6/snowflake-jdbc-3.13.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "056053012ed5c92d516c04f06675c8d825160a54"
       }
     ]
   },
@@ -87,6 +2385,48 @@
     "name": "sybase",
     "category": "driver",
     "versions": [
+      {
+        "tag": "3.2.0-RC1",
+        "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/sybase/3.2.0-RC1/sybase-3.2.0-RC1.jar",
+        "algorithm": "SHA1",
+        "checksum": "18c2a19e62fa76a6a28ca85558270c41ea94c5ed"
+      },
+      {
+        "tag": "3.2.0",
+        "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/sybase/3.2.0/sybase-3.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "99fb7636077b87ba4d0e8ff0f7060e9bdcbbd25b"
+      },
+      {
+        "tag": "3.2.1",
+        "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/sybase/3.2.1/sybase-3.2.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "f900e91ec9a3a94bc5e3a2f7f16d61afc6f2b25f"
+      },
+      {
+        "tag": "3.2.2",
+        "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/sybase/3.2.2/sybase-3.2.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "a60252eac32cba2dc4abe48d4c4f35bd204451e5"
+      },
+      {
+        "tag": "3.3.0-rc1",
+        "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/sybase/3.3.0-rc1/sybase-3.3.0-rc1.jar",
+        "algorithm": "SHA1",
+        "checksum": "181bc312f88fcd31af45450cf9d0c56cc32d94f0"
+      },
+      {
+        "tag": "3.3.0",
+        "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/sybase/3.3.0/sybase-3.3.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "9a26706b4bd63cdeb0fa46dfec2bb6275399eb40"
+      },
+      {
+        "tag": "3.4.0",
+        "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/sybase/3.4.0/sybase-3.4.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "2fa766bb0e9489ad05b095dc0196515bc2f3a3f5"
+      },
       {
         "tag": "3.5.0",
         "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/sybase/3.5.0/sybase-3.5.0.jar",
@@ -100,6 +2440,48 @@
     "category": "driver",
     "versions": [
       {
+        "tag": "3.2.0-RC1",
+        "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/firebird/3.2.0-RC1/firebird-3.2.0-RC1.jar",
+        "algorithm": "SHA1",
+        "checksum": "f3991501e52630d4a2827077356e5f5554316d4a"
+      },
+      {
+        "tag": "3.2.0",
+        "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/firebird/3.2.0/firebird-3.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "c4d2cfd2ecae012a6c52d6d915cc1d11cca5f1fc"
+      },
+      {
+        "tag": "3.2.1",
+        "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/firebird/3.2.1/firebird-3.2.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "d2e43ead1998e977f3413a1bb0fc6e6917542ed5"
+      },
+      {
+        "tag": "3.2.2",
+        "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/firebird/3.2.2/firebird-3.2.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "347d42481b9e1161ab8064910dd4f6bb70289e2b"
+      },
+      {
+        "tag": "3.3.0-rc1",
+        "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/firebird/3.3.0-rc1/firebird-3.3.0-rc1.jar",
+        "algorithm": "SHA1",
+        "checksum": "8bd5182ce1ae2992317f058bd492e5a6bea85607"
+      },
+      {
+        "tag": "3.3.0",
+        "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/firebird/3.3.0/firebird-3.3.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "665fb7155fa3f0a28fa64d7b15cf1f1985025ed3"
+      },
+      {
+        "tag": "3.4.0",
+        "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/firebird/3.4.0/firebird-3.4.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "4f6736474cae1d73e1423cbe4071f8e34258afad"
+      },
+      {
         "tag": "3.5.0",
         "path": "https://repo1.maven.org/maven2/net/sf/squirrel-sql/plugins/firebird/3.5.0/firebird-3.5.0.jar",
         "algorithm": "SHA1",
@@ -111,6 +2493,366 @@
     "name": "sqlite",
     "category": "driver",
     "versions": [
+      {
+        "tag": "3.5.7",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.5.7/sqlite-jdbc-3.5.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "d509a971846a1426fb23196d4056ad1a0f7d88dd"
+      },
+      {
+        "tag": "3.5.8",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.5.8/sqlite-jdbc-3.5.8.jar",
+        "algorithm": "SHA1",
+        "checksum": "ad6759d824b6524cb391891ca56a5a5354b19264"
+      },
+      {
+        "tag": "3.5.9-universal",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.5.9-universal/sqlite-jdbc-3.5.9-universal.jar",
+        "algorithm": "SHA1",
+        "checksum": "8cb6ab81f83e05ea58b74b96181ee1f7615aefaa"
+      },
+      {
+        "tag": "3.5.9",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.5.9/sqlite-jdbc-3.5.9.jar",
+        "algorithm": "SHA1",
+        "checksum": "2d061e2ca8dc155dd4ba5fee86ea5febb6e9bf6e"
+      },
+      {
+        "tag": "3.6.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.0/sqlite-jdbc-3.6.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "9ad272d69b3ed7e33dad27a8fd1e6cb001122cc1"
+      },
+      {
+        "tag": "3.6.2",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.2/sqlite-jdbc-3.6.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "b4fae4b9ff9dbb558e9f504a4a24e1b5169bb0d2"
+      },
+      {
+        "tag": "3.6.3",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.3/sqlite-jdbc-3.6.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "808cb2f2152b167d761f3dd95f7cb1a4b28c6d2d"
+      },
+      {
+        "tag": "3.6.4",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.4/sqlite-jdbc-3.6.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "31015a65dd0316b483d84e93102d9a08ea115291"
+      },
+      {
+        "tag": "3.6.4.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.4.1/sqlite-jdbc-3.6.4.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "fb59c501aecb7f59d26b83044d09f2b90b0dd936"
+      },
+      {
+        "tag": "3.6.6",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.6/sqlite-jdbc-3.6.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "f7ac5131a689f8792992bfdcf6a034124f59e90b"
+      },
+      {
+        "tag": "3.6.6.2",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.6.2/sqlite-jdbc-3.6.6.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "0691ef68c63496ee1f84658e5b9c77ce696ed26c"
+      },
+      {
+        "tag": "3.6.7",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.7/sqlite-jdbc-3.6.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "d429b4a4dc89b4e031e39b2fe37fdf4b628a4e6c"
+      },
+      {
+        "tag": "3.6.10",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.10/sqlite-jdbc-3.6.10.jar",
+        "algorithm": "SHA1",
+        "checksum": "89a9c9db51a6e2e1341b82c3775d5c357ec1065a"
+      },
+      {
+        "tag": "3.6.11",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.11/sqlite-jdbc-3.6.11.jar",
+        "algorithm": "SHA1",
+        "checksum": "2f55911e3a4ee957d6af18c71ec985964e4d759d"
+      },
+      {
+        "tag": "3.6.13",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.13/sqlite-jdbc-3.6.13.jar",
+        "algorithm": "SHA1",
+        "checksum": "fd9d0384f57e4ca524f79b983e29d6fcf48a5cfb"
+      },
+      {
+        "tag": "3.6.14.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.14.1/sqlite-jdbc-3.6.14.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "6fa08d70a83a8a9700815555c809857ffd521f15"
+      },
+      {
+        "tag": "3.6.14.2",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.14.2/sqlite-jdbc-3.6.14.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "291a8fd65d9997d9b6f28c598a05a77434a0ab50"
+      },
+      {
+        "tag": "3.6.15",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.15/sqlite-jdbc-3.6.15.jar",
+        "algorithm": "SHA1",
+        "checksum": "dfb2b39f34a1db2f7480814d343f0e649fcb0555"
+      },
+      {
+        "tag": "3.6.16",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.16/sqlite-jdbc-3.6.16.jar",
+        "algorithm": "SHA1",
+        "checksum": "63c075b9865d5451aee114c25c0ab1eb6fc34566"
+      },
+      {
+        "tag": "3.6.17",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.17/sqlite-jdbc-3.6.17.jar",
+        "algorithm": "SHA1",
+        "checksum": "ba743a9d69863b062605796de25e4658256dc975"
+      },
+      {
+        "tag": "3.6.17.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.17.1/sqlite-jdbc-3.6.17.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "fee4344eafcd9624b4e58e11a6c6f8a5fce94fc8"
+      },
+      {
+        "tag": "3.6.20",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.6.20/sqlite-jdbc-3.6.20.jar",
+        "algorithm": "SHA1",
+        "checksum": "bbf4c64c098eef73febe8f92995dd187d715da98"
+      },
+      {
+        "tag": "3.7.2",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.7.2/sqlite-jdbc-3.7.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "7a3d67f00508d3881650579f7f228c61bfc1b196"
+      },
+      {
+        "tag": "3.7.15-M1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.7.15-M1/sqlite-jdbc-3.7.15-M1.jar",
+        "algorithm": "SHA1",
+        "checksum": "9b713ffe2bd3e1f1ddea48cce098e3f6de9a0430"
+      },
+      {
+        "tag": "3.8.5-pre1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.8.5-pre1/sqlite-jdbc-3.8.5-pre1.jar",
+        "algorithm": "SHA1",
+        "checksum": "fdb4c270e4b386ba4613276f84944751ec79cd96"
+      },
+      {
+        "tag": "3.8.6",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.8.6/sqlite-jdbc-3.8.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "16ea8dd96d82a90c386c60f95c7da5813f65ac21"
+      },
+      {
+        "tag": "3.8.7",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.8.7/sqlite-jdbc-3.8.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "b50c89d50e9b9079fff5cd93e5d027d0a8b68aa6"
+      },
+      {
+        "tag": "3.8.9",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.8.9/sqlite-jdbc-3.8.9.jar",
+        "algorithm": "SHA1",
+        "checksum": "5565591f2a24fbdfe461bf931eba7ce3bcfca810"
+      },
+      {
+        "tag": "3.8.9.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.8.9.1/sqlite-jdbc-3.8.9.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "04f970529118d32b31b59431939c026f19c544bf"
+      },
+      {
+        "tag": "3.8.10.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.8.10.1/sqlite-jdbc-3.8.10.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "e6023cf20837019283abc6c73957341fb13b5fcc"
+      },
+      {
+        "tag": "3.8.10.2",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.8.10.2/sqlite-jdbc-3.8.10.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "ac601c5cc823d9062a8e7096917a652ed9170bbb"
+      },
+      {
+        "tag": "3.8.11",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.8.11/sqlite-jdbc-3.8.11.jar",
+        "algorithm": "SHA1",
+        "checksum": "fac5d26e97f690cb9f647e42e84d5e485543bb5c"
+      },
+      {
+        "tag": "3.8.11.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.8.11.1/sqlite-jdbc-3.8.11.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "0b33358a3e242b21f2fe518dc1471fab0a49a04a"
+      },
+      {
+        "tag": "3.8.11.2",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.8.11.2/sqlite-jdbc-3.8.11.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "dec208cba8debb0a8b9204b08d8d887d63041f0f"
+      },
+      {
+        "tag": "3.14.2",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.14.2/sqlite-jdbc-3.14.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "546bb75d61327f6a90a2ca6038c5b600fcdccf96"
+      },
+      {
+        "tag": "3.14.2.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.14.2.1/sqlite-jdbc-3.14.2.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "66b8075784131f578ef893fd7674273f709b9a4c"
+      },
+      {
+        "tag": "3.15.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.15.0/sqlite-jdbc-3.15.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "d7b3af00dee33363ad9ed8ea914c25a74f798e04"
+      },
+      {
+        "tag": "3.15.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.15.1/sqlite-jdbc-3.15.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "acb44214a86abebf2f3a8969ecbb697850dd9c8e"
+      },
+      {
+        "tag": "3.16.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.16.1/sqlite-jdbc-3.16.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "72540738ecee65b58ef5a6dbc125e83223716b17"
+      },
+      {
+        "tag": "3.18.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.18.0/sqlite-jdbc-3.18.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "daee04a44c479fcfa525aaba23240b20234ae474"
+      },
+      {
+        "tag": "3.19.3",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.19.3/sqlite-jdbc-3.19.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "99822df244c5bbc300bef5c633550586b8e01316"
+      },
+      {
+        "tag": "3.20.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.20.0/sqlite-jdbc-3.20.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "6e9d6da531eb356c1c9ebda25e75f6b6116597e8"
+      },
+      {
+        "tag": "3.20.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.20.1/sqlite-jdbc-3.20.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "df3068e837e9490a9554212fcab40a2c55faf0a3"
+      },
+      {
+        "tag": "3.21.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.21.0/sqlite-jdbc-3.21.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "347e4d1d3e1dff66d389354af8f0021e62344584"
+      },
+      {
+        "tag": "3.21.0.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.21.0.1/sqlite-jdbc-3.21.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "81a0bcda2f100dc91dc402554f60ed2f696cded5"
+      },
+      {
+        "tag": "3.23.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.23.1/sqlite-jdbc-3.23.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "573ef2e63230eb1bf380ac3596082d3f92473394"
+      },
+      {
+        "tag": "3.25.2",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.25.2/sqlite-jdbc-3.25.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "bd3c4cde613b661871e861eb56656c4c39e1ee0a"
+      },
+      {
+        "tag": "3.27.2",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.27.2/sqlite-jdbc-3.27.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "86b40981fc65a07fdd38dff116f3743031ade7f6"
+      },
+      {
+        "tag": "3.27.2.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.27.2.1/sqlite-jdbc-3.27.2.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "490103b8032e7a4bb14c74c773d96cdb69ee61a7"
+      },
+      {
+        "tag": "3.28.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.28.0/sqlite-jdbc-3.28.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "406b4fa58eab5d29d779fa86cedb60c7ee071b57"
+      },
+      {
+        "tag": "3.30.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.30.1/sqlite-jdbc-3.30.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "456f2e23fd0e6a615db6e738b01b9d69456d738c"
+      },
+      {
+        "tag": "3.31.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.31.1/sqlite-jdbc-3.31.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "56e4d1c3c103ba40abe07510e76314e99614497c"
+      },
+      {
+        "tag": "3.32.3",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.32.3/sqlite-jdbc-3.32.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "f5bb7e05af8ca3b8d370915080abeb949beacbaf"
+      },
+      {
+        "tag": "3.32.3.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.32.3.1/sqlite-jdbc-3.32.3.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "0185dbb642c3004dee75d408fa327c8356410ed0"
+      },
+      {
+        "tag": "3.32.3.2",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.32.3.2/sqlite-jdbc-3.32.3.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "ee9912c1bdec16fe5978b0abd9f4063ce9eedf8b"
+      },
+      {
+        "tag": "3.32.3.3",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.32.3.3/sqlite-jdbc-3.32.3.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "2935bf4edbdc721ce5be813cd60cd7e325ca7ed6"
+      },
+      {
+        "tag": "3.34.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.34.0/sqlite-jdbc-3.34.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "fd29bb0124e3f79c80b2753162a6a3873c240bcf"
+      },
+      {
+        "tag": "3.35.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.35.0/sqlite-jdbc-3.35.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "62b5431bd9fe614d0b51e34525614dc4f3ec2905"
+      },
+      {
+        "tag": "3.35.0.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.35.0.1/sqlite-jdbc-3.35.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "3b26d204d5d4379167927f6fd5bba521be731f01"
+      },
+      {
+        "tag": "3.36.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.36.0/sqlite-jdbc-3.36.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "9622d230dbf702bb5fb4d8d754894fd5560ad2ac"
+      },
       {
         "tag": "3.36.0.1",
         "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.36.0.1/sqlite-jdbc-3.36.0.1.jar",
@@ -136,10 +2878,514 @@
     "category": "driver",
     "versions": [
       {
+        "tag": "2.0.14",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/2.0.14/mysql-connector-java-2.0.14.jar",
+        "algorithm": "SHA1",
+        "checksum": "8d7fbac5efcb14b3e8b793c686bcc766a708cb30"
+      },
+      {
+        "tag": "3.0.8",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/3.0.8/mysql-connector-java-3.0.8.jar",
+        "algorithm": "SHA1",
+        "checksum": "7de3aef12b0a4580f2c5eccb1e87a3507a28ae17"
+      },
+      {
+        "tag": "3.0.10",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/3.0.10/mysql-connector-java-3.0.10.jar",
+        "algorithm": "SHA1",
+        "checksum": "cf274540cd19381a4d16b2450fd36024eed1fe74"
+      },
+      {
+        "tag": "3.1.11",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/3.1.11/mysql-connector-java-3.1.11.jar",
+        "algorithm": "SHA1",
+        "checksum": "5db8ee3dad35a434ef571b5c42552855dcc743bc"
+      },
+      {
+        "tag": "3.1.12",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/3.1.12/mysql-connector-java-3.1.12.jar",
+        "algorithm": "SHA1",
+        "checksum": "89b75811d7453371d01b5b023dfe1573c3449eea"
+      },
+      {
+        "tag": "3.1.13",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/3.1.13/mysql-connector-java-3.1.13.jar",
+        "algorithm": "SHA1",
+        "checksum": "12e413dffcb953e5c5cfb85e7916712af4f385ec  mysql-connector-java-3.1.13.jar\n"
+      },
+      {
+        "tag": "3.1.14",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/3.1.14/mysql-connector-java-3.1.14.jar",
+        "algorithm": "SHA1",
+        "checksum": "6610ffaf99972bce79ce5f4eb429c5dd37f4fb05"
+      },
+      {
+        "tag": "5.0.2",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.0.2/mysql-connector-java-5.0.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "a892db0dc1f6c2708c63a9fb9c7e525b9e044fd8"
+      },
+      {
+        "tag": "5.0.3",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.0.3/mysql-connector-java-5.0.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "b37af6d3e1b436d0cb271580da131adbf6a0270c"
+      },
+      {
+        "tag": "5.0.4",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.0.4/mysql-connector-java-5.0.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "ce259b62d08cce86a68a8f17f5f9c8218371b235"
+      },
+      {
+        "tag": "5.0.5",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.0.5/mysql-connector-java-5.0.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "168ee7e78b2ded55a8197d4f48ef8dfb5e0dbf7b"
+      },
+      {
+        "tag": "5.0.7",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.0.7/mysql-connector-java-5.0.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "54b41d552efb594143cca6129863f606a1e907f9"
+      },
+      {
+        "tag": "5.0.8",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.0.8/mysql-connector-java-5.0.8.jar",
+        "algorithm": "SHA1",
+        "checksum": "7b9bfb6c4e4885660378a9c13330915c321f6cca"
+      },
+      {
+        "tag": "5.1.1",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.1/mysql-connector-java-5.1.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "840b2fbde11400b5f4f2d154f7ef37c9ecfbbf44"
+      },
+      {
+        "tag": "5.1.2",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.2/mysql-connector-java-5.1.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "86df525275a34a44746ee9dc6de8aee601708de9"
+      },
+      {
+        "tag": "5.1.3",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.3/mysql-connector-java-5.1.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "927549528edba4c97883df90de8145fa228a5d8f"
+      },
+      {
+        "tag": "5.1.4",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.4/mysql-connector-java-5.1.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "a60e0a6de16ad99bcd1aa954034b825ddc0b5ebf"
+      },
+      {
+        "tag": "5.1.5",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.5/mysql-connector-java-5.1.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "c8000ccd9e6b1d99beca369c715ec5151dabadfb"
+      },
+      {
+        "tag": "5.1.6",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "380ef5226de2c85ff3b38cbfefeea881c5fce09d\n"
+      },
+      {
+        "tag": "5.1.8",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.8/mysql-connector-java-5.1.8.jar",
+        "algorithm": "SHA1",
+        "checksum": "ca016d1d4f48d7aa2b6ea75639d53b124ad189a8\n"
+      },
+      {
+        "tag": "5.1.9",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.9/mysql-connector-java-5.1.9.jar",
+        "algorithm": "SHA1",
+        "checksum": "53d70523c4dedc30ca93ad8c75b4b74f31bc67a9\n"
+      },
+      {
+        "tag": "5.1.10",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.10/mysql-connector-java-5.1.10.jar",
+        "algorithm": "SHA1",
+        "checksum": "b83574124f1a00d6f70d56ba64aa52b8e1588e6d\n"
+      },
+      {
+        "tag": "5.1.11",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.11/mysql-connector-java-5.1.11.jar",
+        "algorithm": "SHA1",
+        "checksum": "d1e18742961fdbedfe7629d5ce40c436b4e4018d\n"
+      },
+      {
+        "tag": "5.1.12",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.12/mysql-connector-java-5.1.12.jar",
+        "algorithm": "SHA1",
+        "checksum": "14ae02cc2adb2aed677080a0c0356e7569e298ec\n"
+      },
+      {
+        "tag": "5.1.13",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.13/mysql-connector-java-5.1.13.jar",
+        "algorithm": "SHA1",
+        "checksum": "631249c6055be15a1fab26b3c28a3e5c6f3d97e0\n"
+      },
+      {
+        "tag": "5.1.14",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.14/mysql-connector-java-5.1.14.jar",
+        "algorithm": "SHA1",
+        "checksum": "94f32ab65801741e0f19e2b506d130f6792334d5\n"
+      },
+      {
+        "tag": "5.1.15",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.15/mysql-connector-java-5.1.15.jar",
+        "algorithm": "SHA1",
+        "checksum": "0fbc80454d27cc65f3addfa516707e9f8e60c3eb \n"
+      },
+      {
+        "tag": "5.1.16",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.16/mysql-connector-java-5.1.16.jar",
+        "algorithm": "SHA1",
+        "checksum": "2780fb82cc9c7083f06724432b4f1d1607548d77  mysql-connector-java-5.1.16.jar\n"
+      },
+      {
+        "tag": "5.1.17",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.17/mysql-connector-java-5.1.17.jar",
+        "algorithm": "SHA1",
+        "checksum": "60d52df83d1cc6bcfcb4bf7da3d5b3b912e82d8b\n"
+      },
+      {
+        "tag": "5.1.18",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar",
+        "algorithm": "SHA1",
+        "checksum": "85dfedad243dc0303ad7ae3a323c39421d220690\n"
+      },
+      {
+        "tag": "5.1.19",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.19/mysql-connector-java-5.1.19.jar",
+        "algorithm": "SHA1",
+        "checksum": "ebdd0eb4f1067f29b72e4d87be1967975de6b724\n"
+      },
+      {
+        "tag": "5.1.20",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar",
+        "algorithm": "SHA1",
+        "checksum": "66a2a9c6561dc2c3c6f0b924681c305be78f3377\n"
+      },
+      {
+        "tag": "5.1.21",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar",
+        "algorithm": "SHA1",
+        "checksum": "7abbd19fc2e2d5b92c0895af8520f7fa30266be9  mysql-connector-java-5.1.21.jar\n"
+      },
+      {
+        "tag": "5.1.22",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.22/mysql-connector-java-5.1.22.jar",
+        "algorithm": "SHA1",
+        "checksum": "3ae0cff91d7f40d5b4c7cefbbd1eab34025bdc15  mysql-connector-java-5.1.22.jar\n"
+      },
+      {
+        "tag": "5.1.23",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.23/mysql-connector-java-5.1.23.jar",
+        "algorithm": "SHA1",
+        "checksum": "c264e2114579474d13dd808a510fc74e762dda8c  mysql-connector-java-5.1.23.jar\n"
+      },
+      {
+        "tag": "5.1.24",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.24/mysql-connector-java-5.1.24.jar",
+        "algorithm": "SHA1",
+        "checksum": "a7d599d73b86a928303909b9be7573a4ea0ed28e  mysql-connector-java-5.1.24.jar\n"
+      },
+      {
+        "tag": "5.1.25",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.25/mysql-connector-java-5.1.25.jar",
+        "algorithm": "SHA1",
+        "checksum": "6b2835d687a706678591febfd47b077dcce41595  mysql-connector-java-5.1.25.jar\n"
+      },
+      {
+        "tag": "5.1.26",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.26/mysql-connector-java-5.1.26.jar",
+        "algorithm": "SHA1",
+        "checksum": "f1697bef3639811e56173e70eb2471562e3ac8ef  mysql-connector-java-5.1.26.jar\n"
+      },
+      {
+        "tag": "5.1.27",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.27/mysql-connector-java-5.1.27.jar",
+        "algorithm": "SHA1",
+        "checksum": "2e4fbf71af3fa214951aa32bb6b39076e4e01b6f  mysql-connector-java-5.1.27.jar\n"
+      },
+      {
+        "tag": "5.1.28",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.28/mysql-connector-java-5.1.28.jar",
+        "algorithm": "SHA1",
+        "checksum": "4c3e03dd2c60b8975ed68f72aa18229db2647196  mysql-connector-java-5.1.28.jar\n"
+      },
+      {
+        "tag": "5.1.29",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.29/mysql-connector-java-5.1.29.jar",
+        "algorithm": "SHA1",
+        "checksum": "91798a4463050f61598122fe7fdc24aa196dfc0c  mysql-connector-java-5.1.29.jar\n"
+      },
+      {
+        "tag": "5.1.30",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.30/mysql-connector-java-5.1.30.jar",
+        "algorithm": "SHA1",
+        "checksum": "0203cca178350b60899be36d0e56029eca7430d8  mysql-connector-java-5.1.30.jar\n"
+      },
+      {
+        "tag": "5.1.31",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.31/mysql-connector-java-5.1.31.jar",
+        "algorithm": "SHA1",
+        "checksum": "95baa522c5ae4dbff61e8ebd1b2578665d6853a0  mysql-connector-java-5.1.31.jar\n"
+      },
+      {
+        "tag": "5.1.32",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.32/mysql-connector-java-5.1.32.jar",
+        "algorithm": "SHA1",
+        "checksum": "d28c9a6cf0810fd0e2180e44029c10a54ca26de8  mysql-connector-java-5.1.32.jar\n"
+      },
+      {
+        "tag": "5.1.33",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.33/mysql-connector-java-5.1.33.jar",
+        "algorithm": "SHA1",
+        "checksum": "8af455a9a3267e6664cafc87ace71a4e4ef02837  mysql-connector-java-5.1.33.jar\n"
+      },
+      {
+        "tag": "5.1.34",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar",
+        "algorithm": "SHA1",
+        "checksum": "46deba4adbdb4967367b013cbc67b7f7373da60a  mysql-connector-java-5.1.34.jar\n"
+      },
+      {
+        "tag": "5.1.35",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.35/mysql-connector-java-5.1.35.jar",
+        "algorithm": "SHA1",
+        "checksum": "b6ac941b7288376a7e8bc6490264bbd4427fb94e  mysql-connector-java-5.1.35.jar\n"
+      },
+      {
+        "tag": "5.1.36",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.36/mysql-connector-java-5.1.36.jar",
+        "algorithm": "SHA1",
+        "checksum": "6bb5861f44c21c775ee713a438e5bc493c095f7a\n"
+      },
+      {
+        "tag": "5.1.37",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.37/mysql-connector-java-5.1.37.jar",
+        "algorithm": "SHA1",
+        "checksum": "2c378637f6faff77541244e8257b446f04324bd8\n"
+      },
+      {
+        "tag": "5.1.38",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar",
+        "algorithm": "SHA1",
+        "checksum": "dbbd7cd309ce167ec8367de4e41c63c2c8593cc5\n"
+      },
+      {
+        "tag": "5.1.39",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.39/mysql-connector-java-5.1.39.jar",
+        "algorithm": "SHA1",
+        "checksum": "4617fe8dc8f1969ec450984b0b9203bc8b7c8ad5\n"
+      },
+      {
+        "tag": "5.1.40",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar",
+        "algorithm": "SHA1",
+        "checksum": "ef2a2ceab1735eaaae0b5d1cccf574fb7c6e1c52\n"
+      },
+      {
+        "tag": "5.1.41",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.41/mysql-connector-java-5.1.41.jar",
+        "algorithm": "SHA1",
+        "checksum": "b0878056f15616989144d6114d36d3942321d0d1\n"
+      },
+      {
+        "tag": "5.1.42",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.42/mysql-connector-java-5.1.42.jar",
+        "algorithm": "SHA1",
+        "checksum": "80a448a3ec2178b649bb2e3cb3610fab06e11669\n"
+      },
+      {
+        "tag": "5.1.43",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.43/mysql-connector-java-5.1.43.jar",
+        "algorithm": "SHA1",
+        "checksum": "dee9103eec0d877f3a21c82d4d9e9f4fbd2d6e0a\n"
+      },
+      {
+        "tag": "5.1.44",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.44/mysql-connector-java-5.1.44.jar",
+        "algorithm": "SHA1",
+        "checksum": "61b6b998192c85bb581c6be90e03dcd4b9079db4\n"
+      },
+      {
+        "tag": "5.1.45",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.45/mysql-connector-java-5.1.45.jar",
+        "algorithm": "SHA1",
+        "checksum": "ee64ec436a87c35362176ea300d69c912d1cbeac\n"
+      },
+      {
+        "tag": "5.1.46",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar",
+        "algorithm": "SHA1",
+        "checksum": "9a3e63b387e376364211e96827bc27db8d7a92e9\n"
+      },
+      {
+        "tag": "5.1.47",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.47/mysql-connector-java-5.1.47.jar",
+        "algorithm": "SHA1",
+        "checksum": "9de4159aaf2d08817a276610b8114a825fca6cfd\n"
+      },
+      {
+        "tag": "5.1.48",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.48/mysql-connector-java-5.1.48.jar",
+        "algorithm": "SHA1",
+        "checksum": "9140be77aafa5050bf4bb936d560cbacb5a6b5c1\n"
+      },
+      {
+        "tag": "5.1.49",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar",
+        "algorithm": "SHA1",
+        "checksum": "cf76d2e4c9c3782a85c15c87bec5772b34ffd0e5\n"
+      },
+      {
+        "tag": "6.0.2",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/6.0.2/mysql-connector-java-6.0.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "5ded70a4a41a8a7d869765d955a811b7b725771d\n"
+      },
+      {
+        "tag": "6.0.3",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/6.0.3/mysql-connector-java-6.0.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "49506be68e2ab1b619d77dee24c2e55d399d371a\n"
+      },
+      {
+        "tag": "6.0.4",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/6.0.4/mysql-connector-java-6.0.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "20efb52fc39f60debcbc96a688f8c4e70654ef6b\n"
+      },
+      {
+        "tag": "6.0.5",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/6.0.5/mysql-connector-java-6.0.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "9d8df5a1f3273110f2a9ad304961bdd03d696d86\n"
+      },
+      {
+        "tag": "6.0.6",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "1d19b184dbc596008cc71c83596f051c3ec4097f\n"
+      },
+      {
+        "tag": "8.0.7-dmr",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.7-dmr/mysql-connector-java-8.0.7-dmr.jar",
+        "algorithm": "SHA1",
+        "checksum": "8b1e615f7a7ad219a1aa8d01b6980faf94f5a644\n"
+      },
+      {
+        "tag": "8.0.8-dmr",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.8-dmr/mysql-connector-java-8.0.8-dmr.jar",
+        "algorithm": "SHA1",
+        "checksum": "2b1c562057c48d99ac71d1dea7c8ccebe1e43812\n"
+      },
+      {
+        "tag": "8.0.9-rc",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.9-rc/mysql-connector-java-8.0.9-rc.jar",
+        "algorithm": "SHA1",
+        "checksum": "8367d12f856cabe318fd2973b7854079ee54bfd1\n"
+      },
+      {
+        "tag": "8.0.11",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.11/mysql-connector-java-8.0.11.jar",
+        "algorithm": "SHA1",
+        "checksum": "2c3d25fe1dfdd6496e0bbe47d67809f67487cfba\n"
+      },
+      {
+        "tag": "8.0.12",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12.jar",
+        "algorithm": "SHA1",
+        "checksum": "08e201602cc1ddd145c4c74e67d4002d3d4b1796\n"
+      },
+      {
+        "tag": "8.0.13",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.13/mysql-connector-java-8.0.13.jar",
+        "algorithm": "SHA1",
+        "checksum": "28015319e44ff50a8fee655e725fefc4990abeb1\n"
+      },
+      {
+        "tag": "8.0.14",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.14/mysql-connector-java-8.0.14.jar",
+        "algorithm": "SHA1",
+        "checksum": "fad276a1c9d60192075a7c61676f599a14b23e2d\n"
+      },
+      {
+        "tag": "8.0.15",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.15/mysql-connector-java-8.0.15.jar",
+        "algorithm": "SHA1",
+        "checksum": "1cd928d0f1a93563993ce1d8b468217ea0d19b11\n"
+      },
+      {
+        "tag": "8.0.16",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.16/mysql-connector-java-8.0.16.jar",
+        "algorithm": "SHA1",
+        "checksum": "06088b7a25188ab4b3ab865422a8ec77ade29236\n"
+      },
+      {
+        "tag": "8.0.17",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.17/mysql-connector-java-8.0.17.jar",
+        "algorithm": "SHA1",
+        "checksum": "53da6afdc5f7b45caaa5bc3627028b2041a36cee\n"
+      },
+      {
+        "tag": "8.0.18",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar",
+        "algorithm": "SHA1",
+        "checksum": "e088efaa4b568bc7d9f7274b9c5ea1a00da1a45c\n"
+      },
+      {
+        "tag": "8.0.19",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.19/mysql-connector-java-8.0.19.jar",
+        "algorithm": "SHA1",
+        "checksum": "9af69ef0f68eae737351ff55c0ba6e23a06826a5\n"
+      },
+      {
+        "tag": "8.0.20",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar",
+        "algorithm": "SHA1",
+        "checksum": "d8d388e71c823570662a45dd33f4284141921280\n"
+      },
+      {
+        "tag": "8.0.21",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.21/mysql-connector-java-8.0.21.jar",
+        "algorithm": "SHA1",
+        "checksum": "53fd3a0887667aae7e40a3439fff2d03d93ec4c2\n"
+      },
+      {
+        "tag": "8.0.22",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.22/mysql-connector-java-8.0.22.jar",
+        "algorithm": "SHA1",
+        "checksum": "0ec8bfce16c8bd18d6cb598b1147aa145be1408f\n"
+      },
+      {
+        "tag": "8.0.23",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.23/mysql-connector-java-8.0.23.jar",
+        "algorithm": "SHA1",
+        "checksum": "14d64ac509adccaff444513c12646d93e4ed8be8\n"
+      },
+      {
+        "tag": "8.0.24",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.24/mysql-connector-java-8.0.24.jar",
+        "algorithm": "SHA1",
+        "checksum": "f3042ac770048196788cc6213f2df0a430fc5d00\n"
+      },
+      {
         "tag": "8.0.25",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.25/mysql-connector-java-8.0.25.jar",
-        "algorithm": "SHA256",
-        "checksum": "a0a1be0389e541dad8841b326e79c51d39abbe1ca52267304d76d1cf4801ce96"
+        "algorithm": "SHA1",
+        "checksum": "f8b9123acd13058c941aff25f308c9ed8000bb73\n"
+      },
+      {
+        "tag": "8.0.26",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.26/mysql-connector-java-8.0.26.jar",
+        "algorithm": "SHA1",
+        "checksum": "e5ec6610020a3084b7d32ee725d1650176f6b3de\n"
       }
     ]
   },
@@ -248,6 +3494,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cache/4.4.1/liquibase-cache-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "90b0d4bb2378fe7fc1e99e3a8d75555b43bdf592"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cache/4.4.2/liquibase-cache-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "7be20bc809389e68a0243d7c6eec9052fd23f85d"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cache/4.4.3/liquibase-cache-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "dc9688acacb849374cd6c5890aeb101f3e7746d3"
       }
     ]
   },
@@ -428,6 +3686,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cosmosdb/4.4.1/liquibase-cosmosdb-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "599bb0be82a368bb33e22de2e73165530f3f0698"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cosmosdb/4.4.2/liquibase-cosmosdb-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "362ce0d43a45ab1d0f6cf697b85dda11c3d6fead"
       }
     ]
   },
@@ -542,6 +3806,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-db2i/4.4.1/liquibase-db2i-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "f4361cafeedfd8bf7c69073782d2361899e512e2"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-db2i/4.4.2/liquibase-db2i-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "803d94bd404b9021f4a8397b40589632dd8b76a8"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-db2i/4.4.3/liquibase-db2i-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "9225a7842d2873e38026ba3a11b2f34de4593428"
       }
     ]
   },
@@ -656,6 +3932,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-filechangelog/4.4.1/liquibase-filechangelog-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "cf55ccf7b519dbce7289c64c08326bf9a816361e"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-filechangelog/4.4.2/liquibase-filechangelog-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "d016f2765d4acee3570095e0b32693cf6b08a64a"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-filechangelog/4.4.3/liquibase-filechangelog-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "cdfcfb89c6ee241f94528552fc48a9c65e06982c"
       }
     ]
   },
@@ -764,6 +4052,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hanadb/4.3.3/liquibase-hanadb-4.3.3.jar",
         "algorithm": "SHA1",
         "checksum": "d8b177d26d19bd292aff52c267030ea45db3d30e"
+      },
+      {
+        "tag": "4.4.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hanadb/4.4.1/liquibase-hanadb-4.4.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "ba377b01ee51a83697c123391783199397929116"
       }
     ]
   },
@@ -890,6 +4184,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hibernate5/4.4.1/liquibase-hibernate5-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "55c56a27785409e92fc0222d57b137e0364c3303"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hibernate5/4.4.2/liquibase-hibernate5-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "2a3337e26ed470a8f44a962701eae0fe9d8749ee"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hibernate5/4.4.3/liquibase-hibernate5-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "3978caa8595b55a98ce68775d37ed9ce5a95b853"
       }
     ]
   },
@@ -992,6 +4298,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-maxdb/4.4.1/liquibase-maxdb-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "a9779f14fd292881a721822a6e6950c16527a582"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-maxdb/4.4.2/liquibase-maxdb-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "4aaf687fbcea11716bd3df7bb3178ec9110b732a"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-maxdb/4.4.3/liquibase-maxdb-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "a1833b45bf5e00ca62241a548a38cd2d063b9fd2"
       }
     ]
   },
@@ -1244,6 +4562,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb/4.4.1/liquibase-mongodb-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "ed1f21361facd9cbaf4800433184f89bde8c6b28"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb/4.4.2/liquibase-mongodb-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "78b06df59882cf8026c41fbd7468467ccf19faa3"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb/4.4.3/liquibase-mongodb-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "2c1b0aa04fb576a97b9721f41575f85741f42efa"
       }
     ]
   },
@@ -1358,6 +4688,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mssql/4.4.1/liquibase-mssql-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "5f018fdadc53a63d65922120d8dae725f80a0d47"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mssql/4.4.2/liquibase-mssql-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "2638ef58ecaa3e975c0dc9edf3c4163953ab7a81"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mssql/4.4.3/liquibase-mssql-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "c0a7803e79c161295b19ed9ff2e15f654c5758dc"
       }
     ]
   },
@@ -1382,6 +4724,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.4.1/liquibase-neo4j-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "b9378d4112c75909b416107e384d496ea61f905f"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.4.2/liquibase-neo4j-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "d9d83a0bc53a6f6ccae3b4fe66987d48c38ec686"
       }
     ]
   },
@@ -1514,6 +4862,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-oracle/4.4.1/liquibase-oracle-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "9820706e6a32f7d7134ca030e7c167bde2971eaa"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-oracle/4.4.2/liquibase-oracle-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "8b086fec6f29e3d5851281c9c067573fdd22e35d"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-oracle/4.4.3/liquibase-oracle-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "24eb6dd8ee5e46f5a743b8c1ea97d257c53a5be5"
       }
     ]
   },
@@ -1556,6 +4916,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.4.1/liquibase-percona-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "dbe09cbbb75ce05577432ae945b82b85577bc4e4"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.4.2/liquibase-percona-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "27e650042204469fba39d5bc2ed40604afa9a204"
       }
     ]
   },
@@ -1664,6 +5030,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-postgresql/4.4.1/liquibase-postgresql-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "b97633be799f51f81529cad3d996c46353b69f9c"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-postgresql/4.4.2/liquibase-postgresql-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "f8b2858cf85df23fa37f0acd161154441dbd31e2"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-postgresql/4.4.3/liquibase-postgresql-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "adb819217419a1c3924e30c7903e379f6c5ca7d8"
       }
     ]
   },
@@ -1874,6 +5252,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-snowflake/4.4.1/liquibase-snowflake-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "6a522cde19e400499bbe1982898de14b5bbd7f51"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-snowflake/4.4.2/liquibase-snowflake-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "3e721e766a42fa8b3b80982e05f8bf08d5af24d8"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-snowflake/4.4.3/liquibase-snowflake-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "1331756f520a0a2c8fc0003dc0d04fbfe67a8e81"
       }
     ]
   },
@@ -1988,6 +5378,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-sqlfire/4.4.1/liquibase-sqlfire-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "28764a2270c3795c2dec8288cf25eadb9150568c"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-sqlfire/4.4.2/liquibase-sqlfire-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "870375d678c2089a419305b3df600ed94a85b773"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-sqlfire/4.4.3/liquibase-sqlfire-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "7263de27659951e40da61641ca38537b0d54032d"
       }
     ]
   },
@@ -2108,6 +5510,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-teradata/4.4.1/liquibase-teradata-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "3194b04bf0161985d89adcbf9ca9464135e8fe09"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-teradata/4.4.2/liquibase-teradata-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "4f18d08ad69e91c2d7d8ffbfc71c7ed9306e6e16"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-teradata/4.4.3/liquibase-teradata-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "a80fef5815af62e3015efc45dd04d4d73b56aa33"
       }
     ]
   },
@@ -2192,6 +5606,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-verticaDatabase/4.4.1/liquibase-verticaDatabase-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "c05c0df246f75026a3de5b0fe9e7493d98fff8dc"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-verticaDatabase/4.4.2/liquibase-verticaDatabase-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "52a0c74909669cad2f3a7856dc6c58ee1ae9db8c"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-verticaDatabase/4.4.3/liquibase-verticaDatabase-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "fa66c0909dff23e941ec2b3ce621cfebaabb268d"
       }
     ]
   }
