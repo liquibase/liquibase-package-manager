@@ -77,3 +77,19 @@ func LoadPackages(b []byte) packages.Packages {
 	}
 	return e
 }
+
+//WritePackages write packages back to file
+func WritePackages(p packages.Packages) {
+	b, err := json.MarshalIndent(p, "", "  ")
+	if err != nil {
+		errors.Exit(err.Error(), 1)
+	}
+	pwd, err := os.Getwd()
+	if err != nil {
+		errors.Exit(err.Error(), 1)
+	}
+	err = ioutil.WriteFile(pwd + "/internal/app/packages.json", b, 0664)
+	if err != nil {
+		errors.Exit(err.Error(), 1)
+	}
+}

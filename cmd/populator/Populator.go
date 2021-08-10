@@ -1,8 +1,6 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
 	"github.com/gocolly/colly/v2"
 	"github.com/hashicorp/go-version"
 	"package-manager/internal/app"
@@ -61,7 +59,7 @@ func (es modules) getByName(n string) module {
 	return r
 }
 
-func populateJSON(m module, p packages.Package) {
+func getNewVersions(m module, p packages.Package) packages.Package {
 	var versionsRaw []string
 
 	// Get Versions from Root package site
@@ -84,12 +82,11 @@ func populateJSON(m module, p packages.Package) {
 
 	//Look for new versions
 	for _, v := range versions {
-
 		pv := p.GetVersion(v.String())
 		if pv.Tag != "" {
+			// if remove version is already in package manifest skip it
 			continue
 		}
-
 		var ver packages.Version
 		ver.Tag = v.String()
 		ver.Path = m.url + "/" + v.String() + "/" + p.Name + "-" + v.String() + ".jar"
@@ -101,20 +98,23 @@ func populateJSON(m module, p packages.Package) {
 		ver.CheckSum = sha
 		p.Versions = append(p.Versions, ver)
 	}
-
-	json, err := json.MarshalIndent(p, "", "  ")
-	if err != nil {
-		panic(err.Error())
-	}
-	fmt.Println(string(json) + ",")
+	return p
 }
 
 func main(){
+
+	var newPacks = packages.Packages{}
+
+	// read packages from embedded file
 	packs := app.LoadPackages(app.PackagesJSON)
 	for _, p := range packs {
 		m := mods.getByName(p.Name)
 		if m.name != "" {
-			populateJSON(m, p)
+			// Get new versions for a package
+			newPacks = append(newPacks, getNewVersions(m, p))
 		}
 	}
+
+	//Write all packages back to manifest.
+	app.WritePackages(newPacks)
 }
