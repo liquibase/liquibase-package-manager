@@ -23,7 +23,5 @@ tests:
       stdout:
         contains:
           - ├──  liquibase-mssql                        extension
-          - ├──  sqlite                                 driver
         excludes:
           - ├──  liquibase-teradata                     extension
-          - ├──  mariadb                                driver

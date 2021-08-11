@@ -6,11 +6,11 @@ tests:
   - "verify one package":
       command: stat ./liquibase_libs/liquibase-postgresql-4.4.1.jar
   - "can add multi packages":
-      command: lpm add postgresql mysql mssql
+      command: lpm add postgresql@42.2.23 mssql@9.2.1 mariadb h2 db2 snowflake sybase firebird sqlite oracle mysql@8.0.26
       stdout:
         contains:
           - postgresql-42.2.23.jar successfully installed in classpath.
-          - mysql-connector-java-8.0.25.jar successfully installed in classpath.
+          - mysql-connector-java-8.0.26.jar successfully installed in classpath.
           - mssql-jdbc-9.2.1.jre11.jar successfully installed in classpath.
   - "verify multi packages":
       command: stat ./liquibase_libs/mssql-jdbc-9.2.1.jre11.jar

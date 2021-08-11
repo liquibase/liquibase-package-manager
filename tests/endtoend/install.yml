@@ -4,12 +4,12 @@ tests:
   - "can install packages from liquibase.json":
       command: lpm install
   - "verify installed packages":
-      command: stat ./liquibase_libs/liquibase-percona-4.3.1.jar ./liquibase_libs/postgresql-42.2.23.jar ./liquibase_libs/mssql-jdbc-9.2.1.jre11.jar ./liquibase_libs/mysql-connector-java-8.0.25.jar ./liquibase_libs/liquibase-postgresql-4.4.1.jar
+      command: stat ./liquibase_libs/liquibase-percona-4.3.1.jar ./liquibase_libs/postgresql-42.2.23.jar ./liquibase_libs/mssql-jdbc-9.2.1.jre11.jar ./liquibase_libs/mysql-connector-java-8.0.26.jar ./liquibase_libs/liquibase-postgresql-4.4.1.jar
       stdout:
         contains:
           - ./liquibase_libs/liquibase-percona-4.3.1.jar
           - ./liquibase_libs/postgresql-42.2.23.jar
           - ./liquibase_libs/mssql-jdbc-9.2.1.jre11.jar
-          - ./liquibase_libs/mysql-connector-java-8.0.25.jar
+          - ./liquibase_libs/mysql-connector-java-8.0.26.jar
           - ./liquibase_libs/liquibase-postgresql-4.4.1.jar
 
