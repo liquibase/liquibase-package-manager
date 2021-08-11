@@ -1,0 +1,39 @@
+name: Update Packages
+
+on:
+  schedule:
+    - cron: '15 6 * * *'
+
+jobs:
+  update-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '^1.16.0'
+
+      - name: Setup GO environment
+        run: |
+          go mod download
+
+      - name: Update Packages
+        run: make generateExtensionPackages
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Automatic update to packages.json
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          branch: update/packages
+          delete-branch: true
+          title: '[Automatic] Update packages.json'
+          body: |
+            Automatic update to packages.json
+          labels: |
+            packages
+          draft: false
