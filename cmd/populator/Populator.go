@@ -136,7 +136,7 @@ func getNewVersions(m module, p packages.Package) packages.Package {
 		if strings.Contains(sha, "html") {
 			sha = ""
 		}
-		ver.CheckSum = sha
+		ver.CheckSum = sha[0:40] //Get first 40 character of SHA1 only
 
 		// Older versions might have bad version patters ending up with a missing sha. Don't add them.
 		if ver.CheckSum != "" {
