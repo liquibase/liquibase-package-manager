@@ -114,22 +114,24 @@ func getNewVersions(m module, p packages.Package) packages.Package {
 	//Look for new versions
 	for _, v := range versions {
 		var ver packages.Version
-		if m.includeSuffix != "" {
-			ver.Tag = v.Original() + m.includeSuffix
-		} else {
-			ver.Tag = v.Original()
-		}
-
+		ver.Tag = v.Original()
 		pv := p.GetVersion(ver.Tag)
 		if pv.Tag != "" {
 			// if remote version is already in package manifest skip it
 			continue
 		}
 
-		if m.filePrefix != "" {
-			ver.Path = m.url + "/" + ver.Tag + "/" + m.filePrefix + ver.Tag + ".jar"
+		var tag string
+		if m.includeSuffix != "" {
+			tag = ver.Tag + m.includeSuffix
 		} else {
-			ver.Path = m.url + "/" + ver.Tag + "/" + p.Name + "-" + ver.Tag + ".jar"
+			tag = ver.Tag
+		}
+
+		if m.filePrefix != "" {
+			ver.Path = m.url + "/" + tag + "/" + m.filePrefix + tag + ".jar"
+		} else {
+			ver.Path = m.url + "/" + tag + "/" + p.Name + "-" + tag + ".jar"
 		}
 		ver.Algorithm = "SHA1"
 		sha := string(utils.HTTPUtil{}.Get(ver.Path + ".sha1"))

@@ -472,79 +472,79 @@
     "category": "driver",
     "versions": [
       {
-        "tag": "7.2.0.jre11",
+        "tag": "7.2.0",
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/7.2.0.jre11/mssql-jdbc-7.2.0.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "77747c1a6e45358352b1eabf74082857c972e5ca"
       },
       {
-        "tag": "7.2.1.jre11",
+        "tag": "7.2.1",
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/7.2.1.jre11/mssql-jdbc-7.2.1.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "fa67b7313dfb5267a0c374469a443ab20bad31c0"
       },
       {
-        "tag": "7.2.2.jre11",
+        "tag": "7.2.2",
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/7.2.2.jre11/mssql-jdbc-7.2.2.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "797dc49934f590f1b7b08465cfce3fc9d88ccc1f"
       },
       {
-        "tag": "7.4.0.jre11",
+        "tag": "7.4.0",
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/7.4.0.jre11/mssql-jdbc-7.4.0.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "c9a8772d80343462f0ffb2ff50c9b0acda69b1a6"
       },
       {
-        "tag": "7.4.1.jre11",
+        "tag": "7.4.1",
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/7.4.1.jre11/mssql-jdbc-7.4.1.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "3e480e56e41d8c2f7a6240e8f63f1dcc73bc391c"
       },
       {
-        "tag": "8.2.0.jre11",
+        "tag": "8.2.0",
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/8.2.0.jre11/mssql-jdbc-8.2.0.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "63a4414971f9606d5b817e12229f20b679ba0658"
       },
       {
-        "tag": "8.2.1.jre11",
+        "tag": "8.2.1",
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/8.2.1.jre11/mssql-jdbc-8.2.1.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "4713d8425865a5ad559ac62e85b9351366375bca"
       },
       {
-        "tag": "8.2.2.jre11",
+        "tag": "8.2.2",
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/8.2.2.jre11/mssql-jdbc-8.2.2.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "27e1be35b1e102d7b374b9834a0bdc815c5325b3"
       },
       {
-        "tag": "8.4.0.jre11",
+        "tag": "8.4.0",
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/8.4.0.jre11/mssql-jdbc-8.4.0.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "012591498ac236be4b935a36729e554ac37a9376"
       },
       {
-        "tag": "8.4.1.jre11",
+        "tag": "8.4.1",
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/8.4.1.jre11/mssql-jdbc-8.4.1.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "826cae8133d6cd489febc679f693150d0b6aa84a"
       },
       {
-        "tag": "9.2.0.jre11",
+        "tag": "9.2.0",
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/9.2.0.jre11/mssql-jdbc-9.2.0.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "a8b101fdbe64be8c3194bc67a8ac0eebf95d4bc8"
       },
       {
-        "tag": "9.2.1.jre11",
+        "tag": "9.2.1",
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/9.2.1.jre11/mssql-jdbc-9.2.1.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "7af72fb8f832634f7717f971a85ba199729b7eaa"
       },
       {
-        "tag": "9.4.0.jre11",
+        "tag": "9.4.0",
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/9.4.0.jre11/mssql-jdbc-9.4.0.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "a6f15b77f9a37aaaaeec829a5040efd1ddec2261"
@@ -1048,10 +1048,22 @@
         "checksum": "4a2edc05bd882ad19371d2615c2635dccf8d74f0"
       },
       {
+        "tag": "2.7.4",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.7.4/mariadb-java-client-2.7.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "6d6ea84c870837afa63f5f55efde211a84cf2897"
+      },
+      {
         "tag": "3.0.0-alpha",
         "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.0.0-alpha/mariadb-java-client-3.0.0-alpha.jar",
         "algorithm": "SHA1",
         "checksum": "0af18fbcb5aa3d971d2a1d4967dec0710cc1f435"
+      },
+      {
+        "tag": "3.0.1-beta",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.0.1-beta/mariadb-java-client-3.0.1-beta.jar",
+        "algorithm": "SHA1",
+        "checksum": "b085058878953638ed80ac8703aae73ffa6fff46"
       }
     ]
   },
