@@ -83,21 +83,21 @@ func getNewVersions(m module, p packages.Package) packages.Package {
 		if !strings.Contains(f.Text, "../") && !strings.Contains(f.Text, "maven-metadata.") {
 			if m.excludeSuffix != "" && m.includeSuffix == "" {
 				if !strings.Contains(f.Text, m.excludeSuffix) {
-					versionsRaw = append(versionsRaw, strings.TrimRight(f.Text, "/"))
+					versionsRaw = append(versionsRaw, strings.TrimSuffix(f.Text, "/"))
 				}
 			}
 			if m.excludeSuffix == "" && m.includeSuffix != "" {
 				if strings.Contains(f.Text, m.includeSuffix) {
-					versionsRaw = append(versionsRaw, strings.TrimRight(f.Text,  m.includeSuffix + "/"))
+					versionsRaw = append(versionsRaw, strings.TrimSuffix(f.Text,  m.includeSuffix + "/"))
 				}
 			}
 			if m.excludeSuffix != "" && m.includeSuffix != "" {
 				if strings.Contains(f.Text, m.includeSuffix) && !strings.Contains(f.Text, m.excludeSuffix) {
-					versionsRaw = append(versionsRaw, strings.TrimRight(f.Text,  m.includeSuffix + "/"))
+					versionsRaw = append(versionsRaw, strings.TrimSuffix(f.Text,  m.includeSuffix + "/"))
 				}
 			}
 			if m.excludeSuffix == "" && m.includeSuffix == "" {
-				versionsRaw = append(versionsRaw, strings.TrimRight(f.Text, "/"))
+				versionsRaw = append(versionsRaw, strings.TrimSuffix(f.Text, "/"))
 			}
 		}
 	})
@@ -115,9 +115,9 @@ func getNewVersions(m module, p packages.Package) packages.Package {
 	for _, v := range versions {
 		var ver packages.Version
 		if m.includeSuffix != "" {
-			ver.Tag = v.String() + m.includeSuffix
+			ver.Tag = v.Original() + m.includeSuffix
 		} else {
-			ver.Tag = v.String()
+			ver.Tag = v.Original()
 		}
 
 		pv := p.GetVersion(ver.Tag)
