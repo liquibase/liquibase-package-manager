@@ -4058,6 +4058,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hanadb/4.4.1/liquibase-hanadb-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "ba377b01ee51a83697c123391783199397929116"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hanadb/4.4.3/liquibase-hanadb-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "7dd7b8687a221bd0c1cf1288b2c47e6f0e431767"
       }
     ]
   },
