@@ -16,6 +16,240 @@
     "category": "driver",
     "versions": [
       {
+        "tag": "9.2-1002-jdbc4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.2-1002-jdbc4/postgresql-9.2-1002-jdbc4.jar",
+        "algorithm": "SHA1",
+        "checksum": "0a535facdcc0b4c488798e0c19499c08b1bc3a2e"
+      },
+      {
+        "tag": "9.2-1003-jdbc3",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.2-1003-jdbc3/postgresql-9.2-1003-jdbc3.jar",
+        "algorithm": "SHA1",
+        "checksum": "373905a37c3c679d3ed424613f22faefe149a850"
+      },
+      {
+        "tag": "9.2-1003-jdbc4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.2-1003-jdbc4/postgresql-9.2-1003-jdbc4.jar",
+        "algorithm": "SHA1",
+        "checksum": "6f2ba4efca71ff3cdcf5b92c2584c91b56e13f89"
+      },
+      {
+        "tag": "9.2-1004-jdbc3",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.2-1004-jdbc3/postgresql-9.2-1004-jdbc3.jar",
+        "algorithm": "SHA1",
+        "checksum": "3608cf43e91f3804a2b98e3cb241309b39f4a164"
+      },
+      {
+        "tag": "9.2-1004-jdbc4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.2-1004-jdbc4/postgresql-9.2-1004-jdbc4.jar",
+        "algorithm": "SHA1",
+        "checksum": "77e7e7df83aa0e212b788ff43ab697d534389e59"
+      },
+      {
+        "tag": "9.2-1004-jdbc41",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.2-1004-jdbc41/postgresql-9.2-1004-jdbc41.jar",
+        "algorithm": "SHA1",
+        "checksum": "8e2bbb7187f00911d63a911ab9655ff1dbf0bdb5"
+      },
+      {
+        "tag": "9.3-1100-jdbc3",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.3-1100-jdbc3/postgresql-9.3-1100-jdbc3.jar",
+        "algorithm": "SHA1",
+        "checksum": "0633606962d86ecff9c2291af6db9f1566566c0a"
+      },
+      {
+        "tag": "9.3-1100-jdbc4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.3-1100-jdbc4/postgresql-9.3-1100-jdbc4.jar",
+        "algorithm": "SHA1",
+        "checksum": "7a09dd2b8c01babc07617973fd6f99c007e2b786"
+      },
+      {
+        "tag": "9.3-1100-jdbc41",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.3-1100-jdbc41/postgresql-9.3-1100-jdbc41.jar",
+        "algorithm": "SHA1",
+        "checksum": "968077372764b8ac5c22a4c0f9bd6bc62878b252"
+      },
+      {
+        "tag": "9.3-1101-jdbc3",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.3-1101-jdbc3/postgresql-9.3-1101-jdbc3.jar",
+        "algorithm": "SHA1",
+        "checksum": "b2e0751b0d981351dfe8194672c53116e28e69b7"
+      },
+      {
+        "tag": "9.3-1101-jdbc4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.3-1101-jdbc4/postgresql-9.3-1101-jdbc4.jar",
+        "algorithm": "SHA1",
+        "checksum": "9da59f12badea19b3b2884161f624bcf6750f985"
+      },
+      {
+        "tag": "9.3-1101-jdbc41",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.3-1101-jdbc41/postgresql-9.3-1101-jdbc41.jar",
+        "algorithm": "SHA1",
+        "checksum": "f68c2783393afc9a642035964869417043d2c7dc"
+      },
+      {
+        "tag": "9.3-1102-jdbc3",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.3-1102-jdbc3/postgresql-9.3-1102-jdbc3.jar",
+        "algorithm": "SHA1",
+        "checksum": "a194ef8bf591b530da673ef731fe696c2568e9c8"
+      },
+      {
+        "tag": "9.3-1102-jdbc4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.3-1102-jdbc4/postgresql-9.3-1102-jdbc4.jar",
+        "algorithm": "SHA1",
+        "checksum": "b348b44cfc687679c9c8069e7d4144f3888c0810"
+      },
+      {
+        "tag": "9.3-1102-jdbc41",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.3-1102-jdbc41/postgresql-9.3-1102-jdbc41.jar",
+        "algorithm": "SHA1",
+        "checksum": "e01373bd6ed64d1b3bf1476e5ed6a7652a5fbfcb"
+      },
+      {
+        "tag": "9.3-1103-jdbc3",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.3-1103-jdbc3/postgresql-9.3-1103-jdbc3.jar",
+        "algorithm": "SHA1",
+        "checksum": "ea0b64b3239c621a89588f57e5c53351c817032e"
+      },
+      {
+        "tag": "9.3-1103-jdbc4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.3-1103-jdbc4/postgresql-9.3-1103-jdbc4.jar",
+        "algorithm": "SHA1",
+        "checksum": "7fcb927138307494d92ff996bbfbde37ee8b44f3"
+      },
+      {
+        "tag": "9.3-1103-jdbc41",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.3-1103-jdbc41/postgresql-9.3-1103-jdbc41.jar",
+        "algorithm": "SHA1",
+        "checksum": "fc74ce9827284c5ea3fc5a76483333a56e690319"
+      },
+      {
+        "tag": "9.3-1104-jdbc4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.3-1104-jdbc4/postgresql-9.3-1104-jdbc4.jar",
+        "algorithm": "SHA1",
+        "checksum": "e15f7b3b0800718b054c1c3bdcb1bbd60ba77513"
+      },
+      {
+        "tag": "9.3-1104-jdbc41",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.3-1104-jdbc41/postgresql-9.3-1104-jdbc41.jar",
+        "algorithm": "SHA1",
+        "checksum": "6f98f1f9723a7e7c9708be2df07d84b99ad011a6"
+      },
+      {
+        "tag": "9.4-1200-jdbc4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1200-jdbc4/postgresql-9.4-1200-jdbc4.jar",
+        "algorithm": "SHA1",
+        "checksum": "c052b544a7f478906fb880ecfe6f325f2a4d45b8"
+      },
+      {
+        "tag": "9.4-1200-jdbc41",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1200-jdbc41/postgresql-9.4-1200-jdbc41.jar",
+        "algorithm": "SHA1",
+        "checksum": "8d660a9abf8016989857499c16e361cee80b14b6"
+      },
+      {
+        "tag": "9.4-1201-jdbc4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1201-jdbc4/postgresql-9.4-1201-jdbc4.jar",
+        "algorithm": "SHA1",
+        "checksum": "7f7a680f2aa8fe5d511c5cf5f78fa3a297a8e52b"
+      },
+      {
+        "tag": "9.4-1201-jdbc41",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1201-jdbc41/postgresql-9.4-1201-jdbc41.jar",
+        "algorithm": "SHA1",
+        "checksum": "870b0e689b514304461a9c1aba11920dc5de4321"
+      },
+      {
+        "tag": "9.4-1202-jdbc4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1202-jdbc4/postgresql-9.4-1202-jdbc4.jar",
+        "algorithm": "SHA1",
+        "checksum": "541a27139976fc3d7ecd15916404a49536e55b3f"
+      },
+      {
+        "tag": "9.4-1202-jdbc41",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1202-jdbc41/postgresql-9.4-1202-jdbc41.jar",
+        "algorithm": "SHA1",
+        "checksum": "63f65828f6e8804f662f2d8ee477662208703dfb"
+      },
+      {
+        "tag": "9.4-1202-jdbc42",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1202-jdbc42/postgresql-9.4-1202-jdbc42.jar",
+        "algorithm": "SHA1",
+        "checksum": "c1d2661a36c8885f3d22844b338b597577dc77d8"
+      },
+      {
+        "tag": "9.4-1203-jdbc4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1203-jdbc4/postgresql-9.4-1203-jdbc4.jar",
+        "algorithm": "SHA1",
+        "checksum": "a9c46ab88d1d2b5f626c87e9dbb4fd85cfff3038"
+      },
+      {
+        "tag": "9.4-1203-jdbc41",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1203-jdbc41/postgresql-9.4-1203-jdbc41.jar",
+        "algorithm": "SHA1",
+        "checksum": "832dd8e935005c425092b83d8058b83e4db889e4"
+      },
+      {
+        "tag": "9.4-1203-jdbc42",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1203-jdbc42/postgresql-9.4-1203-jdbc42.jar",
+        "algorithm": "SHA1",
+        "checksum": "65ac0ddf4fc218856a7c992bfd01e4ee0536b8dd"
+      },
+      {
+        "tag": "9.4-1204-jdbc4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1204-jdbc4/postgresql-9.4-1204-jdbc4.jar",
+        "algorithm": "SHA1",
+        "checksum": "163c9991ca0adf37c59d93c923129e4cc629a6e0"
+      },
+      {
+        "tag": "9.4-1204-jdbc41",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1204-jdbc41/postgresql-9.4-1204-jdbc41.jar",
+        "algorithm": "SHA1",
+        "checksum": "5d2478abd00c4f0f37d72f4f4fef20b3437c605f"
+      },
+      {
+        "tag": "9.4-1204-jdbc42",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1204-jdbc42/postgresql-9.4-1204-jdbc42.jar",
+        "algorithm": "SHA1",
+        "checksum": "aae989d89b2f9b10900044d85881e3a65137b1a7"
+      },
+      {
+        "tag": "9.4-1205-jdbc4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1205-jdbc4/postgresql-9.4-1205-jdbc4.jar",
+        "algorithm": "SHA1",
+        "checksum": "7654d5bcc30c88801e484fd0ac2bcd5ca10b3ffb"
+      },
+      {
+        "tag": "9.4-1205-jdbc41",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1205-jdbc41/postgresql-9.4-1205-jdbc41.jar",
+        "algorithm": "SHA1",
+        "checksum": "eb9fa6da7568edaaedbc15391b56800de7f22885"
+      },
+      {
+        "tag": "9.4-1205-jdbc42",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1205-jdbc42/postgresql-9.4-1205-jdbc42.jar",
+        "algorithm": "SHA1",
+        "checksum": "b8d1ff1b6e78697933e5aeed4ffa031d08eaacc5"
+      },
+      {
+        "tag": "9.4-1206-jdbc4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1206-jdbc4/postgresql-9.4-1206-jdbc4.jar",
+        "algorithm": "SHA1",
+        "checksum": "fbafb1273757ce2f4b9ac3c785082cef1b7810cb"
+      },
+      {
+        "tag": "9.4-1206-jdbc41",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1206-jdbc41/postgresql-9.4-1206-jdbc41.jar",
+        "algorithm": "SHA1",
+        "checksum": "4ef3d9bcf654c24783aa50cda10d29e1a9d40711"
+      },
+      {
+        "tag": "9.4-1206-jdbc42",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4-1206-jdbc42/postgresql-9.4-1206-jdbc42.jar",
+        "algorithm": "SHA1",
+        "checksum": "e91af69cfb3390a73449d1157753ca4e7b97765c"
+      },
+      {
         "tag": "9.4.1207",
         "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/9.4.1207/postgresql-9.4.1207.jar",
         "algorithm": "SHA1",
@@ -244,10 +478,10 @@
         "checksum": "77747c1a6e45358352b1eabf74082857c972e5ca"
       },
       {
-        "tag": "7.2.0.jre11",
-        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/7.2.0.jre11/mssql-jdbc-7.2.0.jre11.jar",
+        "tag": "7.2.1.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/7.2.1.jre11/mssql-jdbc-7.2.1.jre11.jar",
         "algorithm": "SHA1",
-        "checksum": "77747c1a6e45358352b1eabf74082857c972e5ca"
+        "checksum": "fa67b7313dfb5267a0c374469a443ab20bad31c0"
       },
       {
         "tag": "7.2.2.jre11",
@@ -262,10 +496,10 @@
         "checksum": "c9a8772d80343462f0ffb2ff50c9b0acda69b1a6"
       },
       {
-        "tag": "7.4.0.jre11",
-        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/7.4.0.jre11/mssql-jdbc-7.4.0.jre11.jar",
+        "tag": "7.4.1.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/7.4.1.jre11/mssql-jdbc-7.4.1.jre11.jar",
         "algorithm": "SHA1",
-        "checksum": "c9a8772d80343462f0ffb2ff50c9b0acda69b1a6"
+        "checksum": "3e480e56e41d8c2f7a6240e8f63f1dcc73bc391c"
       },
       {
         "tag": "8.2.0.jre11",
@@ -274,10 +508,10 @@
         "checksum": "63a4414971f9606d5b817e12229f20b679ba0658"
       },
       {
-        "tag": "8.2.0.jre11",
-        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/8.2.0.jre11/mssql-jdbc-8.2.0.jre11.jar",
+        "tag": "8.2.1.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/8.2.1.jre11/mssql-jdbc-8.2.1.jre11.jar",
         "algorithm": "SHA1",
-        "checksum": "63a4414971f9606d5b817e12229f20b679ba0658"
+        "checksum": "4713d8425865a5ad559ac62e85b9351366375bca"
       },
       {
         "tag": "8.2.2.jre11",
@@ -292,10 +526,10 @@
         "checksum": "012591498ac236be4b935a36729e554ac37a9376"
       },
       {
-        "tag": "8.4.0.jre11",
-        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/8.4.0.jre11/mssql-jdbc-8.4.0.jre11.jar",
+        "tag": "8.4.1.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/8.4.1.jre11/mssql-jdbc-8.4.1.jre11.jar",
         "algorithm": "SHA1",
-        "checksum": "012591498ac236be4b935a36729e554ac37a9376"
+        "checksum": "826cae8133d6cd489febc679f693150d0b6aa84a"
       },
       {
         "tag": "9.2.0.jre11",
@@ -304,10 +538,10 @@
         "checksum": "a8b101fdbe64be8c3194bc67a8ac0eebf95d4bc8"
       },
       {
-        "tag": "9.2.0.jre11",
-        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/9.2.0.jre11/mssql-jdbc-9.2.0.jre11.jar",
+        "tag": "9.2.1.jre11",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/9.2.1.jre11/mssql-jdbc-9.2.1.jre11.jar",
         "algorithm": "SHA1",
-        "checksum": "a8b101fdbe64be8c3194bc67a8ac0eebf95d4bc8"
+        "checksum": "7af72fb8f832634f7717f971a85ba199729b7eaa"
       },
       {
         "tag": "9.4.0.jre11",
@@ -967,25 +1201,25 @@
         "tag": "1.0.20061217",
         "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.20061217/h2-1.0.20061217.jar",
         "algorithm": "SHA1",
-        "checksum": "b3c8f883d3b832cf5d865a6c747462a3ce963f47  /home/maven/repository-staging/to-ibiblio/maven2/com/h2database/h2/1.0.20061217/h2-1.0.20061217.jar\n"
+        "checksum": "b3c8f883d3b832cf5d865a6c747462a3ce963f47"
       },
       {
         "tag": "1.0.20070304",
         "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.20070304/h2-1.0.20070304.jar",
         "algorithm": "SHA1",
-        "checksum": "e365f74b364fbfb56f4908c6136788514abe80ff  /home/maven/repository-staging/to-ibiblio/maven2/com/h2database/h2/1.0.20070304/h2-1.0.20070304.jar\n"
+        "checksum": "e365f74b364fbfb56f4908c6136788514abe80ff"
       },
       {
         "tag": "1.0.20070429",
         "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.20070429/h2-1.0.20070429.jar",
         "algorithm": "SHA1",
-        "checksum": "18073bd214e4eae47aec4b36f5b5ccd2eb52b127  /home/maven/repository-staging/to-ibiblio/maven2/com/h2database/h2/1.0.20070429/h2-1.0.20070429.jar\n"
+        "checksum": "18073bd214e4eae47aec4b36f5b5ccd2eb52b127"
       },
       {
         "tag": "1.0.20070617",
         "path": "https://repo1.maven.org/maven2/com/h2database/h2/1.0.20070617/h2-1.0.20070617.jar",
         "algorithm": "SHA1",
-        "checksum": "a100427aad398da3ef70ca9087e371eb093b31a4  /home/maven/repository-staging/to-ibiblio/maven2/com/h2database/h2/1.0.20070617/h2-1.0.20070617.jar\n"
+        "checksum": "a100427aad398da3ef70ca9087e371eb093b31a4"
       },
       {
         "tag": "1.1.100",
@@ -2911,7 +3145,7 @@
         "tag": "3.1.13",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/3.1.13/mysql-connector-java-3.1.13.jar",
         "algorithm": "SHA1",
-        "checksum": "12e413dffcb953e5c5cfb85e7916712af4f385ec  mysql-connector-java-3.1.13.jar\n"
+        "checksum": "12e413dffcb953e5c5cfb85e7916712af4f385ec"
       },
       {
         "tag": "3.1.14",
@@ -2989,403 +3223,403 @@
         "tag": "5.1.6",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar",
         "algorithm": "SHA1",
-        "checksum": "380ef5226de2c85ff3b38cbfefeea881c5fce09d\n"
+        "checksum": "380ef5226de2c85ff3b38cbfefeea881c5fce09d"
       },
       {
         "tag": "5.1.8",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.8/mysql-connector-java-5.1.8.jar",
         "algorithm": "SHA1",
-        "checksum": "ca016d1d4f48d7aa2b6ea75639d53b124ad189a8\n"
+        "checksum": "ca016d1d4f48d7aa2b6ea75639d53b124ad189a8"
       },
       {
         "tag": "5.1.9",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.9/mysql-connector-java-5.1.9.jar",
         "algorithm": "SHA1",
-        "checksum": "53d70523c4dedc30ca93ad8c75b4b74f31bc67a9\n"
+        "checksum": "53d70523c4dedc30ca93ad8c75b4b74f31bc67a9"
       },
       {
         "tag": "5.1.10",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.10/mysql-connector-java-5.1.10.jar",
         "algorithm": "SHA1",
-        "checksum": "b83574124f1a00d6f70d56ba64aa52b8e1588e6d\n"
+        "checksum": "b83574124f1a00d6f70d56ba64aa52b8e1588e6d"
       },
       {
         "tag": "5.1.11",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.11/mysql-connector-java-5.1.11.jar",
         "algorithm": "SHA1",
-        "checksum": "d1e18742961fdbedfe7629d5ce40c436b4e4018d\n"
+        "checksum": "d1e18742961fdbedfe7629d5ce40c436b4e4018d"
       },
       {
         "tag": "5.1.12",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.12/mysql-connector-java-5.1.12.jar",
         "algorithm": "SHA1",
-        "checksum": "14ae02cc2adb2aed677080a0c0356e7569e298ec\n"
+        "checksum": "14ae02cc2adb2aed677080a0c0356e7569e298ec"
       },
       {
         "tag": "5.1.13",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.13/mysql-connector-java-5.1.13.jar",
         "algorithm": "SHA1",
-        "checksum": "631249c6055be15a1fab26b3c28a3e5c6f3d97e0\n"
+        "checksum": "631249c6055be15a1fab26b3c28a3e5c6f3d97e0"
       },
       {
         "tag": "5.1.14",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.14/mysql-connector-java-5.1.14.jar",
         "algorithm": "SHA1",
-        "checksum": "94f32ab65801741e0f19e2b506d130f6792334d5\n"
+        "checksum": "94f32ab65801741e0f19e2b506d130f6792334d5"
       },
       {
         "tag": "5.1.15",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.15/mysql-connector-java-5.1.15.jar",
         "algorithm": "SHA1",
-        "checksum": "0fbc80454d27cc65f3addfa516707e9f8e60c3eb \n"
+        "checksum": "0fbc80454d27cc65f3addfa516707e9f8e60c3eb"
       },
       {
         "tag": "5.1.16",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.16/mysql-connector-java-5.1.16.jar",
         "algorithm": "SHA1",
-        "checksum": "2780fb82cc9c7083f06724432b4f1d1607548d77  mysql-connector-java-5.1.16.jar\n"
+        "checksum": "2780fb82cc9c7083f06724432b4f1d1607548d77"
       },
       {
         "tag": "5.1.17",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.17/mysql-connector-java-5.1.17.jar",
         "algorithm": "SHA1",
-        "checksum": "60d52df83d1cc6bcfcb4bf7da3d5b3b912e82d8b\n"
+        "checksum": "60d52df83d1cc6bcfcb4bf7da3d5b3b912e82d8b"
       },
       {
         "tag": "5.1.18",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar",
         "algorithm": "SHA1",
-        "checksum": "85dfedad243dc0303ad7ae3a323c39421d220690\n"
+        "checksum": "85dfedad243dc0303ad7ae3a323c39421d220690"
       },
       {
         "tag": "5.1.19",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.19/mysql-connector-java-5.1.19.jar",
         "algorithm": "SHA1",
-        "checksum": "ebdd0eb4f1067f29b72e4d87be1967975de6b724\n"
+        "checksum": "ebdd0eb4f1067f29b72e4d87be1967975de6b724"
       },
       {
         "tag": "5.1.20",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar",
         "algorithm": "SHA1",
-        "checksum": "66a2a9c6561dc2c3c6f0b924681c305be78f3377\n"
+        "checksum": "66a2a9c6561dc2c3c6f0b924681c305be78f3377"
       },
       {
         "tag": "5.1.21",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar",
         "algorithm": "SHA1",
-        "checksum": "7abbd19fc2e2d5b92c0895af8520f7fa30266be9  mysql-connector-java-5.1.21.jar\n"
+        "checksum": "7abbd19fc2e2d5b92c0895af8520f7fa30266be9"
       },
       {
         "tag": "5.1.22",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.22/mysql-connector-java-5.1.22.jar",
         "algorithm": "SHA1",
-        "checksum": "3ae0cff91d7f40d5b4c7cefbbd1eab34025bdc15  mysql-connector-java-5.1.22.jar\n"
+        "checksum": "3ae0cff91d7f40d5b4c7cefbbd1eab34025bdc15"
       },
       {
         "tag": "5.1.23",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.23/mysql-connector-java-5.1.23.jar",
         "algorithm": "SHA1",
-        "checksum": "c264e2114579474d13dd808a510fc74e762dda8c  mysql-connector-java-5.1.23.jar\n"
+        "checksum": "c264e2114579474d13dd808a510fc74e762dda8c"
       },
       {
         "tag": "5.1.24",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.24/mysql-connector-java-5.1.24.jar",
         "algorithm": "SHA1",
-        "checksum": "a7d599d73b86a928303909b9be7573a4ea0ed28e  mysql-connector-java-5.1.24.jar\n"
+        "checksum": "a7d599d73b86a928303909b9be7573a4ea0ed28e"
       },
       {
         "tag": "5.1.25",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.25/mysql-connector-java-5.1.25.jar",
         "algorithm": "SHA1",
-        "checksum": "6b2835d687a706678591febfd47b077dcce41595  mysql-connector-java-5.1.25.jar\n"
+        "checksum": "6b2835d687a706678591febfd47b077dcce41595"
       },
       {
         "tag": "5.1.26",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.26/mysql-connector-java-5.1.26.jar",
         "algorithm": "SHA1",
-        "checksum": "f1697bef3639811e56173e70eb2471562e3ac8ef  mysql-connector-java-5.1.26.jar\n"
+        "checksum": "f1697bef3639811e56173e70eb2471562e3ac8ef"
       },
       {
         "tag": "5.1.27",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.27/mysql-connector-java-5.1.27.jar",
         "algorithm": "SHA1",
-        "checksum": "2e4fbf71af3fa214951aa32bb6b39076e4e01b6f  mysql-connector-java-5.1.27.jar\n"
+        "checksum": "2e4fbf71af3fa214951aa32bb6b39076e4e01b6f"
       },
       {
         "tag": "5.1.28",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.28/mysql-connector-java-5.1.28.jar",
         "algorithm": "SHA1",
-        "checksum": "4c3e03dd2c60b8975ed68f72aa18229db2647196  mysql-connector-java-5.1.28.jar\n"
+        "checksum": "4c3e03dd2c60b8975ed68f72aa18229db2647196"
       },
       {
         "tag": "5.1.29",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.29/mysql-connector-java-5.1.29.jar",
         "algorithm": "SHA1",
-        "checksum": "91798a4463050f61598122fe7fdc24aa196dfc0c  mysql-connector-java-5.1.29.jar\n"
+        "checksum": "91798a4463050f61598122fe7fdc24aa196dfc0c"
       },
       {
         "tag": "5.1.30",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.30/mysql-connector-java-5.1.30.jar",
         "algorithm": "SHA1",
-        "checksum": "0203cca178350b60899be36d0e56029eca7430d8  mysql-connector-java-5.1.30.jar\n"
+        "checksum": "0203cca178350b60899be36d0e56029eca7430d8"
       },
       {
         "tag": "5.1.31",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.31/mysql-connector-java-5.1.31.jar",
         "algorithm": "SHA1",
-        "checksum": "95baa522c5ae4dbff61e8ebd1b2578665d6853a0  mysql-connector-java-5.1.31.jar\n"
+        "checksum": "95baa522c5ae4dbff61e8ebd1b2578665d6853a0"
       },
       {
         "tag": "5.1.32",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.32/mysql-connector-java-5.1.32.jar",
         "algorithm": "SHA1",
-        "checksum": "d28c9a6cf0810fd0e2180e44029c10a54ca26de8  mysql-connector-java-5.1.32.jar\n"
+        "checksum": "d28c9a6cf0810fd0e2180e44029c10a54ca26de8"
       },
       {
         "tag": "5.1.33",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.33/mysql-connector-java-5.1.33.jar",
         "algorithm": "SHA1",
-        "checksum": "8af455a9a3267e6664cafc87ace71a4e4ef02837  mysql-connector-java-5.1.33.jar\n"
+        "checksum": "8af455a9a3267e6664cafc87ace71a4e4ef02837"
       },
       {
         "tag": "5.1.34",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar",
         "algorithm": "SHA1",
-        "checksum": "46deba4adbdb4967367b013cbc67b7f7373da60a  mysql-connector-java-5.1.34.jar\n"
+        "checksum": "46deba4adbdb4967367b013cbc67b7f7373da60a"
       },
       {
         "tag": "5.1.35",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.35/mysql-connector-java-5.1.35.jar",
         "algorithm": "SHA1",
-        "checksum": "b6ac941b7288376a7e8bc6490264bbd4427fb94e  mysql-connector-java-5.1.35.jar\n"
+        "checksum": "b6ac941b7288376a7e8bc6490264bbd4427fb94e"
       },
       {
         "tag": "5.1.36",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.36/mysql-connector-java-5.1.36.jar",
         "algorithm": "SHA1",
-        "checksum": "6bb5861f44c21c775ee713a438e5bc493c095f7a\n"
+        "checksum": "6bb5861f44c21c775ee713a438e5bc493c095f7a"
       },
       {
         "tag": "5.1.37",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.37/mysql-connector-java-5.1.37.jar",
         "algorithm": "SHA1",
-        "checksum": "2c378637f6faff77541244e8257b446f04324bd8\n"
+        "checksum": "2c378637f6faff77541244e8257b446f04324bd8"
       },
       {
         "tag": "5.1.38",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar",
         "algorithm": "SHA1",
-        "checksum": "dbbd7cd309ce167ec8367de4e41c63c2c8593cc5\n"
+        "checksum": "dbbd7cd309ce167ec8367de4e41c63c2c8593cc5"
       },
       {
         "tag": "5.1.39",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.39/mysql-connector-java-5.1.39.jar",
         "algorithm": "SHA1",
-        "checksum": "4617fe8dc8f1969ec450984b0b9203bc8b7c8ad5\n"
+        "checksum": "4617fe8dc8f1969ec450984b0b9203bc8b7c8ad5"
       },
       {
         "tag": "5.1.40",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar",
         "algorithm": "SHA1",
-        "checksum": "ef2a2ceab1735eaaae0b5d1cccf574fb7c6e1c52\n"
+        "checksum": "ef2a2ceab1735eaaae0b5d1cccf574fb7c6e1c52"
       },
       {
         "tag": "5.1.41",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.41/mysql-connector-java-5.1.41.jar",
         "algorithm": "SHA1",
-        "checksum": "b0878056f15616989144d6114d36d3942321d0d1\n"
+        "checksum": "b0878056f15616989144d6114d36d3942321d0d1"
       },
       {
         "tag": "5.1.42",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.42/mysql-connector-java-5.1.42.jar",
         "algorithm": "SHA1",
-        "checksum": "80a448a3ec2178b649bb2e3cb3610fab06e11669\n"
+        "checksum": "80a448a3ec2178b649bb2e3cb3610fab06e11669"
       },
       {
         "tag": "5.1.43",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.43/mysql-connector-java-5.1.43.jar",
         "algorithm": "SHA1",
-        "checksum": "dee9103eec0d877f3a21c82d4d9e9f4fbd2d6e0a\n"
+        "checksum": "dee9103eec0d877f3a21c82d4d9e9f4fbd2d6e0a"
       },
       {
         "tag": "5.1.44",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.44/mysql-connector-java-5.1.44.jar",
         "algorithm": "SHA1",
-        "checksum": "61b6b998192c85bb581c6be90e03dcd4b9079db4\n"
+        "checksum": "61b6b998192c85bb581c6be90e03dcd4b9079db4"
       },
       {
         "tag": "5.1.45",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.45/mysql-connector-java-5.1.45.jar",
         "algorithm": "SHA1",
-        "checksum": "ee64ec436a87c35362176ea300d69c912d1cbeac\n"
+        "checksum": "ee64ec436a87c35362176ea300d69c912d1cbeac"
       },
       {
         "tag": "5.1.46",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar",
         "algorithm": "SHA1",
-        "checksum": "9a3e63b387e376364211e96827bc27db8d7a92e9\n"
+        "checksum": "9a3e63b387e376364211e96827bc27db8d7a92e9"
       },
       {
         "tag": "5.1.47",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.47/mysql-connector-java-5.1.47.jar",
         "algorithm": "SHA1",
-        "checksum": "9de4159aaf2d08817a276610b8114a825fca6cfd\n"
+        "checksum": "9de4159aaf2d08817a276610b8114a825fca6cfd"
       },
       {
         "tag": "5.1.48",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.48/mysql-connector-java-5.1.48.jar",
         "algorithm": "SHA1",
-        "checksum": "9140be77aafa5050bf4bb936d560cbacb5a6b5c1\n"
+        "checksum": "9140be77aafa5050bf4bb936d560cbacb5a6b5c1"
       },
       {
         "tag": "5.1.49",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar",
         "algorithm": "SHA1",
-        "checksum": "cf76d2e4c9c3782a85c15c87bec5772b34ffd0e5\n"
+        "checksum": "cf76d2e4c9c3782a85c15c87bec5772b34ffd0e5"
       },
       {
         "tag": "6.0.2",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/6.0.2/mysql-connector-java-6.0.2.jar",
         "algorithm": "SHA1",
-        "checksum": "5ded70a4a41a8a7d869765d955a811b7b725771d\n"
+        "checksum": "5ded70a4a41a8a7d869765d955a811b7b725771d"
       },
       {
         "tag": "6.0.3",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/6.0.3/mysql-connector-java-6.0.3.jar",
         "algorithm": "SHA1",
-        "checksum": "49506be68e2ab1b619d77dee24c2e55d399d371a\n"
+        "checksum": "49506be68e2ab1b619d77dee24c2e55d399d371a"
       },
       {
         "tag": "6.0.4",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/6.0.4/mysql-connector-java-6.0.4.jar",
         "algorithm": "SHA1",
-        "checksum": "20efb52fc39f60debcbc96a688f8c4e70654ef6b\n"
+        "checksum": "20efb52fc39f60debcbc96a688f8c4e70654ef6b"
       },
       {
         "tag": "6.0.5",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/6.0.5/mysql-connector-java-6.0.5.jar",
         "algorithm": "SHA1",
-        "checksum": "9d8df5a1f3273110f2a9ad304961bdd03d696d86\n"
+        "checksum": "9d8df5a1f3273110f2a9ad304961bdd03d696d86"
       },
       {
         "tag": "6.0.6",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar",
         "algorithm": "SHA1",
-        "checksum": "1d19b184dbc596008cc71c83596f051c3ec4097f\n"
+        "checksum": "1d19b184dbc596008cc71c83596f051c3ec4097f"
       },
       {
         "tag": "8.0.7-dmr",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.7-dmr/mysql-connector-java-8.0.7-dmr.jar",
         "algorithm": "SHA1",
-        "checksum": "8b1e615f7a7ad219a1aa8d01b6980faf94f5a644\n"
+        "checksum": "8b1e615f7a7ad219a1aa8d01b6980faf94f5a644"
       },
       {
         "tag": "8.0.8-dmr",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.8-dmr/mysql-connector-java-8.0.8-dmr.jar",
         "algorithm": "SHA1",
-        "checksum": "2b1c562057c48d99ac71d1dea7c8ccebe1e43812\n"
+        "checksum": "2b1c562057c48d99ac71d1dea7c8ccebe1e43812"
       },
       {
         "tag": "8.0.9-rc",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.9-rc/mysql-connector-java-8.0.9-rc.jar",
         "algorithm": "SHA1",
-        "checksum": "8367d12f856cabe318fd2973b7854079ee54bfd1\n"
+        "checksum": "8367d12f856cabe318fd2973b7854079ee54bfd1"
       },
       {
         "tag": "8.0.11",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.11/mysql-connector-java-8.0.11.jar",
         "algorithm": "SHA1",
-        "checksum": "2c3d25fe1dfdd6496e0bbe47d67809f67487cfba\n"
+        "checksum": "2c3d25fe1dfdd6496e0bbe47d67809f67487cfba"
       },
       {
         "tag": "8.0.12",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12.jar",
         "algorithm": "SHA1",
-        "checksum": "08e201602cc1ddd145c4c74e67d4002d3d4b1796\n"
+        "checksum": "08e201602cc1ddd145c4c74e67d4002d3d4b1796"
       },
       {
         "tag": "8.0.13",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.13/mysql-connector-java-8.0.13.jar",
         "algorithm": "SHA1",
-        "checksum": "28015319e44ff50a8fee655e725fefc4990abeb1\n"
+        "checksum": "28015319e44ff50a8fee655e725fefc4990abeb1"
       },
       {
         "tag": "8.0.14",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.14/mysql-connector-java-8.0.14.jar",
         "algorithm": "SHA1",
-        "checksum": "fad276a1c9d60192075a7c61676f599a14b23e2d\n"
+        "checksum": "fad276a1c9d60192075a7c61676f599a14b23e2d"
       },
       {
         "tag": "8.0.15",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.15/mysql-connector-java-8.0.15.jar",
         "algorithm": "SHA1",
-        "checksum": "1cd928d0f1a93563993ce1d8b468217ea0d19b11\n"
+        "checksum": "1cd928d0f1a93563993ce1d8b468217ea0d19b11"
       },
       {
         "tag": "8.0.16",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.16/mysql-connector-java-8.0.16.jar",
         "algorithm": "SHA1",
-        "checksum": "06088b7a25188ab4b3ab865422a8ec77ade29236\n"
+        "checksum": "06088b7a25188ab4b3ab865422a8ec77ade29236"
       },
       {
         "tag": "8.0.17",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.17/mysql-connector-java-8.0.17.jar",
         "algorithm": "SHA1",
-        "checksum": "53da6afdc5f7b45caaa5bc3627028b2041a36cee\n"
+        "checksum": "53da6afdc5f7b45caaa5bc3627028b2041a36cee"
       },
       {
         "tag": "8.0.18",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar",
         "algorithm": "SHA1",
-        "checksum": "e088efaa4b568bc7d9f7274b9c5ea1a00da1a45c\n"
+        "checksum": "e088efaa4b568bc7d9f7274b9c5ea1a00da1a45c"
       },
       {
         "tag": "8.0.19",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.19/mysql-connector-java-8.0.19.jar",
         "algorithm": "SHA1",
-        "checksum": "9af69ef0f68eae737351ff55c0ba6e23a06826a5\n"
+        "checksum": "9af69ef0f68eae737351ff55c0ba6e23a06826a5"
       },
       {
         "tag": "8.0.20",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar",
         "algorithm": "SHA1",
-        "checksum": "d8d388e71c823570662a45dd33f4284141921280\n"
+        "checksum": "d8d388e71c823570662a45dd33f4284141921280"
       },
       {
         "tag": "8.0.21",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.21/mysql-connector-java-8.0.21.jar",
         "algorithm": "SHA1",
-        "checksum": "53fd3a0887667aae7e40a3439fff2d03d93ec4c2\n"
+        "checksum": "53fd3a0887667aae7e40a3439fff2d03d93ec4c2"
       },
       {
         "tag": "8.0.22",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.22/mysql-connector-java-8.0.22.jar",
         "algorithm": "SHA1",
-        "checksum": "0ec8bfce16c8bd18d6cb598b1147aa145be1408f\n"
+        "checksum": "0ec8bfce16c8bd18d6cb598b1147aa145be1408f"
       },
       {
         "tag": "8.0.23",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.23/mysql-connector-java-8.0.23.jar",
         "algorithm": "SHA1",
-        "checksum": "14d64ac509adccaff444513c12646d93e4ed8be8\n"
+        "checksum": "14d64ac509adccaff444513c12646d93e4ed8be8"
       },
       {
         "tag": "8.0.24",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.24/mysql-connector-java-8.0.24.jar",
         "algorithm": "SHA1",
-        "checksum": "f3042ac770048196788cc6213f2df0a430fc5d00\n"
+        "checksum": "f3042ac770048196788cc6213f2df0a430fc5d00"
       },
       {
         "tag": "8.0.25",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.25/mysql-connector-java-8.0.25.jar",
         "algorithm": "SHA1",
-        "checksum": "f8b9123acd13058c941aff25f308c9ed8000bb73\n"
+        "checksum": "f8b9123acd13058c941aff25f308c9ed8000bb73"
       },
       {
         "tag": "8.0.26",
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.26/mysql-connector-java-8.0.26.jar",
         "algorithm": "SHA1",
-        "checksum": "e5ec6610020a3084b7d32ee725d1650176f6b3de\n"
+        "checksum": "e5ec6610020a3084b7d32ee725d1650176f6b3de"
       }
     ]
   },

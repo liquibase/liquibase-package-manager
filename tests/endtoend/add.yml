@@ -1,6 +1,6 @@
 tests:
   - "can add one package":
-      command: lpm add liquibase-postgresql
+      command: lpm add liquibase-postgresql@4.4.1
       stdout:
         contains: liquibase-postgresql-4.4.1.jar successfully installed in classpath.
   - "verify one package":
