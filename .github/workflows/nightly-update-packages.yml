@@ -1,0 +1,29 @@
+name: Update Packages
+
+on: push
+
+jobs:
+  update-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Update Packages
+        run: make generateExtensionPackages
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.PAT }}
+          commit-message: Automatic update to packages.json
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          branch: update/packages
+          delete-branch: true
+          title: '[Automatic] Update packages.json'
+          body: |
+            Automatic update to packages.json
+          labels: |
+            packages
+          draft: false
