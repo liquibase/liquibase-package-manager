@@ -42,7 +42,7 @@ func init() {
 		{"liquibase-hanadb", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hanadb","","", ""},
 		{"liquibase-hibernate5", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hibernate5","","", ""},
 		{"liquibase-maxdb", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-maxdb","","", ""},
-		{"liquibase-modify-column", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-modify","","", ""},
+		{"liquibase-modify-column", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-modify-column","","", ""},
 		{"liquibase-mongodb", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb","","", ""},
 		{"liquibase-mssql", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mssql","","", ""},
 		{"liquibase-neo4j", "extension", "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j","","", ""},
