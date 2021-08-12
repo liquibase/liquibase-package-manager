@@ -3890,6 +3890,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra/4.4.1/liquibase-cassandra-4.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "9575d9ae473201fb0dffe2e26b09ea04b77a83e4"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra/4.4.2/liquibase-cassandra-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "8022c0b6358b8098966d71dd73bc8bbbcbd26696"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra/4.4.3/liquibase-cassandra-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "5de277dc138479babcd4ec6e53c6df0e97a439ae"
       }
     ]
   },
@@ -4994,6 +5006,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.4.2/liquibase-neo4j-4.4.2.jar",
         "algorithm": "SHA1",
         "checksum": "d9d83a0bc53a6f6ccae3b4fe66987d48c38ec686"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.4.3/liquibase-neo4j-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "d5efb1b1bab4110308905aa18a5e3a9108cf39c1"
       }
     ]
   },
@@ -5414,6 +5432,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-redshift/4.4.0/liquibase-redshift-4.4.0.jar",
         "algorithm": "SHA1",
         "checksum": "48edb1b27718f68332f2e9f1adbcedbfe166b1b0"
+      },
+      {
+        "tag": "4.4.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-redshift/4.4.1/liquibase-redshift-4.4.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "6bd7ade33dab6fe93fd202521732a16339b5c458"
+      },
+      {
+        "tag": "4.4.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-redshift/4.4.2/liquibase-redshift-4.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "ae25cf2a7b87dbbeb3b63d402a0e249c96f8cd2f"
       }
     ]
   },
