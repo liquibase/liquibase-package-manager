@@ -5204,6 +5204,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.4.2/liquibase-percona-4.4.2.jar",
         "algorithm": "SHA1",
         "checksum": "27e650042204469fba39d5bc2ed40604afa9a204"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.4.3/liquibase-percona-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "35d964e0b5483f40a3f4bb4150086bf44a4949f2"
       }
     ]
   },
@@ -5444,6 +5450,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-redshift/4.4.2/liquibase-redshift-4.4.2.jar",
         "algorithm": "SHA1",
         "checksum": "ae25cf2a7b87dbbeb3b63d402a0e249c96f8cd2f"
+      },
+      {
+        "tag": "4.4.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-redshift/4.4.3/liquibase-redshift-4.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "107bd696d9a7a33fa54a06388f7c43f925568faa"
       }
     ]
   },
