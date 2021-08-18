@@ -1,4 +1,4 @@
 tests:
   "can update package json from remote":
     command: lpm update
-    stdout: Package manifest updated from https://raw.githubusercontent.com/liquibase/liquibase-package-manager/master/internal/app/packages.json
+    stdout: Package manifest updated from https://raw.githubusercontent.com/liquibase/liquibase-package-manager/master/embeds/packages.json
