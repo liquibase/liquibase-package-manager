@@ -1,0 +1,1 @@
+See https://www.educative.io/edpresso/how-to-use-cobra-in-golang for directory conventions.

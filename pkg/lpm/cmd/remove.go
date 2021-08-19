@@ -1,15 +1,16 @@
-package lpm
+package cmd
 
 import (
 	"fmt"
 	"github.com/spf13/cobra"
 	"os"
+	"package-manager/pkg/lpm"
 )
 
 func init() {
 	rootCmd.AddCommand(removeCmd)
 	removeCmd.Flags().BoolVarP(
-		&cliArgs.Global,
+		&lpm.GetCliArgs().Global,
 		"global",
 		"g",
 		false,
@@ -23,17 +24,17 @@ var removeCmd = &cobra.Command{
 	Aliases: []string{"rm"},
 	Args:    cobra.ArbitraryArgs,
 	Run: func(cmd *cobra.Command, args []string) {
-		var files ClasspathFiles
+		var files lpm.ClasspathFiles
 		var cp string
-		var p Package
-		var v Version
+		var p lpm.Package
+		var v lpm.Version
 		var err error
 
-		ctx := ContextFromCobraCommand(cmd)
+		ctx := lpm.ContextFromCobraCommand(cmd)
 
-		d := NewDependencies()
+		d := lpm.NewDependencies()
 
-		if ctx.FileSource != GlobalFiles {
+		if ctx.FileSource != lpm.GlobalFiles {
 			err = d.ReadManifest(ctx)
 		}
 		if err != nil {
@@ -62,12 +63,12 @@ var removeCmd = &cobra.Command{
 				continue
 			}
 			fmt.Printf("%s successfully uninstalled from classpath.\n", v.GetFilename())
-			if ctx.FileSource != GlobalFiles {
+			if ctx.FileSource != lpm.GlobalFiles {
 				d.Remove(p.Name)
 			}
 		}
 
-		if ctx.FileSource != GlobalFiles {
+		if ctx.FileSource != lpm.GlobalFiles {
 			err = d.WriteManifest(ctx)
 		}
 		if err != nil {

@@ -1,8 +1,9 @@
-package lpm
+package cmd
 
 import (
 	"fmt"
 	"github.com/spf13/cobra"
+	"package-manager/pkg/lpm"
 )
 
 const DefaultVersionTemplate = "" +
@@ -14,12 +15,12 @@ func init() {
 	//Global params
 	//rootCmd.CompletionOptions.DisableDefaultCmd = true
 	rootCmd.PersistentFlags().StringVar(
-		&cliArgs.Category,
+		&lpm.GetCliArgs().Category,
 		"category",
 		"",
 		"extension, driver, or utility")
 
-	rootCmd.Version = VersionNumber
+	rootCmd.Version = lpm.VersionNumber
 
 	rootCmd.SetVersionTemplate(DefaultVersionTemplate)
 }
@@ -33,7 +34,7 @@ Search for, install, and uninstall liquibase drivers, extensions, and utilities.
 
 //Execute main entry point for CLI from root
 func Execute(path string) error {
-	ctx := NewContext(path)
+	ctx := lpm.NewContext(path)
 	err := ctx.Initialize()
 	if err != nil {
 		err = fmt.Errorf("unable to initialize Context when executing root command; %w",

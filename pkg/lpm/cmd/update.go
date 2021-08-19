@@ -1,8 +1,9 @@
-package lpm
+package cmd
 
 import (
 	"fmt"
 	"github.com/spf13/cobra"
+	"package-manager/pkg/lpm"
 )
 
 var (
@@ -28,7 +29,7 @@ var updateCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		var err error
 
-		ctx := ContextFromCobraCommand(cmd)
+		ctx := lpm.ContextFromCobraCommand(cmd)
 
 		err = ctx.LoadPackages(path)
 		if err != nil {

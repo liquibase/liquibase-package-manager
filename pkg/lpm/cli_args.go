@@ -5,8 +5,12 @@ type CliArgs struct {
 	Global   bool
 }
 
-var cliArgs CliArgs
+var cliArgs *CliArgs
 
 func init() {
-	cliArgs = CliArgs{}
+	cliArgs = &CliArgs{}
+}
+
+func GetCliArgs() *CliArgs {
+	return cliArgs
 }

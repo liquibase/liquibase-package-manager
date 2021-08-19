@@ -1,14 +1,15 @@
-package lpm
+package cmd
 
 import (
 	"fmt"
 	"github.com/spf13/cobra"
+	"package-manager/pkg/lpm"
 )
 
 func init() {
 	rootCmd.AddCommand(addCmd)
 	addCmd.Flags().BoolVarP(
-		&cliArgs.Global,
+		&lpm.GetCliArgs().Global,
 		"global",
 		"g",
 		false,
@@ -21,15 +22,15 @@ var addCmd = &cobra.Command{
 	Short: "Add Packages",
 	Args:  cobra.ArbitraryArgs,
 	Run: func(cmd *cobra.Command, args []string) {
-		var p Package
-		var v Version
+		var p lpm.Package
+		var v lpm.Version
 		var err error
 
-		ctx := ContextFromCobraCommand(cmd)
+		ctx := lpm.ContextFromCobraCommand(cmd)
 
-		dd := NewDependencies()
+		dd := lpm.NewDependencies()
 
-		if ctx.FileSource == LocalFiles {
+		if ctx.FileSource == lpm.LocalFiles {
 			err = dd.ReadManifest(ctx)
 		}
 		if err != nil {
@@ -45,14 +46,14 @@ var addCmd = &cobra.Command{
 				continue
 			}
 
-			dd.Append(NewDependency(p.Name, v.Tag))
+			dd.Append(lpm.NewDependency(p.Name, v.Tag))
 
 			fmt.Printf("%s successfully installed in classpath.\n",
 				v.GetFilename())
 
 		}
 
-		if ctx.FileSource == LocalFiles {
+		if ctx.FileSource == lpm.LocalFiles {
 			//Add package to local manifest
 			if !dd.FileExists(ctx) {
 				err = dd.CreateManifestFile(ctx)
@@ -75,10 +76,10 @@ var addCmd = &cobra.Command{
 	},
 }
 
-func maybeAddPackage(ctx *Context, name string) error {
+func maybeAddPackage(ctx *lpm.Context, name string) error {
 	var cp string
 	var msg string
-	var files ClasspathFiles
+	var files lpm.ClasspathFiles
 
 	p, v, err := ctx.GetPackageAndVersion(name)
 

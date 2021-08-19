@@ -13,11 +13,6 @@ import (
 	"strings"
 )
 
-type FileSource byte
-
-const GlobalFiles FileSource = 'g'
-const LocalFiles FileSource = 'l'
-
 const PackageFilePerms = 0664
 const DirectoryPerms = 0775
 const DefaultPackageFile = "packages.json"
@@ -42,15 +37,19 @@ type Context struct {
 
 	WorkingDir string
 
-	manifestFilepath string
-	FileSource       FileSource
-	Category         string
-	HomeDir          string
-	Path             string
-
 	//PackageFile to use
 	//ex: package.json
 	PackageFile string
+
+	FileSource FileSource
+
+	Category string
+
+	HomeDir string
+
+	Path string
+
+	manifestFilepath string
 
 	// bytes for storing JSON read from file
 	packageBytes []byte
@@ -94,6 +93,8 @@ func ContextFromCobraCommand(cmd *cobra.Command) *Context {
 func NewContext(path string) *Context {
 	return &Context{
 		Context:        context.Background(),
+		Category:       GetCliArgs().Category,
+		FileSource:     GetFileSource(),
 		PackageFile:    DefaultPackageFile,
 		classpathFiles: make(ClasspathFiles, 0),
 		errors:         make([]error, 0),

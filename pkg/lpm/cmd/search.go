@@ -1,8 +1,9 @@
-package lpm
+package cmd
 
 import (
 	"fmt"
 	"github.com/spf13/cobra"
+	"package-manager/pkg/lpm"
 )
 
 func init() {
@@ -16,12 +17,12 @@ var searchCmd = &cobra.Command{
 
 	Run: func(cmd *cobra.Command, args []string) {
 		var name string
-		var files ClasspathFiles
+		var files lpm.ClasspathFiles
 		var cp string
 		var err error
-		var found Packages
+		var found lpm.Packages
 
-		ctx := ContextFromCobraCommand(cmd)
+		ctx := lpm.ContextFromCobraCommand(cmd)
 
 		files, cp, err = ctx.GetClasspathFiles()
 		if err != nil {

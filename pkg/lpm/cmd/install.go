@@ -1,8 +1,9 @@
-package lpm
+package cmd
 
 import (
 	"fmt"
 	"github.com/spf13/cobra"
+	"package-manager/pkg/lpm"
 )
 
 func init() {
@@ -15,20 +16,20 @@ var installCmd = &cobra.Command{
 	Short: "Install Packages from liquibase.json",
 	Run: func(cmd *cobra.Command, args []string) {
 
-		var d Dependencies
-		var dep Dependency
+		var d lpm.Dependencies
+		var dep lpm.Dependency
 		var fn string
-		var files ClasspathFiles
+		var files lpm.ClasspathFiles
 		var cp string
 		var err error
 
-		ctx := ContextFromCobraCommand(cmd)
-		if ctx.FileSource == GlobalFiles {
+		ctx := lpm.ContextFromCobraCommand(cmd)
+		if ctx.FileSource == lpm.GlobalFiles {
 			ctx.Error("cannot install packages from liquibase.json globally")
 			goto end
 		}
 
-		d = NewDependencies()
+		d = lpm.NewDependencies()
 
 		err = d.ReadManifest(ctx)
 		if err != nil {
@@ -68,7 +69,7 @@ var installCmd = &cobra.Command{
 	},
 }
 
-func maybeInstall(ctx *Context, dep Dependency, cp string, files ClasspathFiles) (fn string, err error) {
+func maybeInstall(ctx *lpm.Context, dep lpm.Dependency, cp string, files lpm.ClasspathFiles) (fn string, err error) {
 
 	p := ctx.GetPackageByName(dep.GetName())
 	v := p.GetVersion(dep.GetVersion())
@@ -94,7 +95,7 @@ end:
 
 }
 
-func CopyToClassPath(v Version, cp string) (err error) {
+func CopyToClassPath(v lpm.Version, cp string) (err error) {
 	if v.PathIsHTTP() {
 		err = v.DownloadToClassPath(cp)
 		goto end
