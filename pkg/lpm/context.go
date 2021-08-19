@@ -80,7 +80,7 @@ func (ctx *Context) PrintJavaOptsHelper() {
 	fmt.Printf("\n\texport JAVA_OPTS=\"%s\"", jo)
 }
 
-func ContextFromCobraCommand(cmd *cobra.Command) *Context {
+func GetContextFromCommand(cmd *cobra.Command) *Context {
 	ctx, ok := cmd.Context().(*Context)
 	if !ok {
 		// When !ok it is a programming error. So okay to just exit
@@ -202,6 +202,9 @@ func (ctx *Context) Initialize() (err error) {
 	//@TODO Should this be loaded from Global Package Filepath, or
 	//      loaded from Local?
 	err = ctx.LoadPackages(ctx.GetGlobalPackageFilepath())
+	if err != nil {
+		goto end
+	}
 
 	// Set global vs local classpath
 	ctx.FileSource = LocalFiles

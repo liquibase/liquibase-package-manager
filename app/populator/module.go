@@ -174,6 +174,7 @@ func (m Module) getNewVersion(p lpm.Package, tag string) (ver lpm.Version, err e
 
 	ver.Algorithm = lpm.Sha1Algorithm
 	ver.CheckSum, err = m.getCheckSum(tag, ver.Algorithm)
+
 	return ver, err
 }
 

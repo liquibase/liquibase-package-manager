@@ -23,7 +23,7 @@ var installCmd = &cobra.Command{
 		var cp string
 		var err error
 
-		ctx := lpm.ContextFromCobraCommand(cmd)
+		ctx := lpm.GetContextFromCommand(cmd)
 		if ctx.FileSource == lpm.GlobalFiles {
 			ctx.Error("cannot install packages from liquibase.json globally")
 			goto end

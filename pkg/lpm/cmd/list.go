@@ -28,7 +28,7 @@ var listCmd = &cobra.Command{
 		// Collect installed packages
 		var installed lpm.Packages
 
-		ctx := lpm.ContextFromCobraCommand(cmd)
+		ctx := lpm.GetContextFromCommand(cmd)
 
 		files, cp, err = ctx.GetClasspathFiles()
 		if err != nil {

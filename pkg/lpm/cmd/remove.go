@@ -30,7 +30,7 @@ var removeCmd = &cobra.Command{
 		var v lpm.Version
 		var err error
 
-		ctx := lpm.ContextFromCobraCommand(cmd)
+		ctx := lpm.GetContextFromCommand(cmd)
 
 		d := lpm.NewDependencies()
 

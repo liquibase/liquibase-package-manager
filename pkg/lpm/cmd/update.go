@@ -29,7 +29,7 @@ var updateCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		var err error
 
-		ctx := lpm.ContextFromCobraCommand(cmd)
+		ctx := lpm.GetContextFromCommand(cmd)
 
 		err = ctx.LoadPackages(path)
 		if err != nil {

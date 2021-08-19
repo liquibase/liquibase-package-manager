@@ -22,7 +22,7 @@ var searchCmd = &cobra.Command{
 		var err error
 		var found lpm.Packages
 
-		ctx := lpm.ContextFromCobraCommand(cmd)
+		ctx := lpm.GetContextFromCommand(cmd)
 
 		files, cp, err = ctx.GetClasspathFiles()
 		if err != nil {
