@@ -28,6 +28,7 @@ func (files ClasspathFiles) VersionExists(v Version) bool {
 			break
 		}
 	}
+
 	return r
 }
 
@@ -35,19 +36,19 @@ func (files ClasspathFiles) VersionExists(v Version) bool {
 type Context struct {
 	context.Context
 
-	WorkingDir string
-
 	//PackageFile to use
 	//ex: package.json
 	PackageFile string
 
 	FileSource FileSource
 
-	Category string
+	workdir string
 
-	HomeDir string
+	category string
 
-	Path string
+	homedir string
+
+	path string
 
 	manifestFilepath string
 
@@ -73,7 +74,7 @@ func (ctx *Context) PrintJavaOptsHelper() {
 	jo := fmt.Sprintf("-cp liquibase_libs%s*:%s*:%sliquibase.jar",
 		string(os.PathSeparator),
 		ctx.GetGlobalClasspath(),
-		ctx.HomeDir)
+		ctx.homedir)
 	fmt.Println()
 	fmt.Println("---------- IMPORTANT ----------")
 	fmt.Println("Run the following JAVA_OPTS command:")
@@ -93,12 +94,12 @@ func GetContextFromCommand(cmd *cobra.Command) *Context {
 func NewContext(path string) *Context {
 	return &Context{
 		Context:        context.Background(),
-		Category:       GetCliArgs().Category,
+		category:       GetCliArgs().Category,
 		FileSource:     GetFileSource(),
 		PackageFile:    DefaultPackageFile,
 		classpathFiles: make(ClasspathFiles, 0),
 		errors:         make([]error, 0),
-		Path:           path,
+		path:           path,
 	}
 }
 
@@ -110,10 +111,10 @@ type ContextArgs struct {
 // NewInitializedContext creates a new context and initializes it,
 // with optional arguments and returning an error on failure
 func NewInitializedContext(args *ContextArgs) (ctx *Context, err error) {
-	ctx = NewContext(ctx.Path)
+	ctx = NewContext(ctx.path)
 	err = ctx.Initialize()
 	if args.WorkingDir != "" {
-		ctx.WorkingDir = args.WorkingDir
+		ctx.workdir = args.WorkingDir
 	}
 	return ctx, err
 }
@@ -125,7 +126,7 @@ func (ctx *Context) GetManifestFilepath() string {
 	}
 	ctx.manifestFilepath = fmt.Sprintf("%s%sliquibase.json",
 		string(os.PathSeparator),
-		ctx.WorkingDir)
+		ctx.workdir)
 end:
 	return ctx.manifestFilepath
 }
@@ -157,8 +158,8 @@ func (ctx *Context) GetClassPackageFilepath(path string) string {
 
 func (ctx *Context) GetGlobalClasspath() string {
 	return fmt.Sprintf("%slib%s",
-		ctx.HomeDir,
-		ctx.Path)
+		ctx.homedir,
+		ctx.path)
 }
 
 func (ctx *Context) maybeCreateInitialPackageFile() (err error) {
@@ -180,13 +181,13 @@ end:
 // Initialize ensure the Context object has required values
 func (ctx *Context) Initialize() (err error) {
 
-	ctx.HomeDir, err = GetHomeDir()
+	ctx.homedir, err = GetHomeDir()
 	if err != nil {
 		err = fmt.Errorf("unable to get home directory for lbm; %w", err)
 		goto end
 	}
 
-	ctx.WorkingDir, err = GetWorkingDir()
+	ctx.workdir, err = GetWorkingDir()
 	if err != nil {
 		err = fmt.Errorf("unable to get current working directory for lbm; %w", err)
 		goto end
@@ -412,9 +413,9 @@ func (ctx *Context) GetPackages() (p Packages) {
 	return ctx.packages
 }
 
-//GetFilteredPackages returns previously loaded packages filtered by category
-func (ctx *Context) GetFilteredPackages() (p Packages) {
-	return ctx.GetPackages().FilterByCategory(ctx.Category)
+//GetCategoryFilteredPackages returns previously loaded packages filtered by category
+func (ctx *Context) GetCategoryFilteredPackages() (p Packages) {
+	return ctx.GetPackages().FilterByCategory(ctx.category)
 }
 
 //WritePackages write packages back to file
