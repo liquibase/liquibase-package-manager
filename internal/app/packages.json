@@ -12,6 +12,18 @@
     ]
   },
   {
+    "name": "liquibase-data",
+    "category": "extension",
+    "versions": [
+      {
+        "tag": "0.0.2",
+        "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.2/liquibase-data-0.0.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "4723841035b52deebd3926569ca917f6f3e47ee6"
+      }
+    ]
+  },
+  {
     "name": "postgresql",
     "category": "driver",
     "versions": [
