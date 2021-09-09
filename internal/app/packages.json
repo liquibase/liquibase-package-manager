@@ -16,6 +16,12 @@
     "category": "extension",
     "versions": [
       {
+        "tag": "0.0.4",
+        "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.4/liquibase-data-0.0.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "84e5238b9f1cf27404dca9b1f5e0b2c87769c8b7"
+      },
+      {
         "tag": "0.0.3",
         "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.3/liquibase-data-0.0.3.jar",
         "algorithm": "SHA1",
