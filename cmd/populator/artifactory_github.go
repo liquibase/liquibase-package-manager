@@ -12,6 +12,7 @@ import (
 	"strings"
 )
 
+//Github artifactory implmentation
 type Github struct {}
 
 var client *github.Client
@@ -25,6 +26,7 @@ func init() {
 	client = github.NewClient(tc)
 }
 
+//GetVersions from Github
 func (g Github) GetVersions(m Module) []*version.Version {
 	rr, _, _ := client.Repositories.ListReleases(context.Background(), m.owner, m.repo, &github.ListOptions{})
 	versions := make([]*version.Version, len(rr))
@@ -36,6 +38,7 @@ func (g Github) GetVersions(m Module) []*version.Version {
 	return versions
 }
 
+//GetNewVersions from Github
 func (g Github) GetNewVersions(m Module, p packages.Package) packages.Package {
 	for _, v := range m.GetVersions() {
 		var ver packages.Version

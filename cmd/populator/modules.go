@@ -2,6 +2,7 @@ package main
 
 var modules Modules
 
+//Modules main module splice
 type Modules []Module
 
 func (mm Modules) getByName(n string) Module {

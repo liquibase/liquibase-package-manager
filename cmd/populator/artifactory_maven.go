@@ -9,7 +9,10 @@ import (
 	"strings"
 )
 
+//Maven artifactory implementation
 type Maven struct {}
+
+//GetVersions from maven
 func (mav Maven) GetVersions(m Module) []*version.Version {
 	var versionsRaw []string
 
@@ -50,6 +53,8 @@ func (mav Maven) GetVersions(m Module) []*version.Version {
 
 	return versions
 }
+
+//GetNewVersions from maven
 func (mav Maven) GetNewVersions(m Module, p packages.Package) packages.Package {
 	//Look for new versions
 	for _, v := range m.GetVersions() {
