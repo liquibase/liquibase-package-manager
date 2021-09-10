@@ -16,22 +16,22 @@
     "category": "extension",
     "versions": [
       {
-        "tag": "0.0.4",
-        "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.4/liquibase-data-0.0.4.jar",
+        "tag": "v0.0.2",
+        "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.2/liquibase-data-0.0.2.jar",
         "algorithm": "SHA1",
-        "checksum": "84e5238b9f1cf27404dca9b1f5e0b2c87769c8b7"
+        "checksum": "4723841035b52deebd3926569ca917f6f3e47ee6"
       },
       {
-        "tag": "0.0.3",
+        "tag": "v0.0.3",
         "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.3/liquibase-data-0.0.3.jar",
         "algorithm": "SHA1",
         "checksum": "11ddbfd71d5702d90aafcdca15aa630038eb4723"
       },
       {
-        "tag": "0.0.2",
-        "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.2/liquibase-data-0.0.2.jar",
+        "tag": "v0.0.4",
+        "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.4/liquibase-data-0.0.4.jar",
         "algorithm": "SHA1",
-        "checksum": "4723841035b52deebd3926569ca917f6f3e47ee6"
+        "checksum": "84e5238b9f1cf27404dca9b1f5e0b2c87769c8b7"
       }
     ]
   },
