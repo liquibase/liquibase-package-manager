@@ -1,11 +1,22 @@
 package main
 
 import (
+	"fmt"
+	"os"
 	"package-manager/internal/app"
 	"package-manager/internal/app/packages"
 )
 
+func checkConfig() {
+	_, b := os.LookupEnv("GITHUB_PAT")
+	if !b {
+		fmt.Println("Unable to locate GITHUB_PAT env. Check your configuration and try again.")
+		os.Exit(1)
+	}
+}
+
 func main(){
+	checkConfig()
 	var newPacks = packages.Packages{}
 
 	// read packages from embedded file
