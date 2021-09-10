@@ -26,7 +26,6 @@ func init() {
 }
 
 func (g Github) GetVersions(m Module) []*version.Version {
-
 	rr, _, _ := client.Repositories.ListReleases(context.Background(), m.owner, m.repo, &github.ListOptions{})
 	versions := make([]*version.Version, len(rr))
 	for i, r := range rr {
@@ -38,14 +37,6 @@ func (g Github) GetVersions(m Module) []*version.Version {
 }
 
 func (g Github) GetNewVersions(m Module, p packages.Package) packages.Package {
-
-	ctx := context.Background()
-	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: os.Getenv("GITHUB_PAT")},
-	)
-	tc := oauth2.NewClient(ctx, ts)
-	client := github.NewClient(tc)
-
 	for _, v := range m.GetVersions() {
 		var ver packages.Version
 		ver.Tag = v.Original()
