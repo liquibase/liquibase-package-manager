@@ -1088,6 +1088,12 @@
         "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.0.1-beta/mariadb-java-client-3.0.1-beta.jar",
         "algorithm": "SHA1",
         "checksum": "b085058878953638ed80ac8703aae73ffa6fff46"
+      },
+      {
+        "tag": "3.0.2-rc",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.0.2-rc/mariadb-java-client-3.0.2-rc.jar",
+        "algorithm": "SHA1",
+        "checksum": "149db042284e8416ef2f7ab57281d9c249ce49ec"
       }
     ]
   },
