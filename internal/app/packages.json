@@ -494,6 +494,12 @@
         "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.24/postgresql-42.2.24.jar",
         "algorithm": "SHA1",
         "checksum": "4035818e75b14b8b116be8a0ef8f1009073e031e"
+      },
+      {
+        "tag": "42.3.0",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.3.0/postgresql-42.3.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "1310ec11f694b4246c07309eedeacc6a57d6ffd2"
       }
     ]
   },
@@ -3698,6 +3704,12 @@
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.26/mysql-connector-java-8.0.26.jar",
         "algorithm": "SHA1",
         "checksum": "e5ec6610020a3084b7d32ee725d1650176f6b3de"
+      },
+      {
+        "tag": "8.0.27",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.27/mysql-connector-java-8.0.27.jar",
+        "algorithm": "SHA1",
+        "checksum": "f1da9f10a3de6348725a413304aab6d0aa04f923"
       }
     ]
   },
