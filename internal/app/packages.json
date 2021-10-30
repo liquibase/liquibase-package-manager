@@ -506,6 +506,12 @@
         "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.3.0/postgresql-42.3.0.jar",
         "algorithm": "SHA1",
         "checksum": "1310ec11f694b4246c07309eedeacc6a57d6ffd2"
+      },
+      {
+        "tag": "42.3.1",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.3.1/postgresql-42.3.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "9ca7df660e875b91c78e3d1608d4d7469ad3470c"
       }
     ]
   },
