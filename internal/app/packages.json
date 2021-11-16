@@ -3854,6 +3854,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cache/4.5.0/liquibase-cache-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "adfde1ed060c022a8d704895d89ef6474dda0ab0"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cache/4.6.1/liquibase-cache-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "f3ecec11067c9a30c1a4b94c488e6e19d63f0b53"
       }
     ]
   },
@@ -4010,6 +4016,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra/4.5.0/liquibase-cassandra-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "7a4155e459cdca5a8ad9582d4d74a0012f65ea7a"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra/4.6.1/liquibase-cassandra-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "79ffbc4efd2bfe3884be05413bdacea823e16a76"
       }
     ]
   },
@@ -4064,6 +4076,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cosmosdb/4.5.0/liquibase-cosmosdb-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "58fbe49e3f45998925992189780a74ef0997705a"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cosmosdb/4.6.1/liquibase-cosmosdb-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "15f8903653ea3560cc3ef5f8285b45e793ccff9f"
       }
     ]
   },
@@ -4196,6 +4214,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-db2i/4.5.0/liquibase-db2i-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "09add54c6fd3ebd8e06c370e345e912dd79ffcaf"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-db2i/4.6.1/liquibase-db2i-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "b0109acb7e1fb70b0d574b4ca9bb21f68050b744"
       }
     ]
   },
@@ -4328,6 +4352,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-filechangelog/4.5.0/liquibase-filechangelog-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "bd63fcafb4691161b1a088dd21298664a15c6cda"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-filechangelog/4.6.1/liquibase-filechangelog-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "9b1022ee6e03a4cc13cca69f823c9d64b360a7dd"
       }
     ]
   },
@@ -4460,6 +4490,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hanadb/4.5.0/liquibase-hanadb-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "82a524c4cd064969ebfd04071ee10c5dc7c98ad1"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hanadb/4.6.1/liquibase-hanadb-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "9f5c80d19aed72c01167426197a85269ed0c4d54"
       }
     ]
   },
@@ -4724,6 +4760,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-maxdb/4.5.0/liquibase-maxdb-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "2c07a8a2720bdfc7b1d72ea11fd09197bfec73ce"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-maxdb/4.6.1/liquibase-maxdb-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "5546677172a5152f744bc937a11d0edae163f534"
       }
     ]
   },
@@ -4862,6 +4904,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-modify-column/4.5.0/liquibase-modify-column-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "e30e8d7461b591e84f45826d625855614a1e35fc"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-modify-column/4.6.1/liquibase-modify-column-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "2d05c4a6ec7d84b992bfffb14a3e9a30f1fa1fb4"
       }
     ]
   },
@@ -5012,6 +5060,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb/4.5.0/liquibase-mongodb-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "fd5a18e4c9841b077bb10e22c1b2f197e8941e2b"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb/4.6.1/liquibase-mongodb-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "cab61f33b78a29e200e1a8232d3f73c095864401"
       }
     ]
   },
@@ -5144,6 +5198,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mssql/4.5.0/liquibase-mssql-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "62e2a7b7b8a36a493626a6e0b04eaf0b2cc71cd2"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mssql/4.6.1/liquibase-mssql-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "e8dee1a63c58d2794d6f9a2887db5d30de06f7a1"
       }
     ]
   },
@@ -5342,6 +5402,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-oracle/4.5.0/liquibase-oracle-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "b5178d8a250879ba7eff816ae7758c6eb723315d"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-oracle/4.6.1/liquibase-oracle-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "bfc7007a113bd5abcee9d5db50157497b8b4b601"
       }
     ]
   },
@@ -5534,6 +5600,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-postgresql/4.5.0/liquibase-postgresql-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "61bb9c2d22a7ebe07fc1476e7a44cdcc514b9efe"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-postgresql/4.6.1/liquibase-postgresql-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "0b53def8900baebebccc746482f0ad8eb7fa2a0d"
       }
     ]
   },
@@ -5666,6 +5738,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-redshift/4.5.0/liquibase-redshift-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "db501be84a632faf801cbe70461a91d445f3032c"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-redshift/4.6.1/liquibase-redshift-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "e7cfa852aa1d8b38f23d8a50a51165350fc9a733"
       }
     ]
   },
@@ -5786,6 +5864,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-snowflake/4.5.0/liquibase-snowflake-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "fe5c83c3c5d8db47ebb29010491f44f2bf67dc22"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-snowflake/4.6.1/liquibase-snowflake-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "ab3b11a04f1cefde7415c3bd6add9653178a610c"
       }
     ]
   },
@@ -5918,6 +6002,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-sqlfire/4.5.0/liquibase-sqlfire-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "07c52d4cacbe508c13aee567a4008dc2704c1b02"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-sqlfire/4.6.1/liquibase-sqlfire-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "a0e409d3161ecbe71988d6751f4b4ea09ed55fe5"
       }
     ]
   },
