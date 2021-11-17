@@ -4640,6 +4640,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hibernate5/4.5.0/liquibase-hibernate5-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "128ab2d604b0d3b22681027566c8ef916dfbe504"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hibernate5/4.6.1/liquibase-hibernate5-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "dfd480e12a29c337e78497d479d870b5e181383c"
       }
     ]
   },
@@ -5252,6 +5258,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.5.0/liquibase-neo4j-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "e3c926354d6466a27614d2fc0024c877a65ed0f0"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.6.1/liquibase-neo4j-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "8af1f586ceeeb7dcb92097bcd8bbdb2ae5815bdc"
       }
     ]
   },
@@ -6146,6 +6158,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-teradata/4.5.0/liquibase-teradata-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "df615096d5b347846434bbe24d721d0b8ab8e54b"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-teradata/4.6.1/liquibase-teradata-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "2fd582e119b153293f1d3b0ba5fd8d4cfb51e050"
       }
     ]
   },
@@ -6248,6 +6266,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-verticaDatabase/4.5.0/liquibase-verticaDatabase-4.5.0.jar",
         "algorithm": "SHA1",
         "checksum": "317509505f9c7e458e180834f2a4600faf685d1c"
+      },
+      {
+        "tag": "4.6.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-verticaDatabase/4.6.1/liquibase-verticaDatabase-4.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "e9870876d7b6c896ca9f0c3e88db8a45c7680fe8"
       }
     ]
   }
