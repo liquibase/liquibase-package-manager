@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-var ps = Packages{driver, extension}
+var ps = Packages{driver, extension, pro}
 
 func TestPackages_FilterByCategory(t *testing.T) {
 	type args struct {
@@ -32,6 +32,12 @@ func TestPackages_FilterByCategory(t *testing.T) {
 			ps: ps,
 			args: args{"extension"},
 			want: []Package{extension},
+		},
+		{
+			name: "Can Filter by Pro",
+			ps: ps,
+			args: args{"pro"},
+			want: []Package{pro},
 		},
 	}
 	for _, tt := range tests {
@@ -65,6 +71,12 @@ func TestPackages_GetByName(t *testing.T) {
 			args: args{"extension"},
 			want: extension,
 		},
+		{
+			name: "Can Get Package (Pro) by Name",
+			ps: ps,
+			args: args{"pro"},
+			want: pro,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -97,7 +109,8 @@ func TestPackages_Display(t *testing.T) {
 			want: []string{
 				"     Package                                Category",
 				"├──  driver@0.0.1                           driver",
-				"└──  extension@1.0.0                        extension",
+				"├──  extension@1.0.0                        extension",
+				"└──  pro@0.0.1                              pro",
 			},
 		},
 		{
@@ -107,14 +120,15 @@ func TestPackages_Display(t *testing.T) {
 			want : []string{
 				"     Package                                Category",
 				"├──  driver                                 driver",
-				"└──  extension                              extension",
+				"├──  extension                              extension",
+				"└──  pro                                    pro",
 			},
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := tt.ps.Display(tt.args.files); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("Display() = %v, want %v", got, tt.want)
+				t.Errorf("got %v, want %v", got, tt.want)
 			}
 		})
 	}
