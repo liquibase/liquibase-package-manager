@@ -1,8 +1,10 @@
 package main
 
 import (
-	"github.com/gocolly/colly/v2"
+	"encoding/xml"
 	"github.com/hashicorp/go-version"
+	"io/ioutil"
+	"net/http"
 	"package-manager/internal/app/packages"
 	"package-manager/internal/app/utils"
 	"sort"
@@ -12,45 +14,40 @@ import (
 //Maven artifactory implementation
 type Maven struct {}
 
+type metadata struct {
+	GroupId    string `xml:"groupId"`
+	ArtifactId  string        `xml:"artifactId"`
+	Versioning  mavenVersions `xml:"versioning"`
+	LastUpdated string        `xml:"lastUpdated"`
+}
+type mavenVersions struct {
+	Release string `xml:"release"`
+	Versions []mavenVersion `xml:"versions"`
+}
+type mavenVersion struct {
+	Version string `xml:"version"`
+}
+
 //GetVersions from maven
 func (mav Maven) GetVersions(m Module) []*version.Version {
-	var versionsRaw []string
-
-	// Get Versions from Root package site
-	c := colly.NewCollector()
-	// Find and visit all links
-	c.OnHTML("a[href]", func(f *colly.HTMLElement) {
-		if !strings.Contains(f.Text, "../") && !strings.Contains(f.Text, "maven-metadata.") {
-			if m.excludeSuffix != "" && m.includeSuffix == "" {
-				if !strings.Contains(f.Text, m.excludeSuffix) {
-					versionsRaw = append(versionsRaw, strings.TrimSuffix(f.Text, "/"))
-				}
-			}
-			if m.excludeSuffix == "" && m.includeSuffix != "" {
-				if strings.Contains(f.Text, m.includeSuffix) {
-					versionsRaw = append(versionsRaw, strings.TrimSuffix(f.Text,  m.includeSuffix + "/"))
-				}
-			}
-			if m.excludeSuffix != "" && m.includeSuffix != "" {
-				if strings.Contains(f.Text, m.includeSuffix) && !strings.Contains(f.Text, m.excludeSuffix) {
-					versionsRaw = append(versionsRaw, strings.TrimSuffix(f.Text,  m.includeSuffix + "/"))
-				}
-			}
-			if m.excludeSuffix == "" && m.includeSuffix == "" {
-				versionsRaw = append(versionsRaw, strings.TrimSuffix(f.Text, "/"))
-			}
-		}
-	})
-	c.Visit(m.url)
-
+	resp, err := http.Get(m.url + "/maven-metadata.xml")
+	if err != nil {
+		print(err)
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		print(err)
+	}
+	var meta metadata
+	xml.Unmarshal(body, &meta)
 	// Sort Versions
-	versions := make([]*version.Version, len(versionsRaw))
-	for i, raw := range versionsRaw {
-		v, _ := version.NewVersion(raw)
+	versions := make([]*version.Version, len(meta.Versioning.Versions))
+	for i, raw := range meta.Versioning.Versions {
+		v, _ := version.NewVersion(raw.Version)
 		versions[i] = v
 	}
 	sort.Sort(version.Collection(versions))
-
 	return versions
 }
 
