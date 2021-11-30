@@ -5,9 +5,9 @@
     "versions": [
       {
         "tag": "0.0.1",
-        "path": "/Users/mcred/projects/liquibase/vault-plugin/target/hashicorp-vault-0.0.1.jar",
+        "path": "https://maven.liquibase.com/org/liquibase/ext/vaults/hashicorp-vault/0.0.1/hashicorp-vault-0.0.1.jar",
         "algorithm": "SHA1",
-        "checksum": ""
+        "checksum": "24a716f44b6353f9240492913d85c12c77e0cc99"
       }
     ]
   },
