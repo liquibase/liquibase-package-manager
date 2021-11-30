@@ -41,10 +41,33 @@ func (mav Maven) GetVersions(m Module) []*version.Version {
 	}
 	var meta metadata
 	xml.Unmarshal(body, &meta)
+
+	var versionsRaw []string
+	for _, version := range meta.Versioning.Versions {
+		if m.excludeSuffix != "" && m.includeSuffix == "" {
+			if !strings.Contains(version.Version, m.excludeSuffix) {
+				versionsRaw = append(versionsRaw, strings.TrimSuffix(version.Version, "/"))
+			}
+		}
+		if m.excludeSuffix == "" && m.includeSuffix != "" {
+			if strings.Contains(version.Version, m.includeSuffix) {
+				versionsRaw = append(versionsRaw, strings.TrimSuffix(version.Version,  m.includeSuffix + "/"))
+			}
+		}
+		if m.excludeSuffix != "" && m.includeSuffix != "" {
+			if strings.Contains(version.Version, m.includeSuffix) && !strings.Contains(version.Version, m.excludeSuffix) {
+				versionsRaw = append(versionsRaw, strings.TrimSuffix(version.Version,  m.includeSuffix + "/"))
+			}
+		}
+		if m.excludeSuffix == "" && m.includeSuffix == "" {
+			versionsRaw = append(versionsRaw, strings.TrimSuffix(version.Version, "/"))
+		}
+	}
+
 	// Sort Versions
-	versions := make([]*version.Version, len(meta.Versioning.Versions))
-	for i, raw := range meta.Versioning.Versions {
-		v, _ := version.NewVersion(raw.Version)
+	versions := make([]*version.Version, len(versionsRaw))
+	for i, raw := range versionsRaw {
+		v, _ := version.NewVersion(raw)
 		versions[i] = v
 	}
 	sort.Sort(version.Collection(versions))
