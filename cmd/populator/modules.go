@@ -20,6 +20,12 @@ end:
 func init() {
 	modules = []Module{
 		{
+			name: "hashicorp-vault",
+			category: Pro,
+			url: "https://maven.liquibase.com/org/liquibase/ext/vaults/hashicorp-vault",
+			artifactory: Maven{},
+		},
+		{
 			name:        "liquibase-data",
 			category:    Extension,
 			owner:       "liquibase",
