@@ -1,5 +1,17 @@
 [
   {
+    "name": "hashicorp-vault",
+    "category": "pro",
+    "versions": [
+      {
+        "tag": "0.0.1",
+        "path": "https://maven.liquibase.com/org/liquibase/ext/vaults/hashicorp-vault/0.0.1/hashicorp-vault-0.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "24a716f44b6353f9240492913d85c12c77e0cc99"
+      }
+    ]
+  },
+  {
     "name": "dbmarlin_extension",
     "category": "extension",
     "versions": [

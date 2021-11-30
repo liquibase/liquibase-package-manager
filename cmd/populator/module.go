@@ -13,6 +13,8 @@ const (
 	Extension Category = "extension"
 	//Driver category
 	Driver Category = "driver"
+	//Pro pro
+	Pro Category="pro"
 )
 
 //Module struct

@@ -33,6 +33,18 @@ var extensionV2 = Version{
 	"SHA1",
 	"",
 }
+var proV1 = Version{
+	"0.0.1",
+	"tests/mocks/files/pro-0.0.1.txt",
+	"SHA1",
+	"",
+}
+var proV2 = Version{
+	"0.0.2",
+	"tests/mocks/files/pro-0.0.2.txt",
+	"SHA1",
+	"",
+}
 
 var testPath string
 

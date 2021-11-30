@@ -1,8 +1,10 @@
 package main
 
 import (
-	"github.com/gocolly/colly/v2"
+	"encoding/xml"
 	"github.com/hashicorp/go-version"
+	"io/ioutil"
+	"net/http"
 	"package-manager/internal/app/packages"
 	"package-manager/internal/app/utils"
 	"sort"
@@ -12,36 +14,55 @@ import (
 //Maven artifactory implementation
 type Maven struct {}
 
+type metadata struct {
+	GroupID    string `xml:"groupId"`
+	ArtifactID  string        `xml:"artifactId"`
+	Versioning  mavenVersions `xml:"versioning"`
+	LastUpdated string        `xml:"lastUpdated"`
+}
+type mavenVersions struct {
+	Release string `xml:"release"`
+	Versions []mavenVersion `xml:"versions"`
+}
+type mavenVersion struct {
+	Version string `xml:"version"`
+}
+
 //GetVersions from maven
 func (mav Maven) GetVersions(m Module) []*version.Version {
-	var versionsRaw []string
+	resp, err := http.Get(m.url + "/maven-metadata.xml")
+	if err != nil {
+		print(err)
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		print(err)
+	}
+	var meta metadata
+	xml.Unmarshal(body, &meta)
 
-	// Get Versions from Root package site
-	c := colly.NewCollector()
-	// Find and visit all links
-	c.OnHTML("a[href]", func(f *colly.HTMLElement) {
-		if !strings.Contains(f.Text, "../") && !strings.Contains(f.Text, "maven-metadata.") {
-			if m.excludeSuffix != "" && m.includeSuffix == "" {
-				if !strings.Contains(f.Text, m.excludeSuffix) {
-					versionsRaw = append(versionsRaw, strings.TrimSuffix(f.Text, "/"))
-				}
-			}
-			if m.excludeSuffix == "" && m.includeSuffix != "" {
-				if strings.Contains(f.Text, m.includeSuffix) {
-					versionsRaw = append(versionsRaw, strings.TrimSuffix(f.Text,  m.includeSuffix + "/"))
-				}
-			}
-			if m.excludeSuffix != "" && m.includeSuffix != "" {
-				if strings.Contains(f.Text, m.includeSuffix) && !strings.Contains(f.Text, m.excludeSuffix) {
-					versionsRaw = append(versionsRaw, strings.TrimSuffix(f.Text,  m.includeSuffix + "/"))
-				}
-			}
-			if m.excludeSuffix == "" && m.includeSuffix == "" {
-				versionsRaw = append(versionsRaw, strings.TrimSuffix(f.Text, "/"))
+	var versionsRaw []string
+	for _, version := range meta.Versioning.Versions {
+		if m.excludeSuffix != "" && m.includeSuffix == "" {
+			if !strings.Contains(version.Version, m.excludeSuffix) {
+				versionsRaw = append(versionsRaw, strings.TrimSuffix(version.Version, "/"))
 			}
 		}
-	})
-	c.Visit(m.url)
+		if m.excludeSuffix == "" && m.includeSuffix != "" {
+			if strings.Contains(version.Version, m.includeSuffix) {
+				versionsRaw = append(versionsRaw, strings.TrimSuffix(version.Version,  m.includeSuffix + "/"))
+			}
+		}
+		if m.excludeSuffix != "" && m.includeSuffix != "" {
+			if strings.Contains(version.Version, m.includeSuffix) && !strings.Contains(version.Version, m.excludeSuffix) {
+				versionsRaw = append(versionsRaw, strings.TrimSuffix(version.Version,  m.includeSuffix + "/"))
+			}
+		}
+		if m.excludeSuffix == "" && m.includeSuffix == "" {
+			versionsRaw = append(versionsRaw, strings.TrimSuffix(version.Version, "/"))
+		}
+	}
 
 	// Sort Versions
 	versions := make([]*version.Version, len(versionsRaw))
@@ -50,7 +71,6 @@ func (mav Maven) GetVersions(m Module) []*version.Version {
 		versions[i] = v
 	}
 	sort.Sort(version.Collection(versions))
-
 	return versions
 }
 

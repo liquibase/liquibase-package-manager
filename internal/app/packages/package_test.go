@@ -19,6 +19,11 @@ var extension = Package{
 	"extension",
 	[]Version{extensionV1, extensionV2},
 }
+var pro = Package{
+	"pro",
+	"pro",
+	[]Version{proV1, proV2},
+}
 
 func TestPackage_GetLatestVersion(t *testing.T) {
 	type fields struct {
