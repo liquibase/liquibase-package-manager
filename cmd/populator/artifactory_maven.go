@@ -15,8 +15,8 @@ import (
 type Maven struct {}
 
 type metadata struct {
-	GroupId    string `xml:"groupId"`
-	ArtifactId  string        `xml:"artifactId"`
+	GroupID    string `xml:"groupId"`
+	ArtifactID  string        `xml:"artifactId"`
 	Versioning  mavenVersions `xml:"versioning"`
 	LastUpdated string        `xml:"lastUpdated"`
 }
