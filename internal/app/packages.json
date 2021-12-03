@@ -8,6 +8,12 @@
         "path": "https://maven.liquibase.com/org/liquibase/ext/vaults/hashicorp-vault/0.0.1/hashicorp-vault-0.0.1.jar",
         "algorithm": "SHA1",
         "checksum": "24a716f44b6353f9240492913d85c12c77e0cc99"
+      },
+      {
+        "tag": "0.0.2",
+        "path": "https://maven.liquibase.com/org/liquibase/ext/vaults/hashicorp-vault/0.0.2/hashicorp-vault-0.0.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "a4532d19769bfd9bc6f74a0d981c21a5eb8a458d"
       }
     ]
   },
@@ -5354,6 +5360,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.6.1/liquibase-neo4j-4.6.1.jar",
         "algorithm": "SHA1",
         "checksum": "8af1f586ceeeb7dcb92097bcd8bbdb2ae5815bdc"
+      },
+      {
+        "tag": "4.6.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.6.2/liquibase-neo4j-4.6.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "11771c1f50476c254c1ff73a5aa04a45e925f7e1"
       }
     ]
   },
