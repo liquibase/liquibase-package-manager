@@ -20,6 +20,12 @@ end:
 func init() {
 	modules = []Module{
 		{
+			name: "cyberarkpam-vault",
+			category: Pro,
+			url: "https://maven.liquibase.com/org/liquibase/ext/vaults/cyberarkpam-vault",
+			artifactory: Maven{},
+		},
+		{
 			name: "hashicorp-vault",
 			category: Pro,
 			url: "https://maven.liquibase.com/org/liquibase/ext/vaults/hashicorp-vault",
