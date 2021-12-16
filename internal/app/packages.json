@@ -1964,6 +1964,12 @@
         "path": "https://repo1.maven.org/maven2/com/ibm/db2/jcc/11.5.6.0/jcc-11.5.6.0.jar",
         "algorithm": "SHA1",
         "checksum": "34704e47398c467e256fd181c75ffb85d1fac9a9"
+      },
+      {
+        "tag": "11.5.7.0",
+        "path": "https://repo1.maven.org/maven2/com/ibm/db2/jcc/11.5.7.0/jcc-11.5.7.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "0d018418a1b90c2a4c4650e589a19b2c0895872b"
       }
     ]
   },
@@ -2744,6 +2750,12 @@
         "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.11/snowflake-jdbc-3.13.11.jar",
         "algorithm": "SHA1",
         "checksum": "c23cf06250c8bca8e1a4257998e5ca05cd93421b"
+      },
+      {
+        "tag": "3.13.12",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.12/snowflake-jdbc-3.13.12.jar",
+        "algorithm": "SHA1",
+        "checksum": "21310c02830728541ccb37daa8db68c08a5ea6ff"
       }
     ]
   },
