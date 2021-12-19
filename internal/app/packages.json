@@ -26,6 +26,12 @@
         "path": "https://maven.liquibase.com/org/liquibase/ext/vaults/hashicorp-vault/0.0.2/hashicorp-vault-0.0.2.jar",
         "algorithm": "SHA1",
         "checksum": "a4532d19769bfd9bc6f74a0d981c21a5eb8a458d"
+      },
+      {
+        "tag": "0.0.3",
+        "path": "https://maven.liquibase.com/org/liquibase/ext/vaults/hashicorp-vault/0.0.3/hashicorp-vault-0.0.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "0048ec740532551d19fa6be5bd5ae263a2bb6ccf"
       }
     ]
   },
