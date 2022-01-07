@@ -8,6 +8,12 @@
         "path": "https://maven.liquibase.com/org/liquibase/ext/vaults/cyberarkpam-vault/0.0.1/cyberarkpam-vault-0.0.1.jar",
         "algorithm": "SHA1",
         "checksum": "5c6c0c8a6dd91b0d8dba06eb48127fec8cf01647"
+      },
+      {
+        "tag": "0.0.2",
+        "path": "https://maven.liquibase.com/org/liquibase/ext/vaults/cyberarkpam-vault/0.0.2/cyberarkpam-vault-0.0.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "c1c25dabfc7be69e5d9a516add35e6daa3a59866"
       }
     ]
   },
