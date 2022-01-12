@@ -4640,6 +4640,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hanadb/4.6.2/liquibase-hanadb-4.6.2.jar",
         "algorithm": "SHA1",
         "checksum": "90642dccd2a911205ca93435090eb08c325130a0"
+      },
+      {
+        "tag": "4.7.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hanadb/4.7.0/liquibase-hanadb-4.7.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "37c0b9f787b8d44f2b0d01c3b2addc5c5ea957fd"
       }
     ]
   },
@@ -5474,6 +5480,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.6.2/liquibase-neo4j-4.6.2.jar",
         "algorithm": "SHA1",
         "checksum": "11771c1f50476c254c1ff73a5aa04a45e925f7e1"
+      },
+      {
+        "tag": "4.7.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.7.0/liquibase-neo4j-4.7.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "f6176f369cd638282cbc57086d9219c5996ba78e"
       }
     ]
   },
