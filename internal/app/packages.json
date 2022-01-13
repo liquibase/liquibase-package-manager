@@ -2780,6 +2780,12 @@
         "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.12/snowflake-jdbc-3.13.12.jar",
         "algorithm": "SHA1",
         "checksum": "21310c02830728541ccb37daa8db68c08a5ea6ff"
+      },
+      {
+        "tag": "3.13.13",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.13/snowflake-jdbc-3.13.13.jar",
+        "algorithm": "SHA1",
+        "checksum": "8fd8b771a66b9d313d3af8a84e5a8c378c0d68dd"
       }
     ]
   },
@@ -5486,6 +5492,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.7.0/liquibase-neo4j-4.7.0.jar",
         "algorithm": "SHA1",
         "checksum": "f6176f369cd638282cbc57086d9219c5996ba78e"
+      },
+      {
+        "tag": "4.7.0.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.7.0.1/liquibase-neo4j-4.7.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "0bf2ea80bbfc9192f3b26b2a3c4303b51b20fa15"
       }
     ]
   },
