@@ -1952,6 +1952,12 @@
         "path": "https://repo1.maven.org/maven2/com/h2database/h2/2.0.206/h2-2.0.206.jar",
         "algorithm": "SHA1",
         "checksum": "42e35ccb838ce5866ce0eeeeb8c0a8de6e4d0508"
+      },
+      {
+        "tag": "2.1.210",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/2.1.210/h2-2.1.210.jar",
+        "algorithm": "SHA1",
+        "checksum": "a7395ae43062f9237eb441137b789c518c7d4c2f"
       }
     ]
   },
@@ -3812,6 +3818,12 @@
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.27/mysql-connector-java-8.0.27.jar",
         "algorithm": "SHA1",
         "checksum": "f1da9f10a3de6348725a413304aab6d0aa04f923"
+      },
+      {
+        "tag": "8.0.28",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar",
+        "algorithm": "SHA1",
+        "checksum": "33678b1729d4f832b9e4bcb2d5bbd67940920a7a"
       }
     ]
   },
