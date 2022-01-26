@@ -1172,6 +1172,12 @@
         "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.0.2-rc/mariadb-java-client-3.0.2-rc.jar",
         "algorithm": "SHA1",
         "checksum": "149db042284e8416ef2f7ab57281d9c249ce49ec"
+      },
+      {
+        "tag": "3.0.3",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.0.3/mariadb-java-client-3.0.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "d88d6d447b8d6194bd3895c96abedd21b4d83355"
       }
     ]
   },
@@ -5600,6 +5606,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.7.0.2/liquibase-neo4j-4.7.0.2.jar",
         "algorithm": "SHA1",
         "checksum": "5da4a65fe111ee544fce36d3adb96e60bf3b0606"
+      },
+      {
+        "tag": "4.7.1.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.7.1.1/liquibase-neo4j-4.7.1.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "bf7ce2bcba9ce6353cf93710119b1f8941daf509"
       }
     ]
   },
