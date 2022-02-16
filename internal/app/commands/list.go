@@ -10,8 +10,8 @@ import (
 
 // listCmd represents the list command
 var listCmd = &cobra.Command{
-	Use:   "list",
-	Short: "List Installed Packages",
+	Use:     "list",
+	Short:   "List Installed Packages",
 	Aliases: []string{"ls"},
 	Run: func(cmd *cobra.Command, args []string) {
 
@@ -27,7 +27,7 @@ var listCmd = &cobra.Command{
 		// Format output
 		fmt.Println(app.Classpath)
 		if len(installed) == 0 {
-			os.Exit(1)
+			os.Exit(0)
 		}
 		for _, out := range installed.Display(app.ClasspathFiles) {
 			fmt.Println(out)

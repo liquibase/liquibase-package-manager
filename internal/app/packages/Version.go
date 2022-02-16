@@ -17,10 +17,10 @@ import (
 
 //Version struct
 type Version struct {
-	Tag string `json:"tag"`
-	Path string `json:"path"`
+	Tag       string `json:"tag"`
+	Path      string `json:"path"`
 	Algorithm string `json:"algorithm"`
-	CheckSum string `json:"checksum"`
+	CheckSum  string `json:"checksum"`
 }
 
 //GetFilename from version
@@ -47,27 +47,30 @@ func (v Version) PathIsHTTP() bool {
 
 //CopyToClassPath install local version to classpath
 func (v Version) CopyToClassPath(cp string) {
+	if !ClasspathExists(cp) {
+		CreateClasspath(cp)
+	}
 	source, err := os.Open(v.Path)
 	if err != nil {
-		errors.Exit("Unable to open " + v.Path, 1)
+		errors.Exit("Unable to open "+v.Path, 1)
 	}
 	defer source.Close()
 	b, err := ioutil.ReadAll(source)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
-	writeToDestination(cp + v.GetFilename(), b, v.GetFilename())
+	writeToDestination(cp+v.GetFilename(), b, v.GetFilename())
 }
 
 func writeToDestination(d string, b []byte, f string) {
 	destination, err := os.Create(d)
 	if err != nil {
-		errors.Exit("Unable to access classpath located at " + d, 1)
+		errors.Exit("Unable to access classpath located at "+d, 1)
 	}
 	defer destination.Close()
 	_, err = io.Copy(destination, bytes.NewReader(b))
 	if err != nil {
-		errors.Exit("Unable to install " + f + " in classpath.", 1)
+		errors.Exit("Unable to install "+f+" in classpath.", 1)
 	}
 }
 
@@ -86,6 +89,9 @@ func (v Version) calcChecksum(b []byte) string {
 
 //DownloadToClassPath install remote version to classpath
 func (v Version) DownloadToClassPath(cp string) {
+	if !ClasspathExists(cp) {
+		CreateClasspath(cp)
+	}
 	body := utils.HTTPUtil{}.Get(v.Path)
 	sha := v.calcChecksum(body)
 	if sha == v.CheckSum {
@@ -93,5 +99,22 @@ func (v Version) DownloadToClassPath(cp string) {
 	} else {
 		errors.Exit("Checksum validation failed. Aborting download.", 1)
 	}
-	writeToDestination(cp + v.GetFilename(), body, v.GetFilename())
+	writeToDestination(cp+v.GetFilename(), body, v.GetFilename())
+}
+
+//CreateClasspath creates a proper directory at the specified location
+func CreateClasspath(cp string) {
+	err := os.Mkdir(cp, 0775)
+	if err != nil {
+		errors.Exit(err.Error(), 1)
+	}
+}
+
+//ClasspathExists checks to see if classpath directory is created
+func ClasspathExists(cp string) bool {
+	_, err := os.Stat(cp)
+	if err != nil {
+		return false
+	}
+	return true
 }
