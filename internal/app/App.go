@@ -19,8 +19,10 @@ var PackagesJSON []byte
 
 //PackageFile exported for overwrite
 var PackageFile = "packages.json"
+
 //Classpath exported for overwrite
 var Classpath string
+
 //ClasspathFiles exported for overwrite
 var ClasspathFiles []fs.FileInfo
 
@@ -39,18 +41,8 @@ func SetClasspath(global bool, globalpath string, globalpathFiles []fs.FileInfo)
 		if err != nil {
 			errors.Exit(err.Error(), 1)
 		}
-
-		//TODO rework this order to prevent creating an empty directory before add/install
-		// probably separate into separate methods
 		Classpath = pwd + "/liquibase_libs/"
-		os.Mkdir(Classpath, 0775)
-		if err != nil {
-			errors.Exit(err.Error(), 1)
-		}
-		ClasspathFiles, err = ioutil.ReadDir(Classpath)
-		if err != nil {
-			errors.Exit(err.Error(), 1)
-		}
+		ClasspathFiles, _ = ioutil.ReadDir(Classpath)
 	}
 }
 
@@ -62,7 +54,7 @@ func PackagesInClassPath(cp string) bool {
 
 //CopyPackagesToClassPath install packages.json to global classpath
 func CopyPackagesToClassPath(cp string, p []byte) {
-	err := ioutil.WriteFile(cp + PackageFile, p, 0664)
+	err := ioutil.WriteFile(cp+PackageFile, p, 0664)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
@@ -88,7 +80,7 @@ func WritePackages(p packages.Packages) {
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
-	err = ioutil.WriteFile(pwd + "/internal/app/packages.json", b, 0664)
+	err = ioutil.WriteFile(pwd+"/internal/app/packages.json", b, 0664)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
