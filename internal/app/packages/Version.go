@@ -47,6 +47,9 @@ func (v Version) PathIsHTTP() bool {
 
 //CopyToClassPath install local version to classpath
 func (v Version) CopyToClassPath(cp string) {
+	if !ClasspathExists(cp) {
+		CreateClasspath(cp)
+	}
 	source, err := os.Open(v.Path)
 	if err != nil {
 		errors.Exit("Unable to open "+v.Path, 1)
@@ -55,9 +58,6 @@ func (v Version) CopyToClassPath(cp string) {
 	b, err := ioutil.ReadAll(source)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
-	}
-	if !ClasspathExists(cp) {
-		CreateClasspath(cp)
 	}
 	writeToDestination(cp+v.GetFilename(), b, v.GetFilename())
 }
@@ -89,15 +89,15 @@ func (v Version) calcChecksum(b []byte) string {
 
 //DownloadToClassPath install remote version to classpath
 func (v Version) DownloadToClassPath(cp string) {
+	if !ClasspathExists(cp) {
+		CreateClasspath(cp)
+	}
 	body := utils.HTTPUtil{}.Get(v.Path)
 	sha := v.calcChecksum(body)
 	if sha == v.CheckSum {
 		fmt.Println("Checksum verified. Installing " + v.GetFilename() + " to " + cp)
 	} else {
 		errors.Exit("Checksum validation failed. Aborting download.", 1)
-	}
-	if !ClasspathExists(cp) {
-		CreateClasspath(cp)
 	}
 	writeToDestination(cp+v.GetFilename(), body, v.GetFilename())
 }
