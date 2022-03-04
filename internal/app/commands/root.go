@@ -8,11 +8,12 @@ import (
 	"package-manager/internal/app"
 	"package-manager/internal/app/errors"
 	"package-manager/internal/app/packages"
+	"package-manager/internal/app/utils"
 )
 
-var  (
+var (
 	category        string
-	liquibaseHome	string
+	liquibase       utils.Liquibase
 	globalpath      string
 	globalpathFiles []fs.FileInfo
 	packs           packages.Packages
@@ -29,8 +30,8 @@ Search for, install, and uninstall liquibase drivers, extensions, and utilities.
 //Execute main entry point for CLI
 func Execute(cp string, s string) {
 	var err error
-	liquibaseHome = cp
-	globalpath = liquibaseHome + "lib" + s
+	liquibase = utils.LoadLiquibase(cp)
+	globalpath = liquibase.Homepath + "lib" + s
 	globalpathFiles, err = ioutil.ReadDir(globalpath)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
@@ -45,12 +46,12 @@ func init() {
 
 	//Global params
 	//rootCmd.CompletionOptions.DisableDefaultCmd = true
-	rootCmd.PersistentFlags().StringVar(&category, "category","", "extension, driver, or utility")
+	rootCmd.PersistentFlags().StringVar(&category, "category", "", "extension, driver, or utility")
 	rootCmd.Version = app.Version()
 	rootCmd.SetVersionTemplate("{{with .Name}}{{printf \"%s \" .}}{{end}}{{with .Short}}{{printf \"(%s) \" .}}{{end}}{{printf \"version %s\" .Version}}\n")
 }
 
-func initConfig()  {
+func initConfig() {
 	//Install Embedded Package File
 	if !app.PackagesInClassPath(globalpath) {
 		app.CopyPackagesToClassPath(globalpath, app.PackagesJSON)

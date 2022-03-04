@@ -9,12 +9,14 @@ import (
 	"strings"
 )
 
+//Liquibase struct
 type Liquibase struct {
 	Homepath        string
 	Version         *version.Version
 	BuildProperties map[string]string
 }
 
+//LoadLiquibase loads liquibase struct from home path
 func LoadLiquibase(hp string) Liquibase {
 	r, err := zip.OpenReader(hp + "liquibase.jar")
 	if err != nil {

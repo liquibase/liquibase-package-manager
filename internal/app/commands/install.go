@@ -2,6 +2,7 @@ package commands
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-version"
 	"github.com/spf13/cobra"
 	"package-manager/internal/app"
 	"package-manager/internal/app/dependencies"
@@ -36,13 +37,14 @@ var installCmd = &cobra.Command{
 			fmt.Println(v.GetFilename() + " successfully installed in classpath.")
 		}
 
-		// Output helper for JAVA_OPTS
-		// TODO Test this on windows
-		p := "-cp liquibase_libs/*:" + globalpath + "*:" + liquibaseHome + "liquibase.jar"
-		fmt.Println()
-		fmt.Println("---------- IMPORTANT ----------")
-		fmt.Println("Add the following JAVA_OPTS to your CLI:")
-		fmt.Println("export JAVA_OPTS=\"" + p + "\"")
+		minVer, _ := version.NewVersion("4.8.0")
+		if !liquibase.Version.GreaterThanOrEqual(minVer) {
+			p := "-cp liquibase_libs/*:" + globalpath + "*:" + liquibase.Homepath + "liquibase.jar"
+			fmt.Println()
+			fmt.Println("---------- IMPORTANT ----------")
+			fmt.Println("Add the following JAVA_OPTS to your CLI:")
+			fmt.Println("export JAVA_OPTS=\"" + p + "\"")
+		}
 	},
 }
 
