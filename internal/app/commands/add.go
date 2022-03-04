@@ -58,7 +58,7 @@ var addCmd = &cobra.Command{
 			}
 			d.Write()
 
-			minVer, _ := version.NewVersion("4.8.0")
+			minVer, _ := version.NewVersion("4.6.2")
 			if liquibase.Version.GreaterThanOrEqual(minVer) {
 				p := "-cp liquibase_libs/*:" + globalpath + "*:" + liquibase.Homepath + "liquibase.jar"
 				fmt.Println()
