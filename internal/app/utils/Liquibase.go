@@ -18,12 +18,18 @@ type Liquibase struct {
 
 //LoadLiquibase loads liquibase struct from home path
 func LoadLiquibase(hp string) Liquibase {
-	r, err := zip.OpenReader(hp + "liquibase.jar")
-	if err != nil {
-		panic(err)
+	l := Liquibase{
+		Homepath:        hp,
+		BuildProperties: map[string]string{},
 	}
 
-	props := map[string]string{}
+	r, err := zip.OpenReader(hp + "liquibase.jar")
+	if err != nil {
+		z, _ := version.NewVersion("0.0.0")
+		l.Version = z
+		goto end
+	}
+
 	for _, f := range r.File {
 		if f.Name == "liquibase.build.properties" {
 			file, err := f.Open()
@@ -46,19 +52,18 @@ func LoadLiquibase(hp string) Liquibase {
 							value = strings.TrimSpace(line[equal+1:])
 						}
 						// assign the config map
-						props[key] = value
+						l.BuildProperties[key] = value
 					}
 				}
 				if err == io.EOF {
 					break
 				}
 			}
+			v, _ := version.NewVersion(l.BuildProperties["build.version"])
+			l.Version = v
 		}
 	}
-	v, _ := version.NewVersion(props["build.version"])
-	return Liquibase{
-		Homepath:        hp,
-		Version:         v,
-		BuildProperties: props,
-	}
+	goto end
+end:
+	return l
 }
