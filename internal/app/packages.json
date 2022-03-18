@@ -1,5 +1,17 @@
 [
   {
+    "name": "custom-hosts",
+    "category": "extension",
+    "versions": [
+      {
+        "tag": "v0.0.1",
+        "path": "https://github.com/liquibase/custom-hosts-extension/releases/download/v0.0.1/custom-hosts-0.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "b52bc724358f63f21d2273c138705c32b552e6bb"
+      }
+    ]
+  },
+  {
     "name": "cyberarkpam-vault",
     "category": "pro",
     "versions": [
@@ -5792,6 +5804,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.8.0.1/liquibase-neo4j-4.8.0.1.jar",
         "algorithm": "SHA1",
         "checksum": "689776653abd2885105f8f61127635ed74b12750"
+      },
+      {
+        "tag": "4.9.0.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.9.0.1/liquibase-neo4j-4.9.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "a55f663417656c77413663547a691560efbb612d"
       }
     ]
   },
@@ -6074,6 +6092,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.8.0/liquibase-percona-4.8.0.jar",
         "algorithm": "SHA1",
         "checksum": "b9d3ae54cffb4aa1e11236045a669e1407a791b0"
+      },
+      {
+        "tag": "4.9.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.9.0/liquibase-percona-4.9.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "0ddd32471f381fb88068feb07586d9f535e7f876"
       }
     ]
   },
