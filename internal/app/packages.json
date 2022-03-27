@@ -114,6 +114,30 @@
     ]
   },
   {
+    "name": "mongodb",
+    "category": "driver",
+    "versions": [
+      {
+        "tag": "3.12.9",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.9/mongo-java-driver-3.12.9.jar",
+        "algorithm": "SHA1",
+        "checksum": "77c253fd74798ab8ec9488239fd77e0c6e6206a1"
+      },
+      {
+        "tag": "3.12.8",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.8/mongo-java-driver-3.12.8.jar",
+        "algorithm": "SHA1",
+        "checksum": "71e49d518b5b3628586f1b0143df1326bfa66f14"
+      },
+      {
+        "tag": "3.12.7",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.7/mongo-java-driver-3.12.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "62202dcef393a0ee340fab90a65f629c41bd8317"
+      }
+    ]
+  },
+  {
     "name": "postgresql",
     "category": "driver",
     "versions": [
