@@ -118,22 +118,700 @@
     "category": "driver",
     "versions": [
       {
-        "tag": "3.12.9",
-        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.9/mongo-java-driver-3.12.9.jar",
+        "tag": "3.12.10",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.10/mongo-java-driver-3.12.10.jar",
         "algorithm": "SHA1",
-        "checksum": "77c253fd74798ab8ec9488239fd77e0c6e6206a1"
+        "checksum": "7235fa6d2e74f57c2faa6f3a2cd83ca92e67fb8d"
       },
       {
-        "tag": "3.12.8",
-        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.8/mongo-java-driver-3.12.8.jar",
+        "tag": "2.7.0-rc1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.7.0-rc1/mongo-java-driver-2.7.0-rc1.jar",
         "algorithm": "SHA1",
-        "checksum": "71e49d518b5b3628586f1b0143df1326bfa66f14"
+        "checksum": "e7266afa1c8fdd1fafb853ec7e58a4a917c4f870"
+      },
+      {
+        "tag": "2.7.0-rc2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.7.0-rc2/mongo-java-driver-2.7.0-rc2.jar",
+        "algorithm": "SHA1",
+        "checksum": "5dda42641c019619a7c3c88ede8ebaeb8c50aae2"
+      },
+      {
+        "tag": "2.7.0-rc3",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.7.0-rc3/mongo-java-driver-2.7.0-rc3.jar",
+        "algorithm": "SHA1",
+        "checksum": "cc6fab648bf8d12cc39f9136db17f491aacbcf8e"
+      },
+      {
+        "tag": "2.7.0-rc4",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.7.0-rc4/mongo-java-driver-2.7.0-rc4.jar",
+        "algorithm": "SHA1",
+        "checksum": "d70fbc9d38ef2555ae66543b5900d97cdb5187e9"
+      },
+      {
+        "tag": "2.7.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.7.0/mongo-java-driver-2.7.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "0ddc0cdf3fb0003baa0f256da9acdbdb0252fd5f"
+      },
+      {
+        "tag": "2.7.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.7.1/mongo-java-driver-2.7.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "55187500aa0561fd0239bd5d240c9544fe84a17f"
+      },
+      {
+        "tag": "2.7.2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.7.2/mongo-java-driver-2.7.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "61fd98495b97b8f00ad3304118577c1a79b6007c"
+      },
+      {
+        "tag": "2.7.3",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.7.3/mongo-java-driver-2.7.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "436ad2498b5e8735413d662e9224ed9e6e7f33a7"
+      },
+      {
+        "tag": "2.8.0-RC1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.8.0-RC1/mongo-java-driver-2.8.0-RC1.jar",
+        "algorithm": "SHA1",
+        "checksum": "654b1d38d7b1f8cb86e86d8659406c788d1b7799"
+      },
+      {
+        "tag": "2.8.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.8.0/mongo-java-driver-2.8.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "bf26f5db1da91ec7bb2822e92a60c53e4d667ca9"
+      },
+      {
+        "tag": "2.9.0-RC1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.9.0-RC1/mongo-java-driver-2.9.0-RC1.jar",
+        "algorithm": "SHA1",
+        "checksum": "c788dc6a2fb8784ae750e2515c7d8b259a891589"
+      },
+      {
+        "tag": "2.9.0-RC2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.9.0-RC2/mongo-java-driver-2.9.0-RC2.jar",
+        "algorithm": "SHA1",
+        "checksum": "99d8f62692e720c8723255b8649cfc5e3680c54d"
+      },
+      {
+        "tag": "2.9.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.9.0/mongo-java-driver-2.9.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "280f7c6df64ecb6cc9f1fa886d743e5d0a9d9beb"
+      },
+      {
+        "tag": "2.9.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.9.1/mongo-java-driver-2.9.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "27f6f07415ebeece62b3fefeaebd6ff30a30470b"
+      },
+      {
+        "tag": "2.9.2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.9.2/mongo-java-driver-2.9.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "bb8fe2e1f0b4d637dd0df5e5ac9ad77ba93c5155"
+      },
+      {
+        "tag": "2.9.3",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.9.3/mongo-java-driver-2.9.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "47db74fd03636102efea01899cd769181a1cbb6f"
+      },
+      {
+        "tag": "2.10.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.10.0/mongo-java-driver-2.10.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "9cc46bdcc61746c2cc6f48a831b405a2166e2897"
+      },
+      {
+        "tag": "2.10.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.10.1/mongo-java-driver-2.10.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "09e2c2835b0126a48183ed42129e53b6eb6e259b"
+      },
+      {
+        "tag": "2.11.0-RC1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.11.0-RC1/mongo-java-driver-2.11.0-RC1.jar",
+        "algorithm": "SHA1",
+        "checksum": "655977a430df401a6bab1aefd6f9ecda6a9cd69e"
+      },
+      {
+        "tag": "2.11.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.11.0/mongo-java-driver-2.11.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "3299eaeb39b370a1134d08d1364999135b32efa3"
+      },
+      {
+        "tag": "2.11.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.11.1/mongo-java-driver-2.11.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "27b3fb1a03e44abb344c66b920ad89538cae685a"
+      },
+      {
+        "tag": "2.11.2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.11.2/mongo-java-driver-2.11.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "ddbd86f711ff2b11ab97971e8a87be3d734db9de"
+      },
+      {
+        "tag": "2.11.3",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.11.3/mongo-java-driver-2.11.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "8a6dd3000edcc9eb18c51ebb01a42186411ccc08"
+      },
+      {
+        "tag": "2.11.4",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.11.4/mongo-java-driver-2.11.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "b989c66514af8473bf8cf7368bbb7552da5879e3"
+      },
+      {
+        "tag": "2.12.0-rc0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.12.0-rc0/mongo-java-driver-2.12.0-rc0.jar",
+        "algorithm": "SHA1",
+        "checksum": "e66ab0a5fe295a83d556ca3941d486a43115ae34"
+      },
+      {
+        "tag": "2.12.0-rc1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.12.0-rc1/mongo-java-driver-2.12.0-rc1.jar",
+        "algorithm": "SHA1",
+        "checksum": "02318d18aa94e2c9219cccc0d10bf4c4d7e58c23"
+      },
+      {
+        "tag": "2.12.0-rc2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.12.0-rc2/mongo-java-driver-2.12.0-rc2.jar",
+        "algorithm": "SHA1",
+        "checksum": "ca2419445546d960eb5cab86bf5f62602db8128b"
+      },
+      {
+        "tag": "2.12.0-rc3",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.12.0-rc3/mongo-java-driver-2.12.0-rc3.jar",
+        "algorithm": "SHA1",
+        "checksum": "953df387a156304b3efc58ab59919e33ad1449c4"
+      },
+      {
+        "tag": "2.12.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.12.0/mongo-java-driver-2.12.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "79dde454a0dc079da453825220e0c8dcb790eb69"
+      },
+      {
+        "tag": "2.12.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.12.1/mongo-java-driver-2.12.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "aefb5972e951b230756e8e02178cc3d6eb430675"
+      },
+      {
+        "tag": "2.12.2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.12.2/mongo-java-driver-2.12.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "a45589b995e5f43af112561bd113b6b898879e0f"
+      },
+      {
+        "tag": "2.12.3",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.12.3/mongo-java-driver-2.12.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "12b7358a7740af71a4a52349d014d526a7a26a65"
+      },
+      {
+        "tag": "2.12.4",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.12.4/mongo-java-driver-2.12.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "3ed9a10c4315fae18e4a2ed1f01ff17475d7e16e"
+      },
+      {
+        "tag": "2.12.5",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.12.5/mongo-java-driver-2.12.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "8e53a39f2a5b2755ecc394d48d18026460f5da58"
+      },
+      {
+        "tag": "2.13.0-rc0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.13.0-rc0/mongo-java-driver-2.13.0-rc0.jar",
+        "algorithm": "SHA1",
+        "checksum": "ff2f732ba974ae93baa3fee7c100c2bd46d4f9ab"
+      },
+      {
+        "tag": "2.13.0-rc1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.13.0-rc1/mongo-java-driver-2.13.0-rc1.jar",
+        "algorithm": "SHA1",
+        "checksum": "428073e66b70da6c45f6dccb9a10f8eda63b0438"
+      },
+      {
+        "tag": "2.13.0-rc2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.13.0-rc2/mongo-java-driver-2.13.0-rc2.jar",
+        "algorithm": "SHA1",
+        "checksum": "4b2239f77e51a735d608e53b22fe29f6ac2f579d"
+      },
+      {
+        "tag": "2.13.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.13.0/mongo-java-driver-2.13.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "6b19c1276871001fa85684475db7e4c538046b52"
+      },
+      {
+        "tag": "2.13.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.13.1/mongo-java-driver-2.13.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "eb5dc611cbb97c06d621f79f8e48ef13860296d8"
+      },
+      {
+        "tag": "2.13.2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.13.2/mongo-java-driver-2.13.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "156fd08aa704f875bc85f42ef535704e73a42a3c"
+      },
+      {
+        "tag": "2.13.3",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.13.3/mongo-java-driver-2.13.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "e8835850d2866528ecd45617f837c8110341ec99"
+      },
+      {
+        "tag": "2.14.0-rc0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.14.0-rc0/mongo-java-driver-2.14.0-rc0.jar",
+        "algorithm": "SHA1",
+        "checksum": "404b434dd0ba49bfda5d621d44b9d09ee3a9abc6"
+      },
+      {
+        "tag": "2.14.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.14.0/mongo-java-driver-2.14.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "bebc842ff5deeb7260d42bfdc97142b428c7f053"
+      },
+      {
+        "tag": "2.14.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.14.1/mongo-java-driver-2.14.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "b2436658cd66175f8ea3b2b8d13f8d16d82a403f"
+      },
+      {
+        "tag": "2.14.2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.14.2/mongo-java-driver-2.14.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "4ffebf16f3368cbef6bd280f99191ea025b83924"
+      },
+      {
+        "tag": "2.14.3",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/2.14.3/mongo-java-driver-2.14.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "5c78bfc3b20699508a36a08d9d8c7feb3a558296"
+      },
+      {
+        "tag": "3.0.0-beta1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.0.0-beta1/mongo-java-driver-3.0.0-beta1.jar",
+        "algorithm": "SHA1",
+        "checksum": "8efd1ead2c1916833726723b2ebb925a003dcfb1"
+      },
+      {
+        "tag": "3.0.0-beta2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.0.0-beta2/mongo-java-driver-3.0.0-beta2.jar",
+        "algorithm": "SHA1",
+        "checksum": "caa2b840039cf0aa5690c4c79e77b7b33cc0f1aa"
+      },
+      {
+        "tag": "3.0.0-beta3",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.0.0-beta3/mongo-java-driver-3.0.0-beta3.jar",
+        "algorithm": "SHA1",
+        "checksum": "3743edf5da4094dd69102081284047b8f9e83fc0"
+      },
+      {
+        "tag": "3.0.0-rc0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.0.0-rc0/mongo-java-driver-3.0.0-rc0.jar",
+        "algorithm": "SHA1",
+        "checksum": "7a8d1c82051dda172eb84b209151c59fb830b926"
+      },
+      {
+        "tag": "3.0.0-rc1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.0.0-rc1/mongo-java-driver-3.0.0-rc1.jar",
+        "algorithm": "SHA1",
+        "checksum": "717c552812717e0f3478fa12e45ca3579eb142a0"
+      },
+      {
+        "tag": "3.0.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.0.0/mongo-java-driver-3.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "734a5acccbd07a545c22244159e373aba9e963f6"
+      },
+      {
+        "tag": "3.0.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.0.1/mongo-java-driver-3.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "7a94afe9eaa480ed480cc8f90e7ea8808e576c91"
+      },
+      {
+        "tag": "3.0.2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.0.2/mongo-java-driver-3.0.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "7d3880dec6c8a2f07c1f544776c326834b513712"
+      },
+      {
+        "tag": "3.0.3",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.0.3/mongo-java-driver-3.0.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "2861ec441c95b6cff99ad6761c01776cf708817a"
+      },
+      {
+        "tag": "3.0.4",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.0.4/mongo-java-driver-3.0.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "f9caed188f03990204f3381d01d44f70fc93acec"
+      },
+      {
+        "tag": "3.1.0-rc0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.1.0-rc0/mongo-java-driver-3.1.0-rc0.jar",
+        "algorithm": "SHA1",
+        "checksum": "cf7d247737555335a6c2a8749ff92da1c3a009ac"
+      },
+      {
+        "tag": "3.1.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.1.0/mongo-java-driver-3.1.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "67d91362cf1acbcb20f90b4fb801f03abe4ba1d7"
+      },
+      {
+        "tag": "3.1.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.1.1/mongo-java-driver-3.1.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "354c47a5f0e69dc555bb61a1fee3db829240ff2e"
+      },
+      {
+        "tag": "3.2.0-rc0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.2.0-rc0/mongo-java-driver-3.2.0-rc0.jar",
+        "algorithm": "SHA1",
+        "checksum": "df7cbe225a4907136a6e57775cfe8f8f496246c9"
+      },
+      {
+        "tag": "3.2.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.2.0/mongo-java-driver-3.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "9c02a34dd9150ea44f7ae2de5bebbb27c73818a6"
+      },
+      {
+        "tag": "3.2.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.2.1/mongo-java-driver-3.2.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "3c505a227b802310c8d1a75675127c0ac5cff245"
+      },
+      {
+        "tag": "3.2.2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.2.2/mongo-java-driver-3.2.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "654b381c444d22e095363036767a52de1fda3ab0"
+      },
+      {
+        "tag": "3.3.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.3.0/mongo-java-driver-3.3.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "7d6c104620558aa9c1d5c9f06fccfefe34de5604"
+      },
+      {
+        "tag": "3.4.0-beta1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.4.0-beta1/mongo-java-driver-3.4.0-beta1.jar",
+        "algorithm": "SHA1",
+        "checksum": "c87527d0a633d1eb5632728d498dddf78bf1ef2f"
+      },
+      {
+        "tag": "3.4.0-rc1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.4.0-rc1/mongo-java-driver-3.4.0-rc1.jar",
+        "algorithm": "SHA1",
+        "checksum": "94d3e277855c0aaba780ac057a375e698b4fa881"
+      },
+      {
+        "tag": "3.4.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.4.0/mongo-java-driver-3.4.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "2f6bb252e67ad9a0a42d8809a077d790337dabbb"
+      },
+      {
+        "tag": "3.4.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.4.1/mongo-java-driver-3.4.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "cc204fde3e80dc4417bcba5e4b22dae8c7647cb6"
+      },
+      {
+        "tag": "3.4.2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.4.2/mongo-java-driver-3.4.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "5d0448606f5f7f3974dbae69c4ccfffe214ae60d"
+      },
+      {
+        "tag": "3.4.3",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.4.3/mongo-java-driver-3.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "e8fa9a9ce6ea827cbff320dc0d46c6483777654c"
+      },
+      {
+        "tag": "3.5.0-alpha1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.5.0-alpha1/mongo-java-driver-3.5.0-alpha1.jar",
+        "algorithm": "SHA1",
+        "checksum": "0f99f2597bcc3bf9dfd0dc31437ef6ac408d22b2"
+      },
+      {
+        "tag": "3.5.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.5.0/mongo-java-driver-3.5.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "c63e5477ec899f06190b832e1fb173505b8b9d28"
+      },
+      {
+        "tag": "3.6.0-beta1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.6.0-beta1/mongo-java-driver-3.6.0-beta1.jar",
+        "algorithm": "SHA1",
+        "checksum": "97128413030f2c43e87e2f20f5a41280588dab4c"
+      },
+      {
+        "tag": "3.6.0-beta2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.6.0-beta2/mongo-java-driver-3.6.0-beta2.jar",
+        "algorithm": "SHA1",
+        "checksum": "6011a51fd57b3246a2eedf103263635c35a88e07"
+      },
+      {
+        "tag": "3.6.0-rc0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.6.0-rc0/mongo-java-driver-3.6.0-rc0.jar",
+        "algorithm": "SHA1",
+        "checksum": "d17082c54fe3f12079f251b937deefae639a1c2c"
+      },
+      {
+        "tag": "3.6.0-rc1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.6.0-rc1/mongo-java-driver-3.6.0-rc1.jar",
+        "algorithm": "SHA1",
+        "checksum": "08ae9a8429d2c7d2f39fdb6c76af302b2b4ca864"
+      },
+      {
+        "tag": "3.6.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.6.0/mongo-java-driver-3.6.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "30c6123b38d813e4497763990598e35ad5b25b88"
+      },
+      {
+        "tag": "3.6.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.6.1/mongo-java-driver-3.6.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "1888443f93f57a252f027f70f8e63133626f4acb"
+      },
+      {
+        "tag": "3.6.2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.6.2/mongo-java-driver-3.6.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "9dab519a119ee694b51c9cbd78c7ddcb17cd2836"
+      },
+      {
+        "tag": "3.6.3",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.6.3/mongo-java-driver-3.6.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "237cbf74df3441c172e80ca676dc967166625ff9"
+      },
+      {
+        "tag": "3.6.4",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.6.4/mongo-java-driver-3.6.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "7c3c8ddcaeb039a50b80bcee78a0e93921cda866"
+      },
+      {
+        "tag": "3.7.0-rc0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.7.0-rc0/mongo-java-driver-3.7.0-rc0.jar",
+        "algorithm": "SHA1",
+        "checksum": "0d9891cebd5795053e11bc955aa6ed0c947e2928"
+      },
+      {
+        "tag": "3.7.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.7.0/mongo-java-driver-3.7.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "e0768dd6b819e327e7e5623b9c82f39a5e7a66ed"
+      },
+      {
+        "tag": "3.7.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.7.1/mongo-java-driver-3.7.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "14431168f54c1788f1702e6ab32a4246ad4557e8"
+      },
+      {
+        "tag": "3.8.0-beta1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.8.0-beta1/mongo-java-driver-3.8.0-beta1.jar",
+        "algorithm": "SHA1",
+        "checksum": "5071db240ae21739d51903ca25a6a7651da2b2d8"
+      },
+      {
+        "tag": "3.8.0-beta2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.8.0-beta2/mongo-java-driver-3.8.0-beta2.jar",
+        "algorithm": "SHA1",
+        "checksum": "5f6820be07777cf812cf118d6fbd8518c8014ec1"
+      },
+      {
+        "tag": "3.8.0-beta3",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.8.0-beta3/mongo-java-driver-3.8.0-beta3.jar",
+        "algorithm": "SHA1",
+        "checksum": "f45728f1d9dad6ad16eeec640306cea44b7f0303"
+      },
+      {
+        "tag": "3.8.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.8.0/mongo-java-driver-3.8.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "d9d56e3f038524c29c86afcd2db3d38a19c3bc11"
+      },
+      {
+        "tag": "3.8.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.8.1/mongo-java-driver-3.8.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "a97932453b7185bbc18f4a4c368f9862554496d5"
+      },
+      {
+        "tag": "3.8.2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.8.2/mongo-java-driver-3.8.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "029fb01c26674c1a0f763e25623b2a1e4f4afd7b"
+      },
+      {
+        "tag": "3.9.0-rc0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.9.0-rc0/mongo-java-driver-3.9.0-rc0.jar",
+        "algorithm": "SHA1",
+        "checksum": "476acf797a34cf258cdb4a01bfa8370b106b1c7a"
+      },
+      {
+        "tag": "3.9.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.9.0/mongo-java-driver-3.9.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "e4bed91e08fb2e06246b48848d8ef801a3f6f1c2"
+      },
+      {
+        "tag": "3.9.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.9.1/mongo-java-driver-3.9.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "d313237180bf9f2f82e12f503d9617e6b070f792"
+      },
+      {
+        "tag": "3.10.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.10.0/mongo-java-driver-3.10.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "97b45b7570cfafe636dd1c3d776ebe97ada93672"
+      },
+      {
+        "tag": "3.10.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.10.1/mongo-java-driver-3.10.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "d2a7008196b34b735cfc47d8609ebe47f62cd8a1"
+      },
+      {
+        "tag": "3.10.2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.10.2/mongo-java-driver-3.10.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "ebd0adedee91359b5dec9c6768e8489f6ad472f2"
+      },
+      {
+        "tag": "3.11.0-beta1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.11.0-beta1/mongo-java-driver-3.11.0-beta1.jar",
+        "algorithm": "SHA1",
+        "checksum": "b4a5f9d59deef1036d618c25d33df04f1ddb4ca5"
+      },
+      {
+        "tag": "3.11.0-beta2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.11.0-beta2/mongo-java-driver-3.11.0-beta2.jar",
+        "algorithm": "SHA1",
+        "checksum": "3668fffc36ba74a4907f484fb498857e2ba9b022"
+      },
+      {
+        "tag": "3.11.0-beta3",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.11.0-beta3/mongo-java-driver-3.11.0-beta3.jar",
+        "algorithm": "SHA1",
+        "checksum": "938a0a579b59964c4f5cf93a17c447cf9ba3d6f4"
+      },
+      {
+        "tag": "3.11.0-beta4",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.11.0-beta4/mongo-java-driver-3.11.0-beta4.jar",
+        "algorithm": "SHA1",
+        "checksum": "fe393bfac02a34ebdcd61abff6cd48a5dba73258"
+      },
+      {
+        "tag": "3.11.0-rc0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.11.0-rc0/mongo-java-driver-3.11.0-rc0.jar",
+        "algorithm": "SHA1",
+        "checksum": "bb6d8306e0b88ff698df731c06965777768be6c9"
+      },
+      {
+        "tag": "3.11.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.11.0/mongo-java-driver-3.11.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "71f28e91f0abac27db9e5aadce8e8317acea0054"
+      },
+      {
+        "tag": "3.11.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.11.1/mongo-java-driver-3.11.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "f7265d2fab23fbe15dd967f9ebfdc8f9b81f8036"
+      },
+      {
+        "tag": "3.11.2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.11.2/mongo-java-driver-3.11.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "dcf3f0110aecf1ea9f55c1f12e2b6b68d3c48322"
+      },
+      {
+        "tag": "3.11.3",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.11.3/mongo-java-driver-3.11.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "49c8c9c7d589ed4af40917873f9e9765e3f31bbf"
+      },
+      {
+        "tag": "3.12.0",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.0/mongo-java-driver-3.12.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "7fd479e619dbfa693c05a10dc382cb1f80c46fe9"
+      },
+      {
+        "tag": "3.12.1",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.1/mongo-java-driver-3.12.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "55943ee8c9b73423754d4f9e161e417f1db67652"
+      },
+      {
+        "tag": "3.12.2",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.2/mongo-java-driver-3.12.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "da3edf3643e6aa01ce34448153bac362f98f83e9"
+      },
+      {
+        "tag": "3.12.3",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.3/mongo-java-driver-3.12.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "b86f81e0e8afa58d07d587f9a5ebd8e1198f8863"
+      },
+      {
+        "tag": "3.12.4",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.4/mongo-java-driver-3.12.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "79c0738897970dfa1f4fb61c212e21f1c5fdedeb"
+      },
+      {
+        "tag": "3.12.5",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.5/mongo-java-driver-3.12.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "7299fe510c0c7d9b228297ddc41a359909899388"
+      },
+      {
+        "tag": "3.12.6",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.6/mongo-java-driver-3.12.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "357010b0cdc0e6b2e1fc62e589be4a2c1e0050d1"
       },
       {
         "tag": "3.12.7",
         "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.7/mongo-java-driver-3.12.7.jar",
         "algorithm": "SHA1",
-        "checksum": "62202dcef393a0ee340fab90a65f629c41bd8317"
+        "checksum": "1f45c6a397feeb46da75425619333d1cc6f90f78"
+      },
+      {
+        "tag": "3.12.8",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.8/mongo-java-driver-3.12.8.jar",
+        "algorithm": "SHA1",
+        "checksum": "d9e12b2056cea964a3805558382e0d30596444c5"
+      },
+      {
+        "tag": "3.12.9",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.9/mongo-java-driver-3.12.9.jar",
+        "algorithm": "SHA1",
+        "checksum": "e39daee7a5e64c9881bc41bcb6e531be6aa4ca1e"
       }
     ]
   },
@@ -620,6 +1298,12 @@
         "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.3.3/postgresql-42.3.3.jar",
         "algorithm": "SHA1",
         "checksum": "6f639af368afda4c5a3e77a6299262c501e67076"
+      },
+      {
+        "tag": "42.2.25",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.25/postgresql-42.2.25.jar",
+        "algorithm": "SHA1",
+        "checksum": "1e0f0adf6d9479ec72a8b4c4d1b464f456c4eab3"
       }
     ]
   },
@@ -704,6 +1388,18 @@
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/9.4.0.jre11/mssql-jdbc-9.4.0.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "a6f15b77f9a37aaaaeec829a5040efd1ddec2261"
+      },
+      {
+        "tag": "9.4.1",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/9.4.1.jre11/mssql-jdbc-9.4.1.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "7a74590bdaa9e079150f65a349aed5ac96c871f6"
+      },
+      {
+        "tag": "10.2.0",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/10.2.0.jre11/mssql-jdbc-10.2.0.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "281c4ff3de0f5a36bf77951a0a8ff829469a41d1"
       }
     ]
   },
@@ -1238,6 +1934,12 @@
         "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.0.4/mariadb-java-client-3.0.4.jar",
         "algorithm": "SHA1",
         "checksum": "0fa28784fc03bbe87cb97394373760f6c707f3e9"
+      },
+      {
+        "tag": "2.7.5",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.7.5/mariadb-java-client-2.7.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "9dd29797ecabe7d2e7fa892ec6713a5552cfcc59"
       }
     ]
   },
@@ -5840,6 +6542,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.9.0.1/liquibase-neo4j-4.9.0.1.jar",
         "algorithm": "SHA1",
         "checksum": "a55f663417656c77413663547a691560efbb612d"
+      },
+      {
+        "tag": "4.7.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.7.1/liquibase-neo4j-4.7.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "50f6cbfed5490125873884e59583737e6100182f"
+      },
+      {
+        "tag": "4.9.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.9.0/liquibase-neo4j-4.9.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "05fd39472989aae5a12d37d5408b387e9ed886ea"
       }
     ]
   },
