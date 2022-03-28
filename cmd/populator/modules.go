@@ -20,6 +20,13 @@ end:
 func init() {
 	modules = []Module{
 		{
+			name:        "mongodb",
+			category:    Driver,
+			url:         "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver",
+			filePrefix:  "mongo-java-driver-",
+			artifactory: Maven{},
+		},
+		{
 			name:        "custom-hosts",
 			category:    Extension,
 			owner:       "liquibase",

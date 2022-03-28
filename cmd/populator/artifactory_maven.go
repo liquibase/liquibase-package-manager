@@ -12,20 +12,20 @@ import (
 )
 
 //Maven artifactory implementation
-type Maven struct {}
+type Maven struct{}
 
 type metadata struct {
-	GroupID    string `xml:"groupId"`
+	GroupID     string        `xml:"groupId"`
 	ArtifactID  string        `xml:"artifactId"`
 	Versioning  mavenVersions `xml:"versioning"`
 	LastUpdated string        `xml:"lastUpdated"`
 }
 type mavenVersions struct {
-	Release string `xml:"release"`
-	Versions []mavenVersion `xml:"versions"`
+	Release  string       `xml:"release"`
+	Versions mavenVersion `xml:"versions"`
 }
 type mavenVersion struct {
-	Version string `xml:"version"`
+	Version []string `xml:"version"`
 }
 
 //GetVersions from maven
@@ -43,24 +43,24 @@ func (mav Maven) GetVersions(m Module) []*version.Version {
 	xml.Unmarshal(body, &meta)
 
 	var versionsRaw []string
-	for _, version := range meta.Versioning.Versions {
+	for _, version := range meta.Versioning.Versions.Version {
 		if m.excludeSuffix != "" && m.includeSuffix == "" {
-			if !strings.Contains(version.Version, m.excludeSuffix) {
-				versionsRaw = append(versionsRaw, strings.TrimSuffix(version.Version, "/"))
+			if !strings.Contains(version, m.excludeSuffix) {
+				versionsRaw = append(versionsRaw, version)
 			}
 		}
 		if m.excludeSuffix == "" && m.includeSuffix != "" {
-			if strings.Contains(version.Version, m.includeSuffix) {
-				versionsRaw = append(versionsRaw, strings.TrimSuffix(version.Version,  m.includeSuffix + "/"))
+			if strings.Contains(version, m.includeSuffix) {
+				versionsRaw = append(versionsRaw, strings.TrimSuffix(version, m.includeSuffix))
 			}
 		}
 		if m.excludeSuffix != "" && m.includeSuffix != "" {
-			if strings.Contains(version.Version, m.includeSuffix) && !strings.Contains(version.Version, m.excludeSuffix) {
-				versionsRaw = append(versionsRaw, strings.TrimSuffix(version.Version,  m.includeSuffix + "/"))
+			if strings.Contains(version, m.includeSuffix) && !strings.Contains(version, m.excludeSuffix) {
+				versionsRaw = append(versionsRaw, strings.TrimSuffix(version, m.includeSuffix))
 			}
 		}
 		if m.excludeSuffix == "" && m.includeSuffix == "" {
-			versionsRaw = append(versionsRaw, strings.TrimSuffix(version.Version, "/"))
+			versionsRaw = append(versionsRaw, version)
 		}
 	}
 
@@ -101,9 +101,10 @@ func (mav Maven) GetNewVersions(m Module, p packages.Package) packages.Package {
 		ver.Algorithm = "SHA1"
 		sha := string(utils.HTTPUtil{}.Get(ver.Path + ".sha1"))
 		if strings.Contains(sha, "html") {
-			sha = ""
+			ver.CheckSum = ""
+		} else {
+			ver.CheckSum = sha[0:40] //Get first 40 character of SHA1 only
 		}
-		ver.CheckSum = sha[0:40] //Get first 40 character of SHA1 only
 
 		// Older versions might have bad version patters ending up with a missing sha. Don't add them.
 		if ver.CheckSum != "" {
