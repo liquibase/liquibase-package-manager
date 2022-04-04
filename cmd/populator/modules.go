@@ -20,6 +20,12 @@ end:
 func init() {
 	modules = []Module{
 		{
+			name:        "custom-datatype-converter",
+			category:    Extension,
+			url:         "https://maven.liquibase.com/org/liquibase/ext/datatype/custom-datatype-converter",
+			artifactory: Maven{},
+		},
+		{
 			name:        "mongodb",
 			category:    Driver,
 			url:         "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver",

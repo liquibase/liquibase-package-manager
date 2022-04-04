@@ -1,5 +1,17 @@
 [
   {
+    "name": "custom-datatype-converter",
+    "category": "pro",
+    "versions": [
+      {
+        "tag": "0.1.0",
+        "path": "https://maven.liquibase.com/org/liquibase/ext/datatype/custom-datatype-converter/0.1.0/custom-datatype-converter-0.1.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "0a4aa44104a1c380a8885f135dcb898e61a21419"
+      }
+    ]
+  },
+  {
     "name": "custom-hosts",
     "category": "extension",
     "versions": [
