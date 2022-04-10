@@ -2750,6 +2750,12 @@
         "path": "https://repo1.maven.org/maven2/com/h2database/h2/2.1.210/h2-2.1.210.jar",
         "algorithm": "SHA1",
         "checksum": "a7395ae43062f9237eb441137b789c518c7d4c2f"
+      },
+      {
+        "tag": "2.1.212",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/2.1.212/h2-2.1.212.jar",
+        "algorithm": "SHA1",
+        "checksum": "f3187885395bd0c0e0e83f96641bb630f368ee2f"
       }
     ]
   },
