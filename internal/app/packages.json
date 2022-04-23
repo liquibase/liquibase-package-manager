@@ -824,6 +824,12 @@
         "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.9/mongo-java-driver-3.12.9.jar",
         "algorithm": "SHA1",
         "checksum": "e39daee7a5e64c9881bc41bcb6e531be6aa4ca1e"
+      },
+      {
+        "tag": "3.12.11",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.11/mongo-java-driver-3.12.11.jar",
+        "algorithm": "SHA1",
+        "checksum": "b7f1072d9b1d81148b80226db28ffff8cbb54c20"
       }
     ]
   },
