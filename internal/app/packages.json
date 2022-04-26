@@ -4658,6 +4658,12 @@
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar",
         "algorithm": "SHA1",
         "checksum": "33678b1729d4f832b9e4bcb2d5bbd67940920a7a"
+      },
+      {
+        "tag": "8.0.29",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.29/mysql-connector-java-8.0.29.jar",
+        "algorithm": "SHA1",
+        "checksum": "016bfffda393ac4fe56f0985f1f035b37d3fc48f"
       }
     ]
   },
