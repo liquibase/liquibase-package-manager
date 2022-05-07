@@ -6752,6 +6752,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.9.1/liquibase-neo4j-4.9.1.jar",
         "algorithm": "SHA1",
         "checksum": "f800106b24e362d44d51bcf27c4eaa7b0f2c7f37"
+      },
+      {
+        "tag": "4.10.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.10.0/liquibase-neo4j-4.10.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "113da2bb33599aea61a6187a8fe76fbdcc653890"
       }
     ]
   },
@@ -7058,6 +7064,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.9.1/liquibase-percona-4.9.1.jar",
         "algorithm": "SHA1",
         "checksum": "3e4f76c507cd09fb1402bc31142d7c519aefe410"
+      },
+      {
+        "tag": "4.10.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.10.0/liquibase-percona-4.10.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "c6690a3f5ae1f14a4e07ce0e4a2802c66544fd86"
       }
     ]
   },
