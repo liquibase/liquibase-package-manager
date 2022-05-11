@@ -20,6 +20,63 @@ end:
 func init() {
 	modules = []Module{
 		{
+			name:        "cloudbees-feature-management",
+			category:    Pro,
+			url:         "https://maven.liquibase.com/org/liquibase/ext/precondition/cloudbees-feature-management",
+			artifactory: Maven{},
+		},
+		{
+			name:        "configcat",
+			category:    Pro,
+			url:         "https://maven.liquibase.com/org/liquibase/ext/precondition/configcat",
+			artifactory: Maven{},
+		},
+		{
+			name:        "ff4j",
+			category:    Extension,
+			owner:       "liquibase",
+			repo:        "ff4j-extension",
+			artifactory: Github{},
+		},
+		{
+			name:        "flagr",
+			category:    Extension,
+			owner:       "liquibase",
+			repo:        "flagr-extension",
+			artifactory: Github{},
+		},
+		{
+			name:        "flagsmith",
+			category:    Pro,
+			url:         "https://maven.liquibase.com/org/liquibase/ext/precondition/flagsmith",
+			artifactory: Maven{},
+		},
+		{
+			name:        "flipt",
+			category:    Extension,
+			owner:       "liquibase",
+			repo:        "flipt-extension",
+			artifactory: Github{},
+		},
+		{
+			name:        "gitlab-feature-flags",
+			category:    Pro,
+			url:         "https://maven.liquibase.com/org/liquibase/ext/precondition/gitlab-feature-flags",
+			artifactory: Maven{},
+		},
+		{
+			name:        "growthbook",
+			category:    Pro,
+			url:         "https://maven.liquibase.com/org/liquibase/ext/precondition/growthbook",
+			artifactory: Maven{},
+		},
+		{
+			name:        "launchdarkly",
+			category:    Pro,
+			url:         "https://maven.liquibase.com/org/liquibase/ext/precondition/launchdarkly",
+			artifactory: Maven{},
+		},
+		{
 			name:        "custom-datatype-converter",
 			category:    Extension,
 			url:         "https://maven.liquibase.com/org/liquibase/ext/datatype/custom-datatype-converter",

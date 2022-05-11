@@ -1,5 +1,113 @@
 [
   {
+    "name": "cloudbees-feature-management",
+    "category": "pro",
+    "versions": [
+      {
+        "tag": "0.0.1",
+        "path": "https://maven.liquibase.com/org/liquibase/ext/precondition/cloudbees-feature-management/0.0.1/cloudbees-feature-management-0.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "336dce2c754aeb7a93b9743258d04c90000d429b"
+      }
+    ]
+  },
+  {
+    "name": "configcat",
+    "category": "pro",
+    "versions": [
+      {
+        "tag": "0.0.1",
+        "path": "https://maven.liquibase.com/org/liquibase/ext/precondition/configcat/0.0.1/configcat-0.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "c7c7467d89d9f2fe79d34c839496ae7dba2a82de"
+      }
+    ]
+  },
+  {
+    "name": "ff4j",
+    "category": "extension",
+    "versions": [
+      {
+        "tag": "v0.0.1",
+        "path": "https://github.com/liquibase/ff4j-extension/releases/download/v0.0.1/ff4j-0.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "7f2a4c161a9b28627fb845b30b7fc3e909c37e83"
+      }
+    ]
+  },
+  {
+    "name": "flagr",
+    "category": "extension",
+    "versions": [
+      {
+        "tag": "v0.0.1",
+        "path": "https://github.com/liquibase/flagr-extension/releases/download/v0.0.1/flagr-0.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "abdb920dce8f71e45988d0253bd15c851faafd25"
+      }
+    ]
+  },
+  {
+    "name": "flagsmith",
+    "category": "pro",
+    "versions": [
+      {
+        "tag": "0.0.1",
+        "path": "https://maven.liquibase.com/org/liquibase/ext/precondition/flagsmith/0.0.1/flagsmith-0.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "7676569cc6e1c6d4b9a3078904deb41ac156f90f"
+      }
+    ]
+  },
+  {
+    "name": "flipt",
+    "category": "extension",
+    "versions": [
+      {
+        "tag": "v0.0.1",
+        "path": "https://github.com/liquibase/flipt-extension/releases/download/v0.0.1/flipt-0.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "6c11f0781dc25791164e1b56b80b9a9a517d0360"
+      }
+    ]
+  },
+  {
+    "name": "gitlab-feature-flags",
+    "category": "pro",
+    "versions": [
+      {
+        "tag": "0.0.1",
+        "path": "https://maven.liquibase.com/org/liquibase/ext/precondition/gitlab-feature-flags/0.0.1/gitlab-feature-flags-0.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "f73b751ce5d3a6c0b4ef7e16c1405583de98efce"
+      }
+    ]
+  },
+  {
+    "name": "growthbook",
+    "category": "pro",
+    "versions": [
+      {
+        "tag": "0.0.1",
+        "path": "https://maven.liquibase.com/org/liquibase/ext/precondition/growthbook/0.0.1/growthbook-0.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "e050232e4b7e5d0facdfc6f56e7cfff820021cd2"
+      }
+    ]
+  },
+  {
+    "name": "launchdarkly",
+    "category": "pro",
+    "versions": [
+      {
+        "tag": "0.0.1",
+        "path": "https://maven.liquibase.com/org/liquibase/ext/precondition/launchdarkly/0.0.1/launchdarkly-0.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "6d9023d69a8ac8e45bd7627caf855143923b6107"
+      }
+    ]
+  },
+  {
     "name": "custom-datatype-converter",
     "category": "pro",
     "versions": [
