@@ -1544,6 +1544,12 @@
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/10.2.0.jre11/mssql-jdbc-10.2.0.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "281c4ff3de0f5a36bf77951a0a8ff829469a41d1"
+      },
+      {
+        "tag": "10.2.1",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/10.2.1.jre11/mssql-jdbc-10.2.1.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "0a0eda1f25cc5d03d777cc607f346d5433f499e9"
       }
     ]
   },
@@ -5264,6 +5270,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cosmosdb/4.9.1/liquibase-cosmosdb-4.9.1.jar",
         "algorithm": "SHA1",
         "checksum": "50a66cbfd2169748cecf3b6dd9ca5550722971da"
+      },
+      {
+        "tag": "4.10.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cosmosdb/4.10.0/liquibase-cosmosdb-4.10.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "2a9de25bdb661254dfb1ad4d8a5ea97936c25a59"
       }
     ]
   },
