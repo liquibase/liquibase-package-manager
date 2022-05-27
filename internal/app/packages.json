@@ -7292,6 +7292,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.10.0/liquibase-percona-4.10.0.jar",
         "algorithm": "SHA1",
         "checksum": "c6690a3f5ae1f14a4e07ce0e4a2802c66544fd86"
+      },
+      {
+        "tag": "4.11.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.11.0/liquibase-percona-4.11.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "59fccdbcc1b061bd6450e8573d876a94906fed6e"
       }
     ]
   },
@@ -7826,6 +7832,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-snowflake/4.10.0/liquibase-snowflake-4.10.0.jar",
         "algorithm": "SHA1",
         "checksum": "409acf89a7b30b1b8ec50917c965e7ffc08711a3"
+      },
+      {
+        "tag": "4.11.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-snowflake/4.11.0/liquibase-snowflake-4.11.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "6235a6225cb864dae1ffbb00bfa006320d8e1b3a"
       }
     ]
   },
