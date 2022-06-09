@@ -194,6 +194,12 @@
         "path": "https://github.com/liquibase/liquibase-dbmarlin/releases/download/liquibase-dbmarlin-0.0.1/dbmarlin-0.0.1.jar",
         "algorithm": "SHA1",
         "checksum": "aa04d8b77132903de9debe580a1e3d64959335f2"
+      },
+      {
+        "tag": "0.0.2",
+        "path": "https://github.com/liquibase/liquibase-dbmarlin/releases/download/liquibase-dbmarlin-0.0.2/dbmarlin-0.0.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "02bb0d163aeee6197c46d52095048de307a48907"
       }
     ]
   },
