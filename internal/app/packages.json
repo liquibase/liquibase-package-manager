@@ -2918,6 +2918,12 @@
         "path": "https://repo1.maven.org/maven2/com/h2database/h2/2.1.212/h2-2.1.212.jar",
         "algorithm": "SHA1",
         "checksum": "f3187885395bd0c0e0e83f96641bb630f368ee2f"
+      },
+      {
+        "tag": "2.1.214",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/2.1.214/h2-2.1.214.jar",
+        "algorithm": "SHA1",
+        "checksum": "d5c2005c9e3279201e12d4776c948578b16bf8b2"
       }
     ]
   },
