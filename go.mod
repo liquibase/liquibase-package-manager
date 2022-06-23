@@ -4,7 +4,7 @@ go 1.16
 
 require (
 	github.com/golang/protobuf v1.5.2 // indirect
-	github.com/google/go-github/v39 v39.0.0
+	github.com/google/go-github/v39 v39.2.0
 	github.com/hashicorp/go-version v1.5.0
 	github.com/spf13/cobra v1.5.0
 	golang.org/x/net v0.0.0-20210716203947-853a461950ff // indirect
