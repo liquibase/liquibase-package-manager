@@ -7,7 +7,7 @@ tests:
           - Search for, install, and uninstall liquibase drivers, extensions, and utilities.
           - lpm [command]
           - add         Add Packages
-          - completion  generate the autocompletion script for the specified shell
+          - completion  Generate the autocompletion script for the specified shell
           - help        Help about any command
           - install     Install Packages from liquibase.json
           - list        List Installed Packages
