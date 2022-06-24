@@ -113,8 +113,5 @@ func CreateClasspath(cp string) {
 //ClasspathExists checks to see if classpath directory is created
 func ClasspathExists(cp string) bool {
 	_, err := os.Stat(cp)
-	if err != nil {
-		return false
-	}
-	return true
+	return err == nil
 }
