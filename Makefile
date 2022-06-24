@@ -31,14 +31,16 @@ build: updateVersion
 generateExtensionPackages:
 	go run package-manager/cmd/populator
 
-test:
-	golint ./internal/app/...
+test: test-setup
+	staticcheck ./internal/app/...
+	go vet ./internal/app/...
 	go test -v ./internal/app/... -coverprofile=coverage.out -covermode count
 
 cover: test
 	go tool cover -html=coverage.out
 
 test-setup:
+	go install honnef.co/go/tools/cmd/staticcheck@latest
 	curl -Ls https://github.com/mcred/vexrun/releases/download/v0.0.5/vexrun-0.0.5.jar -z $(VEXRUN_FILE) -o $(VEXRUN_FILE)
 
 e2e: test-version test-add test-completion test-help test-install test-list test-remove test-search test-cleanup

@@ -1,7 +1,7 @@
 name: PR Quality Gate
 
 on:
-  pull_request_target:
+  pull_request:
 
 jobs:
   test:
@@ -16,13 +16,8 @@ jobs:
       - name: Setup GO environment
         run: |
           go mod download
-          go get -u golang.org/x/lint/golint
 
-      - name: Lint
-        run: |
-          golint -set_exit_status ./...
-
-      - name: Unit tests
+      - name: Lint and run unit tests
         run: |
           make test
           go tool cover -func coverage.out

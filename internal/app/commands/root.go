@@ -62,7 +62,7 @@ func initConfig() {
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
-	b, err := ioutil.ReadAll(jsonFile)
+	b, _ := ioutil.ReadAll(jsonFile)
 
 	//Load Bytes to Packages
 	packs = app.LoadPackages(b)

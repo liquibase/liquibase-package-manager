@@ -67,21 +67,15 @@ func TestVersion_CopyToClassPath(t *testing.T) {
 }
 
 func TestVersion_GetFilename(t *testing.T) {
-	type fields struct {
-		Tag       string
-		Path      string
-		Algorithm string
-		CheckSum  string
-	}
 	tests := []struct {
-		name   string
+		name    string
 		version Version
-		want   string
+		want    string
 	}{
 		{
-			name: "Can Get Filename",
+			name:    "Can Get Filename",
 			version: driverV1,
-			want: "driver-0.0.1.txt",
+			want:    "driver-0.0.1.txt",
 		},
 	}
 	for _, tt := range tests {
@@ -100,12 +94,6 @@ func TestVersion_GetFilename(t *testing.T) {
 }
 
 func TestVersion_InClassPath(t *testing.T) {
-	type fields struct {
-		Tag       string
-		Path      string
-		Algorithm string
-		CheckSum  string
-	}
 	type args struct {
 		files []fs.FileInfo
 	}
@@ -113,16 +101,16 @@ func TestVersion_InClassPath(t *testing.T) {
 	var files, _ = ioutil.ReadDir(testPath + "/tests/mocks/installed")
 
 	tests := []struct {
-		name   string
+		name    string
 		version Version
-		args   args
-		want   bool
+		args    args
+		want    bool
 	}{
 		{
-			name: "Can Determine if Package in Classpath",
+			name:    "Can Determine if Package in Classpath",
 			version: extensionV2,
-			args: args{files},
-			want: true,
+			args:    args{files},
+			want:    true,
 		},
 	}
 	for _, tt := range tests {
@@ -141,21 +129,15 @@ func TestVersion_InClassPath(t *testing.T) {
 }
 
 func TestVersion_PathIsHttp(t *testing.T) {
-	type fields struct {
-		Tag       string
-		Path      string
-		Algorithm string
-		CheckSum  string
-	}
 	tests := []struct {
-		name   string
+		name    string
 		version Version
-		want   bool
+		want    bool
 	}{
 		{
-			name: "Can Determine if Path is Http",
+			name:    "Can Determine if Path is Http",
 			version: driverV2,
-			want: false,
+			want:    false,
 		},
 	}
 	for _, tt := range tests {
@@ -174,32 +156,26 @@ func TestVersion_PathIsHttp(t *testing.T) {
 }
 
 func TestVersion_calcChecksum(t *testing.T) {
-	type fields struct {
-		Tag       string
-		Path      string
-		Algorithm string
-		CheckSum  string
-	}
 	type args struct {
 		b []byte
 	}
 	tests := []struct {
-		name   string
+		name    string
 		version Version
-		args   args
-		want   string
+		args    args
+		want    string
 	}{
 		{
-			name: "Can Calc Checksum SHA1",
+			name:    "Can Calc Checksum SHA1",
 			version: driverV2,
-			args: args{[]byte("DriverSHA1")},
-			want: "70daefe06dd19c073920273e02cfc712951795ea",
+			args:    args{[]byte("DriverSHA1")},
+			want:    "70daefe06dd19c073920273e02cfc712951795ea",
 		},
 		{
-			name: "Can Calc Checksum SHA256",
+			name:    "Can Calc Checksum SHA256",
 			version: driverV1,
-			args: args{[]byte("DriverSHA256")},
-			want: "94c74ea180983e2ec16451fed233c9f6d3d47572133cae84a0adc7c9fd7e1dd4",
+			args:    args{[]byte("DriverSHA256")},
+			want:    "94c74ea180983e2ec16451fed233c9f6d3d47572133cae84a0adc7c9fd7e1dd4",
 		},
 	}
 	for _, tt := range tests {
