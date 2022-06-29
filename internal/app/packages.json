@@ -5354,6 +5354,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cosmosdb/4.11.0/liquibase-cosmosdb-4.11.0.jar",
         "algorithm": "SHA1",
         "checksum": "4a4ceb2ad75d677a37c73bed32605aea5a66f3e6"
+      },
+      {
+        "tag": "4.12.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cosmosdb/4.12.0/liquibase-cosmosdb-4.12.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "84555ff0327ee333d9a7d96c6dc934013869d7ef"
       }
     ]
   },
@@ -7274,6 +7280,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-oracle/4.11.0/liquibase-oracle-4.11.0.jar",
         "algorithm": "SHA1",
         "checksum": "404270666ba75001f6aad0d874e3a9de18da23a5"
+      },
+      {
+        "tag": "4.12.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-oracle/4.12.0/liquibase-oracle-4.12.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "a4c95ce179f8b7915a378aadae83053a2adaea9d"
       }
     ]
   },
