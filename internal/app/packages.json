@@ -2114,6 +2114,18 @@
         "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.0.5/mariadb-java-client-3.0.5.jar",
         "algorithm": "SHA1",
         "checksum": "eb2748b7b5c647bd17cd27d5b6d8d8e34388df90"
+      },
+      {
+        "tag": "2.7.6",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.7.6/mariadb-java-client-2.7.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "5bcb9622efaddcc548928f3f8954c0131e473281"
+      },
+      {
+        "tag": "3.0.6",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.0.6/mariadb-java-client-3.0.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "d1814fe919474634fdac22749bc87120a2178629"
       }
     ]
   },
