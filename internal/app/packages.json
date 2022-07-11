@@ -56,6 +56,12 @@
         "path": "https://maven.liquibase.com/org/liquibase/ext/precondition/flagsmith/0.0.1/flagsmith-0.0.1.jar",
         "algorithm": "SHA1",
         "checksum": "7676569cc6e1c6d4b9a3078904deb41ac156f90f"
+      },
+      {
+        "tag": "0.0.2",
+        "path": "https://maven.liquibase.com/org/liquibase/ext/precondition/flagsmith/0.0.2/flagsmith-0.0.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "5b73d42753721f1230ac4fbd08b98827e32a8d7e"
       }
     ]
   },
