@@ -3818,6 +3818,12 @@
         "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.20/snowflake-jdbc-3.13.20.jar",
         "algorithm": "SHA1",
         "checksum": "d870ab907db517cbab0700f3714a875f3bc5e496"
+      },
+      {
+        "tag": "3.13.21",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.21/snowflake-jdbc-3.13.21.jar",
+        "algorithm": "SHA1",
+        "checksum": "e44207036bbff1279c000921de1076e8d3310e88"
       }
     ]
   },
