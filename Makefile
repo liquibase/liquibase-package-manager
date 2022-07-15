@@ -2,9 +2,9 @@ VERSION=`cat $(PWD)/VERSION`
 VEXRUN_FILE := $(PWD)/utils/vexrun.jar
 VEXRUN := java -jar $(VEXRUN_FILE)
 
-.PHONY: build darwin windows linux s390x
+.PHONY: build darwin windows linux-amd64 linux-arm64 s390x
 
-release: updateVersion darwin windows linux s390x
+release: updateVersion darwin windows linux-amd64 linux-arm64 s390x
 
 windows:
 	GOOS=windows GOARCH=amd64 go build -o $(PWD)/bin/windows/lpm.exe $(PWD)/cmd/lpm/windows.go
@@ -14,9 +14,13 @@ darwin:
 	GOOS=darwin GOARCH=amd64 go build -o $(PWD)/bin/darwin/lpm $(PWD)/cmd/lpm/darwin.go
 	cd $(PWD)/bin/darwin && zip lpm-$(VERSION)-darwin.zip lpm
 
-linux:
-	GOOS=linux GOARCH=amd64 GOARM=7 go build -o $(PWD)/bin/linux/lpm $(PWD)/cmd/lpm/darwin.go
-	cd $(PWD)/bin/linux && zip lpm-$(VERSION)-linux.zip lpm
+linux-amd64:
+	GOOS=linux GOARCH=amd64 go build -o $(PWD)/bin/linux-amd64/lpm $(PWD)/cmd/lpm/darwin.go
+	cd $(PWD)/bin/linux-amd64 && zip lpm-$(VERSION)-linux-amd64.zip lpm
+
+linux-arm64:
+	GOOS=linux GOARCH=arm64 go build -o $(PWD)/bin/linux-arm64/lpm $(PWD)/cmd/lpm/darwin.go
+	cd $(PWD)/bin/linux-arm64 && zip lpm-$(VERSION)-linux-arm64.zip lpm
 
 s390x:
 	GOOS=linux GOARCH=s390x go build -o $(PWD)/bin/s390x/lpm $(PWD)/cmd/lpm/darwin.go
