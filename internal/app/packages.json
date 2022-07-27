@@ -5420,6 +5420,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cosmosdb/4.13.0/liquibase-cosmosdb-4.13.0.jar",
         "algorithm": "SHA1",
         "checksum": "c76e7e87db5b031873d94492cab03aeaed8ab237"
+      },
+      {
+        "tag": "4.14.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cosmosdb/4.14.0/liquibase-cosmosdb-4.14.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "301f8d34ecb155beb759ecfa2d90fdf513c79f93"
       }
     ]
   },
@@ -6866,6 +6872,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb/4.13.0/liquibase-mongodb-4.13.0.jar",
         "algorithm": "SHA1",
         "checksum": "dcc90e41b34eb5d17371839b18027f835ab218ff"
+      },
+      {
+        "tag": "4.14.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb/4.14.0/liquibase-mongodb-4.14.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "8e73ffbfe95179e5f6824bb9262c5748abec1568"
       }
     ]
   },
@@ -7586,6 +7598,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.13.0/liquibase-percona-4.13.0.jar",
         "algorithm": "SHA1",
         "checksum": "bed0bf327a15facd9e2ce5ca8a0a6a1b30154d50"
+      },
+      {
+        "tag": "4.14.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.14.0/liquibase-percona-4.14.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "09653e84b524b58e17c364b787262883dc64a7b1"
       }
     ]
   },
