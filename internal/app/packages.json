@@ -1472,6 +1472,18 @@
         "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.4.0/postgresql-42.4.0.jar",
         "algorithm": "SHA1",
         "checksum": "21ff952426bbfe4a041c175407333d4a07c70931"
+      },
+      {
+        "tag": "42.2.26",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.26/postgresql-42.2.26.jar",
+        "algorithm": "SHA1",
+        "checksum": "5889d9866181369d11e3a6b6daf227c3cb71170b"
+      },
+      {
+        "tag": "42.4.1",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.4.1/postgresql-42.4.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "d592e02d2fc321b5d5262cdff291854be03bb862"
       }
     ]
   },
@@ -4316,6 +4328,12 @@
         "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.36.0.3/sqlite-jdbc-3.36.0.3.jar",
         "algorithm": "SHA1",
         "checksum": "7fa71c4dfab806490cb909714fb41373ec552c29"
+      },
+      {
+        "tag": "3.39.2.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.39.2.0/sqlite-jdbc-3.39.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "d8f239a51f8fd75190f6e978a08008d6c53e5e35"
       }
     ]
   },
