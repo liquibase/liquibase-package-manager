@@ -1,5 +1,17 @@
 [
   {
+    "name": "aws-secrets-manager",
+    "category": "pro",
+    "versions": [
+      {
+        "tag": "0.0.1",
+        "path": "https://maven.liquibase.com/org/liquibase/ext/secrets/aws-secrets-manager/0.0.1/aws-secrets-manager-0.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "6661fc4feab031274b08827dfca9cca50c3a08e1"
+      }
+    ]
+  },
+  {
     "name": "cloudbees-feature-management",
     "category": "pro",
     "versions": [
@@ -5090,6 +5102,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cache/4.14.0/liquibase-cache-4.14.0.jar",
         "algorithm": "SHA1",
         "checksum": "b7cbc48df20b29e0d75a5ef7f73853b20459f7d3"
+      },
+      {
+        "tag": "4.15.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cache/4.15.0/liquibase-cache-4.15.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "64627dfcacad939e933b9f007b909b2e4f42eaf0"
       }
     ]
   },
@@ -5324,6 +5342,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra/4.14.0/liquibase-cassandra-4.14.0.jar",
         "algorithm": "SHA1",
         "checksum": "875be9abd2c256d45122073fd1d3f9842c561dcf"
+      },
+      {
+        "tag": "4.15.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra/4.15.0/liquibase-cassandra-4.15.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "9683abf8297becb6efeea1fae551d7070c30bb06"
       }
     ]
   },
@@ -5450,6 +5474,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cosmosdb/4.14.0/liquibase-cosmosdb-4.14.0.jar",
         "algorithm": "SHA1",
         "checksum": "301f8d34ecb155beb759ecfa2d90fdf513c79f93"
+      },
+      {
+        "tag": "4.15.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cosmosdb/4.15.0/liquibase-cosmosdb-4.15.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "dcb92a5a24af1f7644e3f802b3c53d8d6bcde51c"
       }
     ]
   },
@@ -5654,6 +5684,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-db2i/4.14.0/liquibase-db2i-4.14.0.jar",
         "algorithm": "SHA1",
         "checksum": "64bf569b59158ffb89c938b3002b7e1d11e59605"
+      },
+      {
+        "tag": "4.15.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-db2i/4.15.0/liquibase-db2i-4.15.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "d3c4adc490c3ff292f13cfc0f524a1531e34cda7"
       }
     ]
   },
@@ -5858,6 +5894,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-filechangelog/4.14.0/liquibase-filechangelog-4.14.0.jar",
         "algorithm": "SHA1",
         "checksum": "cd5e66789f54c888745cd86cb465820d1c46973b"
+      },
+      {
+        "tag": "4.15.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-filechangelog/4.15.0/liquibase-filechangelog-4.15.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "4985343c17e0f687b1b50550d9123a19176e0c28"
       }
     ]
   },
@@ -6062,6 +6104,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hanadb/4.14.0/liquibase-hanadb-4.14.0.jar",
         "algorithm": "SHA1",
         "checksum": "0db10bce1eb62e315665b3b1e5e15f678c1fc076"
+      },
+      {
+        "tag": "4.15.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hanadb/4.15.0/liquibase-hanadb-4.15.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "c34de521cfd61c7f301ae634cfdaf6053ab9be1f"
       }
     ]
   },
@@ -6278,6 +6326,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hibernate5/4.14.0/liquibase-hibernate5-4.14.0.jar",
         "algorithm": "SHA1",
         "checksum": "956868f9154dd52f74fa47d8d10d2a16ce94834d"
+      },
+      {
+        "tag": "4.15.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hibernate5/4.15.0/liquibase-hibernate5-4.15.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "b2507f81dcc640c923d5345cfed4c5927a2b09db"
       }
     ]
   },

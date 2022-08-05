@@ -20,6 +20,12 @@ end:
 func init() {
 	modules = []Module{
 		{
+			name:        "aws-secrets-manager",
+			category:    Pro,
+			url:         "https://maven.liquibase.com/org/liquibase/ext/secrets/aws-secrets-manager",
+			artifactory: Maven{},
+		},
+		{
 			name:        "cloudbees-feature-management",
 			category:    Pro,
 			url:         "https://maven.liquibase.com/org/liquibase/ext/precondition/cloudbees-feature-management",
