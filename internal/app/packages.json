@@ -2144,6 +2144,12 @@
         "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.0.6/mariadb-java-client-3.0.6.jar",
         "algorithm": "SHA1",
         "checksum": "d1814fe919474634fdac22749bc87120a2178629"
+      },
+      {
+        "tag": "3.0.7",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.0.7/mariadb-java-client-3.0.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "708456abf19170c3c80896826993eaa5f663ffa4"
       }
     ]
   },
