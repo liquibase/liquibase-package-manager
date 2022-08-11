@@ -1598,6 +1598,12 @@
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/10.2.1.jre11/mssql-jdbc-10.2.1.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "0a0eda1f25cc5d03d777cc607f346d5433f499e9"
+      },
+      {
+        "tag": "11.2.0",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/11.2.0.jre11/mssql-jdbc-11.2.0.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "f068a145d0f150501206ddc4dcc5e35bfe8ae2c6"
       }
     ]
   },
@@ -7352,6 +7358,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.14.0/liquibase-neo4j-4.14.0.jar",
         "algorithm": "SHA1",
         "checksum": "6e50b91f5df4125e055165ae5df3f36359ea8b23"
+      },
+      {
+        "tag": "4.15.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.15.0/liquibase-neo4j-4.15.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "fa8926ac982e60ce7ffba268b0f045743bd9c966"
       }
     ]
   },
