@@ -260,6 +260,12 @@
         "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.7/liquibase-data-0.0.7.jar",
         "algorithm": "SHA1",
         "checksum": "667d40750b27b8845c9d3d5bced8c4adc5c63b64"
+      },
+      {
+        "tag": "v0.0.8",
+        "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.8/liquibase-data-0.0.8.jar",
+        "algorithm": "SHA1",
+        "checksum": "282855eeeaceaab3b8596f8b01736de1b95170bf"
       }
     ]
   },
