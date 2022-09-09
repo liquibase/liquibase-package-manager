@@ -1628,6 +1628,12 @@
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/11.2.0.jre11/mssql-jdbc-11.2.0.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "f068a145d0f150501206ddc4dcc5e35bfe8ae2c6"
+      },
+      {
+        "tag": "11.2.1",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre11/mssql-jdbc-11.2.1.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "5fdbd154f97cde9779120aae93f9f6dadf3b0363"
       }
     ]
   },
