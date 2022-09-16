@@ -7502,6 +7502,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.16.0/liquibase-neo4j-4.16.0.jar",
         "algorithm": "SHA1",
         "checksum": "33b5a0da5be1fecdd1879ee9e3e286bcc3f2eb6c"
+      },
+      {
+        "tag": "4.16.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.16.1/liquibase-neo4j-4.16.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "116b6243e1356678b47984ba6e999401536fabf2"
       }
     ]
   },
