@@ -74,6 +74,12 @@
         "path": "https://maven.liquibase.com/org/liquibase/ext/precondition/flagsmith/0.0.2/flagsmith-0.0.2.jar",
         "algorithm": "SHA1",
         "checksum": "5b73d42753721f1230ac4fbd08b98827e32a8d7e"
+      },
+      {
+        "tag": "0.0.3",
+        "path": "https://maven.liquibase.com/org/liquibase/ext/precondition/flagsmith/0.0.3/flagsmith-0.0.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "c83e04200ac9432546df83bc8cfd414aacff038e"
       }
     ]
   },
@@ -7508,6 +7514,18 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.16.1/liquibase-neo4j-4.16.1.jar",
         "algorithm": "SHA1",
         "checksum": "116b6243e1356678b47984ba6e999401536fabf2"
+      },
+      {
+        "tag": "4.16.1.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.16.1.1/liquibase-neo4j-4.16.1.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "7dae97335dfa2e87169b1d2a5b16f8391d3d27cc"
+      },
+      {
+        "tag": "4.16.1.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.16.1.2/liquibase-neo4j-4.16.1.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "911dfee72b5ac493cd7627fdadcd6f744b9c0b49"
       }
     ]
   },
