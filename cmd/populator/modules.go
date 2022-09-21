@@ -111,7 +111,7 @@ func init() {
 		{
 			name:        "hashicorp-vault",
 			category:    Pro,
-			url:         "https://maven.liquibase.com/org/liquibase/ext/vaults/hashicorp-vault",
+			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/hashicorp-vault",
 			artifactory: Maven{},
 		},
 		{
