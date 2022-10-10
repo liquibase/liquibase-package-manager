@@ -1,5 +1,17 @@
 [
   {
+    "name": "liquibase-s3-extension",
+    "category": "pro",
+    "versions": [
+      {
+        "tag": "1.0.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/liquibase-s3-extension/1.0.0/liquibase-s3-extension-1.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "3bdd851159d468aeddc62e45826b7c94dbd0b1cc"
+      }
+    ]
+  },
+  {
     "name": "aws-secrets-manager",
     "category": "pro",
     "versions": [

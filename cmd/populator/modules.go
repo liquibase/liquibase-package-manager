@@ -20,6 +20,12 @@ end:
 func init() {
 	modules = []Module{
 		{
+			name:        "liquibase-s3-extension",
+			category:    Pro,
+			url:         "https://repo1.maven.org/maven2/org/liquibase/liquibase-s3-extension",
+			artifactory: Maven{},
+		},
+		{
 			name:        "aws-secrets-manager",
 			category:    Pro,
 			url:         "https://maven.liquibase.com/org/liquibase/ext/secrets/aws-secrets-manager",
