@@ -8072,6 +8072,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.16.0/liquibase-percona-4.16.0.jar",
         "algorithm": "SHA1",
         "checksum": "3e3ef8addd84c497b2ffa7deb5c324fe109eab0f"
+      },
+      {
+        "tag": "4.17.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.17.0/liquibase-percona-4.17.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "ec39784e906434d291bda48c7565bf0c22891fcd"
       }
     ]
   },
