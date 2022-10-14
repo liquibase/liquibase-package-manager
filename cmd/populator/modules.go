@@ -20,6 +20,13 @@ end:
 func init() {
 	modules = []Module{
 		{
+			name:        "protobuf-generator",
+			category:    Extension,
+			artifactory: Github{},
+			owner:       "liquibase",
+			repo:        "protobuf-generator",
+		},
+		{
 			name:        "liquibase-s3-extension",
 			category:    Pro,
 			url:         "https://repo1.maven.org/maven2/org/liquibase/liquibase-s3-extension",

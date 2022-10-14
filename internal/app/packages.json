@@ -1,5 +1,17 @@
 [
   {
+    "name": "protobuf-generator",
+    "category": "extension",
+    "versions": [
+      {
+        "tag": "v0.1.0",
+        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.1.0/protobuf-generator-0.1.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "384532ec901c0842ab45a933b2e7bcdacd18310f"
+      }
+    ]
+  },
+  {
     "name": "liquibase-s3-extension",
     "category": "pro",
     "versions": [
