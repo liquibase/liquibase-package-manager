@@ -8,6 +8,12 @@
         "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.1.0/protobuf-generator-0.1.0.jar",
         "algorithm": "SHA1",
         "checksum": "384532ec901c0842ab45a933b2e7bcdacd18310f"
+      },
+      {
+        "tag": "v0.2.0",
+        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.2.0/protobuf-generator-0.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "1d46cae33e5e40186925a54432cfd5dd3172c095"
       }
     ]
   },
