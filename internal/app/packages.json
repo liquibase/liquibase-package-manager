@@ -26,6 +26,12 @@
         "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.3.0/protobuf-generator-0.3.0.jar",
         "algorithm": "SHA1",
         "checksum": "036ea68a5b4f0a512100329c1c09b0ba01f061a5"
+      },
+      {
+        "tag": "v0.3.1",
+        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.3.1/protobuf-generator-0.3.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "eb1c21ea5f7c5421503925436313f3e7a7f2c990"
       }
     ]
   },
@@ -5246,6 +5252,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cache/4.17.0/liquibase-cache-4.17.0.jar",
         "algorithm": "SHA1",
         "checksum": "12bad5afefde232c7a8c411405ff80d7d3d953df"
+      },
+      {
+        "tag": "4.17.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cache/4.17.1/liquibase-cache-4.17.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "4c208a43b4131cdb28483105dca8ee711792b932"
       }
     ]
   },
