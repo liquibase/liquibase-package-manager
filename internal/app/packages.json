@@ -32,6 +32,12 @@
         "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.3.1/protobuf-generator-0.3.1.jar",
         "algorithm": "SHA1",
         "checksum": "d9e6d8003cce372c718e7f70cd7725d37c1be139"
+      },
+      {
+        "tag": "v0.3.2",
+        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.3.2/protobuf-generator-0.3.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "45e2e179312922d3d240958ef9c5fd3ecc95aa1b"
       }
     ]
   },
@@ -3116,6 +3122,12 @@
         "path": "https://repo1.maven.org/maven2/com/ibm/db2/jcc/11.5.7.0/jcc-11.5.7.0.jar",
         "algorithm": "SHA1",
         "checksum": "0d018418a1b90c2a4c4650e589a19b2c0895872b"
+      },
+      {
+        "tag": "11.5.8.0",
+        "path": "https://repo1.maven.org/maven2/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "b1973ad5dd0cb6999454accf4dd08b03119cfa68"
       }
     ]
   },
