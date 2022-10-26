@@ -5522,6 +5522,12 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra/4.16.1/liquibase-cassandra-4.16.1.jar",
         "algorithm": "SHA1",
         "checksum": "d6941ec79b1aaa524d311f95c6c9374f68f2e9d8"
+      },
+      {
+        "tag": "4.17.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra/4.17.1/liquibase-cassandra-4.17.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "a54121c385198c807b497719995cac0bb8af5c19"
       }
     ]
   },
