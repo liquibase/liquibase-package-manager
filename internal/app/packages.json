@@ -4496,6 +4496,12 @@
         "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.39.3.0/sqlite-jdbc-3.39.3.0.jar",
         "algorithm": "SHA1",
         "checksum": "94166806682e738a5275bd09052fa34b1328eedf"
+      },
+      {
+        "tag": "3.39.4.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.39.4.0/sqlite-jdbc-3.39.4.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "5336a3acfd2aba8e07b23d54662b385b1b6ad53a"
       }
     ]
   },
