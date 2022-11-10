@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/xml"
-	"fmt"
 	"github.com/hashicorp/go-version"
 	"github.com/vifraa/gopom"
 	"io/ioutil"
@@ -129,7 +128,6 @@ func (mav Maven) GetNewVersions(m Module, p packages.Package) packages.Package {
 					v = strings.TrimSuffix(v, "}")
 					for k, prop := range pom.Properties.Entries {
 						if k == v {
-							fmt.Println(k + ": " + prop)
 							ver.LiquibaseCore = prop
 						}
 					}
