@@ -13,7 +13,7 @@ import (
 )
 
 //Github artifactory implmentation
-type Github struct {}
+type Github struct{}
 
 var client *github.Client
 var ctx = context.Background()
@@ -59,6 +59,13 @@ func (g Github) GetNewVersions(m Module, p packages.Package) packages.Package {
 				ver.Algorithm = "SHA1"
 				ver.CheckSum = string(utils.HTTPUtil{}.Get(a.GetBrowserDownloadURL()))[0:40] //Get first 40 character of SHA1 only
 			}
+		}
+
+		if m.category == Extension || m.category == Pro {
+			// check pom for core version get
+			pom := GetPomFromURL("https://raw.githubusercontent.com/" + m.owner + "/" + m.repo + "/" + ver.Tag + "/pom.xml")
+			// Set Liquibase Core Version
+			ver.LiquibaseCore = GetCoreVersionFromPom(pom)
 		}
 
 		// Older versions might have bad version patters ending up with a missing sha. Don't add them.

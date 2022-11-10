@@ -10,40 +10,46 @@ import (
 )
 
 var driverV1 = Version{
-	"0.0.1",
-	"tests/mocks/files/driver-0.0.1.txt",
-	"SHA256",
-	"",
+	Tag:           "0.0.1",
+	Path:          "tests/mocks/files/driver-0.0.1.txt",
+	Algorithm:     "SHA256",
+	CheckSum:      "",
+	LiquibaseCore: "v4.6.2",
 }
 var driverV2 = Version{
-	"0.2.0",
-	"tests/mocks/files/driver-0.2.0.txt",
-	"SHA1",
-	"",
+	Tag:           "0.2.0",
+	Path:          "tests/mocks/files/driver-0.2.0.txt",
+	Algorithm:     "SHA1",
+	CheckSum:      "",
+	LiquibaseCore: "",
 }
 var extensionV1 = Version{
-	"0.0.2",
-	"tests/mocks/files/extension-0.0.2.txt",
-	"SHA1",
-	"",
+	Tag:           "0.0.2",
+	Path:          "tests/mocks/files/extension-0.0.2.txt",
+	Algorithm:     "SHA1",
+	CheckSum:      "",
+	LiquibaseCore: "",
 }
 var extensionV2 = Version{
-	"1.0.0",
-	"tests/mocks/files/extension-1.0.0.txt",
-	"SHA1",
-	"",
+	Tag:           "1.0.0",
+	Path:          "tests/mocks/files/extension-1.0.0.txt",
+	Algorithm:     "SHA1",
+	CheckSum:      "",
+	LiquibaseCore: "",
 }
 var proV1 = Version{
-	"0.0.1",
-	"tests/mocks/files/pro-0.0.1.txt",
-	"SHA1",
-	"",
+	Tag:           "0.0.1",
+	Path:          "tests/mocks/files/pro-0.0.1.txt",
+	Algorithm:     "SHA1",
+	CheckSum:      "",
+	LiquibaseCore: "",
 }
 var proV2 = Version{
-	"0.0.2",
-	"tests/mocks/files/pro-0.0.2.txt",
-	"SHA1",
-	"",
+	Tag:           "0.0.2",
+	Path:          "tests/mocks/files/pro-0.0.2.txt",
+	Algorithm:     "SHA1",
+	CheckSum:      "",
+	LiquibaseCore: "",
 }
 
 var testPath string
@@ -81,10 +87,11 @@ func TestVersion_GetFilename(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			v := Version{
-				Tag:       tt.version.Tag,
-				Path:      tt.version.Path,
-				Algorithm: tt.version.Algorithm,
-				CheckSum:  tt.version.CheckSum,
+				Tag:           tt.version.Tag,
+				Path:          tt.version.Path,
+				Algorithm:     tt.version.Algorithm,
+				CheckSum:      tt.version.CheckSum,
+				LiquibaseCore: tt.version.LiquibaseCore,
 			}
 			if got := v.GetFilename(); got != tt.want {
 				t.Errorf("GetFilename() = %v, want %v", got, tt.want)
@@ -116,10 +123,11 @@ func TestVersion_InClassPath(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			v := Version{
-				Tag:       tt.version.Tag,
-				Path:      tt.version.Path,
-				Algorithm: tt.version.Algorithm,
-				CheckSum:  tt.version.CheckSum,
+				Tag:           tt.version.Tag,
+				Path:          tt.version.Path,
+				Algorithm:     tt.version.Algorithm,
+				CheckSum:      tt.version.CheckSum,
+				LiquibaseCore: tt.version.LiquibaseCore,
 			}
 			if got := v.InClassPath(tt.args.files); got != tt.want {
 				t.Errorf("InClassPath() = %v, want %v", got, tt.want)
@@ -143,10 +151,11 @@ func TestVersion_PathIsHttp(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			v := Version{
-				Tag:       tt.version.Tag,
-				Path:      tt.version.Path,
-				Algorithm: tt.version.Algorithm,
-				CheckSum:  tt.version.CheckSum,
+				Tag:           tt.version.Tag,
+				Path:          tt.version.Path,
+				Algorithm:     tt.version.Algorithm,
+				CheckSum:      tt.version.CheckSum,
+				LiquibaseCore: tt.version.LiquibaseCore,
 			}
 			if got := v.PathIsHTTP(); got != tt.want {
 				t.Errorf("PathIsHTTP() = %v, want %v", got, tt.want)
@@ -181,10 +190,11 @@ func TestVersion_calcChecksum(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			v := Version{
-				Tag:       tt.version.Tag,
-				Path:      tt.version.Path,
-				Algorithm: tt.version.Algorithm,
-				CheckSum:  tt.version.CheckSum,
+				Tag:           tt.version.Tag,
+				Path:          tt.version.Path,
+				Algorithm:     tt.version.Algorithm,
+				CheckSum:      tt.version.CheckSum,
+				LiquibaseCore: tt.version.LiquibaseCore,
 			}
 			if got := v.calcChecksum(tt.args.b); got != tt.want {
 				t.Errorf("calcChecksum() = %v, want %v", got, tt.want)

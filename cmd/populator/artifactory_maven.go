@@ -93,11 +93,23 @@ func (mav Maven) GetNewVersions(m Module, p packages.Package) packages.Package {
 			tag = ver.Tag
 		}
 
+		// set file name with conditional
+		url := m.url + "/" + tag + "/"
+		var filename string
 		if m.filePrefix != "" {
-			ver.Path = m.url + "/" + tag + "/" + m.filePrefix + tag + ".jar"
+			filename = m.filePrefix + tag
 		} else {
-			ver.Path = m.url + "/" + tag + "/" + p.Name + "-" + tag + ".jar"
+			filename = p.Name + "-" + tag
 		}
+
+		if m.category == Extension || m.category == Pro {
+			// check pom for core version get
+			pom := GetPomFromURL(url + filename + ".pom")
+			// Set Liquibase Core Version
+			ver.LiquibaseCore = GetCoreVersionFromPom(pom)
+		}
+
+		ver.Path = url + filename + ".jar"
 		ver.Algorithm = "SHA1"
 		sha := string(utils.HTTPUtil{}.Get(ver.Path + ".sha1"))
 		if strings.Contains(sha, "html") {
