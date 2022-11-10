@@ -2,8 +2,11 @@ package main
 
 import (
 	"encoding/xml"
+	"fmt"
 	"github.com/hashicorp/go-version"
+	"github.com/vifraa/gopom"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"package-manager/internal/app/packages"
 	"package-manager/internal/app/utils"
@@ -80,11 +83,11 @@ func (mav Maven) GetNewVersions(m Module, p packages.Package) packages.Package {
 	for _, v := range m.GetVersions() {
 		var ver packages.Version
 		ver.Tag = v.Original()
-		pv := p.GetVersion(ver.Tag)
-		if pv.Tag != "" {
-			// if remote version is already in package manifest skip it
-			continue
-		}
+		//pv := p.GetVersion(ver.Tag)
+		//if pv.Tag != "" {
+		//	// if remote version is already in package manifest skip it
+		//	continue
+		//}
 
 		var tag string
 		if m.includeSuffix != "" {
@@ -93,11 +96,50 @@ func (mav Maven) GetNewVersions(m Module, p packages.Package) packages.Package {
 			tag = ver.Tag
 		}
 
+		// set file name with conditional
+		url := m.url + "/" + tag + "/"
+		var filename string
 		if m.filePrefix != "" {
-			ver.Path = m.url + "/" + tag + "/" + m.filePrefix + tag + ".jar"
+			filename = m.filePrefix + tag
 		} else {
-			ver.Path = m.url + "/" + tag + "/" + p.Name + "-" + tag + ".jar"
+			filename = p.Name + "-" + tag
 		}
+
+		// check pom for core version get
+		resp, err := http.Get(url + filename + ".pom")
+		if err != nil {
+			print(err)
+		}
+		defer resp.Body.Close()
+		body, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			print(err)
+		}
+		var pom gopom.Project
+		err = xml.Unmarshal(body, &pom)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		// Set Liquibase Core Version
+		for _, dep := range pom.Dependencies {
+			if dep.ArtifactID == "liquibase-core" {
+				if strings.Contains(dep.Version, "${") {
+					v := strings.TrimPrefix(dep.Version, "${")
+					v = strings.TrimSuffix(v, "}")
+					for k, prop := range pom.Properties.Entries {
+						if k == v {
+							fmt.Println(k + ": " + prop)
+							ver.LiquibaseCore = prop
+						}
+					}
+				} else {
+					ver.LiquibaseCore = dep.Version
+				}
+			}
+		}
+
+		ver.Path = url + filename + ".jar"
 		ver.Algorithm = "SHA1"
 		sha := string(utils.HTTPUtil{}.Get(ver.Path + ".sha1"))
 		if strings.Contains(sha, "html") {
