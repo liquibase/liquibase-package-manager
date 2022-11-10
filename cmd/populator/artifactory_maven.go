@@ -83,8 +83,7 @@ func (mav Maven) GetNewVersions(m Module, p packages.Package) packages.Package {
 		pv := p.GetVersion(ver.Tag)
 		if pv.Tag != "" {
 			// if remote version is already in package manifest skip it
-			//continue
-			p.Versions = p.DeleteVersion(pv)
+			continue
 		}
 
 		var tag string

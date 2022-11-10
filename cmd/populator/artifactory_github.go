@@ -47,8 +47,7 @@ func (g Github) GetNewVersions(m Module, p packages.Package) packages.Package {
 
 		if pv.Tag != "" {
 			// if remote version is already in package manifest skip it
-			//continue
-			p.Versions = p.DeleteVersion(pv)
+			continue
 		}
 
 		release, _, _ := client.Repositories.GetReleaseByTag(context.Background(), m.owner, m.repo, ver.Tag)
