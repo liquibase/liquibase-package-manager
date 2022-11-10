@@ -82,11 +82,12 @@ func (mav Maven) GetNewVersions(m Module, p packages.Package) packages.Package {
 	for _, v := range m.GetVersions() {
 		var ver packages.Version
 		ver.Tag = v.Original()
-		//pv := p.GetVersion(ver.Tag)
-		//if pv.Tag != "" {
-		//	// if remote version is already in package manifest skip it
-		//	continue
-		//}
+		pv := p.GetVersion(ver.Tag)
+		if pv.Tag != "" {
+			// if remote version is already in package manifest skip it
+			//continue
+			p.Versions = p.DeleteVersion(pv)
+		}
 
 		var tag string
 		if m.includeSuffix != "" {
@@ -104,7 +105,7 @@ func (mav Maven) GetNewVersions(m Module, p packages.Package) packages.Package {
 			filename = p.Name + "-" + tag
 		}
 
-		if m.category == Extension {
+		if m.category == Extension || m.category == Pro {
 			// check pom for core version get
 			resp, err := http.Get(url + filename + ".pom")
 			if err != nil {
@@ -138,7 +139,7 @@ func (mav Maven) GetNewVersions(m Module, p packages.Package) packages.Package {
 				}
 			}
 		}
-		
+
 		ver.Path = url + filename + ".jar"
 		ver.Algorithm = "SHA1"
 		sha := string(utils.HTTPUtil{}.Get(ver.Path + ".sha1"))
