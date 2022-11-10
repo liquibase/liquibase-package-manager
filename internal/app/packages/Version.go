@@ -17,10 +17,11 @@ import (
 
 //Version struct
 type Version struct {
-	Tag       string `json:"tag"`
-	Path      string `json:"path"`
-	Algorithm string `json:"algorithm"`
-	CheckSum  string `json:"checksum"`
+	Tag           string `json:"tag"`
+	Path          string `json:"path"`
+	Algorithm     string `json:"algorithm"`
+	CheckSum      string `json:"checksum"`
+	LiquibaseCore string `json:"liquibaseCore"`
 }
 
 //GetFilename from version
