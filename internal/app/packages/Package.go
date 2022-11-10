@@ -7,8 +7,8 @@ import (
 
 //Package struct
 type Package struct {
-	Name  string `json:"name"`
-	Category string `json:"category"`
+	Name     string    `json:"name"`
+	Category string    `json:"category"`
 	Versions []Version `json:"versions"`
 }
 
@@ -48,4 +48,15 @@ func (p Package) GetInstalledVersion(files []fs.FileInfo) Version {
 		}
 	}
 	return r
+}
+
+//DeleteVersion from Package
+func (p Package) DeleteVersion(ver Version) []Version {
+	var s int
+	for i, v := range p.Versions {
+		if v.Tag == ver.Tag {
+			s = i
+		}
+	}
+	return append(p.Versions[:s], p.Versions[s+1:]...)
 }
