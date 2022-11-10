@@ -38,7 +38,7 @@ func GetPomFromURL(url string) gopom.Project {
 
 //GetCoreVersionFromPom get liquibase core version string from POM object
 func GetCoreVersionFromPom(pom gopom.Project) string {
-	var v string
+	var version string
 	for _, dep := range pom.Dependencies {
 		if dep.ArtifactID == "liquibase-core" {
 			if strings.Contains(dep.Version, "${") {
@@ -46,13 +46,13 @@ func GetCoreVersionFromPom(pom gopom.Project) string {
 				v = strings.TrimSuffix(v, "}")
 				for k, prop := range pom.Properties.Entries {
 					if k == v {
-						v = prop
+						version = prop
 					}
 				}
 			} else {
-				v = dep.Version
+				version = dep.Version
 			}
 		}
 	}
-	return v
+	return version
 }
