@@ -104,39 +104,41 @@ func (mav Maven) GetNewVersions(m Module, p packages.Package) packages.Package {
 			filename = p.Name + "-" + tag
 		}
 
-		// check pom for core version get
-		resp, err := http.Get(url + filename + ".pom")
-		if err != nil {
-			print(err)
-		}
-		defer resp.Body.Close()
-		body, err := ioutil.ReadAll(resp.Body)
-		if err != nil {
-			print(err)
-		}
-		var pom gopom.Project
-		err = xml.Unmarshal(body, &pom)
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		// Set Liquibase Core Version
-		for _, dep := range pom.Dependencies {
-			if dep.ArtifactID == "liquibase-core" {
-				if strings.Contains(dep.Version, "${") {
-					v := strings.TrimPrefix(dep.Version, "${")
-					v = strings.TrimSuffix(v, "}")
-					for k, prop := range pom.Properties.Entries {
-						if k == v {
-							ver.LiquibaseCore = prop
+		if m.category == Extension {
+			// check pom for core version get
+			resp, err := http.Get(url + filename + ".pom")
+			if err != nil {
+				print(err)
+			}
+			defer resp.Body.Close()
+			body, err := ioutil.ReadAll(resp.Body)
+			if err != nil {
+				print(err)
+			}
+			var pom gopom.Project
+			err = xml.Unmarshal(body, &pom)
+			if err != nil {
+				log.Println(m.name)
+				log.Fatal(err)
+			}
+			// Set Liquibase Core Version
+			for _, dep := range pom.Dependencies {
+				if dep.ArtifactID == "liquibase-core" {
+					if strings.Contains(dep.Version, "${") {
+						v := strings.TrimPrefix(dep.Version, "${")
+						v = strings.TrimSuffix(v, "}")
+						for k, prop := range pom.Properties.Entries {
+							if k == v {
+								ver.LiquibaseCore = prop
+							}
 						}
+					} else {
+						ver.LiquibaseCore = dep.Version
 					}
-				} else {
-					ver.LiquibaseCore = dep.Version
 				}
 			}
 		}
-
+		
 		ver.Path = url + filename + ".jar"
 		ver.Algorithm = "SHA1"
 		sha := string(utils.HTTPUtil{}.Get(ver.Path + ".sha1"))
