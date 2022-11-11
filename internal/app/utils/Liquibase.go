@@ -6,6 +6,7 @@ import (
 	"github.com/hashicorp/go-version"
 	"io"
 	"log"
+	"os"
 	"strings"
 )
 
@@ -23,7 +24,13 @@ func LoadLiquibase(hp string) Liquibase {
 		BuildProperties: map[string]string{},
 	}
 
-	r, err := zip.OpenReader(hp + "liquibase.jar")
+	var r *zip.ReadCloser
+	var err error
+	if _, err = os.Stat(hp + "liquibase.jar"); err == nil {
+		r, err = zip.OpenReader(hp + "liquibase.jar")
+	} else {
+		r, err = zip.OpenReader(hp + "internal/lib/liquibase-core.jar")
+	}
 	if err != nil {
 		z, _ := version.NewVersion("0.0.0")
 		l.Version = z
