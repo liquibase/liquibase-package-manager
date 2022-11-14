@@ -53,7 +53,7 @@ func TestPackage_GetLatestVersion(t *testing.T) {
 				[]Version{driverV1, driverV2},
 			},
 			args: args{lb: lbOld},
-			want: driverV1,
+			want: driverV2,
 		},
 		{
 			name: "Can Get Latest Driver Version: LB New",
