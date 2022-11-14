@@ -32,36 +32,77 @@ func TestPackage_GetLatestVersion(t *testing.T) {
 		Category string
 		Versions []Version
 	}
+	type args struct {
+		lb *version.Version
+	}
+
+	lbOld, _ := version.NewVersion("4.8.0")
+	lbNew, _ := version.NewVersion("4.17.2")
+
 	tests := []struct {
 		name   string
 		fields fields
+		args   args
 		want   Version
 	}{
 		{
-			name: "Can Get Latest Driver Version",
+			name: "Can Get Latest Driver Version: LB Old",
 			fields: fields{
 				"test",
 				"driver",
 				[]Version{driverV1, driverV2},
 			},
+			args: args{lb: lbOld},
+			want: driverV1,
+		},
+		{
+			name: "Can Get Latest Driver Version: LB New",
+			fields: fields{
+				"test",
+				"driver",
+				[]Version{driverV1, driverV2},
+			},
+			args: args{lb: lbNew},
 			want: driverV2,
 		},
 		{
-			name: "Can Get Latest Extension Version",
+			name: "Can Get Latest Extension Version: LB Old",
 			fields: fields{
 				"test",
 				"extension",
 				[]Version{extensionV1, extensionV2},
 			},
+			args: args{lb: lbOld},
+			want: extensionV1,
+		},
+		{
+			name: "Can Get Latest Extension Version: LB New",
+			fields: fields{
+				"test",
+				"extension",
+				[]Version{extensionV1, extensionV2},
+			},
+			args: args{lb: lbNew},
 			want: extensionV2,
 		},
 		{
-			name: "Can Get Latest Pro Version",
+			name: "Can Get Latest Pro Version: LB Old",
 			fields: fields{
 				"test",
 				"pro",
 				[]Version{proV1, proV2},
 			},
+			args: args{lb: lbOld},
+			want: proV1,
+		},
+		{
+			name: "Can Get Latest Pro Version: LB New",
+			fields: fields{
+				"test",
+				"pro",
+				[]Version{proV1, proV2},
+			},
+			args: args{lb: lbNew},
 			want: proV2,
 		},
 	}
@@ -72,8 +113,7 @@ func TestPackage_GetLatestVersion(t *testing.T) {
 				Category: tt.fields.Category,
 				Versions: tt.fields.Versions,
 			}
-			lb, _ := version.NewVersion("4.8.0")
-			if got := p.GetLatestVersion(lb); !reflect.DeepEqual(got, tt.want) {
+			if got := p.GetLatestVersion(tt.args.lb); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("GetLatestVersion() = %v, want %v", got, tt.want)
 			}
 		})
@@ -159,69 +199,6 @@ func TestPackage_GetInstalledVersion(t *testing.T) {
 			}
 			if got := p.GetInstalledVersion(tt.args.files); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("GetInstalledVersion() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
-func TestPackage_GetLatestVersionLBAhead(t *testing.T) {
-	type fields struct {
-		Name     string
-		Category string
-		Versions []Version
-	}
-	type args struct {
-		lb *version.Version
-	}
-
-	var lb, _ = version.NewVersion("4.8.0")
-
-	tests := []struct {
-		name   string
-		fields fields
-		args   args
-		want   Version
-	}{
-		{
-			name: "Can Get Latest Driver Version",
-			fields: fields{
-				"test",
-				"driver",
-				[]Version{driverV1, driverV2},
-			},
-			args: args{lb: lb},
-			want: driverV2,
-		},
-		{
-			name: "Can Get Latest Extension Version",
-			fields: fields{
-				"test",
-				"extension",
-				[]Version{extensionV1, extensionV2},
-			},
-			args: args{lb: lb},
-			want: extensionV2,
-		},
-		{
-			name: "Can Get Latest Pro Version",
-			fields: fields{
-				"test",
-				"pro",
-				[]Version{proV1, proV2},
-			},
-			args: args{lb: lb},
-			want: proV2,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			p := Package{
-				Name:     tt.fields.Name,
-				Category: tt.fields.Category,
-				Versions: tt.fields.Versions,
-			}
-			if got := p.GetLatestVersion(tt.args.lb); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("GetLatestVersion() = %v, want %v", got, tt.want)
 			}
 		})
 	}

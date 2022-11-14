@@ -19,7 +19,7 @@ func (p Package) GetLatestVersion(lb *version.Version) Version {
 	for _, v := range p.Versions {
 		req, _ := version.NewVersion(v.LiquibaseCore)
 
-		if lb.GreaterThan(req) { //TODO switch to LessThan for release
+		if lb.LessThan(req) {
 			continue
 		}
 
