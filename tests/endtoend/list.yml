@@ -7,5 +7,5 @@ tests:
           - ├──  postgresql@42.2.23                     driver
           - ├──  mssql@9.2.1                            driver
           - ├──  mysql@8.0.26                           driver
-          - ├──  liquibase-percona@4.3.1                extension
-          - └──  liquibase-postgresql@4.4.1             extension
+          - ├──  liquibase-percona@4.5.0                extension
+          - └──  liquibase-postgresql@4.5.0             extension
