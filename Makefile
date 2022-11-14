@@ -2,9 +2,9 @@ VERSION=`cat $(PWD)/VERSION`
 VEXRUN_FILE := $(PWD)/utils/vexrun.jar
 VEXRUN := java -jar $(VEXRUN_FILE)
 
-.PHONY: build darwin windows linux s390x
+.PHONY: build darwin windows linux rpi s390x
 
-release: updateVersion darwin windows linux s390x
+release: updateVersion darwin windows linux rpi s390x
 
 windows:
 	GOOS=windows GOARCH=amd64 go build -o $(PWD)/bin/windows/lpm.exe $(PWD)/cmd/lpm/windows.go
@@ -17,6 +17,10 @@ darwin:
 linux:
 	GOOS=linux GOARCH=amd64 GOARM=7 go build -o $(PWD)/bin/linux/lpm $(PWD)/cmd/lpm/darwin.go
 	cd $(PWD)/bin/linux && zip lpm-$(VERSION)-linux.zip lpm
+
+rpi:
+	GOOS=linux GOARCH=arm64 GOARM=7 go build -o $(PWD)/bin/rpi/lpm $(PWD)/cmd/lpm/darwin.go
+	cd $(PWD)/bin/rpi && zip lpm-$(VERSION)-rpi.zip lpm
 
 s390x:
 	GOOS=linux GOARCH=s390x go build -o $(PWD)/bin/s390x/lpm $(PWD)/cmd/lpm/darwin.go
