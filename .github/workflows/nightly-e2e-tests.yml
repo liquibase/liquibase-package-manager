@@ -8,6 +8,9 @@ on:
 jobs:
   e2e-tests:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        liquibase: [4.6.0, 4.16.1]
     steps:
       - uses: actions/checkout@v2
 
@@ -29,4 +32,4 @@ jobs:
           make test-setup
 
       - name: End to End Tests
-        run: LIQUIBASE_HOME=$PWD make e2e
+        run: LIQUIBASE_HOME=$PWD/tests/mocks/liquibase/${{ matrix.liquibase }} make e2e
