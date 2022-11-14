@@ -17,12 +17,12 @@ func (p Package) GetLatestVersion(lb *version.Version) Version {
 	var ver Version
 	old, _ := version.NewVersion("0.0.0")
 	for _, v := range p.Versions {
-		req, _ := version.NewVersion(v.LiquibaseCore)
-
-		if lb.LessThan(req) {
-			continue
+		if p.Category != "driver" {
+			req, _ := version.NewVersion(v.LiquibaseCore)
+			if lb.LessThan(req) {
+				continue
+			}
 		}
-
 		new, _ := version.NewVersion(v.Tag)
 		if old.LessThan(new) {
 			old = new
