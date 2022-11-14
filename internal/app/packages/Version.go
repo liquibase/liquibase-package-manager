@@ -49,7 +49,7 @@ func (v Version) PathIsHTTP() bool {
 //CopyToClassPath install local version to classpath
 func (v Version) CopyToClassPath(cp string) {
 	if !ClasspathExists(cp) {
-		CreateClasspath(cp)
+		createClasspath(cp)
 	}
 	source, err := os.Open(v.Path)
 	if err != nil {
@@ -91,7 +91,7 @@ func (v Version) calcChecksum(b []byte) string {
 //DownloadToClassPath install remote version to classpath
 func (v Version) DownloadToClassPath(cp string) {
 	if !ClasspathExists(cp) {
-		CreateClasspath(cp)
+		createClasspath(cp)
 	}
 	body := utils.HTTPUtil{}.Get(v.Path)
 	sha := v.calcChecksum(body)
@@ -103,12 +103,9 @@ func (v Version) DownloadToClassPath(cp string) {
 	writeToDestination(cp+v.GetFilename(), body, v.GetFilename())
 }
 
-//CreateClasspath creates a proper directory at the specified location
-func CreateClasspath(cp string) {
-	err := os.Mkdir(cp, 0775)
-	if err != nil {
-		errors.Exit(err.Error(), 1)
-	}
+//createClasspath creates a proper directory at the specified location
+func createClasspath(cp string) error {
+	return os.Mkdir(cp, 0775)
 }
 
 //ClasspathExists checks to see if classpath directory is created

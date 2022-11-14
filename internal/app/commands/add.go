@@ -32,9 +32,18 @@ var addCmd = &cobra.Command{
 				if v.Tag == "" {
 					errors.Exit("Version '"+strings.Split(name, "@")[1]+"' not available.", 1)
 				}
+				if p.Category != "driver" {
+					core, _ := version.NewVersion(v.LiquibaseCore)
+					if liquibase.Version.LessThan(core) {
+						errors.Exit(name+" is not compatible with liquibase v"+liquibase.Version.String()+". Please consider updating liquibase.", 1)
+					}
+				}
 			} else {
 				p = packs.GetByName(name)
-				v = p.GetLatestVersion()
+				v = p.GetLatestVersion(liquibase.Version)
+				if v.Tag == "" {
+					errors.Exit("Unable to find compatible version of "+name+" for liquibase v"+liquibase.Version.String()+". Please consider updating liquibase.", 1)
+				}
 			}
 			if p.Name == "" {
 				errors.Exit("Package '"+name+"' not found.", 1)
