@@ -2,8 +2,8 @@ package commands
 
 import (
 	"github.com/spf13/cobra"
+	"io"
 	"io/fs"
-	"io/ioutil"
 	"os"
 	"package-manager/internal/app"
 	"package-manager/internal/app/errors"
@@ -27,12 +27,12 @@ var rootCmd = &cobra.Command{
 Search for, install, and uninstall liquibase drivers, extensions, and utilities.`,
 }
 
-//Execute main entry point for CLI
+// Execute main entry point for CLI
 func Execute(cp string, s string) {
 	var err error
 	liquibase = utils.LoadLiquibase(cp)
 	globalpath = liquibase.Homepath + "lib" + s
-	globalpathFiles, err = ioutil.ReadDir(globalpath)
+	globalpathFiles, err = utils.ReadDir(globalpath)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
@@ -62,7 +62,7 @@ func initConfig() {
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
-	b, _ := ioutil.ReadAll(jsonFile)
+	b, _ := io.ReadAll(jsonFile)
 
 	//Load Bytes to Packages
 	packs = app.LoadPackages(b)

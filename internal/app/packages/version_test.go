@@ -2,9 +2,9 @@ package packages
 
 import (
 	"io/fs"
-	"io/ioutil"
 	"os"
 	"os/exec"
+	"package-manager/internal/app/utils"
 	"strings"
 	"testing"
 )
@@ -69,7 +69,7 @@ func init() {
 func TestVersion_CopyToClassPath(t *testing.T) {
 	extensionV1.Path = testPath + "/tests/mocks/files/extension-0.0.2.txt"
 	extensionV1.CopyToClassPath(testPath + "/tests/mocks/classpath/")
-	var files, _ = ioutil.ReadDir(testPath + "/tests/mocks/classpath/")
+	var files, _ = utils.ReadDir(testPath + "/tests/mocks/classpath/")
 
 	if files[1].Name() != "extension-0.0.2.txt" {
 		t.Fatalf("Expected %s but got %s", "extension-0.0.2.txt", files[0].Name())
@@ -112,7 +112,7 @@ func TestVersion_InClassPath(t *testing.T) {
 		files []fs.FileInfo
 	}
 
-	var files, _ = ioutil.ReadDir(testPath + "/tests/mocks/installed")
+	var files, _ = utils.ReadDir(testPath + "/tests/mocks/installed")
 
 	tests := []struct {
 		name    string

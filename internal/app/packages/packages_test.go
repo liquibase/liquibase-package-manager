@@ -2,8 +2,8 @@ package packages
 
 import (
 	"io/fs"
-	"io/ioutil"
 	"os/exec"
+	"package-manager/internal/app/utils"
 	"reflect"
 	"strings"
 	"testing"
@@ -23,19 +23,19 @@ func TestPackages_FilterByCategory(t *testing.T) {
 	}{
 		{
 			name: "Can Filter by Driver",
-			ps: ps,
+			ps:   ps,
 			args: args{"driver"},
 			want: []Package{driver},
 		},
 		{
 			name: "Can Filter by Extension",
-			ps: ps,
+			ps:   ps,
 			args: args{"extension"},
 			want: []Package{extension},
 		},
 		{
 			name: "Can Filter by Pro",
-			ps: ps,
+			ps:   ps,
 			args: args{"pro"},
 			want: []Package{pro},
 		},
@@ -73,7 +73,7 @@ func TestPackages_GetByName(t *testing.T) {
 		},
 		{
 			name: "Can Get Package (Pro) by Name",
-			ps: ps,
+			ps:   ps,
 			args: args{"pro"},
 			want: pro,
 		},
@@ -93,8 +93,8 @@ func TestPackages_Display(t *testing.T) {
 	}
 
 	rootPath, _ := exec.Command("git", "rev-parse", "--show-toplevel").Output()
-	var installed, _ = ioutil.ReadDir(strings.TrimRight(string(rootPath), "\n") + "/tests/mocks/installed")
-	var files, _ = ioutil.ReadDir(strings.TrimRight(string(rootPath), "\n") + "/tests/mocks/classpath")
+	var installed, _ = utils.ReadDir(strings.TrimRight(string(rootPath), "\n") + "/tests/mocks/installed")
+	var files, _ = utils.ReadDir(strings.TrimRight(string(rootPath), "\n") + "/tests/mocks/classpath")
 
 	tests := []struct {
 		name string
@@ -104,7 +104,7 @@ func TestPackages_Display(t *testing.T) {
 	}{
 		{
 			name: "Can Display Installed Formatted Lists",
-			ps: ps,
+			ps:   ps,
 			args: args{installed},
 			want: []string{
 				"     Package                                Category",
@@ -115,9 +115,9 @@ func TestPackages_Display(t *testing.T) {
 		},
 		{
 			name: "Can Display Uninstalled Formatted Lists",
-			ps: ps,
+			ps:   ps,
 			args: args{files},
-			want : []string{
+			want: []string{
 				"     Package                                Category",
 				"├──  driver                                 driver",
 				"├──  extension                              extension",

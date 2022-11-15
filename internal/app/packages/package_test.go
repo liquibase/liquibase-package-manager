@@ -3,8 +3,8 @@ package packages
 import (
 	"github.com/hashicorp/go-version"
 	"io/fs"
-	"io/ioutil"
 	"os/exec"
+	"package-manager/internal/app/utils"
 	"reflect"
 	"strings"
 	"testing"
@@ -171,7 +171,7 @@ func TestPackage_GetInstalledVersion(t *testing.T) {
 	}
 
 	rootPath, _ := exec.Command("git", "rev-parse", "--show-toplevel").Output()
-	var files, _ = ioutil.ReadDir(strings.TrimRight(string(rootPath), "\n") + "/tests/mocks/installed")
+	var files, _ = utils.ReadDir(strings.TrimRight(string(rootPath), "\n") + "/tests/mocks/installed")
 
 	tests := []struct {
 		name   string

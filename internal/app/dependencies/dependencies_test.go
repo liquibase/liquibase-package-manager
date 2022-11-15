@@ -1,7 +1,7 @@
 package dependencies
 
 import (
-	"io/ioutil"
+	"os"
 	"os/exec"
 	"path/filepath"
 	"reflect"
@@ -21,13 +21,13 @@ func TestDependencies_CreateFile(t *testing.T) {
 	d.CreateFile()
 	_, file := filepath.Split(FileLocation)
 	if file != "liquibase.json" {
-		t.Fatalf("Expected %s but got %s", "liquibase.json", file )
+		t.Fatalf("Expected %s but got %s", "liquibase.json", file)
 	}
 }
 
 func TestDependencies_FileExists(t *testing.T) {
 	if d.FileExists() != true {
-		t.Fatalf( "Unable to verify liquibase.json file exists." )
+		t.Fatalf("Unable to verify liquibase.json file exists.")
 	}
 }
 
@@ -35,7 +35,7 @@ func TestDependencies_Write(t *testing.T) {
 	d.Dependencies = append(d.Dependencies, Dependency{"package": "tag"})
 	d.Write()
 
-	file, _ := ioutil.ReadFile(FileLocation)
+	file, _ := os.ReadFile(FileLocation)
 	content := `{
  "dependencies": [
   {
@@ -44,7 +44,7 @@ func TestDependencies_Write(t *testing.T) {
  ]
 }`
 	if string(file) != content {
-		t.Fatalf( "Unable to verify liquibase.json json contents." )
+		t.Fatalf("Unable to verify liquibase.json json contents.")
 	}
 }
 
@@ -66,7 +66,7 @@ func TestDependencies_Read(t *testing.T) {
 
 func TestDependencies_Remove(t *testing.T) {
 	d.Remove("package")
-	if len(d.Dependencies) != 0  {
-		t.Fatalf( "Unable to remove dependency" )
+	if len(d.Dependencies) != 0 {
+		t.Fatalf("Unable to remove dependency")
 	}
 }

@@ -3,7 +3,7 @@ package commands
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"io/ioutil"
+	"io"
 	"os"
 	"package-manager/internal/app"
 	"package-manager/internal/app/errors"
@@ -33,7 +33,7 @@ var updateCmd = &cobra.Command{
 			if err != nil {
 				errors.Exit(err.Error(), 1)
 			}
-			bytes, err = ioutil.ReadAll(file)
+			bytes, err = io.ReadAll(file)
 			if err != nil {
 				errors.Exit(err.Error(), 1)
 			}
