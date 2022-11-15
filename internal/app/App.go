@@ -4,34 +4,35 @@ import (
 	_ "embed" // Embed Import for Package Files
 	"encoding/json"
 	"io/fs"
-	"io/ioutil"
 	"os"
 	"package-manager/internal/app/errors"
 	"package-manager/internal/app/packages"
+	"package-manager/internal/app/utils"
 )
 
 //go:embed "VERSION"
 var version string
 
-//PackagesJSON is embedded for first time run
+// PackagesJSON is embedded for first time run
+//
 //go:embed "packages.json"
 var PackagesJSON []byte
 
-//PackageFile exported for overwrite
+// PackageFile exported for overwrite
 var PackageFile = "packages.json"
 
-//Classpath exported for overwrite
+// Classpath exported for overwrite
 var Classpath string
 
-//ClasspathFiles exported for overwrite
+// ClasspathFiles exported for overwrite
 var ClasspathFiles []fs.FileInfo
 
-//Version output from embedded file
+// Version output from embedded file
 func Version() string {
 	return version
 }
 
-//SetClasspath to switch between global and local modules
+// SetClasspath to switch between global and local modules
 func SetClasspath(global bool, globalpath string, globalpathFiles []fs.FileInfo) {
 	if global {
 		Classpath = globalpath
@@ -42,25 +43,25 @@ func SetClasspath(global bool, globalpath string, globalpathFiles []fs.FileInfo)
 			errors.Exit(err.Error(), 1)
 		}
 		Classpath = pwd + "/liquibase_libs/"
-		ClasspathFiles, _ = ioutil.ReadDir(Classpath)
+		ClasspathFiles, _ = utils.ReadDir(Classpath)
 	}
 }
 
-//PackagesInClassPath is the packages.json file in global classpath
+// PackagesInClassPath is the packages.json file in global classpath
 func PackagesInClassPath(cp string) bool {
 	_, err := os.Stat(cp + PackageFile)
 	return err == nil
 }
 
-//CopyPackagesToClassPath install packages.json to global classpath
+// CopyPackagesToClassPath install packages.json to global classpath
 func CopyPackagesToClassPath(cp string, p []byte) {
-	err := ioutil.WriteFile(cp+PackageFile, p, 0664)
+	err := os.WriteFile(cp+PackageFile, p, 0664)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
 }
 
-//LoadPackages get packages from bytes from file
+// LoadPackages get packages from bytes from file
 func LoadPackages(b []byte) packages.Packages {
 	var e packages.Packages
 	err := json.Unmarshal(b, &e)
@@ -70,7 +71,7 @@ func LoadPackages(b []byte) packages.Packages {
 	return e
 }
 
-//WritePackages write packages back to file
+// WritePackages write packages back to file
 func WritePackages(p packages.Packages) {
 	b, err := json.MarshalIndent(p, "", "  ")
 	if err != nil {
@@ -80,7 +81,7 @@ func WritePackages(p packages.Packages) {
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
-	err = ioutil.WriteFile(pwd+"/internal/app/packages.json", b, 0664)
+	err = os.WriteFile(pwd+"/internal/app/packages.json", b, 0664)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}

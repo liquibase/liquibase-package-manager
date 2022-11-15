@@ -1,15 +1,15 @@
 package utils
 
 import (
-	"io/ioutil"
+	"io"
 	"net/http"
 	"package-manager/internal/app/errors"
 )
 
-//HTTPUtil struct
-type HTTPUtil struct {}
+// HTTPUtil struct
+type HTTPUtil struct{}
 
-//Get contencts from URL as bytes
+// Get contencts from URL as bytes
 func (h HTTPUtil) Get(url string) []byte {
 	client := http.Client{
 		CheckRedirect: func(r *http.Request, via []*http.Request) error {
@@ -19,11 +19,11 @@ func (h HTTPUtil) Get(url string) []byte {
 	}
 	r, err := client.Get(url)
 	if err != nil {
-		errors.Exit("Unable to download from " + url, 1)
+		errors.Exit("Unable to download from "+url, 1)
 
 	}
 	defer r.Body.Close()
-	body, err := ioutil.ReadAll(r.Body)
+	body, err := io.ReadAll(r.Body)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}

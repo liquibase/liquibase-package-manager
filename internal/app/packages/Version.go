@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"io"
 	"io/fs"
-	"io/ioutil"
 	"os"
 	"package-manager/internal/app/errors"
 	"package-manager/internal/app/utils"
@@ -15,7 +14,7 @@ import (
 	"strings"
 )
 
-//Version struct
+// Version struct
 type Version struct {
 	Tag           string `json:"tag"`
 	Path          string `json:"path"`
@@ -24,13 +23,13 @@ type Version struct {
 	LiquibaseCore string `json:"liquibaseCore"`
 }
 
-//GetFilename from version
+// GetFilename from version
 func (v Version) GetFilename() string {
 	_, f := filepath.Split(v.Path)
 	return f
 }
 
-//InClassPath version is installed in classpath
+// InClassPath version is installed in classpath
 func (v Version) InClassPath(files []fs.FileInfo) bool {
 	r := false
 	for _, f := range files {
@@ -41,12 +40,12 @@ func (v Version) InClassPath(files []fs.FileInfo) bool {
 	return r
 }
 
-//PathIsHTTP remote or local file path
+// PathIsHTTP remote or local file path
 func (v Version) PathIsHTTP() bool {
 	return strings.HasPrefix(v.Path, "http")
 }
 
-//CopyToClassPath install local version to classpath
+// CopyToClassPath install local version to classpath
 func (v Version) CopyToClassPath(cp string) {
 	if !ClasspathExists(cp) {
 		createClasspath(cp)
@@ -56,7 +55,7 @@ func (v Version) CopyToClassPath(cp string) {
 		errors.Exit("Unable to open "+v.Path, 1)
 	}
 	defer source.Close()
-	b, err := ioutil.ReadAll(source)
+	b, err := io.ReadAll(source)
 	if err != nil {
 		errors.Exit(err.Error(), 1)
 	}
@@ -88,7 +87,7 @@ func (v Version) calcChecksum(b []byte) string {
 	return r
 }
 
-//DownloadToClassPath install remote version to classpath
+// DownloadToClassPath install remote version to classpath
 func (v Version) DownloadToClassPath(cp string) {
 	if !ClasspathExists(cp) {
 		createClasspath(cp)
@@ -103,12 +102,12 @@ func (v Version) DownloadToClassPath(cp string) {
 	writeToDestination(cp+v.GetFilename(), body, v.GetFilename())
 }
 
-//createClasspath creates a proper directory at the specified location
+// createClasspath creates a proper directory at the specified location
 func createClasspath(cp string) error {
 	return os.Mkdir(cp, 0775)
 }
 
-//ClasspathExists checks to see if classpath directory is created
+// ClasspathExists checks to see if classpath directory is created
 func ClasspathExists(cp string) bool {
 	_, err := os.Stat(cp)
 	return err == nil
