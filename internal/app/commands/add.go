@@ -28,6 +28,9 @@ var addCmd = &cobra.Command{
 			var v packages.Version
 			if strings.Contains(name, "@") {
 				p = packs.GetByName(strings.Split(name, "@")[0])
+				if p.Name == "" {
+					errors.Exit("Package '"+name+"' not found.", 1)
+				}
 				v = p.GetVersion(strings.Split(name, "@")[1])
 				if v.Tag == "" {
 					errors.Exit("Version '"+strings.Split(name, "@")[1]+"' not available.", 1)
@@ -40,13 +43,13 @@ var addCmd = &cobra.Command{
 				}
 			} else {
 				p = packs.GetByName(name)
+				if p.Name == "" {
+					errors.Exit("Package '"+name+"' not found.", 1)
+				}
 				v = p.GetLatestVersion(liquibase.Version)
 				if v.Tag == "" {
 					errors.Exit("Unable to find compatible version of "+name+" for liquibase v"+liquibase.Version.String()+". Please consider updating liquibase.", 1)
 				}
-			}
-			if p.Name == "" {
-				errors.Exit("Package '"+name+"' not found.", 1)
 			}
 			if v.InClassPath(app.ClasspathFiles) {
 				errors.Exit(name+" is already installed.", 1)
