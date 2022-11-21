@@ -3,7 +3,6 @@ package commands
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"os"
 	"package-manager/internal/app"
 	"package-manager/internal/app/dependencies"
 	"package-manager/internal/app/errors"
@@ -11,10 +10,10 @@ import (
 
 // removeCmd represents the install command
 var removeCmd = &cobra.Command{
-	Use:   "remove [PACKAGE]...",
-	Short: "Removes Package",
+	Use:     "remove [PACKAGE]...",
+	Short:   "Removes Package",
 	Aliases: []string{"rm"},
-	Args: cobra.ArbitraryArgs,
+	Args:    cobra.ArbitraryArgs,
 	Run: func(cmd *cobra.Command, args []string) {
 
 		d := dependencies.Dependencies{}
@@ -27,21 +26,21 @@ var removeCmd = &cobra.Command{
 			p := packs.GetByName(name)
 			v := p.GetInstalledVersion(app.ClasspathFiles)
 			if p.Name == "" {
-				errors.Exit("Package '" + name + "' not found.", 1)
+				errors.Exit("Package '"+name+"' not found.", 1)
 			}
 			if !v.InClassPath(app.ClasspathFiles) {
-				errors.Exit(name + " is not installed.", 1)
+				errors.Exit(name+" is not installed.", 1)
 			}
-			err := os.Remove(app.Classpath + v.GetFilename())
+			err := p.Remove(app.Classpath, v)
 			if err != nil {
-				errors.Exit("Unable to delete " + v.GetFilename() + " from classpath.", 1)
+				errors.Exit("Unable to remove "+v.GetFilename()+" from classpath.", 1)
 			}
 			fmt.Println(v.GetFilename() + " successfully uninstalled from classpath.")
-			if !global{
+			if !global {
 				d.Remove(p.Name)
 			}
 		}
-		if !global{
+		if !global {
 			d.Write()
 		}
 	},
