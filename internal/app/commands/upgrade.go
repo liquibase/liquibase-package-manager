@@ -45,7 +45,6 @@ var upgradeCmd = &cobra.Command{
 		for _, out := range r {
 			fmt.Println(out)
 		}
-		fmt.Println()
 		if !dryRun {
 			d := dependencies.Dependencies{}
 			if !global {
@@ -54,6 +53,7 @@ var upgradeCmd = &cobra.Command{
 			for _, p := range outdated {
 				ins := p.GetInstalledVersion(app.ClasspathFiles)
 				latest := p.GetLatestVersion(liquibase.Version)
+				fmt.Println()
 				fmt.Println("removing " + p.Name + "@" + ins.Tag + " from classpath")
 				err := p.Remove(app.Classpath, ins)
 				if err != nil {
@@ -63,6 +63,7 @@ var upgradeCmd = &cobra.Command{
 				if !global {
 					d.Remove(p.Name)
 				}
+				fmt.Println()
 				fmt.Println("adding " + p.Name + "@" + latest.Tag + " to classpath")
 				if !latest.PathIsHTTP() {
 					latest.CopyToClassPath(app.Classpath)
