@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-// searchCmd represents the install command
+// searchCmd represents the search command
 var searchCmd = &cobra.Command{
 	Use:   "search [PACKAGE]",
 	Short: "Search for Packages",
