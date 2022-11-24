@@ -1838,6 +1838,34 @@
         "algorithm": "SHA1",
         "checksum": "43751d7ec562aeabcb025844345e39c340d732ba",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "42.2.27",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.27/postgresql-42.2.27.jar",
+        "algorithm": "SHA1",
+        "checksum": "cccf5f639d6fb04c2d7a1bcbb7538dab525fc589",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "42.3.8",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.3.8/postgresql-42.3.8.jar",
+        "algorithm": "SHA1",
+        "checksum": "d81533a6ff4376590f9ce7ba74b8f3723066f25c",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "42.4.3",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.4.3/postgresql-42.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "94866dd0f9ea533c61b29261673ac0616e3a6517",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "42.5.1",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.5.1/postgresql-42.5.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "ac2f61eb3b1b4e47ea45de47e73d2e92f49e3ce1",
+        "liquibaseCore": ""
       }
     ]
   },
