@@ -3,16 +3,17 @@ package packages
 import (
 	"github.com/hashicorp/go-version"
 	"io/fs"
+	"os"
 )
 
-//Package struct
+// Package struct
 type Package struct {
 	Name     string    `json:"name"`
 	Category string    `json:"category"`
 	Versions []Version `json:"versions"`
 }
 
-//GetLatestVersion from Package
+// GetLatestVersion from Package
 func (p Package) GetLatestVersion(lb *version.Version) Version {
 	var ver Version
 	old, _ := version.NewVersion("0.0.0")
@@ -32,7 +33,7 @@ func (p Package) GetLatestVersion(lb *version.Version) Version {
 	return ver
 }
 
-//GetVersion from package by version name
+// GetVersion from package by version name
 func (p Package) GetVersion(v string) Version {
 	var r Version
 	for _, ver := range p.Versions {
@@ -43,7 +44,7 @@ func (p Package) GetVersion(v string) Version {
 	return r
 }
 
-//GetInstalledVersion from classpath files
+// GetInstalledVersion from classpath files
 func (p Package) GetInstalledVersion(files []fs.FileInfo) Version {
 	var r Version
 	for _, f := range files {
@@ -56,7 +57,7 @@ func (p Package) GetInstalledVersion(files []fs.FileInfo) Version {
 	return r
 }
 
-//DeleteVersion from Package
+// DeleteVersion from Package
 func (p Package) DeleteVersion(ver Version) []Version {
 	var s int
 	for i, v := range p.Versions {
@@ -65,4 +66,13 @@ func (p Package) DeleteVersion(ver Version) []Version {
 		}
 	}
 	return append(p.Versions[:s], p.Versions[s+1:]...)
+}
+
+// Remove installed Package Version from classpath
+func (p Package) Remove(cp string, v Version) error {
+	err := os.Remove(cp + v.GetFilename())
+	if err != nil {
+		return err
+	}
+	return nil
 }

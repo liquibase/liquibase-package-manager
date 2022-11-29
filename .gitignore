@@ -5,3 +5,4 @@ liquibase_libs
 liquibase.json
 coverage.out
 notes
+.fleet
