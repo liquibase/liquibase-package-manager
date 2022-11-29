@@ -14,49 +14,49 @@ var driverV1 = Version{
 	Path:          "tests/mocks/files/driver-0.0.1.txt",
 	Algorithm:     "SHA256",
 	CheckSum:      "",
-	LiquibaseCore: "v4.6.2",
+	LiquibaseCore: "4.6.2",
 }
 var driverV2 = Version{
 	Tag:           "0.2.0",
 	Path:          "tests/mocks/files/driver-0.2.0.txt",
 	Algorithm:     "SHA1",
 	CheckSum:      "",
-	LiquibaseCore: "v4.16.2",
+	LiquibaseCore: "4.16.2",
 }
 var driverV3 = Version{
 	Tag:           "0.2.0",
 	Path:          "tests/mocks/files/driver-0.2.0.txt",
 	Algorithm:     "MD5",
 	CheckSum:      "",
-	LiquibaseCore: "v4.16.2",
+	LiquibaseCore: "4.16.2",
 }
 var extensionV1 = Version{
 	Tag:           "0.0.2",
 	Path:          "tests/mocks/files/extension-0.0.2.txt",
 	Algorithm:     "SHA1",
 	CheckSum:      "",
-	LiquibaseCore: "v4.6.2",
+	LiquibaseCore: "4.6.2",
 }
 var extensionV2 = Version{
 	Tag:           "1.0.0",
 	Path:          "tests/mocks/files/extension-1.0.0.txt",
 	Algorithm:     "SHA1",
 	CheckSum:      "",
-	LiquibaseCore: "v4.16.2",
+	LiquibaseCore: "4.16.2",
 }
 var proV1 = Version{
 	Tag:           "0.0.1",
 	Path:          "tests/mocks/files/pro-0.0.1.txt",
 	Algorithm:     "SHA1",
 	CheckSum:      "",
-	LiquibaseCore: "v4.6.2",
+	LiquibaseCore: "4.6.2",
 }
 var proV2 = Version{
 	Tag:           "0.0.2",
 	Path:          "tests/mocks/files/pro-0.0.2.txt",
 	Algorithm:     "SHA1",
 	CheckSum:      "",
-	LiquibaseCore: "v4.16.2",
+	LiquibaseCore: "4.16.2",
 }
 
 var testPath string
