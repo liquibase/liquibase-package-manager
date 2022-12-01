@@ -51,7 +51,7 @@ var addCmd = &cobra.Command{
 					errors.Exit("Unable to find compatible version of "+name+" for liquibase v"+liquibase.Version.String()+". Please consider updating liquibase.", 1)
 				}
 			}
-			if v.InClassPath(app.ClasspathFiles) {
+			if p.InClassPath(app.ClasspathFiles) {
 				errors.Exit(name+" is already installed.", 1)
 			}
 			if !v.PathIsHTTP() {

@@ -57,6 +57,14 @@ func (p Package) GetInstalledVersion(files []fs.FileInfo) Version {
 	return r
 }
 
+func (p Package) InClassPath(files []fs.FileInfo) bool {
+    v := p.GetInstalledVersion(files)
+    if v.Tag != "" {
+        return true
+    }
+    return false
+}
+
 // DeleteVersion from Package
 func (p Package) DeleteVersion(ver Version) []Version {
 	var s int
