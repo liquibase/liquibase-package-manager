@@ -24,16 +24,16 @@ func (p Package) GetLatestVersion(lb *version.Version) Version {
 				continue
 			}
 		}
-		new, _ := version.NewVersion(v.Tag)
-		if old.LessThan(new) {
-			old = new
+		n, _ := version.NewVersion(v.Tag)
+		if old.LessThan(n) {
+			old = n
 			ver = v
 		}
 	}
 	return ver
 }
 
-// GetVersion from package by version name
+// GetVersion from package by version tag
 func (p Package) GetVersion(v string) Version {
 	var r Version
 	for _, ver := range p.Versions {

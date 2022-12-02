@@ -10,10 +10,6 @@ import (
 	"strconv"
 )
 
-var (
-	dryRun bool
-)
-
 // upgradeCmd represents the update command
 var upgradeCmd = &cobra.Command{
 	Use:     "upgrade [PACKAGE]...",
