@@ -122,9 +122,9 @@ func init() {
 			artifactory: Maven{},
 		},
 		{
-			name:        "hashicorp-vault",
+            name:        "liquibase-hashicorp-vault",
 			category:    Pro,
-			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/hashicorp-vault",
+            url:         "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-hashicorp-vault",
 			artifactory: Maven{},
 		},
 		{
