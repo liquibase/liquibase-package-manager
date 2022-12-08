@@ -44,6 +44,13 @@
         "algorithm": "SHA1",
         "checksum": "45e2e179312922d3d240958ef9c5fd3ecc95aa1b",
         "liquibaseCore": "4.17.1"
+      },
+      {
+        "tag": "v0.3.3",
+        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.3.3/protobuf-generator-0.3.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "21f64402b752c577db94dc584f7eebdceaa9d000",
+        "liquibaseCore": "4.18.0"
       }
     ]
   },
