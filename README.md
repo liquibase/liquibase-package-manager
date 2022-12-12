@@ -29,12 +29,14 @@ lpm <command>
 ### Available Commands
 * add
 * completion
+* dedupe
 * help
 * install
 * list
 * remove
 * search
 * update
+* upgrade
 
 ## Autocompletion
 lpm can generate shell completions for multiple shells. The following shells are available:
