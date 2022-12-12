@@ -11,7 +11,7 @@ import (
 
 // dedupeCmd represents the dedupe command
 var dedupeCmd = &cobra.Command{
-	Use:   "dedupe [PACKAGE]...",
+	Use:   "dedupe",
     Short: "Deduplicate Packages",
     Args:  cobra.ArbitraryArgs,
 	Run: func(cmd *cobra.Command, args []string) {
