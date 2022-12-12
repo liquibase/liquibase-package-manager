@@ -52,7 +52,10 @@ var addCmd = &cobra.Command{
 				}
 			}
 			if p.InClassPath(app.ClasspathFiles) {
-				errors.Exit(name+" is already installed.", 1)
+                v := p.GetInstalledVersion(app.ClasspathFiles)
+                fmt.Println(p.Name + "@" + v.Tag + " is already installed.")
+                fmt.Println(name + " can not be installed.")
+				errors.Exit("Consider running `lpm upgrade`.", 1)
 			}
 			if !v.PathIsHTTP() {
 				v.CopyToClassPath(app.Classpath)
