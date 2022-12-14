@@ -2026,6 +2026,13 @@
         "algorithm": "SHA1",
         "checksum": "5fdbd154f97cde9779120aae93f9f6dadf3b0363",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "10.2.2",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/10.2.2.jre11/mssql-jdbc-10.2.2.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "55325ab94b73f61e389d9dbdc6763f20a98c1847",
+        "liquibaseCore": ""
       }
     ]
   },
