@@ -82,7 +82,7 @@
     ]
   },
   {
-    "name": "aws-secrets-manager",
+    "name": "liquibase-aws-secrets-manager",
     "category": "pro",
     "versions": [
       {

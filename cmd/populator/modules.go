@@ -33,9 +33,9 @@ func init() {
 			artifactory: Maven{},
 		},
 		{
-			name:        "aws-secrets-manager",
+            name:        "liquibase-aws-secrets-manager",
 			category:    Pro,
-			url:         "https://maven.liquibase.com/org/liquibase/ext/secrets/aws-secrets-manager",
+            url:         "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-aws-secrets-manager",
 			artifactory: Maven{},
 		},
 		{
