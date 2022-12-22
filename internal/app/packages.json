@@ -97,7 +97,7 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-aws-secrets-manager/1.0.0/liquibase-aws-secrets-manager-1.0.0.jar",
         "algorithm": "SHA1",
         "checksum": "47de9fec784223b54f22278cc1e77761f014a7f2",
-        "liquibaseCore": ""
+        "liquibaseCore": "4.18.0"
       }
     ]
   },
