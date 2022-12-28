@@ -77,7 +77,7 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/liquibase-s3-extension/1.1.0/liquibase-s3-extension-1.1.0.jar",
         "algorithm": "SHA1",
         "checksum": "d2da9b3b0c17d5c374edca9b6b219e8fd03beb13",
-        "liquibaseCore": ""
+        "liquibaseCore": "4.18.0"
       }
     ]
   },
