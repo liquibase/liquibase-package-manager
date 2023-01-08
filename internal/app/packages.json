@@ -9383,6 +9383,13 @@
         "algorithm": "SHA1",
         "checksum": "fb4ba1aea9dce1e7661ce7e371da29ee42e0ad89",
         "liquibaseCore": "4.18.0"
+      },
+      {
+        "tag": "4.18.0.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.18.0.1/liquibase-neo4j-4.18.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "89bb226ec3cee62466f413cd0cbf338cdc33cecc",
+        "liquibaseCore": "4.18.0"
       }
     ]
   },
@@ -9662,6 +9669,13 @@
         "algorithm": "SHA1",
         "checksum": "40f211e6bae75378e71c3345c21dc1994857d867",
         "liquibaseCore": "4.16.1"
+      },
+      {
+        "tag": "4.17.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-oracle/4.17.2/liquibase-oracle-4.17.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "9a9f311a907991616187e1f17ba01d5d8a9835a1",
+        "liquibaseCore": "4.17.2"
       }
     ]
   },
