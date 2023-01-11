@@ -19,6 +19,12 @@ end:
 
 func init() {
 	modules = []Module{
+        {
+            name: "liquibase-git-resource",
+            category: Extension,
+            url: "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-git-resource",
+            artifactory: Maven{},
+        },
 		{
 			name:        "protobuf-generator",
 			category:    Extension,

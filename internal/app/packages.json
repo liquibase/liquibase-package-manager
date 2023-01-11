@@ -1,5 +1,18 @@
 [
   {
+    "name": "liquibase-git-resource",
+    "category": "extension",
+    "versions": [
+      {
+        "tag": "0.1.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-git-resource/0.1.0/liquibase-git-resource-0.1.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "e1d39d7e0cd2d411b7b916e4f3fb758a4ba9c7a7",
+        "liquibaseCore": "4.18.0"
+      }
+    ]
+  },
+  {
     "name": "protobuf-generator",
     "category": "extension",
     "versions": [
