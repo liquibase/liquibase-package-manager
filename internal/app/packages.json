@@ -2067,6 +2067,20 @@
         "algorithm": "SHA1",
         "checksum": "97b3c8fbfc0c4ade98e2453a8d173fdb3beeb9b2",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "10.2.3",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/10.2.3.jre11/mssql-jdbc-10.2.3.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "115abd53d4ccff8bf0e0c2ea4770e71273755ef7",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "11.2.3",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/11.2.3.jre11/mssql-jdbc-11.2.3.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "ea7193293f05f487806dab4e25b23e1b305bf20d",
+        "liquibaseCore": ""
       }
     ]
   },
