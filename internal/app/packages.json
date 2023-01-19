@@ -104,7 +104,7 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/liquibase-s3-extension/1.1.1/liquibase-s3-extension-1.1.1.jar",
         "algorithm": "SHA1",
         "checksum": "54246b3e06a179e1050b619ce8fcc2798945edf4",
-        "liquibaseCore": ""
+        "liquibaseCore": "4.19.0"
       }
     ]
   },
@@ -131,7 +131,7 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-aws-secrets-manager/1.0.1/liquibase-aws-secrets-manager-1.0.1.jar",
         "algorithm": "SHA1",
         "checksum": "8e8bf3e8bc71791e1736765a8ffb2de152791c5f",
-        "liquibaseCore": ""
+        "liquibaseCore": "4.19.0"
       }
     ]
   },
