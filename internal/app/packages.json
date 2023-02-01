@@ -1949,6 +1949,13 @@
         "algorithm": "SHA1",
         "checksum": "ac2f61eb3b1b4e47ea45de47e73d2e92f49e3ce1",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "42.5.2",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.5.2/postgresql-42.5.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "1cd86d350b839b448369a82b9a335e43ab3d6df8",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -2108,6 +2115,13 @@
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/11.2.3.jre11/mssql-jdbc-11.2.3.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "ea7193293f05f487806dab4e25b23e1b305bf20d",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "12.2.0",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.2.0.jre11/mssql-jdbc-12.2.0.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "a3b378685af53986967ed2b563b7c4a2d8094fee",
         "liquibaseCore": ""
       }
     ]
