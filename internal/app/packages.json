@@ -1285,6 +1285,13 @@
         "algorithm": "SHA1",
         "checksum": "b7f1072d9b1d81148b80226db28ffff8cbb54c20",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.12.12",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.12/mongo-java-driver-3.12.12.jar",
+        "algorithm": "SHA1",
+        "checksum": "ce82036ab66b0ee0daf5faa5f249fdd72609346b",
+        "liquibaseCore": ""
       }
     ]
   },
