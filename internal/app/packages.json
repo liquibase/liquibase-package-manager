@@ -1970,6 +1970,13 @@
         "algorithm": "SHA1",
         "checksum": "646a6b458e463746946721409e370cea9cd005ed",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "42.5.4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.5.4/postgresql-42.5.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "015015a54f15e340a9a8a6a2c5457429cb1176b8",
+        "liquibaseCore": ""
       }
     ]
   },
