@@ -1977,6 +1977,13 @@
         "algorithm": "SHA1",
         "checksum": "015015a54f15e340a9a8a6a2c5457429cb1176b8",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "42.6.0",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.6.0/postgresql-42.6.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "7614cfce466145b84972781ab0079b8dea49e363",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -4883,6 +4890,13 @@
         "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.28/snowflake-jdbc-3.13.28.jar",
         "algorithm": "SHA1",
         "checksum": "1b05246ea012378a11c4de527135873446991c70",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.13.29",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.29/snowflake-jdbc-3.13.29.jar",
+        "algorithm": "SHA1",
+        "checksum": "44fc3b00b7ff3bd92fb9134cdbcaa95fce330ab3",
         "liquibaseCore": ""
       }
     ]
