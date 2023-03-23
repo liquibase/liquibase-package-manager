@@ -2864,6 +2864,20 @@
         "algorithm": "SHA1",
         "checksum": "801ace72b17a40da0bfa8c37e4e09ea4fce68284",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "2.7.9",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.7.9/mariadb-java-client-2.7.9.jar",
+        "algorithm": "SHA1",
+        "checksum": "f9aeec6276c550ed5628bbf2b21643702f069fab",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.1.3",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.1.3/mariadb-java-client-3.1.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "84317c241902378c596e4afedbf34b1e62bbc43d",
+        "liquibaseCore": ""
       }
     ]
   },
