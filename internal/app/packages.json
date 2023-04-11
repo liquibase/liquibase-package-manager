@@ -1,5 +1,18 @@
 [
   {
+    "name": "liquibase-commercial-mongodb",
+    "category": "pro",
+    "versions": [
+      {
+        "tag": "1.0.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-mongodb/1.0.0/liquibase-commercial-mongodb-1.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "beecf54acf14def772750f141ceaa30978696192",
+        "liquibaseCore": "4.20.0"
+      }
+    ]
+  },
+  {
     "name": "liquibase-git-resource",
     "category": "extension",
     "versions": [

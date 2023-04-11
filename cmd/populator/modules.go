@@ -2,7 +2,7 @@ package main
 
 var modules Modules
 
-//Modules main module splice
+// Modules main module splice
 type Modules []Module
 
 func (mm Modules) getByName(n string) Module {
@@ -19,12 +19,18 @@ end:
 
 func init() {
 	modules = []Module{
-        {
-            name: "liquibase-git-resource",
-            category: Extension,
-            url: "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-git-resource",
-            artifactory: Maven{},
-        },
+		{
+			name:        "liquibase-commercial-mongodb",
+			category:    Pro,
+			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-mongodb",
+			artifactory: Maven{},
+		},
+		{
+			name:        "liquibase-git-resource",
+			category:    Extension,
+			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-git-resource",
+			artifactory: Maven{},
+		},
 		{
 			name:        "protobuf-generator",
 			category:    Extension,
@@ -39,9 +45,9 @@ func init() {
 			artifactory: Maven{},
 		},
 		{
-            name:        "liquibase-aws-secrets-manager",
+			name:        "liquibase-aws-secrets-manager",
 			category:    Pro,
-            url:         "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-aws-secrets-manager",
+			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-aws-secrets-manager",
 			artifactory: Maven{},
 		},
 		{
@@ -128,9 +134,9 @@ func init() {
 			artifactory: Maven{},
 		},
 		{
-            name:        "liquibase-hashicorp-vault",
+			name:        "liquibase-hashicorp-vault",
 			category:    Pro,
-            url:         "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-hashicorp-vault",
+			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-hashicorp-vault",
 			artifactory: Maven{},
 		},
 		{
