@@ -20,6 +20,12 @@ end:
 func init() {
 	modules = []Module{
 		{
+			name:        "liquibase-bigquery",
+			category:    Extension,
+			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-bigquery",
+			artifactory: Maven{},
+		},
+		{
 			name:        "liquibase-commercial-mongodb",
 			category:    Pro,
 			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-mongodb",
