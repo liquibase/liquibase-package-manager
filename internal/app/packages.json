@@ -299,6 +299,13 @@
         "algorithm": "SHA1",
         "checksum": "54246b3e06a179e1050b619ce8fcc2798945edf4",
         "liquibaseCore": "4.19.0"
+      },
+      {
+        "tag": "1.1.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/liquibase-s3-extension/1.1.2/liquibase-s3-extension-1.1.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "1bb409639a7b06875b023c617ed76451c811cf00",
+        "liquibaseCore": "4.21.1"
       }
     ]
   },
@@ -326,6 +333,20 @@
         "algorithm": "SHA1",
         "checksum": "8e8bf3e8bc71791e1736765a8ffb2de152791c5f",
         "liquibaseCore": "4.19.0"
+      },
+      {
+        "tag": "1.0.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-aws-secrets-manager/1.0.2/liquibase-aws-secrets-manager-1.0.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "7e6e1b80aeb72f41ea3f534ac46f5bc97ecc5862",
+        "liquibaseCore": "4.21.1"
+      },
+      {
+        "tag": "1.0.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-aws-secrets-manager/1.0.3/liquibase-aws-secrets-manager-1.0.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "96261493bc429c31694b4579181a207b79b2d23d",
+        "liquibaseCore": "4.21.1"
       }
     ]
   },
