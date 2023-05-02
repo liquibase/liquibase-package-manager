@@ -3107,6 +3107,13 @@
         "algorithm": "SHA1",
         "checksum": "84317c241902378c596e4afedbf34b1e62bbc43d",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.1.4",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.1.4/mariadb-java-client-3.1.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "7f66d1f5afcacdb11ba34d2614933a206afbcff2",
+        "liquibaseCore": ""
       }
     ]
   },
