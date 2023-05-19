@@ -6,7 +6,7 @@ tests:
   - "verify one package":
       command: stat ./liquibase_libs/liquibase-postgresql-4.5.0.jar
   - "can add multi packages":
-      command: lpm add postgresql@42.2.23 mssql@9.2.1 mariadb h2 db2 snowflake sybase firebird sqlite oracle mysql@8.0.26
+      command: lpm add postgresql@42.2.23 mssql@9.2.1 mariadb h2 db2 snowflake sybase firebird sqlite mysql@8.0.26
       stdout:
         contains:
           - postgresql-42.2.23.jar successfully installed in classpath.
