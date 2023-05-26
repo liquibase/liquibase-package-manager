@@ -5162,6 +5162,13 @@
         "algorithm": "SHA1",
         "checksum": "99cd70f65ed6d20828502cf368878396997f1c51",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.13.31",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.31/snowflake-jdbc-3.13.31.jar",
+        "algorithm": "SHA1",
+        "checksum": "9543a3d81a2ee5e3a239c06088df2cef0b859859",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -6040,6 +6047,20 @@
         "algorithm": "SHA1",
         "checksum": "49acfb33ee776e43d2085e2fcc838778202a9128",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "19.19.0.0",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/jdbc/ojdbc8/19.19.0.0/ojdbc8-19.19.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "eb90c858f6b8856123d01b8fadd0d57b8505cc2a",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "21.10.0.0",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/jdbc/ojdbc8/21.10.0.0/ojdbc8-21.10.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "52a58e3050f9f30f5e78977a0f5515a2c5a28513",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -6158,6 +6179,13 @@
         "algorithm": "SHA1",
         "checksum": "e24ddbfea49e3a86bf6be69962d774741a976247",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "19.19.0.0",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/jdbc/ojdbc10/19.19.0.0/ojdbc10-19.19.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "e172880a3b3e34efdc167874108f43a5063473ed",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -6240,6 +6268,13 @@
         "path": "https://repo1.maven.org/maven2/com/oracle/database/jdbc/ojdbc11/23.2.0.0/ojdbc11-23.2.0.0.jar",
         "algorithm": "SHA1",
         "checksum": "a19cc23a15caea09f4883e938907129354239e75",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "21.10.0.0",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/jdbc/ojdbc11/21.10.0.0/ojdbc11-21.10.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "73623c478d882fae14821084c09a7a435ce0183b",
         "liquibaseCore": ""
       }
     ]
@@ -6464,6 +6499,20 @@
         "algorithm": "SHA1",
         "checksum": "2b8bf622fdf0cb64f847568e342513c56d690887",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "19.19.0.0",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/security/oraclepki/19.19.0.0/oraclepki-19.19.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "a43c9fd76fab33629dd133de8884d7433c549cc5",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "21.10.0.0",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/security/oraclepki/21.10.0.0/oraclepki-21.10.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "a9fb42e44b1cff890d7b27eec89bf1d5b7fcda67",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -6680,6 +6729,20 @@
         "algorithm": "SHA1",
         "checksum": "87cdebefc515119488e7130aae13b0cf28e0ff40",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "19.19.0.0",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/security/osdt_cert/19.19.0.0/osdt_cert-19.19.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "6b8430405f8b5569ccc215c913ea8d65c9d7d026",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "21.10.0.0",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/security/osdt_cert/21.10.0.0/osdt_cert-21.10.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "38127ddc7d68e2bcb3550b54105005dde3c625db",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -6895,6 +6958,20 @@
         "path": "https://repo1.maven.org/maven2/com/oracle/database/security/osdt_core/21.9.0.0/osdt_core-21.9.0.0.jar",
         "algorithm": "SHA1",
         "checksum": "cc2d8b35870d7299635e0557a16d40646141f600",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "19.19.0.0",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/security/osdt_core/19.19.0.0/osdt_core-19.19.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "aad5164ae9fb47509708871f4797d1733f7c02ac",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "21.10.0.0",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/security/osdt_core/21.10.0.0/osdt_core-21.10.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "b0a402fcdcbabcd80f41047d4780dc71e5f511fd",
         "liquibaseCore": ""
       }
     ]
