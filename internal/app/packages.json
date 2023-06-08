@@ -1528,6 +1528,13 @@
         "algorithm": "SHA1",
         "checksum": "ecd56aa03c442608e29ba6105a0d6722cab87f3f",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.12.14",
+        "path": "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.12.14/mongo-java-driver-3.12.14.jar",
+        "algorithm": "SHA1",
+        "checksum": "850383a126cdc5b363fa9ffc780037f6ebeee704",
+        "liquibaseCore": ""
       }
     ]
   },
