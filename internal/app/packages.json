@@ -12159,6 +12159,13 @@
         "algorithm": "SHA1",
         "checksum": "71079bcf78a241f283383e5896215b679b53191e",
         "liquibaseCore": "4.22.0"
+      },
+      {
+        "tag": "4.23.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.23.0/liquibase-percona-4.23.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "8983206aa12e0ba38ca1e6e9dfa25be152845a7a",
+        "liquibaseCore": "4.23.0"
       }
     ]
   },
