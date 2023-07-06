@@ -4086,6 +4086,13 @@
         "algorithm": "SHA1",
         "checksum": "d5c2005c9e3279201e12d4776c948578b16bf8b2",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "2.2.220",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/2.2.220/h2-2.2.220.jar",
+        "algorithm": "SHA1",
+        "checksum": "afd532e4f29d309ae053e57c853916551c777807",
+        "liquibaseCore": ""
       }
     ]
   },
