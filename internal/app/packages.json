@@ -10917,6 +10917,13 @@
         "algorithm": "SHA1",
         "checksum": "0c5aba408eb8dadbde264ccac3a0de4a44b04977",
         "liquibaseCore": "4.20.0"
+      },
+      {
+        "tag": "4.23.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb/4.23.0/liquibase-mongodb-4.23.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "a6d9ee123c0e3d0f44d37e2df137a8779286db0d",
+        "liquibaseCore": "4.23.0"
       }
     ]
   },
