@@ -211,6 +211,13 @@
         "algorithm": "SHA1",
         "checksum": "beecf54acf14def772750f141ceaa30978696192",
         "liquibaseCore": "4.20.0"
+      },
+      {
+        "tag": "1.1.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-mongodb/1.1.0/liquibase-commercial-mongodb-1.1.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "ee32a79bef246ccef86af9ec0d8456e5c566ffb0",
+        "liquibaseCore": ""
       }
     ]
   },
