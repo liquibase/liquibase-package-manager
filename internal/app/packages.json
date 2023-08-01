@@ -2422,6 +2422,13 @@
         "algorithm": "SHA1",
         "checksum": "a3b378685af53986967ed2b563b7c4a2d8094fee",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "12.4.0",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.4.0.jre11/mssql-jdbc-12.4.0.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "af1c059f27481c3248df214315bcd7ddc71b4b71",
+        "liquibaseCore": ""
       }
     ]
   },
