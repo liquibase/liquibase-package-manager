@@ -9,14 +9,9 @@ import (
 // HTTPUtil struct
 type HTTPUtil struct{}
 
-// Get contencts from URL as bytes
+// Get contents from URL as bytes
 func (h HTTPUtil) Get(url string) []byte {
-	client := http.Client{
-		CheckRedirect: func(r *http.Request, via []*http.Request) error {
-			r.URL.Opaque = r.URL.Path
-			return nil
-		},
-	}
+	client := http.Client{}
 	r, err := client.Get(url)
 	if err != nil {
 		errors.Exit("Unable to download from "+url, 1)
