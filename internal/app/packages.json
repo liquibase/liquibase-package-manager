@@ -2457,6 +2457,13 @@
         "algorithm": "SHA1",
         "checksum": "af1c059f27481c3248df214315bcd7ddc71b4b71",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "12.4.1",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.4.1.jre11/mssql-jdbc-12.4.1.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "00ec15ea676c9fd0edba22dba7db11171d87deee",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -3190,6 +3197,27 @@
         "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.1.4/mariadb-java-client-3.1.4.jar",
         "algorithm": "SHA1",
         "checksum": "7f66d1f5afcacdb11ba34d2614933a206afbcff2",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.7.10",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.7.10/mariadb-java-client-2.7.10.jar",
+        "algorithm": "SHA1",
+        "checksum": "57af397a745556123a3c5fb284786d02a5f27136",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.0.11",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.0.11/mariadb-java-client-3.0.11.jar",
+        "algorithm": "SHA1",
+        "checksum": "a6c9ea0b69bba421cc0dfed925b956377e4c7e11",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.2.0",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.2.0/mariadb-java-client-3.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "60848ec1bfea9449d5acd2bd2025d712ace7fdcc",
         "liquibaseCore": ""
       }
     ]
@@ -4141,6 +4169,13 @@
         "path": "https://repo1.maven.org/maven2/com/h2database/h2/2.2.220/h2-2.2.220.jar",
         "algorithm": "SHA1",
         "checksum": "afd532e4f29d309ae053e57c853916551c777807",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.2.222",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/2.2.222/h2-2.2.222.jar",
+        "algorithm": "SHA1",
+        "checksum": "35e2399abf57478ef9d595764c37a9c6e241f10d",
         "liquibaseCore": ""
       }
     ]
@@ -5267,6 +5302,13 @@
         "algorithm": "SHA1",
         "checksum": "ce437a14ceaa92a8f8a878cbca676636639e1667",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.14.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.14.1/snowflake-jdbc-3.14.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "8543059364db05897d5f8e6d47c7d0605a29c03e",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -5928,6 +5970,20 @@
         "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.42.0.0/sqlite-jdbc-3.42.0.0.jar",
         "algorithm": "SHA1",
         "checksum": "a4c84376df810062d20c84777b84ec077b5ecdab",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.42.0.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.42.0.1/sqlite-jdbc-3.42.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "f97e937f877cf3f2a2d84ce866d399a7da6ef08b",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.43.0.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.43.0.0/sqlite-jdbc-3.43.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "7a0b833081794081789af7b6d54a23ea0247f98f",
         "liquibaseCore": ""
       }
     ]
