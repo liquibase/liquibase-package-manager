@@ -4198,6 +4198,13 @@
         "algorithm": "SHA1",
         "checksum": "35e2399abf57478ef9d595764c37a9c6e241f10d",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "2.2.224",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/2.2.224/h2-2.2.224.jar",
+        "algorithm": "SHA1",
+        "checksum": "7bdade27d8cd197d9b5ce9dc251f41d2edc5f7ad",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -12551,6 +12558,13 @@
         "algorithm": "SHA1",
         "checksum": "af9ccb803617c06375f93ae88b0ea74ad8bd6561",
         "liquibaseCore": "4.23.1"
+      },
+      {
+        "tag": "4.23.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.23.2/liquibase-percona-4.23.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "390fa5fc6d85340f107bcc24eea0be42423a840f",
+        "liquibaseCore": "4.23.2"
       }
     ]
   },
