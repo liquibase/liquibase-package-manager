@@ -5337,6 +5337,13 @@
         "algorithm": "SHA1",
         "checksum": "8543059364db05897d5f8e6d47c7d0605a29c03e",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.14.2",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.14.2/snowflake-jdbc-3.14.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "388cc57dd14a0072e43d69fd53f50853d9d1a606",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -6257,6 +6264,13 @@
         "algorithm": "SHA1",
         "checksum": "b24fcc1ded34870b52d88514bcf7b283140894d7",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "23.3.0.23.09",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/jdbc/ojdbc8/23.3.0.23.09/ojdbc8-23.3.0.23.09.jar",
+        "algorithm": "SHA1",
+        "checksum": "d36f44a0ed8a07dcff2afef7f12ccdbd460d053d",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -6485,6 +6499,13 @@
         "path": "https://repo1.maven.org/maven2/com/oracle/database/jdbc/ojdbc11/21.11.0.0/ojdbc11-21.11.0.0.jar",
         "algorithm": "SHA1",
         "checksum": "9c3d5005d7835b0221e8a3b3901303772876f84b",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "23.3.0.23.09",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/jdbc/ojdbc11/23.3.0.23.09/ojdbc11-23.3.0.23.09.jar",
+        "algorithm": "SHA1",
+        "checksum": "405bcbc8d8dab59f562125fa1d2b7e06d21649f3",
         "liquibaseCore": ""
       }
     ]
@@ -6736,6 +6757,13 @@
         "path": "https://repo1.maven.org/maven2/com/oracle/database/security/oraclepki/21.11.0.0/oraclepki-21.11.0.0.jar",
         "algorithm": "SHA1",
         "checksum": "a9fb42e44b1cff890d7b27eec89bf1d5b7fcda67",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "23.3.0.23.09",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/security/oraclepki/23.3.0.23.09/oraclepki-23.3.0.23.09.jar",
+        "algorithm": "SHA1",
+        "checksum": "18f575319b885d2a4f660dcf89cd1feebb0492e6",
         "liquibaseCore": ""
       }
     ]
