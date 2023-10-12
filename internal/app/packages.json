@@ -10297,13 +10297,6 @@
         "algorithm": "SHA1",
         "checksum": "27368aff7570975d3911469a8687a3a1bbda4305",
         "liquibaseCore": "4.22.0"
-      },
-      {
-        "tag": "4.24.0",
-        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hibernate5/4.24.0/liquibase-hibernate5-4.24.0.jar",
-        "algorithm": "SHA1",
-        "checksum": "53ba364da0fa744b5c1a5fcd17dd1f13ec0de475",
-        "liquibaseCore": "4.23.2"
       }
     ]
   },
