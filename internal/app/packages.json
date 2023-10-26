@@ -404,6 +404,13 @@
         "algorithm": "SHA1",
         "checksum": "1bb409639a7b06875b023c617ed76451c811cf00",
         "liquibaseCore": "4.21.1"
+      },
+      {
+        "tag": "1.1.3",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/liquibase-s3-extension/1.1.3/liquibase-s3-extension-1.1.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "52592a9dd614ff1caa2f6d8d29b61f4bd8451244",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -445,6 +452,13 @@
         "algorithm": "SHA1",
         "checksum": "96261493bc429c31694b4579181a207b79b2d23d",
         "liquibaseCore": "4.21.1"
+      },
+      {
+        "tag": "1.0.4",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-aws-secrets-manager/1.0.4/liquibase-aws-secrets-manager-1.0.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "974473fab1877a0afd019c991e146b655d75fbd4",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -698,6 +712,13 @@
         "algorithm": "SHA1",
         "checksum": "0cb4066b5626880ca669f684db0451ba0783c094",
         "liquibaseCore": "4.21.1"
+      },
+      {
+        "tag": "2.0.4",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-hashicorp-vault/2.0.4/liquibase-hashicorp-vault-2.0.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "26d42d662fd26e449b83f1457c4d8ff5ed91b623",
+        "liquibaseCore": ""
       }
     ]
   },
