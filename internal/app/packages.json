@@ -374,7 +374,7 @@
     ]
   },
   {
-    "name": "liquibase--extension",
+    "name": "liquibase-s3-extension",
     "category": "pro",
     "versions": [
       {
