@@ -245,7 +245,7 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-mongodb/1.1.0/liquibase-commercial-mongodb-1.1.0.jar",
         "algorithm": "SHA1",
         "checksum": "ee32a79bef246ccef86af9ec0d8456e5c566ffb0",
-        "liquibaseCore": ""
+        "liquibaseCore": "4.23.0"
       },
       {
         "tag": "1.1.1",
@@ -260,6 +260,13 @@
         "algorithm": "SHA1",
         "checksum": "ba2c17e8f0f2fe219727a69185b37d08f7672c19",
         "liquibaseCore": "4.23.1"
+      },
+      {
+        "tag": "1.3.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-mongodb/1.3.0/liquibase-commercial-mongodb-1.3.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "267298601816385f54620b08d131979b3fdb8aae",
+        "liquibaseCore": "4.24.0"
       }
     ]
   },
@@ -6027,6 +6034,20 @@
         "algorithm": "SHA1",
         "checksum": "7a0b833081794081789af7b6d54a23ea0247f98f",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.43.2.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.43.2.0/sqlite-jdbc-3.43.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "37394536cb365c370cad246aa02da4a1e1e24008",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.43.2.1",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.43.2.1/sqlite-jdbc-3.43.2.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "81754f1e5dd36ca0218a465d4679ced5f5c4b89e",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -10290,6 +10311,13 @@
         "algorithm": "SHA1",
         "checksum": "27368aff7570975d3911469a8687a3a1bbda4305",
         "liquibaseCore": "4.22.0"
+      },
+      {
+        "tag": "4.24.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hibernate5/4.24.0/liquibase-hibernate5-4.24.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "53ba364da0fa744b5c1a5fcd17dd1f13ec0de475",
+        "liquibaseCore": "4.23.2"
       }
     ]
   },
@@ -12670,6 +12698,13 @@
         "algorithm": "SHA1",
         "checksum": "390fa5fc6d85340f107bcc24eea0be42423a840f",
         "liquibaseCore": "4.23.2"
+      },
+      {
+        "tag": "4.24.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.24.0/liquibase-percona-4.24.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "f77e0674ed81a01b5b17362a08075b70af0ee219",
+        "liquibaseCore": "4.24.0"
       }
     ]
   },
