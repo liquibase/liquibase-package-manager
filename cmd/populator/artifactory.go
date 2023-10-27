@@ -8,7 +8,6 @@ import (
 	"log"
 	"net/http"
 	"package-manager/internal/app/packages"
-	"strings"
 )
 
 // Artifactory main interface for module artifactory logic
@@ -39,20 +38,11 @@ func GetPomFromURL(url string) gopom.Project {
 // GetCoreVersionFromPom get liquibase core version string from POM object
 func GetCoreVersionFromPom(pom gopom.Project) string {
 	var version string
-	for _, dep := range *pom.Dependencies {
-		if *dep.ArtifactID == "liquibase-core" {
-			if strings.Contains(*dep.Version, "${") {
-				v := strings.TrimPrefix(*dep.Version, "${")
-				v = strings.TrimSuffix(v, "}")
-				for k, prop := range pom.Properties.Entries {
-					if k == v {
-						version = prop
-					}
-				}
-			} else {
-				version = *dep.Version
-			}
+	for k, p := range pom.Properties.Entries {
+		if k == "liquibase.version" {
+			version = p
 		}
 	}
 	return version
 }
+
