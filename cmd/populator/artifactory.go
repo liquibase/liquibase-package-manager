@@ -38,9 +38,9 @@ func GetPomFromURL(url string) gopom.Project {
 // GetCoreVersionFromPom get liquibase core version string from POM object
 func GetCoreVersionFromPom(pom gopom.Project) string {
 	var version string
-	for k, p := range pom.Properties.Entries {
+	for k, prop := range pom.Properties.Entries {
 		if k == "liquibase.version" {
-			version = p
+			version = prop
 		}
 	}
 	return version
