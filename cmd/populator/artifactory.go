@@ -2,12 +2,12 @@ package main
 
 import (
 	"encoding/xml"
-	"github.com/hashicorp/go-version"
-	"github.com/vifraa/gopom"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 	"package-manager/internal/app/packages"
+	"github.com/hashicorp/go-version"
+	"github.com/vifraa/gopom"
 )
 
 // Artifactory main interface for module artifactory logic
@@ -23,7 +23,7 @@ func GetPomFromURL(url string) gopom.Project {
 		print(err)
 	}
 	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		print(err)
 	}

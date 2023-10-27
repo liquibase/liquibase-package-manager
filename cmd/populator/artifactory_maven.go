@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/xml"
 	"github.com/hashicorp/go-version"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"package-manager/internal/app/packages"
 	"package-manager/internal/app/utils"
@@ -35,7 +35,7 @@ func (mav Maven) GetVersions(m Module) []*version.Version {
 		print(err)
 	}
 	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		print(err)
 	}
