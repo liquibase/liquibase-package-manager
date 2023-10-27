@@ -5,7 +5,7 @@ import (
 	"github.com/vifraa/gopom"
 )
 
-func TestGetCoreVersionFromPom(t *testing.T) {
+func TestArtifactory_GetCoreVersionFromPom(t *testing.T) {
 	// Create a sample POM object
 	pom := gopom.Project{
 		Properties: &gopom.Properties{
