@@ -1,13 +1,14 @@
 package main
 
 import (
-	"encoding/xml"
-	"io"
-	"log"
-	"net/http"
-	"package-manager/internal/app/packages"
-	"github.com/hashicorp/go-version"
-	"github.com/vifraa/gopom"
+		"encoding/xml"
+		"github.com/hashicorp/go-version"
+		"github.com/vifraa/gopom"
+		"io"
+		"log"
+		"net/http"
+		"package-manager/internal/app/packages"
+		"strings"
 )
 
 // Artifactory main interface for module artifactory logic
@@ -34,13 +35,33 @@ func GetPomFromURL(url string) gopom.Project {
 	}
 	return pom
 }
-
 // GetCoreVersionFromPom get liquibase core version string from POM object
 func GetCoreVersionFromPom(pom gopom.Project) string {
 	var version string
-	for k, prop := range pom.Properties.Entries {
-		if k == "liquibase.version" {
-			version = prop
+	if pom.Dependencies != nil {
+		for _, dep := range *pom.Dependencies {
+			if *dep.ArtifactID == "liquibase-core" {
+				if dep.Version != nil {
+					if strings.Contains(*dep.Version, "${") {
+						v := strings.TrimPrefix(*dep.Version, "${")
+						v = strings.TrimSuffix(v, "}")
+						for k, prop := range pom.Properties.Entries {
+							if k == v {
+								version = prop
+							}
+						}
+					} else {
+						version = *dep.Version
+					}
+				} 
+			}
+		}
+	}
+	if version == "" {
+		for k, prop := range pom.Properties.Entries {
+			if k == "liquibase.version" {
+				version = prop
+			}
 		}
 	}
 	return version
