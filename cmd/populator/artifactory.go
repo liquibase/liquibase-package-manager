@@ -4,7 +4,7 @@ import (
 	"encoding/xml"
 	"github.com/hashicorp/go-version"
 	"github.com/vifraa/gopom"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 	"package-manager/internal/app/packages"
@@ -24,7 +24,7 @@ func GetPomFromURL(url string) gopom.Project {
 		print(err)
 	}
 	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		print(err)
 	}
@@ -39,18 +39,29 @@ func GetPomFromURL(url string) gopom.Project {
 // GetCoreVersionFromPom get liquibase core version string from POM object
 func GetCoreVersionFromPom(pom gopom.Project) string {
 	var version string
-	for _, dep := range *pom.Dependencies {
-		if *dep.ArtifactID == "liquibase-core" {
-			if strings.Contains(*dep.Version, "${") {
-				v := strings.TrimPrefix(*dep.Version, "${")
-				v = strings.TrimSuffix(v, "}")
-				for k, prop := range pom.Properties.Entries {
-					if k == v {
-						version = prop
+	if pom.Dependencies != nil {
+		for _, dep := range *pom.Dependencies {
+			if *dep.ArtifactID == "liquibase-core" {
+				if dep.Version != nil {
+					if strings.Contains(*dep.Version, "${") {
+						v := strings.TrimPrefix(*dep.Version, "${")
+						v = strings.TrimSuffix(v, "}")
+						for k, prop := range pom.Properties.Entries {
+							if k == v {
+								version = prop
+							}
+						}
+					} else {
+						version = *dep.Version
 					}
 				}
-			} else {
-				version = *dep.Version
+			}
+		}
+	}
+	if version == "" {
+		for k, prop := range pom.Properties.Entries {
+			if k == "liquibase.version" {
+				version = prop
 			}
 		}
 	}
