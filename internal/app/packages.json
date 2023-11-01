@@ -5379,6 +5379,13 @@
         "algorithm": "SHA1",
         "checksum": "388cc57dd14a0072e43d69fd53f50853d9d1a606",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.13.34",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.13.34/snowflake-jdbc-3.13.34.jar",
+        "algorithm": "SHA1",
+        "checksum": "57d88da77c76fef5d8067b0f33007ea494c4eb9b",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -11400,6 +11407,13 @@
         "algorithm": "SHA1",
         "checksum": "a810fa3b35a69d627dbeb9938cef736b93102c8b",
         "liquibaseCore": "4.23.1"
+      },
+      {
+        "tag": "4.24.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb/4.24.0/liquibase-mongodb-4.24.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "382d4c4f03e932ffcfdbddeb48efbcf1b17a53ec",
+        "liquibaseCore": "4.24.0"
       }
     ]
   },
