@@ -134,12 +134,6 @@ func init() {
 			artifactory: Github{},
 		},
 		{
-			name:        "cyberarkpam-vault",
-			category:    Pro,
-			url:         "https://maven.liquibase.com/org/liquibase/ext/vaults/cyberarkpam-vault",
-			artifactory: Maven{},
-		},
-		{
 			name:        "liquibase-hashicorp-vault",
 			category:    Pro,
 			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-hashicorp-vault",

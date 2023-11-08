@@ -620,33 +620,6 @@
     ]
   },
   {
-    "name": "cyberarkpam-vault",
-    "category": "pro",
-    "versions": [
-      {
-        "tag": "0.0.1",
-        "path": "https://maven.liquibase.com/org/liquibase/ext/vaults/cyberarkpam-vault/0.0.1/cyberarkpam-vault-0.0.1.jar",
-        "algorithm": "SHA1",
-        "checksum": "5c6c0c8a6dd91b0d8dba06eb48127fec8cf01647",
-        "liquibaseCore": "4.6.1"
-      },
-      {
-        "tag": "0.0.2",
-        "path": "https://maven.liquibase.com/org/liquibase/ext/vaults/cyberarkpam-vault/0.0.2/cyberarkpam-vault-0.0.2.jar",
-        "algorithm": "SHA1",
-        "checksum": "0ff2586d9b95472d436c08457f901a2952212574",
-        "liquibaseCore": "4.6.2"
-      },
-      {
-        "tag": "0.0.3",
-        "path": "https://maven.liquibase.com/org/liquibase/ext/vaults/cyberarkpam-vault/0.0.3/cyberarkpam-vault-0.0.3.jar",
-        "algorithm": "SHA1",
-        "checksum": "cf74dfb866b27b3c02cfc4d646a092eb01292069",
-        "liquibaseCore": "4.6.2"
-      }
-    ]
-  },
-  {
     "name": "liquibase-hashicorp-vault",
     "category": "pro",
     "versions": [
