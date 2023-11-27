@@ -6105,6 +6105,13 @@
         "algorithm": "SHA1",
         "checksum": "48ab54d6d3625daca386a60c2ba30529ec9e92f1",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.44.1.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.44.1.0/sqlite-jdbc-3.44.1.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "012e6182deef32d366ade664aa33bec9f4dd3ffe",
+        "liquibaseCore": ""
       }
     ]
   },
