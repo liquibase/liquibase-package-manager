@@ -5422,6 +5422,13 @@
         "algorithm": "SHA1",
         "checksum": "1cdfd9111ad3f93c1eddb7c9f1c9bed6b8fb095f",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.14.4",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.14.4/snowflake-jdbc-3.14.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "0aa39560c63fc8a578aecf6a0314d3cc7e0ae507",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -8776,6 +8783,13 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra/4.25.0/liquibase-cassandra-4.25.0.jar",
         "algorithm": "SHA1",
         "checksum": "cd272646ec712988e5a0f8f89331725290ff8e8c",
+        "liquibaseCore": "4.25.0"
+      },
+      {
+        "tag": "4.25.0.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra/4.25.0.1/liquibase-cassandra-4.25.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "6fb9ef165e32eb7f0b25624b615be511e94910d1",
         "liquibaseCore": "4.25.0"
       }
     ]
@@ -12294,6 +12308,13 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.25.0/liquibase-neo4j-4.25.0.jar",
         "algorithm": "SHA1",
         "checksum": "a33f94bfbc1797435a8cc4fd9948a2dc27e0890d",
+        "liquibaseCore": "4.25.0"
+      },
+      {
+        "tag": "4.25.0.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.25.0.1/liquibase-neo4j-4.25.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "1293013f143567ae8ae14152352ca863fb426a13",
         "liquibaseCore": "4.25.0"
       }
     ]
