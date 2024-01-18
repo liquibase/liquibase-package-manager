@@ -18,7 +18,7 @@ type Artifactory interface {
 }
 
 // GetPomFromURL get POM object from remote URL
-func GetPomFromURL(url string) gopom.Project {
+func GetPomFromURL(url string) *gopom.Project {
 	resp, err := http.Get(url)
 	if err != nil {
 		print(err)
@@ -28,7 +28,7 @@ func GetPomFromURL(url string) gopom.Project {
 	if err != nil {
 		print(err)
 	}
-	var pom gopom.Project
+	var pom *gopom.Project
 	err = xml.Unmarshal(body, &pom)
 	if err != nil {
 		log.Fatal(err)
@@ -37,7 +37,7 @@ func GetPomFromURL(url string) gopom.Project {
 }
 
 // GetCoreVersionFromPom get liquibase core version string from POM object
-func GetCoreVersionFromPom(pom gopom.Project) string {
+func GetCoreVersionFromPom(pom *gopom.Project) string {
 	var version string
 	if pom.Dependencies != nil {
 		for _, dep := range *pom.Dependencies {
