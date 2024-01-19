@@ -6154,6 +6154,13 @@
         "algorithm": "SHA1",
         "checksum": "012e6182deef32d366ade664aa33bec9f4dd3ffe",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.45.0.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.45.0.0/sqlite-jdbc-3.45.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "1e7131f5cb049f620502ed689b97311fa9606c75",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -13405,6 +13412,13 @@
         "algorithm": "SHA1",
         "checksum": "7c8b2bb56729260caf96879f180fdc9cb2164cbd",
         "liquibaseCore": "4.25.0"
+      },
+      {
+        "tag": "4.25.1.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-postgresql/4.25.1.1/liquibase-postgresql-4.25.1.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "ab241f0e86e412dac23887c689fe1e8f6b194386",
+        "liquibaseCore": "4.25.1"
       }
     ]
   },
