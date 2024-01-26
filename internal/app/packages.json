@@ -5443,6 +5443,13 @@
         "algorithm": "SHA1",
         "checksum": "0aa39560c63fc8a578aecf6a0314d3cc7e0ae507",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.14.5",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.14.5/snowflake-jdbc-3.14.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "9ce7efb0adb296b43667994316a3bad9b2d813a9",
+        "liquibaseCore": ""
       }
     ]
   },
