@@ -28,7 +28,7 @@ func init() {
 		{
 			name:        "databricks-jdbc",
 			category:    Driver,
-			url:         "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/",
+			url:         "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc",
 			artifactory: Maven{},
 		},
 		{

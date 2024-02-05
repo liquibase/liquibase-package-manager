@@ -36,7 +36,120 @@
   {
     "name": "databricks-jdbc",
     "category": "driver",
-    "versions": []
+    "versions": [
+      {
+        "tag": "2.6.25-1",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.25-1/databricks-jdbc-2.6.25-1.jar",
+        "algorithm": "SHA1",
+        "checksum": "10d75dc6e00dc6967e6f77031afb22b25aabd766",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.25-alpha-1",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.25-alpha-1/databricks-jdbc-2.6.25-alpha-1.jar",
+        "algorithm": "SHA1",
+        "checksum": "f87ee238f99a2d39d5c403995766640ac55b0dba",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.25-alpha-2",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.25-alpha-2/databricks-jdbc-2.6.25-alpha-2.jar",
+        "algorithm": "SHA1",
+        "checksum": "f87ee238f99a2d39d5c403995766640ac55b0dba",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.25-beta-1",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.25-beta-1/databricks-jdbc-2.6.25-beta-1.jar",
+        "algorithm": "SHA1",
+        "checksum": "9ff544ff99c383368c0573e6f2fdb2e09fb10f52",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.25-beta-2",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.25-beta-2/databricks-jdbc-2.6.25-beta-2.jar",
+        "algorithm": "SHA1",
+        "checksum": "cf596ea91f39a125eeed77c96c97fdc933916f75",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.25-beta-3",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.25-beta-3/databricks-jdbc-2.6.25-beta-3.jar",
+        "algorithm": "SHA1",
+        "checksum": "f87ee238f99a2d39d5c403995766640ac55b0dba",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.25-beta-4",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.25-beta-4/databricks-jdbc-2.6.25-beta-4.jar",
+        "algorithm": "SHA1",
+        "checksum": "10d75dc6e00dc6967e6f77031afb22b25aabd766",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.25",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.25/databricks-jdbc-2.6.25.jar",
+        "algorithm": "SHA1",
+        "checksum": "f87ee238f99a2d39d5c403995766640ac55b0dba",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.27-beta-1",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.27-beta-1/databricks-jdbc-2.6.27-beta-1.jar",
+        "algorithm": "SHA1",
+        "checksum": "e858e5fb925e4c56caabe8421c252874ee8da7e2",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.27",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.27/databricks-jdbc-2.6.27.jar",
+        "algorithm": "SHA1",
+        "checksum": "e858e5fb925e4c56caabe8421c252874ee8da7e2",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.29-beta-1",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.29-beta-1/databricks-jdbc-2.6.29-beta-1.jar",
+        "algorithm": "SHA1",
+        "checksum": "2d227ad120ec7342dc8ea30280386c5e6bc8a06d",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.29",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.29/databricks-jdbc-2.6.29.jar",
+        "algorithm": "SHA1",
+        "checksum": "2d227ad120ec7342dc8ea30280386c5e6bc8a06d",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.32",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.32/databricks-jdbc-2.6.32.jar",
+        "algorithm": "SHA1",
+        "checksum": "362ddbe125d5cb983a75e8fe0f7852987d4669ad",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.33",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.33/databricks-jdbc-2.6.33.jar",
+        "algorithm": "SHA1",
+        "checksum": "1758bb648d764ffbfbf61c2ba0fba26b3d1488c2",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.34",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.34/databricks-jdbc-2.6.34.jar",
+        "algorithm": "SHA1",
+        "checksum": "9652b6349331a0c70702a8b8ae22d6892c34e535",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.36",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.36/databricks-jdbc-2.6.36.jar",
+        "algorithm": "SHA1",
+        "checksum": "66268503217d834fe4151360b4184a6dd715f662",
+        "liquibaseCore": ""
+      }
+    ]
   },
   {
     "name": "liquibase-bigquery",
