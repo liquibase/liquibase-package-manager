@@ -20,6 +20,18 @@ end:
 func init() {
 	modules = []Module{
 		{
+			name:        "liquibase-databricks",
+			category:    Extension,
+			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-databricks",
+			artifactory: Maven{},
+		},
+		{
+			name:        "databricks-jdbc",
+			category:    Driver,
+			url:         "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc",
+			artifactory: Maven{},
+		},
+		{
 			name:        "liquibase-bigquery",
 			category:    Extension,
 			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-bigquery",
