@@ -453,6 +453,13 @@
         "algorithm": "SHA1",
         "checksum": "e2d6b6a14c40531e33a757891b338d297cf1f2c6",
         "liquibaseCore": "4.18.0"
+      },
+      {
+        "tag": "0.1.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-git-resource/0.1.2/liquibase-git-resource-0.1.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "04cb6770b3586e72e7248522cb6d5ab57d169cf2",
+        "liquibaseCore": "4.24.0"
       }
     ]
   },
