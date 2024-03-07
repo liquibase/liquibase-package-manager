@@ -10,14 +10,14 @@ import (
 	"strings"
 )
 
-//Liquibase struct
+// Liquibase struct
 type Liquibase struct {
 	Homepath        string
 	Version         *version.Version
 	BuildProperties map[string]string
 }
 
-//LoadLiquibase loads liquibase struct from home path
+// LoadLiquibase loads liquibase struct from home path
 func LoadLiquibase(hp string) Liquibase {
 	l := Liquibase{
 		Homepath:        hp,
@@ -66,8 +66,14 @@ func LoadLiquibase(hp string) Liquibase {
 					break
 				}
 			}
-			v, _ := version.NewVersion(l.BuildProperties["build.version"])
-			l.Version = v
+
+			if l.BuildProperties["build.version"] != "DEV" {
+				v, _ := version.NewVersion(l.BuildProperties["build.version"])
+				l.Version = v
+			} else {
+				l.Version, _ = version.NewVersion("999.0.0")
+			}
+
 		}
 	}
 	goto end
