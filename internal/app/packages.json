@@ -2583,6 +2583,41 @@
         "algorithm": "SHA1",
         "checksum": "86ed42574cd68662b05d3b00432a34e9a34cb12c",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "42.2.29",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.29/postgresql-42.2.29.jar",
+        "algorithm": "SHA1",
+        "checksum": "42257d36b5cb1ac1a788f60e93fd751cb9e0308d",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "42.3.10",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.3.10/postgresql-42.3.10.jar",
+        "algorithm": "SHA1",
+        "checksum": "e4e87d5e6a3400a0327c4658ab0845582499844c",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "42.4.5",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.4.5/postgresql-42.4.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "622a3dd54cfb3142736eb188b8b2ca3071eecc13",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "42.5.6",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.5.6/postgresql-42.5.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "6308e5c6e8fe33898e8f2214251aa8bc153f86b4",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "42.6.2",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.6.2/postgresql-42.6.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "18c33c28326b2f81480833291b81f5eca080ab3c",
+        "liquibaseCore": ""
       }
     ]
   },
