@@ -578,6 +578,13 @@
         "algorithm": "SHA1",
         "checksum": "7efb45e0137c5167e814da12cf8f74e98c3924d6",
         "liquibaseCore": "4.26.0"
+      },
+      {
+        "tag": "v0.3.9",
+        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.3.9/protobuf-generator-0.3.9.jar",
+        "algorithm": "SHA1",
+        "checksum": "a62719f8b7055dcecc43103ce4d37d9b2c6282fb",
+        "liquibaseCore": "4.26.0"
       }
     ]
   },
@@ -9307,6 +9314,13 @@
         "algorithm": "SHA1",
         "checksum": "0585314d48f38b8d010b25ead9872381ead00cc9",
         "liquibaseCore": "4.26.0"
+      },
+      {
+        "tag": "4.27.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra/4.27.0/liquibase-cassandra-4.27.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "2130fe6523f1ad41d27584785e490e1a79222cb1",
+        "liquibaseCore": "4.27.0"
       }
     ]
   },
@@ -9970,6 +9984,13 @@
         "algorithm": "SHA1",
         "checksum": "00d1e0f62a884fb3924b0f1cd440e06da8ec1824",
         "liquibaseCore": "4.26.0"
+      },
+      {
+        "tag": "4.27.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-db2i/4.27.0/liquibase-db2i-4.27.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "2861c586047644c5d941d7bdc9fc1fc6bb100ca6",
+        "liquibaseCore": "4.27.0"
       }
     ]
   },
@@ -10731,6 +10752,13 @@
         "algorithm": "SHA1",
         "checksum": "6b78e9698251a0180753bab15a10d58e4dfbe289",
         "liquibaseCore": "4.26.0"
+      },
+      {
+        "tag": "4.27.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hanadb/4.27.0/liquibase-hanadb-4.27.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "d740499f8affef076d3098ae9c67cf83599e0693",
+        "liquibaseCore": "4.27.0"
       }
     ]
   },
@@ -11450,6 +11478,13 @@
         "algorithm": "SHA1",
         "checksum": "6c2d3364f9f9a4ebc57c21a1153873c90194d680",
         "liquibaseCore": "4.26.0"
+      },
+      {
+        "tag": "4.27.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-maxdb/4.27.0/liquibase-maxdb-4.27.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "bd57707666d550f4bda4bc1a90fe2c636ab6a6b6",
+        "liquibaseCore": "4.27.0"
       }
     ]
   },
@@ -14019,6 +14054,13 @@
         "algorithm": "SHA1",
         "checksum": "ab6e15511cb0d73d29f3788387d14fdb324e5623",
         "liquibaseCore": "4.26.0"
+      },
+      {
+        "tag": "4.27.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-postgresql/4.27.0/liquibase-postgresql-4.27.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "7ec326b0044696e6352002fc765a9db98e9d7504",
+        "liquibaseCore": "4.27.0"
       }
     ]
   },
@@ -14403,6 +14445,13 @@
         "algorithm": "SHA1",
         "checksum": "7cdaab04549266e801bfc51f983db7b2949b36da",
         "liquibaseCore": "4.26.0"
+      },
+      {
+        "tag": "4.27.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-redshift/4.27.0/liquibase-redshift-4.27.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "4e7036cfc46e46075b0addc78d25bbd14e12588c",
+        "liquibaseCore": "4.27.0"
       }
     ]
   },
@@ -14982,6 +15031,13 @@
         "algorithm": "SHA1",
         "checksum": "78357587e262c32a4c9ca080543ea417463eccdd",
         "liquibaseCore": "4.26.0"
+      },
+      {
+        "tag": "4.27.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-sqlfire/4.27.0/liquibase-sqlfire-4.27.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "dda333e94c921b7dc0c5613c3298bc24f8d9b130",
+        "liquibaseCore": "4.27.0"
       }
     ]
   },
@@ -15366,6 +15422,13 @@
         "algorithm": "SHA1",
         "checksum": "f578928cec4c23ce8d3013e664ff5ecde9ea5307",
         "liquibaseCore": "4.26.0"
+      },
+      {
+        "tag": "4.27.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-teradata/4.27.0/liquibase-teradata-4.27.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "c3fb1db1eee6b6145b489842d0a5a46047a5908c",
+        "liquibaseCore": "4.27.0"
       }
     ]
   },
