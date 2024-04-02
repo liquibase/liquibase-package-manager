@@ -413,6 +413,13 @@
         "algorithm": "SHA1",
         "checksum": "55075c9029d1f0e554ce2423965f68456a17eae0",
         "liquibaseCore": "4.26.0"
+      },
+      {
+        "tag": "4.27.0.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-bigquery/4.27.0.1/liquibase-bigquery-4.27.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "1eeff9ede02f02f321f35be9a32275201233427e",
+        "liquibaseCore": "4.27.0"
       }
     ]
   },
