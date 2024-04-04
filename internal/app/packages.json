@@ -11122,6 +11122,20 @@
         "algorithm": "SHA1",
         "checksum": "f0d8ed2fa5d405e8baa59b81d9251afa17f69005",
         "liquibaseCore": "4.25.1"
+      },
+      {
+        "tag": "4.26.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hibernate5/4.26.0/liquibase-hibernate5-4.26.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "694b30900a1cb0fa03234437023489a9bb137907",
+        "liquibaseCore": "4.26.0"
+      },
+      {
+        "tag": "4.27.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-hibernate5/4.27.0/liquibase-hibernate5-4.27.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "dd962ba9e739ee449ab74d6a84e634548b37ec79",
+        "liquibaseCore": "4.27.0"
       }
     ]
   },
@@ -13027,6 +13041,13 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.27.0/liquibase-neo4j-4.27.0.jar",
         "algorithm": "SHA1",
         "checksum": "095a769bfb92a4bee6b469e1ec59af7f07142d4d",
+        "liquibaseCore": "4.27.0"
+      },
+      {
+        "tag": "4.27.0.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.27.0.1/liquibase-neo4j-4.27.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "7aa29ff08e418e6ea4750c78f24e03501eee9b7d",
         "liquibaseCore": "4.27.0"
       }
     ]
