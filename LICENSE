@@ -199,3 +199,16 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
+   ---------------------------------------------------------------------------
+
+   This project includes software governed by the Mozilla Public License, v. 2.0.
+   If a copy of the MPL was not distributed with this file, You can obtain one at
+   http://mozilla.org/MPL/2.0/.
+
+   The following component is subject to the Mozilla Public License, v. 2.0:
+
+- `github.com/hashicorp/go-version v1.6.0`
+
+   You can obtain a copy of the license at:
+   http://mozilla.org/MPL/2.0/.
