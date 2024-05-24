@@ -2876,6 +2876,13 @@
         "algorithm": "SHA1",
         "checksum": "243d5f31442b851e930e664e85547fd8658007ac",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "12.6.2",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.6.2.jre11/mssql-jdbc-12.6.2.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "8555c90692ba8072f082c1fcaebd391ef518e15c",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -9440,6 +9447,13 @@
         "algorithm": "SHA1",
         "checksum": "2130fe6523f1ad41d27584785e490e1a79222cb1",
         "liquibaseCore": "4.27.0"
+      },
+      {
+        "tag": "4.28.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra/4.28.0/liquibase-cassandra-4.28.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "c6d2f8e4eaf00b2702f24cf456e811f174b1a5d5",
+        "liquibaseCore": "4.28.0"
       }
     ]
   },
@@ -13210,6 +13224,13 @@
         "algorithm": "SHA1",
         "checksum": "7aa29ff08e418e6ea4750c78f24e03501eee9b7d",
         "liquibaseCore": "4.27.0"
+      },
+      {
+        "tag": "4.28.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.28.0/liquibase-neo4j-4.28.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "d1c4e62be536b6c9e9b0b8e8730477ab344a3e3e",
+        "liquibaseCore": "4.27.0"
       }
     ]
   },
@@ -13873,6 +13894,13 @@
         "algorithm": "SHA1",
         "checksum": "6a4a0ee671cdda37a64be1b4eadc664b2fd19ff7",
         "liquibaseCore": "4.26.0"
+      },
+      {
+        "tag": "4.27.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.27.0/liquibase-percona-4.27.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "499783750df0419801a7fa75fcae64fbce8b9962",
+        "liquibaseCore": "4.27.0"
       }
     ]
   },
