@@ -1,0 +1,6 @@
+This project makes use of third-party software governed by the following licenses:
+
+- `github.com/hashicorp/go-version v1.6.0` is licensed under the Mozilla Public License, v. 2.0.
+  You can obtain a copy of the license at: <http://mozilla.org/MPL/2.0/>.
+
+  For the complete terms, see the LICENSE file in the `github.com/hashicorp/go-version` repository.
