@@ -716,6 +716,13 @@
         "algorithm": "SHA1",
         "checksum": "968c02765124a1247832907786ba591256fe26c9",
         "liquibaseCore": "4.26.0"
+      },
+      {
+        "tag": "1.0.6",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-aws-secrets-manager/1.0.6/liquibase-aws-secrets-manager-1.0.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "dcb365982634e926dc63925a51b4dd0a09aa62e3",
+        "liquibaseCore": "4.28.0"
       }
     ]
   },
@@ -5847,6 +5854,13 @@
         "algorithm": "SHA1",
         "checksum": "e7622578700140e9a2a0cd22c3dd001e40c460da",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.16.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.16.1/snowflake-jdbc-3.16.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "d4beb5366863a50784316f0cd3ea92e3e687a0f0",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -6585,6 +6599,13 @@
         "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.45.3.0/sqlite-jdbc-3.45.3.0.jar",
         "algorithm": "SHA1",
         "checksum": "06ae68e5fbf0d184c2f8191818fbe66e4dd70e14",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.46.0.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.46.0.0/sqlite-jdbc-3.46.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "aa79a7b3fd17b70ca7cb4cc894d5c8488c60aabe",
         "liquibaseCore": ""
       }
     ]
