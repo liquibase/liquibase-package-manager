@@ -37,6 +37,13 @@
         "algorithm": "SHA1",
         "checksum": "dc3c418a258e0228522046b48c5c77d7119685f6",
         "liquibaseCore": "4.26.0"
+      },
+      {
+        "tag": "1.2.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-databricks/1.2.0/liquibase-databricks-1.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "c8244dec9ca0e374dc5de87688b8af857065da6d",
+        "liquibaseCore": "4.28.0"
       }
     ]
   },
