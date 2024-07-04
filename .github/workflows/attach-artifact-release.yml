@@ -30,7 +30,10 @@ jobs:
         run: echo $VERSION > VERSION
 
       - name: Release Artifact
-        run: make release
+        run: |
+          make release
+          ls -ltr
+          ls -ltr bin
 
       - name: Get latest draft release ID
         id: get-release
