@@ -12,31 +12,13 @@ env:
 
 jobs:
   prepare-release:
-    name: Attach Artifact to Release
+    name: Prepare Release
     runs-on: ubuntu-latest
     outputs:
       upload_url: ${{ steps.get-release.outputs.upload_url }}
+
     steps:
       - uses: actions/checkout@v4
-
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: '^1.22'
-
-      - name: Setup GO environment
-        run: |
-          go mod download
-
-      - name: Update VERSION file
-        run: |
-          echo $VERSION > VERSION
-          cat VERSION
-
-      - name: Release Artifact
-        run: |
-          make release
-          ls -ltr bin/darwin_amd64
 
       - name: Get latest draft release ID
         id: get-release
@@ -82,7 +64,30 @@ jobs:
           {folder: s390x, zip_name: s390x},
           {folder: windows, zip_name: windows},
           ]
+          
     steps:
+
+      - uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: '^1.22'
+
+      - name: Setup GO environment
+        run: |
+          go mod download
+
+      - name: Update VERSION file
+        run: |
+          echo $VERSION > VERSION
+          cat VERSION
+
+      - name: Release Artifact
+        run: |
+          make release
+          ls -ltr bin/darwin_amd64
+
       - name: Attach artifact to release
         uses: actions/upload-release-asset@v1.0.1
         env:
