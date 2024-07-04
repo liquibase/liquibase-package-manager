@@ -94,7 +94,6 @@ jobs:
       - name: Release Artifact
         run: |
           make release
-          ls -ltr bin/darwin_amd64
 
       - name: Attach artifact to release
         uses: actions/upload-release-asset@v1.0.1
@@ -105,3 +104,16 @@ jobs:
           asset_path: bin/${{ matrix.arch.folder }}/lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip
           asset_name: lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip
           asset_content_type: application/zip
+
+      - name: Calculate SHA256 hash
+        id: calculate-sha256
+        run: |
+          sha256sum bin/${{ matrix.arch.folder }}/lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip | awk '{ print $1 }' > sha256.txt
+          SHA256=$(cat sha256.txt)
+          echo "SHA256=$SHA256" >> $GITHUB_ENV
+          echo "SHA256 hash: $SHA256"
+  
+      - name: Upload SHA256 hash to job summary
+        run: |
+          echo "### SHA256 Hashes for Release Artifacts" >> $GITHUB_STEP_SUMMARY
+          echo "- lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip: $SHA256" >> $GITHUB_STEP_SUMMARY
