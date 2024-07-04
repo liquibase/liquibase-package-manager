@@ -17,11 +17,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install upx
-        run: |
-          sudo apt-get update
-          sudo apt-get install upx
-
       - name: Setup Go
         uses: actions/setup-go@v3
         with:
@@ -34,8 +29,8 @@ jobs:
       - name: Update VERSION file
         run: echo $VERSION > VERSION
 
-      - name: Build
-        run: make build
+      - name: Release Artifact
+        run: make release
 
       - name: Get latest draft release ID
         id: get-release
