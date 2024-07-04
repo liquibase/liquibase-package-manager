@@ -27,13 +27,14 @@ jobs:
           go mod download
 
       - name: Update VERSION file
-        run: echo $VERSION > VERSION
+        run: |
+          echo $VERSION > VERSION
+          cat VERSION
 
       - name: Release Artifact
         run: |
           make release
-          ls -ltr
-          ls -ltr bin
+          ls -ltr bin/darwin_amd64
 
       - name: Get latest draft release ID
         id: get-release
