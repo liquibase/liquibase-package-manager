@@ -1,4 +1,4 @@
-name: Build and Test
+name: PR Quality Gate
 
 on:
   push:
@@ -36,24 +36,3 @@ jobs:
 
       - name: Build
         run: make build
-
-      - name: List artifacts in release
-        if: env.RELEASE_ID != '' && env.RELEASE_ID != null
-        id: list-artifacts
-        run: |
-          RELEASE_ID="${{ env.RELEASE_ID }}"
-          ARTIFACTS=$(curl -X GET -H "Authorization: token ${{ secrets.BOT_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID/assets" | jq -r '.[].id')
-          echo "Artifacts to delete: $ARTIFACTS"
-          ARTIFACTS_CLEANED=$(echo "$ARTIFACTS" | tr -s '[:space:]' ',' | sed 's/,$//')
-          echo "ARTIFACTS_TO_DELETE=$ARTIFACTS_CLEANED" >> $GITHUB_ENV
-
-      - name: Delete artifacts
-        if: env.ARTIFACTS_TO_DELETE != null
-        run: |
-          RELEASE_ID="${{ env.RELEASE_ID }}"
-          ARTIFACTS_TO_DELETE="${{ env.ARTIFACTS_TO_DELETE }}"
-          IFS=',' read -ra values <<< "$ARTIFACTS_TO_DELETE"
-          for value in "${values[@]}"; do
-            curl -X DELETE -H "Authorization: token ${{ secrets.BOT_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/assets/$value"
-            echo "Deleted artifact ID: $value"
-          done
