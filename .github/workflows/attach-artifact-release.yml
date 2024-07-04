@@ -7,17 +7,75 @@ on:
         description: 'LPM version to release'
         required: true
 
+env:
+  VERSION: ${{ inputs.version }}
+
 jobs:
-  attach-to-release:
-    name: Attach Artifact to Release
+  prepare-release:
+    name: Prepare Release
     runs-on: ubuntu-latest
+    outputs:
+      upload_url: ${{ steps.get-release.outputs.upload_url }}
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install upx
+      - name: Get latest draft release ID
+        id: get-release
         run: |
-          sudo apt-get update
-          sudo apt-get install upx
+          LATEST_DRAFT_RELEASE=$(curl -X GET -H "Authorization: token ${{ secrets.BOT_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases?per_page=1" | jq -r 'if .[].draft == true then .[].id else empty end')
+          LATEST_DRAFT_RELEASE_URL=$(curl -X GET -H "Authorization: token ${{ secrets.BOT_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases?per_page=1" | jq -r 'if .[].draft == true then .[].upload_url else empty end')
+          echo "Latest Draft Release ID: $LATEST_DRAFT_RELEASE"
+          echo "Latest Draft Release upload_url: $LATEST_DRAFT_RELEASE_URL"
+          echo "RELEASE_ID=$LATEST_DRAFT_RELEASE" >> $GITHUB_ENV
+          echo "upload_url=$LATEST_DRAFT_RELEASE_URL" >> $GITHUB_OUTPUT
+  
+      - name: List artifacts in release
+        if: env.RELEASE_ID != '' && env.RELEASE_ID != null
+        id: list-artifacts
+        run: |
+          RELEASE_ID="${{ env.RELEASE_ID }}"
+          ARTIFACTS=$(curl -X GET -H "Authorization: token ${{ secrets.BOT_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID/assets" | jq -r '.[].id')
+          echo "Artifacts to delete: $ARTIFACTS"
+          ARTIFACTS_CLEANED=$(echo "$ARTIFACTS" | tr -s '[:space:]' ',' | sed 's/,$//')
+          echo "ARTIFACTS_TO_DELETE=$ARTIFACTS_CLEANED" >> $GITHUB_ENV
+
+      - name: Delete artifacts
+        if: env.ARTIFACTS_TO_DELETE != null
+        run: |
+          RELEASE_ID="${{ env.RELEASE_ID }}"
+          ARTIFACTS_TO_DELETE="${{ env.ARTIFACTS_TO_DELETE }}"
+          IFS=',' read -ra values <<< "$ARTIFACTS_TO_DELETE"
+          for value in "${values[@]}"; do
+            curl -X DELETE -H "Authorization: token ${{ secrets.BOT_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/assets/$value"
+            echo "Deleted artifact ID: $value"
+          done
+
+      - name: Edit Release
+        uses: irongut/EditRelease@v1.2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          id: ${{ env.RELEASE_ID }}
+          name: v${{ env.VERSION }}
+          replacename: true
+
+  attach-to-release:
+    runs-on: ubuntu-latest
+    needs: prepare-release
+    strategy:
+      matrix:
+        arch: [ 
+          {folder: darwin_amd64, zip_name: darwin},
+          {folder: darwin_arm64, zip_name: darwin-arm64},
+          {folder: linux_amd64, zip_name: linux},
+          {folder: linux_arm64, zip_name: linux-arm64},
+          {folder: s390x, zip_name: s390x},
+          {folder: windows, zip_name: windows},
+          ]
+
+    steps:
+
+      - uses: actions/checkout@v4
 
       - name: Setup Go
         uses: actions/setup-go@v3
@@ -28,12 +86,33 @@ jobs:
         run: |
           go mod download
 
-      - name: Build
-        run: make build
+      - name: Update VERSION file
+        run: echo $VERSION > VERSION
 
-      - name: Get latest draft release ID
-        id: get-release
+      - name: Release Artifact
+        run: make release
+
+      - name: Attach artifact to release
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.prepare-release.outputs.upload_url }}
+          asset_path: bin/${{ matrix.arch.folder }}/lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip
+          asset_name: lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip
+          asset_content_type: application/zip
+
+      - name: Calculate SHA256 hash
+        if: matrix.arch.zip_name == 'linux' || matrix.arch.zip_name == 'linux-arm64'
+        id: calculate-sha256
         run: |
-          LATEST_DRAFT_RELEASE=$(curl -X GET -H "Authorization: token ${{ secrets.BOT_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases?per_page=1" | jq -r 'if .[].draft == true then .[].id else empty end')
-          echo "Latest Draft Release ID: $LATEST_DRAFT_RELEASE"
-          echo "RELEASE_ID=$LATEST_DRAFT_RELEASE" >> $GITHUB_ENV
+          sha256sum bin/${{ matrix.arch.folder }}/lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip | awk '{ print $1 }' > sha256.txt
+          SHA256=$(cat sha256.txt)
+          echo "SHA256=$SHA256" >> $GITHUB_ENV
+          echo "SHA256 hash: $SHA256"
+  
+      - name: Upload SHA256 hash to job summary
+        if: matrix.arch.zip_name == 'linux' || matrix.arch.zip_name == 'linux-arm64'
+        run: |
+          echo "### :white_check_mark: SHA256 for ${{ matrix.arch.zip_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip: $SHA256" >> $GITHUB_STEP_SUMMARY
