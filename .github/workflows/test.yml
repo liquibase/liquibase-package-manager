@@ -1,0 +1,59 @@
+name: PR Quality Gate
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 #Shallow Clones should be disabled for a better relevancy of analysis
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '^1.22'
+
+      - name: Setup GO environment
+        run: |
+          go mod download
+
+      - name: Lint and run unit tests
+        run: |
+          make test
+          go tool cover -func coverage.out
+          
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Build
+        run: make build
+
+      - name: List artifacts in release
+        if: env.RELEASE_ID != '' && env.RELEASE_ID != null
+        id: list-artifacts
+        run: |
+          RELEASE_ID="${{ env.RELEASE_ID }}"
+          ARTIFACTS=$(curl -X GET -H "Authorization: token ${{ secrets.BOT_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID/assets" | jq -r '.[].id')
+          echo "Artifacts to delete: $ARTIFACTS"
+          ARTIFACTS_CLEANED=$(echo "$ARTIFACTS" | tr -s '[:space:]' ',' | sed 's/,$//')
+          echo "ARTIFACTS_TO_DELETE=$ARTIFACTS_CLEANED" >> $GITHUB_ENV
+
+      - name: Delete artifacts
+        if: env.ARTIFACTS_TO_DELETE != null
+        run: |
+          RELEASE_ID="${{ env.RELEASE_ID }}"
+          ARTIFACTS_TO_DELETE="${{ env.ARTIFACTS_TO_DELETE }}"
+          IFS=',' read -ra values <<< "$ARTIFACTS_TO_DELETE"
+          for value in "${values[@]}"; do
+            curl -X DELETE -H "Authorization: token ${{ secrets.BOT_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/assets/$value"
+            echo "Deleted artifact ID: $value"
+          done
