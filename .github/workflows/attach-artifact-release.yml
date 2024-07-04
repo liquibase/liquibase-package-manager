@@ -87,13 +87,10 @@ jobs:
           go mod download
 
       - name: Update VERSION file
-        run: |
-          echo $VERSION > VERSION
-          cat VERSION
+        run: echo $VERSION > VERSION
 
       - name: Release Artifact
-        run: |
-          make release
+        run: make release
 
       - name: Attach artifact to release
         uses: actions/upload-release-asset@v1.0.1
@@ -106,6 +103,7 @@ jobs:
           asset_content_type: application/zip
 
       - name: Calculate SHA256 hash
+        if: ${{ matrix.arch.zip_name }} == 'linux' || ${{ matrix.arch.zip_name }} == 'linux-arm64'
         id: calculate-sha256
         run: |
           sha256sum bin/${{ matrix.arch.folder }}/lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip | awk '{ print $1 }' > sha256.txt
@@ -114,6 +112,7 @@ jobs:
           echo "SHA256 hash: $SHA256"
   
       - name: Upload SHA256 hash to job summary
+        if: ${{ matrix.arch.zip_name }} == 'linux' || ${{ matrix.arch.zip_name }} == 'linux-arm64'
         run: |
-          echo "### SHA256 Hashes for Release Artifacts" >> $GITHUB_STEP_SUMMARY
+          echo "### :white_check_mark: SHA256 for ${{ matrix.arch.zip_name }}" >> $GITHUB_STEP_SUMMARY
           echo "- lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip: $SHA256" >> $GITHUB_STEP_SUMMARY
