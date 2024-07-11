@@ -57,13 +57,14 @@ To load completions in your current shell session:
 `source <(lpm completion bash)`
 
 To load completions for every new session, execute once:
+
 * Linux:
 
 ```shell
 lpm completion bash > /etc/bash_completion.d/lpm
 ```
 
-- MacOS:
+* MacOS:
 
 ```shell
 lpm completion bash > /usr/local/etc/bash_completion.d/lpm
@@ -94,3 +95,7 @@ This project is licensed under the Apache License 2.0. See the LICENSE file for 
 This project also includes software governed by the Mozilla Public License, v. 2.0.
 
 * `github.com/hashicorp/go-version v1.6.0` (<http://mozilla.org/MPL/2.0/>)
+
+## Releasing LPM
+
+For instructions on releasing LPM, see [RELEASING.md](RELEASING.md).
