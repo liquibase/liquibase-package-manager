@@ -19,11 +19,11 @@ darwin_arm64:
 	cd $(PWD)/bin/darwin_arm64 && zip lpm-$(VERSION)-darwin-arm64.zip lpm
 
 linux_amd64:
-	GOOS=linux GOARCH=amd64 GOARM=7 go build -o $(PWD)/bin/linux_amd64/lpm $(PWD)/cmd/lpm/darwin.go
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GOARM=7 go build -o $(PWD)/bin/linux_amd64/lpm $(PWD)/cmd/lpm/darwin.go
 	cd $(PWD)/bin/linux_amd64 && zip lpm-$(VERSION)-linux.zip lpm
 
 linux_arm64:
-	GOOS=linux GOARCH=arm64 GOARM=7 go build -o $(PWD)/bin/linux_arm64/lpm $(PWD)/cmd/lpm/darwin.go
+	CGO_ENABLED=0 GOOS=linux GOARCH=arm64 GOARM=7 go build -o $(PWD)/bin/linux_arm64/lpm $(PWD)/cmd/lpm/darwin.go
 	cd $(PWD)/bin/linux_arm64 && zip lpm-$(VERSION)-linux-arm64.zip lpm
 
 s390x:
