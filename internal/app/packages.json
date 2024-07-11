@@ -37,6 +37,13 @@
         "algorithm": "SHA1",
         "checksum": "dc3c418a258e0228522046b48c5c77d7119685f6",
         "liquibaseCore": "4.26.0"
+      },
+      {
+        "tag": "1.2.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-databricks/1.2.0/liquibase-databricks-1.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "c8244dec9ca0e374dc5de87688b8af857065da6d",
+        "liquibaseCore": "4.28.0"
       }
     ]
   },
@@ -482,6 +489,13 @@
         "algorithm": "SHA1",
         "checksum": "267298601816385f54620b08d131979b3fdb8aae",
         "liquibaseCore": "4.24.0"
+      },
+      {
+        "tag": "1.4.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-mongodb/1.4.0/liquibase-commercial-mongodb-1.4.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "50924b8a4a28998cf95f7ee13412e4203f1089e1",
+        "liquibaseCore": "4.28.0"
       }
     ]
   },
@@ -515,6 +529,13 @@
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-git-resource/0.1.3/liquibase-git-resource-0.1.3.jar",
         "algorithm": "SHA1",
         "checksum": "7a371751ff0c6c53ed5641a8814abc66c6e3213a",
+        "liquibaseCore": "4.24.0"
+      },
+      {
+        "tag": "0.1.4",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-git-resource/0.1.4/liquibase-git-resource-0.1.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "1c7d32aab8144c30693af08abe787200b9273a16",
         "liquibaseCore": "4.24.0"
       }
     ]
@@ -2889,6 +2910,13 @@
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.6.2.jre11/mssql-jdbc-12.6.2.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "8555c90692ba8072f082c1fcaebd391ef518e15c",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "12.6.3",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.6.3.jre11/mssql-jdbc-12.6.3.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "88e2be5bc1ac4debaef4cd768a65c76808f3e532",
         "liquibaseCore": ""
       }
     ]
@@ -5860,6 +5888,13 @@
         "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.16.1/snowflake-jdbc-3.16.1.jar",
         "algorithm": "SHA1",
         "checksum": "d4beb5366863a50784316f0cd3ea92e3e687a0f0",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.17.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.17.0/snowflake-jdbc-3.17.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "31fc2bfe01ed20c86140f65f12a7bc6d803473d3",
         "liquibaseCore": ""
       }
     ]
