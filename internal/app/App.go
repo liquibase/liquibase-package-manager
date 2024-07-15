@@ -5,12 +5,12 @@ import (
 	"encoding/json"
 	"io/fs"
 	"os"
-	"package-manager/internal/app/errors"
-	"package-manager/internal/app/packages"
-	"package-manager/internal/app/utils"
+
+	"github.com/liquibase/liquibase-package-manager/internal/app/errors"
+	"github.com/liquibase/liquibase-package-manager/internal/app/packages"
+	"github.com/liquibase/liquibase-package-manager/internal/app/utils"
 )
 
-//go:embed "VERSION"
 var version string
 
 // PackagesJSON is embedded for first time run
@@ -27,7 +27,7 @@ var Classpath string
 // ClasspathFiles exported for overwrite
 var ClasspathFiles []fs.FileInfo
 
-// Version output from embedded file
+// Version output from build metadata
 func Version() string {
 	return version
 }

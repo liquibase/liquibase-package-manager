@@ -3,8 +3,9 @@ package main
 import (
 	"fmt"
 	"os"
-	"package-manager/internal/app"
-	"package-manager/internal/app/packages"
+
+	"github.com/liquibase/liquibase-package-manager/internal/app"
+	"github.com/liquibase/liquibase-package-manager/internal/app/packages"
 )
 
 func checkConfig() {
@@ -15,7 +16,7 @@ func checkConfig() {
 	}
 }
 
-func main(){
+func main() {
 	checkConfig()
 	var newPacks = packages.Packages{}
 

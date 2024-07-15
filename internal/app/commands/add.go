@@ -2,13 +2,14 @@ package commands
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-version"
-	"github.com/spf13/cobra"
-	"package-manager/internal/app"
-	"package-manager/internal/app/dependencies"
-	"package-manager/internal/app/errors"
-	"package-manager/internal/app/packages"
 	"strings"
+
+	"github.com/hashicorp/go-version"
+	"github.com/liquibase/liquibase-package-manager/internal/app"
+	"github.com/liquibase/liquibase-package-manager/internal/app/dependencies"
+	"github.com/liquibase/liquibase-package-manager/internal/app/errors"
+	"github.com/liquibase/liquibase-package-manager/internal/app/packages"
+	"github.com/spf13/cobra"
 )
 
 // addCmd represents the add command
@@ -52,9 +53,9 @@ var addCmd = &cobra.Command{
 				}
 			}
 			if p.InClassPath(app.ClasspathFiles) {
-                v := p.GetInstalledVersion(app.ClasspathFiles)
-                fmt.Println(p.Name + "@" + v.Tag + " is already installed.")
-                fmt.Println(name + " can not be installed.")
+				v := p.GetInstalledVersion(app.ClasspathFiles)
+				fmt.Println(p.Name + "@" + v.Tag + " is already installed.")
+				fmt.Println(name + " can not be installed.")
 				errors.Exit("Consider running `lpm upgrade`.", 1)
 			}
 			if !v.PathIsHTTP() {

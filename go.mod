@@ -1,4 +1,4 @@
-module package-manager
+module github.com/liquibase/liquibase-package-manager
 
 go 1.22.7
 

@@ -3,14 +3,15 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/google/go-github/v39/github"
-	"github.com/hashicorp/go-version"
-	"golang.org/x/oauth2"
 	"os"
-	"package-manager/internal/app/packages"
-	"package-manager/internal/app/utils"
 	"sort"
 	"strings"
+
+	"github.com/google/go-github/v39/github"
+	"github.com/hashicorp/go-version"
+	"github.com/liquibase/liquibase-package-manager/internal/app/packages"
+	"github.com/liquibase/liquibase-package-manager/internal/app/utils"
+	"golang.org/x/oauth2"
 )
 
 // Github artifactory implmentation

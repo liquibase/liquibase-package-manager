@@ -1,13 +1,14 @@
 package packages
 
 import (
-	"github.com/hashicorp/go-version"
 	"io/fs"
 	"os/exec"
-	"package-manager/internal/app/utils"
 	"reflect"
 	"strings"
 	"testing"
+
+	"github.com/hashicorp/go-version"
+	"github.com/liquibase/liquibase-package-manager/internal/app/utils"
 )
 
 var driver = Package{
