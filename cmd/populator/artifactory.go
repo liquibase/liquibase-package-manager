@@ -2,13 +2,14 @@ package main
 
 import (
 	"encoding/xml"
-	"github.com/hashicorp/go-version"
-	"github.com/vifraa/gopom"
 	"io"
 	"log"
 	"net/http"
-	"package-manager/internal/app/packages"
 	"strings"
+
+	"github.com/hashicorp/go-version"
+	"github.com/liquibase/liquibase-package-manager/internal/app/packages"
+	"github.com/vifraa/gopom"
 )
 
 // Artifactory main interface for module artifactory logic

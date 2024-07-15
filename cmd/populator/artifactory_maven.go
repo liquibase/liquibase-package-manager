@@ -2,16 +2,17 @@ package main
 
 import (
 	"encoding/xml"
-	"github.com/hashicorp/go-version"
 	"io"
 	"net/http"
-	"package-manager/internal/app/packages"
-	"package-manager/internal/app/utils"
 	"sort"
 	"strings"
+
+	"github.com/hashicorp/go-version"
+	"github.com/liquibase/liquibase-package-manager/internal/app/packages"
+	"github.com/liquibase/liquibase-package-manager/internal/app/utils"
 )
 
-//Maven artifactory implementation
+// Maven artifactory implementation
 type Maven struct{}
 
 type metadata struct {
@@ -28,7 +29,7 @@ type mavenVersion struct {
 	Version []string `xml:"version"`
 }
 
-//GetVersions from maven
+// GetVersions from maven
 func (mav Maven) GetVersions(m Module) []*version.Version {
 	resp, err := http.Get(m.url + "/maven-metadata.xml")
 	if err != nil {
@@ -74,7 +75,7 @@ func (mav Maven) GetVersions(m Module) []*version.Version {
 	return versions
 }
 
-//GetNewVersions from maven
+// GetNewVersions from maven
 func (mav Maven) GetNewVersions(m Module, p packages.Package) packages.Package {
 	//Look for new versions
 	for _, v := range m.GetVersions() {

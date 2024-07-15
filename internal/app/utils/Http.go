@@ -3,7 +3,8 @@ package utils
 import (
 	"io"
 	"net/http"
-	"package-manager/internal/app/errors"
+
+	"github.com/liquibase/liquibase-package-manager/internal/app/errors"
 )
 
 // HTTPUtil struct

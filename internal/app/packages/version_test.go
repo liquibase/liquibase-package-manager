@@ -4,9 +4,10 @@ import (
 	"io/fs"
 	"os"
 	"os/exec"
-	"package-manager/internal/app/utils"
 	"strings"
 	"testing"
+
+	"github.com/liquibase/liquibase-package-manager/internal/app/utils"
 )
 
 var driverV1 = Version{
