@@ -15,3 +15,28 @@
 - Do not use camel case or underscores for folder names.
 - Arrange your folders in alphabetical order.
 - Folder name or folder description should not contain special characters.
+- 
+## Add an Extension
+
+1. Edit `cmd/populator/modules.go` under `func init() `  with the extension details.
+```
+{
+    name:        "liquibase-commercial-dynamodb",
+    category:    Extension,
+    url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-dynamodb",
+    artifactory: Maven{},
+}
+```
+3. Edit `internal/app/packages.json` with the extension details.
+```
+{
+    "name": "extension-name",
+    "category": "extension", // or "driver"
+    "versions": [
+      {
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-dynamodb/1.0.0/liquibase-commercial-dynamodb-1.0.0.jar",
+      }
+    ]
+  }
+```
+4. From the Terminal run command : `make generateExtensionPackages`. It will automatically update the `internal/app/packages.json` file with `algorithm`, `checksum`, `liquibaseCore` 
