@@ -32,11 +32,7 @@
 {
     "name": "extension-name",
     "category": "extension", // or "driver"
-    "versions": [
-      {
-        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-dynamodb/1.0.0/liquibase-commercial-dynamodb-1.0.0.jar",
-      }
-    ]
+    "versions": []
   }
 ```
-4. From the Terminal run command : `make generateExtensionPackages`. It will automatically update the `internal/app/packages.json` file with `algorithm`, `checksum`, `liquibaseCore` 
+4. From the Terminal run command : `make generateExtensionPackages`. It will automatically update the `internal/app/packages.json` file with values for `algorithm`, `checksum`, `liquibaseCore`, `path` 
