@@ -27,7 +27,7 @@
     artifactory: Maven{},
 }
 ```
-2.Edit `internal/app/packages.json` with the extension details.
+2. Edit `internal/app/packages.json` with the extension details.
 ```
 {
     "name": "extension-name",
@@ -35,4 +35,4 @@
     "versions": []
   }
 ```
-3.Push your changes and a PR will automatically be created with edits to `internal/app/packages.json` file with values for `algorithm`, `checksum`, `liquibaseCore`, `path` 
+3. Push your changes and a PR will automatically be created with edits to `internal/app/packages.json` file with values for `algorithm`, `checksum`, `liquibaseCore`, `path` 
