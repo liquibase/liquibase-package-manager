@@ -35,4 +35,4 @@
     "versions": []
   }
 ```
-4. From the Terminal run command : `make generateExtensionPackages`. It will automatically update the `internal/app/packages.json` file with values for `algorithm`, `checksum`, `liquibaseCore`, `path` 
+4. Run the workflow file from GitHub Actions called "nightly-update-packages.yml" with your branch name. It will automatically update the `internal/app/packages.json` file with values for `algorithm`, `checksum`, `liquibaseCore`, `path` 
