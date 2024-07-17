@@ -2,6 +2,16 @@ name: Update Packages
 
 on:
   workflow_dispatch:
+    inputs:
+      branch:
+        description: 'branch to check out'
+        required: true
+        type: string
+      paths:
+        description: 'paths to check out'
+        required: true
+        type: string
+        default: 'cmd/populator/**'
   schedule:
     - cron: '5 6 * * *'
 
@@ -20,6 +30,7 @@ jobs:
           go mod download
 
       - name: Update Packages
+        if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
         run: make generateExtensionPackages
         env:
           GITHUB_PAT: ${{ secrets.BOT_TOKEN }}
