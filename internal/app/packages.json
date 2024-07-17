@@ -2,7 +2,15 @@
   {
     "name": "liquibase-commercial-dynamodb",
     "category": "extension",
-    "versions": []
+    "versions": [
+      {
+        "tag": "1.0.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-dynamodb/1.0.0/liquibase-commercial-dynamodb-1.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "7052e4e87e22b5ebda8d345422bd86e60f2cf1e1",
+        "liquibaseCore": "4.26.0"
+      }
+    ]
   },
   {
     "name": "liquibase-databricks",
@@ -3726,6 +3734,13 @@
         "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.4.0/mariadb-java-client-3.4.0.jar",
         "algorithm": "SHA1",
         "checksum": "39803b6ce21f0edf66d2b30c43f2b78cbaeb861a",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.4.1",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.4.1/mariadb-java-client-3.4.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "7599bff3a38ae943d8e055848b3fe943772b12c9",
         "liquibaseCore": ""
       }
     ]
