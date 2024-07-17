@@ -1,10 +1,5 @@
 [
   {
-    "name": "liquibase-commercial-dynamodb",
-    "category": "extension",
-    "versions": []
-  },
-  {
     "name": "liquibase-databricks",
     "category": "extension",
     "versions": [
