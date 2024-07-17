@@ -19,6 +19,12 @@ end:
 
 func init() {
 	modules = []Module{
+	    {
+    			name:        "liquibase-commercial-dynamodb",
+    			category:    Pro,
+    			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-dynamodb",
+    			artifactory: Maven{},
+    		},
 		{
 			name:        "liquibase-databricks",
 			category:    Extension,

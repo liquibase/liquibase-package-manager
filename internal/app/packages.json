@@ -1,5 +1,18 @@
 [
   {
+    "name": "liquibase-commercial-dynamodb",
+    "category": "pro",
+    "versions": [
+      {
+        "tag": "1.0.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-dynamodb/1.0.0/liquibase-commercial-dynamodb-1.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "7052e4e87e22b5ebda8d345422bd86e60f2cf1e1",
+        "liquibaseCore": "4.26.0"
+      }
+    ]
+  },
+  {
     "name": "liquibase-databricks",
     "category": "extension",
     "versions": [
