@@ -1,9 +1,10 @@
 package packages
 
 import (
-	"github.com/hashicorp/go-version"
 	"io/fs"
 	"os"
+
+	"github.com/hashicorp/go-version"
 )
 
 // Package struct
@@ -58,8 +59,8 @@ func (p Package) GetInstalledVersion(files []fs.FileInfo) Version {
 }
 
 func (p Package) InClassPath(files []fs.FileInfo) bool {
-    v := p.GetInstalledVersion(files)
-    return v.Tag != ""
+	v := p.GetInstalledVersion(files)
+	return v.Tag != ""
 }
 
 // DeleteVersion from Package

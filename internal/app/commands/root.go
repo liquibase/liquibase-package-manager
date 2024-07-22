@@ -1,14 +1,15 @@
 package commands
 
 import (
-	"github.com/spf13/cobra"
 	"io"
 	"io/fs"
 	"os"
-	"package-manager/internal/app"
-	"package-manager/internal/app/errors"
-	"package-manager/internal/app/packages"
-	"package-manager/internal/app/utils"
+
+	"github.com/liquibase/liquibase-package-manager/internal/app"
+	"github.com/liquibase/liquibase-package-manager/internal/app/errors"
+	"github.com/liquibase/liquibase-package-manager/internal/app/packages"
+	"github.com/liquibase/liquibase-package-manager/internal/app/utils"
+	"github.com/spf13/cobra"
 )
 
 var (
@@ -17,8 +18,8 @@ var (
 	globalpath      string
 	globalpathFiles []fs.FileInfo
 	packs           packages.Packages
-    global          bool
-    dryRun bool
+	global          bool
+	dryRun          bool
 )
 
 var rootCmd = &cobra.Command{

@@ -2,17 +2,18 @@ package main
 
 import (
 	"context"
-	"github.com/google/go-github/v39/github"
-	"github.com/hashicorp/go-version"
 	"golang.org/x/oauth2"
 	"os"
-	"package-manager/internal/app/packages"
-	"package-manager/internal/app/utils"
 	"sort"
 	"strings"
+
+	"github.com/google/go-github/v39/github"
+	"github.com/hashicorp/go-version"
+	"github.com/liquibase/liquibase-package-manager/internal/app/packages"
+	"github.com/liquibase/liquibase-package-manager/internal/app/utils"
 )
 
-//Github artifactory implmentation
+// Github artifactory implmentation
 type Github struct{}
 
 var client *github.Client
@@ -26,7 +27,7 @@ func init() {
 	client = github.NewClient(tc)
 }
 
-//GetVersions from Github
+// GetVersions from Github
 func (g Github) GetVersions(m Module) []*version.Version {
 	rr, _, _ := client.Repositories.ListReleases(context.Background(), m.owner, m.repo, &github.ListOptions{})
 	versions := make([]*version.Version, len(rr))
@@ -38,7 +39,7 @@ func (g Github) GetVersions(m Module) []*version.Version {
 	return versions
 }
 
-//GetNewVersions from Github
+// GetNewVersions from Github
 func (g Github) GetNewVersions(m Module, p packages.Package) packages.Package {
 	for _, v := range m.GetVersions() {
 		var ver packages.Version

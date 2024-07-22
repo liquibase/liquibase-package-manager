@@ -8,10 +8,11 @@ import (
 	"io"
 	"io/fs"
 	"os"
-	"package-manager/internal/app/errors"
-	"package-manager/internal/app/utils"
 	"path/filepath"
 	"strings"
+
+	"github.com/liquibase/liquibase-package-manager/internal/app/errors"
+	"github.com/liquibase/liquibase-package-manager/internal/app/utils"
 )
 
 // Version struct

@@ -2,10 +2,10 @@ package main
 
 import (
 	"github.com/hashicorp/go-version"
-	"package-manager/internal/app/packages"
+	"github.com/liquibase/liquibase-package-manager/internal/app/packages"
 )
 
-//Category module category type
+// Category module category type
 type Category string
 
 const (
@@ -14,28 +14,28 @@ const (
 	//Driver category
 	Driver Category = "driver"
 	//Pro pro
-	Pro Category="pro"
+	Pro Category = "pro"
 )
 
-//Module struct
+// Module struct
 type Module struct {
-	name string
-	category Category
-	url string
+	name          string
+	category      Category
+	url           string
 	includeSuffix string
 	excludeSuffix string
-	filePrefix  string
-	owner string
-	repo string
-	artifactory Artifactory
+	filePrefix    string
+	owner         string
+	repo          string
+	artifactory   Artifactory
 }
 
-//GetVersions for module
+// GetVersions for module
 func (m Module) GetVersions() []*version.Version {
 	return m.artifactory.GetVersions(m)
 }
 
-//GetNewVersions for module
+// GetNewVersions for module
 func (m Module) GetNewVersions(p packages.Package) packages.Package {
 	return m.artifactory.GetNewVersions(m, p)
 }

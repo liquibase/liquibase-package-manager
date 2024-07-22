@@ -2,8 +2,9 @@ package packages
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-version"
 	"io/fs"
+
+	"github.com/hashicorp/go-version"
 )
 
 // Packages type

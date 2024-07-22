@@ -2,10 +2,11 @@ package commands
 
 import (
 	"fmt"
+
+	"github.com/liquibase/liquibase-package-manager/internal/app"
+	"github.com/liquibase/liquibase-package-manager/internal/app/dependencies"
+	"github.com/liquibase/liquibase-package-manager/internal/app/errors"
 	"github.com/spf13/cobra"
-	"package-manager/internal/app"
-	"package-manager/internal/app/dependencies"
-	"package-manager/internal/app/errors"
 )
 
 // removeCmd represents the install command
