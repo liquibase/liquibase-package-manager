@@ -182,6 +182,20 @@
         "algorithm": "SHA1",
         "checksum": "6100846a8422783a4da5d2fa32882ac1dec4373a",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "0.9.0-oss",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/0.9.0-oss/databricks-jdbc-0.9.0-oss.jar",
+        "algorithm": "SHA1",
+        "checksum": "d82a3805fc353f64ebcbe8033077e91da47a3f91",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "0.9.0-oss-beta",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/0.9.0-oss-beta/databricks-jdbc-0.9.0-oss-beta.jar",
+        "algorithm": "SHA1",
+        "checksum": "8a6d2c7b946416ea35519b7f147bfa9a1bf859be",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -5922,6 +5936,13 @@
         "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.17.0/snowflake-jdbc-3.17.0.jar",
         "algorithm": "SHA1",
         "checksum": "31fc2bfe01ed20c86140f65f12a7bc6d803473d3",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.18.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.18.0/snowflake-jdbc-3.18.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "23add7c0d07779a0f598c78c44780c317882db07",
         "liquibaseCore": ""
       }
     ]
