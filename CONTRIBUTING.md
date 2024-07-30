@@ -31,7 +31,7 @@
 ```
 {
     "name": "extension-name",
-    "category": "extension", // or "driver" or "pro"
+    "category": "extension", // or "driver" or "pro" Categories should match with the populator (which is an enum not a string)
     "versions": []
   }
 ```
