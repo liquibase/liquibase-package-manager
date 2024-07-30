@@ -31,7 +31,7 @@
 ```
 {
     "name": "extension-name",
-    "category": "extension", // or "driver"
+    "category": "extension", // or "driver" or "pro"
     "versions": []
   }
 ```
