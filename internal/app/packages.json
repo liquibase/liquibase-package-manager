@@ -1,5 +1,10 @@
 [
   {
+    "name": "liquibase-aws-license-service",
+    "category": "extension",
+    "versions": []
+  },
+  {
     "name": "liquibase-commercial-dynamodb",
     "category": "pro",
     "versions": [

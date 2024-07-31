@@ -19,6 +19,13 @@ end:
 
 func init() {
 	modules = []Module{
+	    {
+            name:        "liquibase-aws-license-service",
+            category:    Extension,
+            owner:       "liquibase",
+            repo:        "liquibase-aws-license-service",
+            artifactory: Github{},
+    	},
 		{
 			name:        "liquibase-commercial-dynamodb",
 			category:    Pro,
