@@ -2,7 +2,7 @@
   {
     "name": "liquibase-aws-license-service",
     "category": "extension",
-    "versions": "versions": [
+    "versions": [
       {
         "tag": "v1.0.0",
         "path": "https://github.com/liquibase/liquibase-aws-license-service/releases/download/v1.0.0/liquibase-aws-license-service-1.0.0.jar",
