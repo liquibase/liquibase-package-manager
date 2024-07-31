@@ -40,7 +40,7 @@ jobs:
           signoff: false
           branch: update/packages
           delete-branch: true
-          base: master
+          base: ${{ github.ref_name }} 
           title: '[Automatic] Update packages.json'
           body: |
             Automatic update to packages.json
