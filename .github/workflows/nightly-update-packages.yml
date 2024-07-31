@@ -40,6 +40,7 @@ jobs:
           signoff: false
           branch: update/packages
           delete-branch: true
+          base: master
           title: '[Automatic] Update packages.json'
           body: |
             Automatic update to packages.json
