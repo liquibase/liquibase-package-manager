@@ -7,7 +7,7 @@
         "tag": "v1.0.0",
         "path": "https://github.com/liquibase/liquibase-aws-license-service/releases/download/v1.0.0/liquibase-aws-license-service-1.0.0.jar",
         "algorithm": "SHA1",
-        "checksum": "c6f9a5f3e29ec4167f56713556f1e27426af4457",
+        "checksum": "f33a22e6ed6cd7e62b6226d8d799e5083a0133f7",
         "liquibaseCore": "4.29.1"
       }
     ]
