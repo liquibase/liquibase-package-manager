@@ -216,6 +216,13 @@
         "algorithm": "SHA1",
         "checksum": "8a6d2c7b946416ea35519b7f147bfa9a1bf859be",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "0.9.1-oss",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/0.9.1-oss/databricks-jdbc-0.9.1-oss.jar",
+        "algorithm": "SHA1",
+        "checksum": "d60268ad42af22a84bfdf2cc04a126af8caa11f8",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -12818,6 +12825,13 @@
         "algorithm": "SHA1",
         "checksum": "9fc1a9e344b46d139d64c613f30083337e7e7e96",
         "liquibaseCore": "4.28.0"
+      },
+      {
+        "tag": "4.29.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb/4.29.0/liquibase-mongodb-4.29.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "c7291059deb04ea1a7f8d3953e284a8b97877bb6",
+        "liquibaseCore": "4.29.1"
       }
     ]
   },
