@@ -223,6 +223,13 @@
         "algorithm": "SHA1",
         "checksum": "d60268ad42af22a84bfdf2cc04a126af8caa11f8",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.40",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.40/databricks-jdbc-2.6.40.jar",
+        "algorithm": "SHA1",
+        "checksum": "b01b81cae0c8313354b18a0e1bdbf937ee0da01e",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -12832,6 +12839,13 @@
         "algorithm": "SHA1",
         "checksum": "c7291059deb04ea1a7f8d3953e284a8b97877bb6",
         "liquibaseCore": "4.29.1"
+      },
+      {
+        "tag": "4.29.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb/4.29.1/liquibase-mongodb-4.29.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "cd921ceede1acaff8dd61fec7722acad3e3de60e",
+        "liquibaseCore": "4.29.1"
       }
     ]
   },
@@ -13663,6 +13677,13 @@
         "algorithm": "SHA1",
         "checksum": "0bbe8399fdc26984fa9bb6d91cea6cdfdc57e354",
         "liquibaseCore": "4.29.0"
+      },
+      {
+        "tag": "4.29.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.29.1/liquibase-neo4j-4.29.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "13a6b65eee80c374b7df86f2dea8516d1068eb6a",
+        "liquibaseCore": "4.29.1"
       }
     ]
   },
