@@ -2,15 +2,16 @@ package commands
 
 import (
 	"fmt"
-	"github.com/spf13/cobra"
 	"io"
 	"os"
-	"package-manager/internal/app"
-	"package-manager/internal/app/errors"
-	"package-manager/internal/app/packages"
-	"package-manager/internal/app/utils"
 	"reflect"
 	"strings"
+
+	"github.com/liquibase/liquibase-package-manager/internal/app"
+	"github.com/liquibase/liquibase-package-manager/internal/app/errors"
+	"github.com/liquibase/liquibase-package-manager/internal/app/packages"
+	"github.com/liquibase/liquibase-package-manager/internal/app/utils"
+	"github.com/spf13/cobra"
 )
 
 var (

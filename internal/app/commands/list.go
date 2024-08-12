@@ -2,10 +2,11 @@ package commands
 
 import (
 	"fmt"
-	"github.com/spf13/cobra"
 	"os"
-	"package-manager/internal/app"
-	"package-manager/internal/app/packages"
+
+	"github.com/liquibase/liquibase-package-manager/internal/app"
+	"github.com/liquibase/liquibase-package-manager/internal/app/packages"
+	"github.com/spf13/cobra"
 )
 
 // listCmd represents the list command

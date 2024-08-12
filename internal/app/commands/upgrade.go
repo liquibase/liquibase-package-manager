@@ -2,12 +2,13 @@ package commands
 
 import (
 	"fmt"
-	"github.com/spf13/cobra"
 	"os"
-	"package-manager/internal/app"
-	"package-manager/internal/app/dependencies"
-	"package-manager/internal/app/errors"
 	"strconv"
+
+	"github.com/liquibase/liquibase-package-manager/internal/app"
+	"github.com/liquibase/liquibase-package-manager/internal/app/dependencies"
+	"github.com/liquibase/liquibase-package-manager/internal/app/errors"
+	"github.com/spf13/cobra"
 )
 
 // upgradeCmd represents the update command
