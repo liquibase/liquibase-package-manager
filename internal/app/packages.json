@@ -571,6 +571,13 @@
         "algorithm": "SHA1",
         "checksum": "50924b8a4a28998cf95f7ee13412e4203f1089e1",
         "liquibaseCore": "4.28.0"
+      },
+      {
+        "tag": "1.4.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-mongodb/1.4.1/liquibase-commercial-mongodb-1.4.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "21fba4984feface41359c7496036fb47f6222902",
+        "liquibaseCore": "4.29.1"
       }
     ]
   },
@@ -4796,6 +4803,13 @@
         "path": "https://repo1.maven.org/maven2/com/h2database/h2/2.3.230/h2-2.3.230.jar",
         "algorithm": "SHA1",
         "checksum": "13d72595560f0f9c93260cbeaecda9d688a40fd1",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.3.232",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/2.3.232/h2-2.3.232.jar",
+        "algorithm": "SHA1",
+        "checksum": "4fcc05d966ccdb2812ae8b9a718f69226c0cf4e2",
         "liquibaseCore": ""
       }
     ]
