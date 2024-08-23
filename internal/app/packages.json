@@ -237,6 +237,13 @@
         "algorithm": "SHA1",
         "checksum": "b01b81cae0c8313354b18a0e1bdbf937ee0da01e",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "2.6.40-patch-1",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.6.40-patch-1/databricks-jdbc-2.6.40-patch-1.jar",
+        "algorithm": "SHA1",
+        "checksum": "efe886314b79955f7c6beb8939e84e86f539b4aa",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -2805,6 +2812,13 @@
         "algorithm": "SHA1",
         "checksum": "24f3e9f7231428cd20eb4dde00dd3fce44e05464",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "42.7.4",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.7.4/postgresql-42.7.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "264310fd7b2cd76738787dc0b9f7ea2e3b11adc1",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -3027,6 +3041,13 @@
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.8.0.jre11/mssql-jdbc-12.8.0.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "e58a526bdd83a4e2f8666debb0debf4384f7d3a6",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "12.8.1",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.8.1.jre11/mssql-jdbc-12.8.1.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "1f641274a8cc1ff71d05eb6d5c9f8e8a6d217c54",
         "liquibaseCore": ""
       }
     ]
