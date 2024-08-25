@@ -7,34 +7,34 @@ VEXRUN := java -jar $(VEXRUN_FILE)
 release: updateVersion darwin_amd64 darwin_arm64 windows linux_amd64 linux_arm64 s390x
 
 windows:
-	GOOS=windows GOARCH=amd64 go build -o $(PWD)/bin/windows/lpm.exe $(PWD)/cmd/lpm/windows.go
+	GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -ldflags="-s -w" -o $(PWD)/bin/windows/lpm.exe $(PWD)/cmd/lpm/windows.go
 	cd $(PWD)/bin/windows && zip lpm-$(VERSION)-windows.zip lpm.exe
 
 darwin_amd64:
-	GOOS=darwin GOARCH=amd64 go build -o $(PWD)/bin/darwin_amd64/lpm $(PWD)/cmd/lpm/darwin.go
+	GOOS=darwin GOARCH=amd64 CGO_ENABLED=0 go build -ldflags="-s -w" -o $(PWD)/bin/darwin_amd64/lpm $(PWD)/cmd/lpm/darwin.go
 	cd $(PWD)/bin/darwin_amd64 && zip lpm-$(VERSION)-darwin.zip lpm
 
 darwin_arm64:
-	GOOS=darwin GOARCH=arm64 go build -o $(PWD)/bin/darwin_arm64/lpm $(PWD)/cmd/lpm/darwin.go
+	GOOS=darwin GOARCH=arm64 CGO_ENABLED=0 go build -ldflags="-s -w" -o $(PWD)/bin/darwin_arm64/lpm $(PWD)/cmd/lpm/darwin.go
 	cd $(PWD)/bin/darwin_arm64 && zip lpm-$(VERSION)-darwin-arm64.zip lpm
 
 linux_amd64:
-	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GOARM=7 go build -o $(PWD)/bin/linux_amd64/lpm $(PWD)/cmd/lpm/darwin.go
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GOARM=7 go build -ldflags="-s -w" -o $(PWD)/bin/linux_amd64/lpm $(PWD)/cmd/lpm/darwin.go
 	cd $(PWD)/bin/linux_amd64 && zip lpm-$(VERSION)-linux.zip lpm
 
 linux_arm64:
-	CGO_ENABLED=0 GOOS=linux GOARCH=arm64 GOARM=7 go build -o $(PWD)/bin/linux_arm64/lpm $(PWD)/cmd/lpm/darwin.go
+	CGO_ENABLED=0 GOOS=linux GOARCH=arm64 GOARM=7 go build -ldflags="-s -w" -o $(PWD)/bin/linux_arm64/lpm $(PWD)/cmd/lpm/darwin.go
 	cd $(PWD)/bin/linux_arm64 && zip lpm-$(VERSION)-linux-arm64.zip lpm
 
 s390x:
-	GOOS=linux GOARCH=s390x go build -o $(PWD)/bin/s390x/lpm $(PWD)/cmd/lpm/darwin.go
+	GOOS=linux GOARCH=s390x CGO_ENABLED=0 go build -ldflags="-s -w" -o $(PWD)/bin/s390x/lpm $(PWD)/cmd/lpm/darwin.go
 	cd $(PWD)/bin/s390x && zip lpm-$(VERSION)-s390x.zip lpm
 
 updateVersion:
 	cp $(PWD)/VERSION $(PWD)/internal/app/VERSION
 
 build: updateVersion
-	go build -o $(PWD)/bin/lpm $(PWD)/cmd/lpm/darwin.go
+	GOOS=darwin GOARCH=arm64 CGO_ENABLED=0 go build -ldflags="-s -w" -o $(PWD)/bin/lpm $(PWD)/cmd/lpm/darwin.go 
 
 generateExtensionPackages:
 	go run package-manager/cmd/populator
