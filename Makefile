@@ -34,7 +34,7 @@ updateVersion:
 	cp $(PWD)/VERSION $(PWD)/internal/app/VERSION
 
 build: updateVersion
-	GOOS=darwin GOARCH=arm64 CGO_ENABLED=0 go build -ldflags="-s -w" -o $(PWD)/bin/lpm $(PWD)/cmd/lpm/darwin.go 
+	CGO_ENABLED=0 go build -ldflags="-s -w" -o $(PWD)/bin/lpm $(PWD)/cmd/lpm/darwin.go
 
 generateExtensionPackages:
 	go run package-manager/cmd/populator
