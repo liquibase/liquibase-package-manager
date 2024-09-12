@@ -13859,6 +13859,13 @@
         "algorithm": "SHA1",
         "checksum": "13a6b65eee80c374b7df86f2dea8516d1068eb6a",
         "liquibaseCore": "4.29.1"
+      },
+      {
+        "tag": "4.29.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.29.2/liquibase-neo4j-4.29.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "bbc0340688374489e0737ed8ddd03cf5c384cfae",
+        "liquibaseCore": "4.29.2"
       }
     ]
   },
