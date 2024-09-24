@@ -917,6 +917,13 @@
         "algorithm": "SHA1",
         "checksum": "3d8c52cd0896e81ee2d409d07a8f233a654a7a30",
         "liquibaseCore": "4.29.2"
+      },
+      {
+        "tag": "1.0.9",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-aws-secrets-manager/1.0.9/liquibase-aws-secrets-manager-1.0.9.jar",
+        "algorithm": "SHA1",
+        "checksum": "f36bfdd9a2c494dd8bdd3088751c9cea8daa44f4",
+        "liquibaseCore": "4.29.2"
       }
     ]
   },
@@ -13028,6 +13035,13 @@
         "algorithm": "SHA1",
         "checksum": "cd921ceede1acaff8dd61fec7722acad3e3de60e",
         "liquibaseCore": "4.29.1"
+      },
+      {
+        "tag": "4.29.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mongodb/4.29.2/liquibase-mongodb-4.29.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "f0b386b9c27172ec98c5fb8dde6d74a568a30f6e",
+        "liquibaseCore": "4.29.2"
       }
     ]
   },
