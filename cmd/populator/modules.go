@@ -403,5 +403,35 @@ func init() {
 			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-verticaDatabase",
 			artifactory: Maven{},
 		},
+		{
+            name:        "liquibase-s3-extension",
+            category:    Pro,
+            url:         "https://repo1.maven.org/maven2/org/liquibase/liquibase-s3-extension",
+            artifactory: Maven{},
+        },
+        {
+            name:        "liquibase-aws-secrets-manager",
+            category:    Pro,
+            url:         "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-aws-secrets-manager",
+            artifactory: Maven{},
+        },
+        {
+            name:        "liquibase-commercial-mongodb",
+            category:    Pro,
+            url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-mongodb",
+            artifactory: Maven{},
+        },
+        {
+            name:        "liquibase-commercial-dynamodb",
+            category:    Pro,
+            url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-dynamodb",
+            artifactory: Maven{},
+        },
+        {
+            name:        "liquibase-checks",
+            category:    Pro,
+            url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-checks",
+            artifactory: Maven{},
+        },
 	}
 }
