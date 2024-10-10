@@ -20,6 +20,19 @@ end:
 func init() {
 	modules = []Module{
 		{
+	            name:        "liquibase-aws-license-service",
+	            category:    Extension,
+	            owner:       "liquibase",
+	            repo:        "liquibase-aws-license-service",
+	            artifactory: Github{},
+	    	},
+		{
+			name:        "liquibase-commercial-dynamodb",
+			category:    Pro,
+			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-dynamodb",
+			artifactory: Maven{},
+		},
+		{
 			name:        "liquibase-databricks",
 			category:    Extension,
 			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-databricks",

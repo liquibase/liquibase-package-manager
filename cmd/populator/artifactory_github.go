@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"github.com/google/go-github/v39/github"
 	"github.com/hashicorp/go-version"
 	"golang.org/x/oauth2"
@@ -12,7 +13,7 @@ import (
 	"strings"
 )
 
-//Github artifactory implmentation
+// Github artifactory implmentation
 type Github struct{}
 
 var client *github.Client
@@ -26,7 +27,7 @@ func init() {
 	client = github.NewClient(tc)
 }
 
-//GetVersions from Github
+// GetVersions from Github
 func (g Github) GetVersions(m Module) []*version.Version {
 	rr, _, _ := client.Repositories.ListReleases(context.Background(), m.owner, m.repo, &github.ListOptions{})
 	versions := make([]*version.Version, len(rr))
@@ -38,7 +39,7 @@ func (g Github) GetVersions(m Module) []*version.Version {
 	return versions
 }
 
-//GetNewVersions from Github
+// GetNewVersions from Github
 func (g Github) GetNewVersions(m Module, p packages.Package) packages.Package {
 	for _, v := range m.GetVersions() {
 		var ver packages.Version
@@ -50,7 +51,11 @@ func (g Github) GetNewVersions(m Module, p packages.Package) packages.Package {
 			continue
 		}
 
-		release, _, _ := client.Repositories.GetReleaseByTag(context.Background(), m.owner, m.repo, ver.Tag)
+		release, _, err := client.Repositories.GetReleaseByTag(context.Background(), m.owner, m.repo, ver.Tag)
+		if err != nil {
+			fmt.Print(err)
+			continue
+		}
 		for _, a := range release.Assets {
 			if strings.HasSuffix(a.GetName(), ".jar") {
 				ver.Path = a.GetBrowserDownloadURL()
