@@ -16674,5 +16674,32 @@
         "liquibaseCore": "4.11.0"
       }
     ]
+  },
+  {
+    "name": "liquibase-checks",
+    "category": "pro",
+    "versions": [
+      {
+        "tag": "1.0.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-checks/1.0.0/liquibase-checks-1.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "bf5e3ed90d017b9716848225b72601bd9a221261",
+        "liquibaseCore": "4.29.0"
+      },
+      {
+        "tag": "1.0.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-checks/1.0.0/liquibase-checks-1.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "bf5e3ed90d017b9716848225b72601bd9a221261",
+        "liquibaseCore": "4.29.1"
+      },
+      {
+        "tag": "1.0.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-checks/1.0.1/liquibase-checks-1.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "f1f72f1beb21f5bb0543f6f7f9f16c6ecdbe8e89",
+        "liquibaseCore": "4.29.2"
+      }
+    ]
   }
 ]

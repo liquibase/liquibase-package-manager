@@ -403,5 +403,11 @@ func init() {
 			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-verticaDatabase",
 			artifactory: Maven{},
 		},
+		{
+			name:        "liquibase-checks",
+			category:    Pro,
+			url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-checks",
+			artifactory: Maven{},
+		},
 	}
 }
