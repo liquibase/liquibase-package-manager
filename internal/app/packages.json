@@ -293,6 +293,13 @@
         "algorithm": "SHA1",
         "checksum": "f156cbf0d4c1ef761403a45c07e017d7c17939ff",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "0.9.6-oss",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/0.9.6-oss/databricks-jdbc-0.9.6-oss.jar",
+        "algorithm": "SHA1",
+        "checksum": "7586600593d5db7afd2409e4306c89f71a50202d",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -3943,6 +3950,13 @@
         "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.4.1/mariadb-java-client-3.4.1.jar",
         "algorithm": "SHA1",
         "checksum": "7599bff3a38ae943d8e055848b3fe943772b12c9",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.5.0",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.5.0/mariadb-java-client-3.5.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "d2d3efc63cbe656d073884ee30d39eb312903a2c",
         "liquibaseCore": ""
       }
     ]
