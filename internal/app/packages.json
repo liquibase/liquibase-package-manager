@@ -6160,6 +6160,13 @@
         "algorithm": "SHA1",
         "checksum": "c140820bf97a359b60fcda6cb648f5d292229a06",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.19.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.19.1/snowflake-jdbc-3.19.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "23ed46be9cf0f65ee7abca54a414c68a8f5c561f",
+        "liquibaseCore": ""
       }
     ]
   },
