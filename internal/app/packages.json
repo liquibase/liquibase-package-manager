@@ -710,6 +710,13 @@
         "algorithm": "SHA1",
         "checksum": "1c7d32aab8144c30693af08abe787200b9273a16",
         "liquibaseCore": "4.24.0"
+      },
+      {
+        "tag": "0.2.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-git-resource/0.2.0/liquibase-git-resource-0.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "ad3621997e2b823df683b73d3b63cfee5de8719f",
+        "liquibaseCore": "4.24.0"
       }
     ]
   },
@@ -5019,6 +5026,13 @@
         "path": "https://repo1.maven.org/maven2/com/ibm/db2/jcc/11.5.9.0/jcc-11.5.9.0.jar",
         "algorithm": "SHA1",
         "checksum": "3aa914029632e1ea8752954ef088aac56f9da309",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "12.1.0.0",
+        "path": "https://repo1.maven.org/maven2/com/ibm/db2/jcc/12.1.0.0/jcc-12.1.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "698e98dc690b5af9fce88e1dd6405a256edc5e30",
         "liquibaseCore": ""
       }
     ]
