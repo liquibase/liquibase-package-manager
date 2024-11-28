@@ -3,7 +3,8 @@ package dependencies
 import (
 	"encoding/json"
 	"os"
-	"package-manager/internal/app/errors"
+
+	"github.com/liquibase/liquibase-package-manager/internal/app/errors"
 )
 
 // FileLocation exported for testing overwrite
