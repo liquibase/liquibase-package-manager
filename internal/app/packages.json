@@ -17182,6 +17182,13 @@
         "algorithm": "SHA1",
         "checksum": "f1f72f1beb21f5bb0543f6f7f9f16c6ecdbe8e89",
         "liquibaseCore": "4.29.2"
+      },
+      {
+        "tag": "2.0.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-checks/2.0.0/liquibase-checks-2.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "ae29523d829524f6827fb4899090f3b7023321c3",
+        "liquibaseCore": "4.31.0"
       }
     ]
   }
