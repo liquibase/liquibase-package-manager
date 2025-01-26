@@ -14321,6 +14321,20 @@
         "algorithm": "SHA1",
         "checksum": "ada6d9b8ca0274209bc8777b4bf2aacb94707bce",
         "liquibaseCore": "4.31.0"
+      },
+      {
+        "tag": "4.31.0.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.31.0.1/liquibase-neo4j-4.31.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "5fe954bde8d12ad57af57a555306a0cf7436287f",
+        "liquibaseCore": "4.31.0"
+      },
+      {
+        "tag": "4.31.0.2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/4.31.0.2/liquibase-neo4j-4.31.0.2.jar",
+        "algorithm": "SHA1",
+        "checksum": "ae05971c9123e7016a62a6696f7359e5772414aa",
+        "liquibaseCore": "4.31.0"
       }
     ]
   },
