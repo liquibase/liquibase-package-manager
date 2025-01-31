@@ -1,5 +1,18 @@
 [
   {
+    "name": "liquibase-io-runner",
+    "category": "extension",
+    "versions": [
+      {
+        "tag": "0.1.28",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/io/ext/liquibase-io-runner/0.1.28/liquibase-io-runner-0.1.28.jar",
+        "algorithm": "SHA1",
+        "checksum": "6fad7774ffd0d51fa8ee095fca736b028e2c3c1c",
+        "liquibaseCore": "4.30.0"
+      }
+    ]
+  },
+  {
     "name": "liquibase-aws-license-service",
     "category": "extension",
     "versions": [
