@@ -1,5 +1,25 @@
 [
   {
+    "name": "liquibase-aws-extension",
+    "category": "extension",
+    "versions": [
+      {
+        "tag": "v0.0.1-RC2",
+        "path": "https://github.com/liquibase/liquibase-aws-extension/releases/download/v0.0.1-RC2/liquibase-aws-extension-0.0.1-RC2.jar",
+        "algorithm": "SHA1",
+        "checksum": "3943c396bdf3001ad0a178ed8917c668ff21205e",
+        "liquibaseCore": "4.30.0"
+      },
+      {
+        "tag": "v0.0.1-RC1",
+        "path": "https://github.com/liquibase/liquibase-aws-extension/releases/download/v0.0.1-RC1/liquibase-aws-extension-0.0.1-RC1.jar",
+        "algorithm": "SHA1",
+        "checksum": "613c9922091b050233dabe183ede0e01e13b8090",
+        "liquibaseCore": "4.30.0"
+      }
+    ]
+  },
+  {
     "name": "liquibase-io-runner",
     "category": "extension",
     "versions": [
