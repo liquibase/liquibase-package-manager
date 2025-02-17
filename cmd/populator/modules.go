@@ -24,7 +24,7 @@ func init() {
 			category:    Extension,
 			owner:       "liquibase",
 			repo:        "liquibase-aws-extension",
-			artifactory: Github{},
+			artifactory: Maven{},
 		},
 		{
 			name:        "liquibase-io-runner",
@@ -37,7 +37,7 @@ func init() {
 			category:    Extension,
 			owner:       "liquibase",
 			repo:        "liquibase-aws-license-service",
-			artifactory: Github{},
+			artifactory: Maven{},
 		},
 		{
 			name:        "liquibase-commercial-dynamodb",
@@ -182,7 +182,7 @@ func init() {
 			category:    Extension,
 			owner:       "liquibase",
 			repo:        "liquibase-data",
-			artifactory: Github{},
+			artifactory: Maven{},
 		},
 		{
 			name:          "postgresql",
