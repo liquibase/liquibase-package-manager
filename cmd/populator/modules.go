@@ -24,7 +24,7 @@ func init() {
 			category:    Extension,
 			owner:       "liquibase",
 			repo:        "liquibase-aws-extension",
-			artifactory: Maven{},
+			artifactory: Github{},
 		},
         {
             name:        "liquibase-io-runner",
@@ -46,6 +46,7 @@ func init() {
             artifactory: Maven{},
         },
         {
+
             name:        "liquibase-databricks",
             category:    Extension,
             url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-databricks",
