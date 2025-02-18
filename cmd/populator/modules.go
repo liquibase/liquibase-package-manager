@@ -37,7 +37,7 @@ func init() {
             category:    Extension,
             owner:       "liquibase",
             repo:        "liquibase-aws-license-service",
-            artifactory: Maven{},
+            artifactory: Github{},
         },
         {
             name:        "liquibase-commercial-dynamodb",
