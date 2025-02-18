@@ -183,7 +183,7 @@ func init() {
             category:    Extension,
             owner:       "liquibase",
             repo:        "liquibase-data",
-            artifactory: Maven{},
+            artifactory: Github{},
         },
         {
             name:          "postgresql",
