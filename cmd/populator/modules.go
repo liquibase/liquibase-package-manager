@@ -24,7 +24,7 @@ func init() {
 			category:    Extension,
 			owner:       "liquibase",
 			repo:        "liquibase-aws-extension",
-			artifactory: Github{},
+			artifactory: Maven{},
 		},
         {
             name:        "liquibase-io-runner",
@@ -177,13 +177,6 @@ func init() {
             category:    Pro,
             url:         "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-hashicorp-vault",
             artifactory: Maven{},
-        },
-        {
-            name:        "liquibase-data",
-            category:    Extension,
-            owner:       "liquibase",
-            repo:        "liquibase-data",
-            artifactory: Github{},
         },
         {
             name:          "postgresql",
