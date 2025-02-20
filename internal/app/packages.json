@@ -1,5 +1,18 @@
 [
   {
+    "name": "liquibase-aws-extension",
+    "category": "extension",
+    "versions": [
+      {
+        "tag": "v1.0.0",
+        "path": "https://github.com/liquibase/liquibase-aws-extension/releases/download/v1.0.0/liquibase-aws-extension-1.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "4d66f84d14eb7240204f12c32ea6dcf462ba9cdf",
+        "liquibaseCore": "4.31.1"
+      }
+    ]
+  },
+  {
     "name": "liquibase-io-runner",
     "category": "extension",
     "versions": [
@@ -1329,61 +1342,6 @@
         "path": "https://github.com/liquibase/liquibase-dbmarlin/releases/download/liquibase-dbmarlin-0.0.3/dbmarlin-0.0.3.jar",
         "algorithm": "SHA1",
         "checksum": "13b454b9adf761326910552a201c50f66b216b1a",
-        "liquibaseCore": "4.8.0"
-      }
-    ]
-  },
-  {
-    "name": "liquibase-data",
-    "category": "extension",
-    "versions": [
-      {
-        "tag": "v0.0.2",
-        "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.2/liquibase-data-0.0.2.jar",
-        "algorithm": "SHA1",
-        "checksum": "4723841035b52deebd3926569ca917f6f3e47ee6",
-        "liquibaseCore": "4.4.0"
-      },
-      {
-        "tag": "v0.0.3",
-        "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.3/liquibase-data-0.0.3.jar",
-        "algorithm": "SHA1",
-        "checksum": "11ddbfd71d5702d90aafcdca15aa630038eb4723",
-        "liquibaseCore": "4.4.0"
-      },
-      {
-        "tag": "v0.0.4",
-        "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.4/liquibase-data-0.0.4.jar",
-        "algorithm": "SHA1",
-        "checksum": "84e5238b9f1cf27404dca9b1f5e0b2c87769c8b7",
-        "liquibaseCore": "4.4.0"
-      },
-      {
-        "tag": "v0.0.5",
-        "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.5/liquibase-data-0.0.5.jar",
-        "algorithm": "SHA1",
-        "checksum": "79acbdcd32857c6084954293b5af8c7dd092c12f",
-        "liquibaseCore": "4.4.0"
-      },
-      {
-        "tag": "v0.0.6",
-        "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.6/liquibase-data-0.0.6.jar",
-        "algorithm": "SHA1",
-        "checksum": "2c48309755d74042dac61b1a416c877654d790f6",
-        "liquibaseCore": "4.6.2"
-      },
-      {
-        "tag": "v0.0.7",
-        "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.7/liquibase-data-0.0.7.jar",
-        "algorithm": "SHA1",
-        "checksum": "667d40750b27b8845c9d3d5bced8c4adc5c63b64",
-        "liquibaseCore": "4.6.2"
-      },
-      {
-        "tag": "v0.0.8",
-        "path": "https://github.com/liquibase/liquibase-data/releases/download/v0.0.8/liquibase-data-0.0.8.jar",
-        "algorithm": "SHA1",
-        "checksum": "282855eeeaceaab3b8596f8b01736de1b95170bf",
         "liquibaseCore": "4.8.0"
       }
     ]

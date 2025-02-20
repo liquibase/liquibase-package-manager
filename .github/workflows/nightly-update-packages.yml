@@ -26,7 +26,13 @@ jobs:
           go mod download
 
       - name: Update Packages
-        run: make generateExtensionPackages
+        run: |
+          make generateExtensionPackages || {
+            if [[ $? -eq 404 ]]; then
+              echo "Some packages not found (404). Failing the build."
+              exit 1
+            fi
+          }
         env:
           GITHUB_PAT: ${{ secrets.BOT_TOKEN }}
 

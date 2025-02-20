@@ -19,6 +19,13 @@ end:
 
 func init() {
     modules = []Module{
+		{
+			name:        "liquibase-aws-extension",
+			category:    Extension,
+			owner:       "liquibase",
+			repo:        "liquibase-aws-extension",
+			artifactory: Maven{},
+		},
         {
             name:        "liquibase-io-runner",
             category:    Extension,
@@ -39,6 +46,7 @@ func init() {
             artifactory: Maven{},
         },
         {
+
             name:        "liquibase-databricks",
             category:    Extension,
             url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-databricks",
@@ -169,13 +177,6 @@ func init() {
             category:    Pro,
             url:         "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-hashicorp-vault",
             artifactory: Maven{},
-        },
-        {
-            name:        "liquibase-data",
-            category:    Extension,
-            owner:       "liquibase",
-            repo:        "liquibase-data",
-            artifactory: Github{},
         },
         {
             name:          "postgresql",
