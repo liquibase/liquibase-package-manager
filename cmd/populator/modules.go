@@ -19,13 +19,13 @@ end:
 
 func init() {
     modules = []Module{
-		{
-			name:        "liquibase-aws-extension",
-			category:    Extension,
-			owner:       "liquibase",
-			repo:        "liquibase-aws-extension",
-			artifactory: Maven{},
-		},
+	{
+	    name:        "liquibase-aws-extension",
+	    category:    Extension,
+	    owner:       "liquibase",
+	    repo:        "liquibase-aws-extension",
+	    artifactory: Maven{},
+	},
         {
             name:        "liquibase-io-runner",
             category:    Extension,
