@@ -3,6 +3,27 @@
     "name": "liquibase-aws-extension",
     "category": "pro",
     "versions": [
+      {
+        "tag": "0.0.1-RC1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-aws-extension/0.0.1-RC1/liquibase-aws-extension-0.0.1-RC1.jar",
+        "algorithm": "SHA1",
+        "checksum": "613c9922091b050233dabe183ede0e01e13b8090",
+        "liquibaseCore": "4.30.0"
+      },
+      {
+        "tag": "0.0.1-RC2",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-aws-extension/0.0.1-RC2/liquibase-aws-extension-0.0.1-RC2.jar",
+        "algorithm": "SHA1",
+        "checksum": "3943c396bdf3001ad0a178ed8917c668ff21205e",
+        "liquibaseCore": "4.30.0"
+      },
+      {
+        "tag": "1.0.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-aws-extension/1.0.0/liquibase-aws-extension-1.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "4d66f84d14eb7240204f12c32ea6dcf462ba9cdf",
+        "liquibaseCore": "4.31.1"
+      }
     ]
   },
   {
