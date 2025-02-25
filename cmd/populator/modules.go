@@ -33,7 +33,7 @@ func init() {
 		},
 		{
 			name:        "liquibase-aws-license-service",
-			category:    Extension,
+			category:    Pro,
 			owner:       "liquibase",
 			repo:        "liquibase-aws-license-service",
 			artifactory: Github{},
