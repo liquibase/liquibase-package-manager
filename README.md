@@ -99,3 +99,8 @@ This project also includes software governed by the Mozilla Public License, v. 2
 ## Releasing LPM
 
 For instructions on releasing LPM, see [RELEASING.md](RELEASING.md).
+
+## Adding an Extension
+
+https://github.com/liquibase/liquibase-package-manager/blob/master/CONTRIBUTING.md
+
