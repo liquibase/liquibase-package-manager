@@ -18,6 +18,7 @@ end:
 }
 
 func init() {
+    modules = []Module{
     {
     			name:        "liquibase-aws-extension",
     			category:    Pro,
