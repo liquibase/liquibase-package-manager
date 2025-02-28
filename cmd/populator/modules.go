@@ -177,13 +177,13 @@ func init() {
             url:         "https://repo1.maven.org/maven2/org/liquibase/ext/vaults/liquibase-hashicorp-vault",
             artifactory: Maven{},
         },
-        {
-            name:          "postgresql",
-            category:      Driver,
-            url:           "https://repo1.maven.org/maven2/org/postgresql/postgresql",
-            excludeSuffix: ".jre",
-            artifactory:   Maven{},
-        },
+        // {
+        //     name:          "postgresql",
+        //     category:      Driver,
+        //     url:           "https://repo1.maven.org/maven2/org/postgresql/postgresql",
+        //     excludeSuffix: ".jre",
+        //     artifactory:   Maven{},
+        // },
         {
             name:          "mssql",
             category:      Driver,
