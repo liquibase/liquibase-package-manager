@@ -7,7 +7,7 @@ require (
 	github.com/hashicorp/go-version v1.7.0
 	github.com/spf13/cobra v1.8.1
 	github.com/vifraa/gopom v1.0.0
-	golang.org/x/oauth2 v0.23.0
+	golang.org/x/oauth2 v0.26.0
 )
 
 require (
