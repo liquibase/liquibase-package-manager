@@ -2,13 +2,14 @@ package commands
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-version"
-	"github.com/spf13/cobra"
 	"package-manager/internal/app"
 	"package-manager/internal/app/dependencies"
 	"package-manager/internal/app/errors"
 	"package-manager/internal/app/packages"
 	"strings"
+
+	"github.com/hashicorp/go-version"
+	"github.com/spf13/cobra"
 )
 
 // addCmd represents the add command
@@ -36,7 +37,10 @@ var addCmd = &cobra.Command{
 					errors.Exit("Version '"+strings.Split(name, "@")[1]+"' not available.", 1)
 				}
 				if p.Category != "driver" {
-					core, _ := version.NewVersion(v.LiquibaseCore)
+					core, err := version.NewVersion(v.LiquibaseCore)
+					if err != nil {
+						errors.Exit("Invalid version of "+name+".", 1)
+					}
 					if liquibase.Version.LessThan(core) {
 						errors.Exit(name+" is not compatible with liquibase v"+liquibase.Version.String()+". Please consider updating liquibase.", 1)
 					}
@@ -52,9 +56,9 @@ var addCmd = &cobra.Command{
 				}
 			}
 			if p.InClassPath(app.ClasspathFiles) {
-                v := p.GetInstalledVersion(app.ClasspathFiles)
-                fmt.Println(p.Name + "@" + v.Tag + " is already installed.")
-                fmt.Println(name + " can not be installed.")
+				v := p.GetInstalledVersion(app.ClasspathFiles)
+				fmt.Println(p.Name + "@" + v.Tag + " is already installed.")
+				fmt.Println(name + " can not be installed.")
 				errors.Exit("Consider running `lpm upgrade`.", 1)
 			}
 			if !v.PathIsHTTP() {
