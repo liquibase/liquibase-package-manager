@@ -10445,6 +10445,13 @@
         "algorithm": "SHA1",
         "checksum": "fa9d28c9e49a2a965577e021dd7d11bbb4710563",
         "liquibaseCore": "4.31.1"
+      },
+      {
+        "tag": "4.31.1.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cassandra/4.31.1.1/liquibase-cassandra-4.31.1.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "d2ac1f140b28778746ac4ccb1d3a76fdd39a62ef",
+        "liquibaseCore": "4.31.1"
       }
     ]
   },
