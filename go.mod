@@ -1,6 +1,6 @@
 module package-manager
 
-go 1.22.11
+go 1.23.8
 
 require (
 	github.com/google/go-github/v39 v39.2.0
