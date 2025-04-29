@@ -410,6 +410,13 @@
         "algorithm": "SHA1",
         "checksum": "3b9e2871c55b25e3e5ef15e5e173300c307ce9e0",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "1.0.5-oss",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/1.0.5-oss/databricks-jdbc-1.0.5-oss.jar",
+        "algorithm": "SHA1",
+        "checksum": "14bfac758a5b2736633c105d354d3f9851626663",
+        "liquibaseCore": ""
       }
     ]
   },
