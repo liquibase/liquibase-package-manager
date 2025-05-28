@@ -9,6 +9,13 @@
         "algorithm": "SHA1",
         "checksum": "4d66f84d14eb7240204f12c32ea6dcf462ba9cdf",
         "liquibaseCore": "4.31.1"
+      },
+      {
+        "tag": "1.0.1",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-aws-extension/1.0.1/liquibase-aws-extension-1.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "bfe332c50ab7c4cc3deb6303c0ad6c9010dd73de",
+        "liquibaseCore": "4.32.0"
       }
     ]
   },
@@ -814,6 +821,13 @@
         "algorithm": "SHA1",
         "checksum": "8433457e281e611b75e89c0ff5ad047615bf5529",
         "liquibaseCore": "4.29.1"
+      },
+      {
+        "tag": "1.6.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-commercial-mongodb/1.6.0/liquibase-commercial-mongodb-1.6.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "cd7e50bf1d51d68646b789f22444d2e813e0c5a8",
+        "liquibaseCore": "4.32.0"
       }
     ]
   },
