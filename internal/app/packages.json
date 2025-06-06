@@ -6432,6 +6432,41 @@
         "algorithm": "SHA1",
         "checksum": "3537465236f39eecd996cba3c111489e85aba6cd",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.17.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.17.1/snowflake-jdbc-3.17.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "bf256a32c7cad896ea2b5acdc979338af2e18b7f",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.18.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.18.1/snowflake-jdbc-3.18.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "75a0bc4588d1c3da454be9e6af7084e0dd1fde66",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.20.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.20.1/snowflake-jdbc-3.20.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "5fdd68e714c22717cec1c5ad6646554264b32606",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.21.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.21.1/snowflake-jdbc-3.21.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "f4419bd865515b6450bf4e98820e79564babc2ee",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.22.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.22.1/snowflake-jdbc-3.22.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "afd7e13fcb32959b16bc4c56189b1a7b7c0d0b30",
+        "liquibaseCore": ""
       }
     ]
   },
