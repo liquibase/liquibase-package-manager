@@ -107,16 +107,24 @@ jobs:
           asset_content_type: application/zip
 
       - name: Calculate SHA256 hash
-        if: matrix.arch.zip_name == 'linux' || matrix.arch.zip_name == 'linux-arm64'
         id: calculate-sha256
         run: |
-          sha256sum bin/${{ matrix.arch.folder }}/lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip | awk '{ print $1 }' > sha256.txt
-          SHA256=$(cat sha256.txt)
+          sha256sum bin/${{ matrix.arch.folder }}/lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip | awk '{ print $1 }' > lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip.sha256
+          SHA256=$(cat lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip.sha256)
           echo "SHA256=$SHA256" >> $GITHUB_ENV
           echo "SHA256 hash: $SHA256"
 
       - name: Upload SHA256 hash to job summary
-        if: matrix.arch.zip_name == 'linux' || matrix.arch.zip_name == 'linux-arm64'
         run: |
           echo "### :white_check_mark: SHA256 for ${{ matrix.arch.zip_name }}" >> $GITHUB_STEP_SUMMARY
           echo "- lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip: $SHA256" >> $GITHUB_STEP_SUMMARY
+
+      - name: Attach SHA256 checksum to release
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.prepare-release.outputs.upload_url }}
+          asset_path: lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip.sha256
+          asset_name: lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip.sha256
+          asset_content_type: text/plain
