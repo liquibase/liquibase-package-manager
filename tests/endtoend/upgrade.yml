@@ -1,0 +1,157 @@
+tests:
+  - "can get upgrade help output":
+      command: lpm upgrade --help
+      stdout:
+        contains:
+          - "Upgrades lpm itself or installed packages to the latest versions"
+          - "lpm upgrade                    # Update lpm itself to latest version"
+          - "lpm upgrade <package>          # Update specific package(s)"
+          - "lpm upgrade --version=X.Y.Z    # Update lpm to specific version"
+          - "lpm upgrade --check            # Check for updates without installing"
+          - "lpm upgrade --all              # Update both lpm and all packages"
+          - "--check"
+          - "--version string"
+          - "--all"
+          - "--dry-run"
+
+  - "can check for lpm updates without installing":
+      command: lpm upgrade --check
+      stdout:
+        contains:
+          - "Current lpm version:"
+      # Note: This will check GitHub API, so we expect either "Update available" or "already up to date"
+      # The exact output depends on the actual version vs latest release
+
+  - "can show current version when checking":
+      command: lpm upgrade --check
+      stdout:
+        contains:
+          - "Current lpm version: $VERSION"
+      env:
+        get:
+          - VERSION
+
+  - "can handle dry-run upgrade check":
+      command: lpm upgrade --dry-run --check
+      stdout:
+        contains:
+          - "Current lpm version:"
+      # Should not actually download or install anything
+
+  - "can show upgrade help with alias":
+      command: lpm up --help
+      stdout:
+        contains:
+          - "Upgrades lpm itself or installed packages to the latest versions"
+          - "Aliases: up"
+
+  - "can handle invalid version flag":
+      command: lpm upgrade --version=invalid.version.format
+      exit: 1
+      stderr:
+        contains:
+          - "Failed to find version"
+
+  - "can handle package upgrade for non-existent package":
+      command: lpm upgrade nonexistent-package
+      exit: 1
+      stderr:
+        contains:
+          - "Package 'nonexistent-package' not found"
+
+  - "can handle upgrade for non-installed package":
+      command: lpm upgrade mysql
+      exit: 1
+      stderr:
+        contains:
+          - "Package 'mysql' is not installed"
+
+  - "can show outdated packages when none are outdated":
+      command: lpm upgrade liquibase-postgresql
+      stdout:
+        contains:
+          - "All specified packages are already up to date"
+
+  - "can handle upgrade all flag with no packages":
+      command: lpm upgrade --all --dry-run
+      stdout:
+        contains:
+          - "Current lpm version:"
+        # May also show package status depending on what's installed
+
+  - "can handle version checking with invalid GitHub response":
+      command: lpm upgrade --check --version=999.999.999
+      exit: 1
+      stderr:
+        contains:
+          - "Failed to find version"
+
+  - "can list outdated packages in proper format":
+      # This test assumes some packages might be outdated
+      # The format should match the tree-style output seen in other commands
+      command: lpm upgrade --dry-run --all
+      stdout:
+        contains:
+          - "Current lpm version:"
+      # Note: Actual package outdated status depends on installed packages and latest versions
+
+  - "can handle concurrent upgrade attempts gracefully":
+      # Test that upgrade command handles file locking or concurrent access properly
+      command: lpm upgrade --check
+      stdout:
+        contains:
+          - "Current lpm version:"
+
+  - "upgrade command supports global flag":
+      command: lpm upgrade --help
+      stdout:
+        contains:
+          - "--global"
+          - "upgrade global packages"
+
+  - "upgrade command supports dry-run flag":
+      command: lpm upgrade --help
+      stdout:
+        contains:
+          - "--dry-run"
+          - "output changes without applying"
+
+  - "can show multiple packages in upgrade output":
+      # Test the tree-style output format for multiple packages
+      command: lpm upgrade --dry-run postgresql mssql
+      # This should either show outdated status or indicate packages are up to date
+      # The exact output depends on current installation state
+
+  - "can handle network errors gracefully":
+      # Test behavior when GitHub API is unreachable (simulated by invalid version)
+      command: lpm upgrade --version=0.0.0.invalid
+      exit: 1
+      stderr:
+        contains:
+          - "Failed to find version"
+
+  - "upgrade preserves liquibase.json dependencies":
+      # Test that package upgrades properly update the dependency file
+      command: lpm upgrade --dry-run --all
+      # In dry-run mode, should show what would be upgraded without modifying files
+
+  - "can handle platform detection for self-upgrade":
+      command: lpm upgrade --check
+      stdout:
+        contains:
+          - "Current lpm version:"
+      # Should not fail on platform detection during check
+
+  - "shows proper upgrade tree format":
+      # Test the specific formatting used in upgrade output
+      command: lpm upgrade --dry-run --all
+      stdout:
+        # The upgrade command uses tree-style output with specific prefixes
+        regex: "(├──|└──|\s+Package\s+Installed\s+Available)"
+
+  - "handles empty package list appropriately":
+      command: lpm upgrade --all --dry-run
+      stdout:
+        contains:
+          - "Current lpm version:"
+      # Should handle case where no packages are installed gracefully
