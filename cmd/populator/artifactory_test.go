@@ -15,7 +15,7 @@ func TestGetCoreVersionFromPom(t *testing.T) {
 			},
 		},
 	}
-	got := GetCoreVersionFromPom(pom)
+	got := GetCoreVersionFromPom(&pom)
 	want := "3.10.0"
 	if got != want {
 		t.Errorf("GetCoreVersionFromPom() = %v, want %v", got, want)
@@ -34,7 +34,7 @@ func TestGetCoreVersionFromPom(t *testing.T) {
 			},
 		},
 	}
-	got = GetCoreVersionFromPom(pom)
+	got = GetCoreVersionFromPom(&pom)
 	want = "4.24.0"
 	if got != want {
 		t.Errorf("GetCoreVersionFromPom() = %v, want %v", got, want)
@@ -54,7 +54,7 @@ func TestGetCoreVersionFromPom(t *testing.T) {
 			},
 		},
 	}
-	got = GetCoreVersionFromPom(pom)
+	got = GetCoreVersionFromPom(&pom)
 	want = "4.24.0"
 	if got != want {
 		t.Errorf("GetCoreVersionFromPom() = %v, want %v", got, want)
@@ -76,7 +76,7 @@ func TestGetCoreVersionFromPomWithProperty(t *testing.T) {
 		},
 	}
 	// Call the function and check the result
-	got := GetCoreVersionFromPom(pom)
+	got := GetCoreVersionFromPom(&pom)
 	want := "4.24.0"
 	if got != want {
 		t.Errorf("GetCoreVersionFromPom() = %v, want %v", got, want)
@@ -93,7 +93,7 @@ func TestGetCoreVersionFromPomWithNoDependencies(t *testing.T) {
 		},
 	}
 	// Call the function and check the result
-	got := GetCoreVersionFromPom(pom)
+	got := GetCoreVersionFromPom(&pom)
 	want := "4.24.0"
 	if got != want {
 		t.Errorf("GetCoreVersionFromPom() = %v, want %v", got, want)
@@ -115,7 +115,7 @@ func TestGetCoreVersionFromPomWithNoVersion(t *testing.T) {
 		},
 	}
 	// Call the function and check the result
-	got := GetCoreVersionFromPom(pom)
+	got := GetCoreVersionFromPom(&pom)
 	want := "4.24.0"
 	if got != want {
 		t.Errorf("GetCoreVersionFromPom() = %v, want %v", got, want)
@@ -133,7 +133,7 @@ func TestGetCoreVersionFromPomWithNoProperties(t *testing.T) {
 		},
 	}
 	// Call the function and check the result
-	got := GetCoreVersionFromPom(pom)
+	got := GetCoreVersionFromPom(&pom)
 	want := "4.24.0"
 	if got != want {
 		t.Errorf("GetCoreVersionFromPom() = %v, want %v", got, want)
