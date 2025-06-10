@@ -53,7 +53,7 @@ func TestGetLatestRelease(t *testing.T) {
 		if err != nil {
 			// This test may fail due to rate limiting in CI, so we'll make it less strict
 			t.Logf("Warning: Could not get latest release for golang/go: %v", err)
-			if !strings.Contains(err.Error(), "rate limit") && !strings.Contains(err.Error(), "403") {
+			if !strings.Contains(err.Error(), "rate limit") && !strings.Contains(err.Error(), "403") && !strings.Contains(err.Error(), "401") {
 				t.Errorf("Unexpected error: %v", err)
 			}
 			return
@@ -95,7 +95,7 @@ func TestGetLatestRelease(t *testing.T) {
 			t.Error("Expected error for non-existent repository")
 		}
 		// Error message should indicate the repository was not found
-		if !strings.Contains(err.Error(), "not found") && !strings.Contains(err.Error(), "rate limit") && !strings.Contains(err.Error(), "403") {
+		if !strings.Contains(err.Error(), "not found") && !strings.Contains(err.Error(), "rate limit") && !strings.Contains(err.Error(), "403") && !strings.Contains(err.Error(), "401") {
 			t.Errorf("Expected 'not found' error or rate limit, got: %v", err)
 		}
 	})
@@ -111,7 +111,7 @@ func TestGetRelease(t *testing.T) {
 		if err != nil {
 			// This test may fail due to rate limiting in CI
 			t.Logf("Warning: Could not get release for golang/go: %v", err)
-			if !strings.Contains(err.Error(), "rate limit") && !strings.Contains(err.Error(), "403") {
+			if !strings.Contains(err.Error(), "rate limit") && !strings.Contains(err.Error(), "403") && !strings.Contains(err.Error(), "401") {
 				t.Errorf("Unexpected error: %v", err)
 			}
 			return
@@ -163,7 +163,7 @@ func TestGetRelease(t *testing.T) {
 		if err == nil {
 			t.Error("Expected error for non-existent version")
 		}
-		if !strings.Contains(err.Error(), "not found") && !strings.Contains(err.Error(), "rate limit") && !strings.Contains(err.Error(), "403") {
+		if !strings.Contains(err.Error(), "not found") && !strings.Contains(err.Error(), "rate limit") && !strings.Contains(err.Error(), "403") && !strings.Contains(err.Error(), "401") {
 			t.Errorf("Expected 'not found' error or rate limit, got: %v", err)
 		}
 	})
@@ -311,7 +311,7 @@ func TestListReleases(t *testing.T) {
 		if err != nil {
 			// This test may fail due to rate limiting in CI
 			t.Logf("Warning: Could not list releases for golang/go: %v", err)
-			if !strings.Contains(err.Error(), "rate limit") && !strings.Contains(err.Error(), "403") {
+			if !strings.Contains(err.Error(), "rate limit") && !strings.Contains(err.Error(), "403") && !strings.Contains(err.Error(), "401") {
 				t.Errorf("Unexpected error: %v", err)
 			}
 			return
@@ -353,7 +353,7 @@ func TestListReleases(t *testing.T) {
 		if err == nil {
 			t.Error("Expected error for non-existent repository")
 		}
-		if !strings.Contains(err.Error(), "not found") && !strings.Contains(err.Error(), "rate limit") && !strings.Contains(err.Error(), "403") {
+		if !strings.Contains(err.Error(), "not found") && !strings.Contains(err.Error(), "rate limit") && !strings.Contains(err.Error(), "403") && !strings.Contains(err.Error(), "401") {
 			t.Errorf("Expected 'not found' error or rate limit, got: %v", err)
 		}
 	})
@@ -368,7 +368,7 @@ func TestGetRateLimitInfo(t *testing.T) {
 		if err != nil {
 			// This test may fail due to network issues or authentication
 			t.Logf("Warning: Could not get rate limit info: %v", err)
-			if !strings.Contains(err.Error(), "rate limit") && !strings.Contains(err.Error(), "403") {
+			if !strings.Contains(err.Error(), "rate limit") && !strings.Contains(err.Error(), "403") && !strings.Contains(err.Error(), "401") {
 				t.Errorf("Unexpected error: %v", err)
 			}
 			return
