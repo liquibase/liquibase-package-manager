@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
+	"strings"
 	"time"
 )
 
@@ -235,7 +236,7 @@ del "%%~f0"
 		return fmt.Errorf("failed to stage new binary: %w", err)
 	}
 
-	return fmt.Errorf("Windows update requires process restart - new binary staged at %s", tempPath)
+	return fmt.Errorf("windows update requires process restart - new binary staged at %s", tempPath)
 }
 
 // RestoreFromBackup restores the binary from a backup file
@@ -465,7 +466,7 @@ func (u *UpdateUtil) cleanupOldBackups(execPath string, maxAge time.Duration) er
 	for _, entry := range entries {
 		name := entry.Name()
 		// Look for backup files matching our pattern
-		if filepath.HasPrefix(name, baseName+".backup.") {
+		if strings.HasPrefix(name, baseName+".backup.") {
 			fullPath := filepath.Join(dir, name)
 			info, err := entry.Info()
 			if err != nil {

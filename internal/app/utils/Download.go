@@ -26,11 +26,10 @@ type DownloadUtil struct {
 
 // ProgressWriter wraps an io.Writer to provide download progress feedback
 type ProgressWriter struct {
-	writer      io.Writer
-	total       int64
-	written     int64
-	onProgress  func(current, total int64)
-	lastPercent int
+	writer     io.Writer
+	total      int64
+	written    int64
+	onProgress func(current, total int64)
 }
 
 // NewProgressWriter creates a new progress writer with callback

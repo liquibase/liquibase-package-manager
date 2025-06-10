@@ -22,6 +22,7 @@ func TestNewGitHubUtil(t *testing.T) {
 	githubUtil := NewGitHubUtil()
 	if githubUtil == nil {
 		t.Error("NewGitHubUtil() should not return nil")
+		return
 	}
 	if githubUtil.client == nil {
 		t.Error("GitHubUtil client should not be nil")
@@ -35,6 +36,7 @@ func TestNewGitHubUtil(t *testing.T) {
 	githubUtilAuth := NewGitHubUtil()
 	if githubUtilAuth == nil {
 		t.Error("NewGitHubUtil() with auth should not return nil")
+		return
 	}
 	if githubUtilAuth.client == nil {
 		t.Error("GitHubUtil client with auth should not be nil")
@@ -373,6 +375,7 @@ func TestGetRateLimitInfo(t *testing.T) {
 		}
 		if limits == nil {
 			t.Error("Rate limits should not be nil")
+			return
 		}
 		// Core rate limit should exist
 		if limits.Core == nil {
