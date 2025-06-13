@@ -43,6 +43,13 @@
         "algorithm": "SHA1",
         "checksum": "2d24a5c60cc2aa054cf905b43f6328d87a95c33c",
         "liquibaseCore": "4.30.0"
+      },
+      {
+        "tag": "0.2.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/io/ext/liquibase-io-runner/0.2.0/liquibase-io-runner-0.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "8ddcbbedd5024dbcca4db0421cc7959b47d58906",
+        "liquibaseCore": "4.32.0"
       }
     ]
   },
