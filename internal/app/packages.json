@@ -5201,6 +5201,13 @@
         "algorithm": "SHA1",
         "checksum": "698e98dc690b5af9fce88e1dd6405a256edc5e30",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "12.1.2.0",
+        "path": "https://repo1.maven.org/maven2/com/ibm/db2/jcc/12.1.2.0/jcc-12.1.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "cf922cae1ae721b96185265268290c6a876112ea",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -7289,6 +7296,13 @@
         "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.49.1.0/sqlite-jdbc-3.49.1.0.jar",
         "algorithm": "SHA1",
         "checksum": "145d3a6819b86f3618728273329392269104c8c7",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.50.1.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.50.1.0/sqlite-jdbc-3.50.1.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "06b1e999f284a82ae07f0e9ec455d3f2035614c6",
         "liquibaseCore": ""
       }
     ]
