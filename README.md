@@ -33,6 +33,25 @@ echo  'export LIQUIBASE_HOME=/usr/local/opt/liquibase/libexec' >> ~/.bashrc
 lpm <command>
 ```
 
+### Self-Update Examples
+
+```shell
+# Update lpm itself to the latest version
+lpm upgrade
+
+# Check for lpm updates without installing
+lpm upgrade --check
+
+# Update lpm to a specific version
+lpm upgrade --version=1.2.3
+
+# Update both lpm and all installed packages
+lpm upgrade --all
+
+# Update specific packages only
+lpm upgrade package1 package2
+```
+
 ### Available Commands
 
 * add
@@ -44,7 +63,7 @@ lpm <command>
 * remove
 * search
 * update
-* upgrade
+* upgrade (self-update lpm or packages)
 
 ## Autocompletion
 
@@ -87,6 +106,17 @@ To load completions for every new session, execute once:
 `lpm completion fish > ~/.config/fish/completions/lpm.fish`
 
 You will need to start a new shell for this setup to take effect.
+
+## Security Features
+
+lpm includes several security measures to ensure safe operation:
+
+* **TLS 1.2+ Only**: All downloads use secure HTTPS connections with minimum TLS 1.2
+* **Certificate Verification**: SSL certificates are always verified (no insecure connections)
+* **Checksum Verification**: Downloaded files are verified using SHA-256 checksums when available
+* **Atomic Updates**: Self-updates are performed atomically with automatic rollback on failure
+* **Backup & Recovery**: Automatic backup creation before updates with rollback capability
+* **Secure Temp Files**: Temporary files are created with restricted permissions
 
 ## License
 
