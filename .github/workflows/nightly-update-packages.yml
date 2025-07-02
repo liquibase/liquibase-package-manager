@@ -49,6 +49,7 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
+          base: master
           branch: update/packages
           delete-branch: true
           title: "[Automatic] Update packages.json"
