@@ -445,6 +445,13 @@
         "algorithm": "SHA1",
         "checksum": "0680a7bcf90b86c779b76f92e786dfda3b23f467",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "1.0.7-oss",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/1.0.7-oss/databricks-jdbc-1.0.7-oss.jar",
+        "algorithm": "SHA1",
+        "checksum": "13650879220d34d5b9e952a2e6e40afc0e9bc6c4",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -3307,6 +3314,13 @@
         "algorithm": "SHA1",
         "checksum": "5f1b09d67cd03170d87d5e288638c851632488e1",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "12.10.1",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.10.1.jre11/mssql-jdbc-12.10.1.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "5610b9aaace828a3d18908293b30163241513157",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -4159,6 +4173,13 @@
         "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.5.3/mariadb-java-client-3.5.3.jar",
         "algorithm": "SHA1",
         "checksum": "7dd98de674679356a2eeada875a383f553e09b54",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.5.4",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.5.4/mariadb-java-client-3.5.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "94779b1059dd4bf6c5ebbfe30e0d8d9738322deb",
         "liquibaseCore": ""
       }
     ]
@@ -7310,6 +7331,13 @@
         "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.50.1.0/sqlite-jdbc-3.50.1.0.jar",
         "algorithm": "SHA1",
         "checksum": "06b1e999f284a82ae07f0e9ec455d3f2035614c6",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.50.2.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.50.2.0/sqlite-jdbc-3.50.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "249171073f93457302db79ce1714741d00946948",
         "liquibaseCore": ""
       }
     ]
