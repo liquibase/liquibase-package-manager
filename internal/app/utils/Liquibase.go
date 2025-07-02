@@ -3,21 +3,22 @@ package utils
 import (
 	"archive/zip"
 	"bufio"
-	"github.com/hashicorp/go-version"
 	"io"
 	"log"
 	"os"
 	"strings"
+
+	"github.com/hashicorp/go-version"
 )
 
-//Liquibase struct
+// Liquibase struct
 type Liquibase struct {
 	Homepath        string
 	Version         *version.Version
 	BuildProperties map[string]string
 }
 
-//LoadLiquibase loads liquibase struct from home path
+// LoadLiquibase loads liquibase struct from home path
 func LoadLiquibase(hp string) Liquibase {
 	l := Liquibase{
 		Homepath:        hp,
@@ -49,6 +50,9 @@ func LoadLiquibase(hp string) Liquibase {
 
 			for {
 				line, err := reader.ReadString('\n')
+				if err != nil && err != io.EOF {
+					log.Fatalf("Read line: %v", err)
+				}
 
 				// check if the line has = sign
 				// and process the line. Ignore the rest.
@@ -66,7 +70,13 @@ func LoadLiquibase(hp string) Liquibase {
 					break
 				}
 			}
-			v, _ := version.NewVersion(l.BuildProperties["build.version"])
+			v, err := version.NewVersion(l.BuildProperties["build.version"])
+			if err != nil {
+				log.Fatalf("Parsing build.version from properties: %v", err)
+			}
+			if v == nil {
+				log.Fatal("Could not find liquibase version in key 'build.version'")
+			}
 			l.Version = v
 		}
 	}
