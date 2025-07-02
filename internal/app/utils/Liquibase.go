@@ -29,7 +29,7 @@ func LoadLiquibase(hp string) Liquibase {
 	if _, err = os.Stat(hp + "liquibase.jar"); err == nil {
 		r, err = zip.OpenReader(hp + "liquibase.jar")
 	} else {
-		r, err = zip.OpenReader(hp + "internal/lib/liquibase-core.jar")
+		r, err = getLiquibaseJarReader(hp)
 	}
 	if err != nil {
 		z, _ := version.NewVersion("0.0.0")
@@ -73,4 +73,20 @@ func LoadLiquibase(hp string) Liquibase {
 	goto end
 end:
 	return l
+}
+
+// getLiquibaseJarReader checks for liquibase-core.jar first, then liquibase-commercial.jar
+func getLiquibaseJarReader(hp string) (*zip.ReadCloser, error) {
+	corePath := hp + "internal/lib/liquibase-core.jar"
+	commercialPath := hp + "internal/lib/liquibase-commercial.jar"
+
+	if _, err := os.Stat(corePath); err == nil {
+		return zip.OpenReader(corePath)
+	}
+
+	if _, err := os.Stat(commercialPath); err == nil {
+		return zip.OpenReader(commercialPath)
+	}
+
+	return nil, os.ErrNotExist
 }
