@@ -66,7 +66,12 @@ func LoadLiquibase(hp string) Liquibase {
 					break
 				}
 			}
-			v, _ := version.NewVersion(l.BuildProperties["build.version"])
+			v, err := version.NewVersion(l.BuildProperties["build.version"])
+			if err != nil {
+				// Log the parsing error before falling back to version "0.0.0"
+				log.Printf("Error parsing version '%s': %v. Falling back to version '0.0.0'.", l.BuildProperties["build.version"], err)
+				v, _ = version.NewVersion("0.0.0")
+			}
 			l.Version = v
 		}
 	}
