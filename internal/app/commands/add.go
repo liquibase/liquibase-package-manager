@@ -35,7 +35,7 @@ var addCmd = &cobra.Command{
 				if v.Tag == "" {
 					errors.Exit("Version '"+strings.Split(name, "@")[1]+"' not available.", 1)
 				}
-				if p.Category != "driver" {
+				if p.Category != "driver" && liquibase.Version != nil {
 					core, _ := version.NewVersion(v.LiquibaseCore)
 					if liquibase.Version.LessThan(core) {
 						errors.Exit(name+" is not compatible with liquibase v"+liquibase.Version.String()+". Please consider updating liquibase.", 1)
@@ -48,7 +48,11 @@ var addCmd = &cobra.Command{
 				}
 				v = p.GetLatestVersion(liquibase.Version)
 				if v.Tag == "" {
-					errors.Exit("Unable to find compatible version of "+name+" for liquibase v"+liquibase.Version.String()+". Please consider updating liquibase.", 1)
+					versionStr := "unknown"
+					if liquibase.Version != nil {
+						versionStr = liquibase.Version.String()
+					}
+					errors.Exit("Unable to find compatible version of "+name+" for liquibase v"+versionStr+". Please consider updating liquibase.", 1)
 				}
 			}
 			if p.InClassPath(app.ClasspathFiles) {
@@ -74,7 +78,7 @@ var addCmd = &cobra.Command{
 			d.Write()
 
 			minVer, _ := version.NewVersion("4.6.2")
-			if !liquibase.Version.GreaterThanOrEqual(minVer) {
+			if liquibase.Version != nil && !liquibase.Version.GreaterThanOrEqual(minVer) {
 				p := "-cp liquibase_libs/*:" + globalpath + "*:" + liquibase.Homepath + "liquibase.jar"
 				fmt.Println()
 				fmt.Println("---------- IMPORTANT ----------")

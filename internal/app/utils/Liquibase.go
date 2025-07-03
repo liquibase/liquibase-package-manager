@@ -66,7 +66,11 @@ func LoadLiquibase(hp string) Liquibase {
 					break
 				}
 			}
-			v, _ := version.NewVersion(l.BuildProperties["build.version"])
+			v, err := version.NewVersion(l.BuildProperties["build.version"])
+			if err != nil {
+				// Fallback for non-semantic versions like "test1234-SNAPSHOT"
+				v, _ = version.NewVersion("0.0.0")
+			}
 			l.Version = v
 		}
 	}
