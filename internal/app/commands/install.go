@@ -25,12 +25,13 @@ var installCmd = &cobra.Command{
 		for _, dep := range d.Dependencies {
 			p := packs.GetByName(dep.GetName())
 			v := p.GetVersion(dep.GetVersion())
-			if p.Category != "driver" && liquibase.Version != nil {
-				core, _ := version.NewVersion(v.LiquibaseCore)
-				if liquibase.Version.LessThan(core) {
-					errors.Exit(p.Name+"@"+v.Tag+" is not compatible with liquibase v"+liquibase.Version.String()+". Please consider updating liquibase.", 1)
+			if p.Category != "driver" {
+				if liquibase.Version != nil {
+					core, _ := version.NewVersion(v.LiquibaseCore)
+					if liquibase.Version.LessThan(core) {
+						errors.Exit(p.Name+"@"+v.Tag+" is not compatible with liquibase v"+liquibase.Version.String()+". Please consider updating liquibase.", 1)
+					}
 				}
-
 			}
 			if v.InClassPath(app.ClasspathFiles) {
 				errors.Exit(p.Name+" is already installed.", 1)

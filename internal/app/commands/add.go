@@ -35,10 +35,12 @@ var addCmd = &cobra.Command{
 				if v.Tag == "" {
 					errors.Exit("Version '"+strings.Split(name, "@")[1]+"' not available.", 1)
 				}
-				if p.Category != "driver" && liquibase.Version != nil {
-					core, _ := version.NewVersion(v.LiquibaseCore)
-					if liquibase.Version.LessThan(core) {
-						errors.Exit(name+" is not compatible with liquibase v"+liquibase.Version.String()+". Please consider updating liquibase.", 1)
+				if p.Category != "driver" {
+					if liquibase.Version != nil {
+						core, _ := version.NewVersion(v.LiquibaseCore)
+						if liquibase.Version.LessThan(core) {
+							errors.Exit(name+" is not compatible with liquibase v"+liquibase.Version.String()+". Please consider updating liquibase.", 1)
+						}
 					}
 				}
 			} else {
