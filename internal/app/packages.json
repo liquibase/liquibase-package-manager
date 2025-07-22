@@ -6523,6 +6523,13 @@
         "algorithm": "SHA1",
         "checksum": "2a9199c0627b6644463eae73575814212d66880e",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.25.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.25.1/snowflake-jdbc-3.25.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "6b4fedc328db6b9b1f78ce477837503f577d9c2b",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -7359,6 +7366,13 @@
         "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.50.2.0/sqlite-jdbc-3.50.2.0.jar",
         "algorithm": "SHA1",
         "checksum": "249171073f93457302db79ce1714741d00946948",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.50.3.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.50.3.0/sqlite-jdbc-3.50.3.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "220f0cdfe9c5b97926a417fa11848ce8817d2135",
         "liquibaseCore": ""
       }
     ]
