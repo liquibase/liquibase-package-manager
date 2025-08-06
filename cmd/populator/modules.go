@@ -291,6 +291,13 @@ func init() {
             artifactory: Maven{},
         },
         {
+            name:        "mysql-connector-j",
+            category:    Driver,
+            url:         "https://repo1.maven.org/maven2/com/mysql/mysql-connector-j",
+            filePrefix:  "mysql-connector-j-",
+            artifactory: Maven{},
+        },
+        {
             name:        "liquibase-cache",
             category:    Extension,
             url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-cache",
