@@ -4202,6 +4202,13 @@
         "algorithm": "SHA1",
         "checksum": "94779b1059dd4bf6c5ebbfe30e0d8d9738322deb",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.5.5",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.5.5/mariadb-java-client-3.5.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "6bf65580b566bd8123319dd69c6a7faf1811f03b",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -15907,6 +15914,20 @@
         "algorithm": "SHA1",
         "checksum": "f83e89c600378c367cb8f992ab91f62eb91ca154",
         "liquibaseCore": "4.31.0"
+      },
+      {
+        "tag": "4.32.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.32.0/liquibase-percona-4.32.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "63152799d8eed69dc6e29caf505783c4001adcd1",
+        "liquibaseCore": "4.32.0"
+      },
+      {
+        "tag": "4.33.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-percona/4.33.0/liquibase-percona-4.33.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "b6f9ac91409203f33c6aa062030e34e61a17782c",
+        "liquibaseCore": "4.33.0"
       }
     ]
   },
