@@ -9933,6 +9933,47 @@
     ]
   },
   {
+    "name": "mysql-connector-j",
+    "category": "driver",
+    "versions": [
+      {
+        "tag": "9.0.0",
+        "path": "https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/9.0.0/mysql-connector-j-9.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "6fc50f53a8e364ad82886588a4b55d1f7460e6a5",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "9.1.0",
+        "path": "https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/9.1.0/mysql-connector-j-9.1.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "005fb1d513278e1a9767dfa80ea9d8d7ee909f1a",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "9.2.0",
+        "path": "https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/9.2.0/mysql-connector-j-9.2.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "cc7bed59ccee3c47554aeb89e37c24d95a74bec3",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "9.3.0",
+        "path": "https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/9.3.0/mysql-connector-j-9.3.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "6dbc33cd9534ec2715a8269fced1cd872630999d",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "9.4.0",
+        "path": "https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/9.4.0/mysql-connector-j-9.4.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "8f6c66269048fbd2316b7b45d75898ebee44986f",
+        "liquibaseCore": ""
+      }
+    ]
+  },
+  {
     "name": "liquibase-cache",
     "category": "extension",
     "versions": [
