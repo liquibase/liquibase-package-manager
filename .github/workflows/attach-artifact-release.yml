@@ -22,7 +22,7 @@ jobs:
       upload_url: ${{ steps.get-release.outputs.upload_url }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Get latest draft release ID
         id: get-release
@@ -79,7 +79,7 @@ jobs:
           ]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Setup Go
         uses: actions/setup-go@v5
