@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 0 #Shallow Clones should be disabled for a better relevancy of analysis
 
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version: '^1.25'
 
