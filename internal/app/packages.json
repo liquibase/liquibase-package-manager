@@ -473,6 +473,13 @@
         "algorithm": "SHA1",
         "checksum": "ddd52b0d2546b6aa8b47565421d70ed7a40091f7",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "2.7.4",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.7.4/databricks-jdbc-2.7.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "6b05936742870b537fda48b1eecfd55fe4cc886f",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -4223,6 +4230,13 @@
         "algorithm": "SHA1",
         "checksum": "6bf65580b566bd8123319dd69c6a7faf1811f03b",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.5.6",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.5.6/mariadb-java-client-3.5.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "8ed7a307cfdb58c7d08983440411e178730cab04",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -6564,6 +6578,13 @@
         "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.26.0/snowflake-jdbc-3.26.0.jar",
         "algorithm": "SHA1",
         "checksum": "36b38b662aadaf953be2a995dc2d0bec118d9b1e",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.26.1",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.26.1/snowflake-jdbc-3.26.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "3fbbbe9a3771b6f2f5c4dfafcf37434d7febe8bd",
         "liquibaseCore": ""
       }
     ]
