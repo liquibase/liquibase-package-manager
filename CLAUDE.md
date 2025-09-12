@@ -54,6 +54,9 @@ make generateExtensionPackages
 # Build single binary for local testing
 make build
 
+# Run individual unit tests
+go test -v ./internal/app/[specific_package]/
+
 # Test specific command end-to-end
 make test-search  # or test-add, test-install, etc.
 ```
@@ -90,6 +93,7 @@ make test-search  # or test-add, test-install, etc.
 - Located in `internal/app/` with `_test.go` suffix
 - Use `go test` with coverage reporting
 - Static analysis with `staticcheck`
+- Test setup automatically installs required tools via `make test-setup`
 
 ### End-to-End Tests
 - YAML-based test definitions in `tests/endtoend/`
@@ -112,6 +116,8 @@ make test-search  # or test-add, test-install, etc.
 - **Cobra**: CLI framework and command structure
 - **go-version**: Semantic version handling
 - **oauth2**: GitHub API authentication for package discovery
+- **gopom**: Maven POM parsing for package metadata
+- **go-github**: GitHub API client for repository integration
 
 ## Package Categories
 
