@@ -14,7 +14,7 @@ import (
 // addCmd represents the add command
 var addCmd = &cobra.Command{
 	Use:   "add [PACKAGE]...",
-	Short: "Add Packages",
+	Short: "Install packages to this Liquibase installation and add them to liquibase.json file",
 	Args:  cobra.ArbitraryArgs,
 	Run: func(cmd *cobra.Command, args []string) {
 

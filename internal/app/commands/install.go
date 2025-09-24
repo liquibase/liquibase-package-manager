@@ -12,7 +12,7 @@ import (
 // installCmd represents the install command
 var installCmd = &cobra.Command{
 	Use:   "install",
-	Short: "Install Packages from liquibase.json",
+	Short: "Install to this Liquibase all packages listed in liquibase.json file",
 	Run: func(cmd *cobra.Command, args []string) {
 
 		if global {
