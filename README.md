@@ -70,6 +70,28 @@ Note: If run as an independent binary outside liquibase, or with pre-5.0 version
 - `liquibase lpm upgrade <package>` = upgrade specific package
 
 
+## Usage *not within* Liquibase Community
+
+```shell
+lpm <command>
+```
+
+### Available Commands
+
+* add
+* completion
+* dedupe
+* help
+* install
+* list
+* remove
+* search
+* update
+* upgrade
+
+
+
+
 ## Autocompletion scripts for pre-Liquibase 5.0+ versions
 
 lpm can generate shell completions for multiple shells. The following shells are available:
