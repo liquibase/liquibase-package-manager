@@ -6,19 +6,24 @@
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/liquibase/liquibase-package-manager/nightly-e2e-tests.yml?label=E2E%20Tests&style=flat-square)
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/liquibase/liquibase-package-manager?style=flat-square)
 
-Easily manage external dependencies for Database Development. Search for, install, and uninstall liquibase drivers, extensions, and utilities.
+A Community-supported capability to easily manage external dependencies for Liquibase Community 5.0+, enabling searching, listing, installing, and uninstalling Liquibase drivers, extensions, and utilities.
 
-## lpm is experimental and not officially supported
+## lpm is experimental and community-supported
 
 lpm is an experimental project. Issues can be reported [here](https://github.com/liquibase/liquibase-package-manager/issues), but there is no guarantee of support.
 
-## Installation
+## Integrated into Liquibase Community 5.0+
+
+lpm is integrated and available for use directly from within the Community CLI experience via the `liquibase lpm` command. Learn more with `liquibase lpm --help`
+
+
+## Alternately, install the Binary for pre-5.0 versions
 
 lpm is distributed as a single binary. Install lpm by downloading, unzipping, and moving it to a directory included in your system's PATH. Releases are available [here](https://github.com/liquibase/liquibase-package-manager/releases).
 
 ## Setup
 
-lpm will make a best effort to locate the location of the liquibase lib directory. It is recommended to set the LIQUIBASE_HOME environment variable.
+lpm will make a best effort to locate the location of the `liquibase_lib` directory to store lpm-managed dependencies. It is recommended to set the LIQUIBASE_HOME environment variable.
 
 Examples:
 
@@ -27,7 +32,45 @@ export LIQUIBASE_HOME=/usr/local/opt/liquibase/libexec
 echo  'export LIQUIBASE_HOME=/usr/local/opt/liquibase/libexec' >> ~/.bashrc 
 ```
 
-## Usage
+## Usage from *within* liquibase 5.0+
+
+```shell
+liquibase lpm <command>
+```
+
+### Available Commands
+
+Getting Started for Liquibase Community 5.0+ only
+* `liquibase lpm` or `liquibase lpm --download=true`
+* [Optional] `liquibase lpm --lpmHome=/the/location/to/store/lpm/command <command>`
+
+Note: If run as an independent binary outside liquibase, or with pre-5.0 versions, drop the leading `liquibase` for the following commands
+* `liquibase lpm add`
+* `liquibase lpm completion`
+* `liquibase lpm dedupe`
+* `liquibase lpm help`
+* `liquibase lpm install`
+* `liquibase lpm list`
+* `liquibase lpm remove`
+* `liquibase lpm search`
+* `liquibase lpm update`
+* `liquibase lpm upgrade`
+
+### Important Clarifications
+- `liquibase lpm add` = add packages to the `liquibase.json` file and to this Liquibase installation
+
+- `liquibase lpm update` = updates all packages listed in the `liquibase.json` file
+- `liquibase lpm update <package>` = updates a specific packages listed in the `liquibase.json` file
+
+- `liquibase lpm install` = install to this Liquibase project all packages listed in the `liquibase.json` file
+- `liquibase lpm install <package>` = install to this Liquibase project a specific packages listed in the `liquibase.json` file
+
+- `liquibase lpm upgrade` = upgrade lpm binary
+- `liquibase lpm upgrade --all` = upgrade lpm + all packages
+- `liquibase lpm upgrade <package>` = upgrade specific package
+
+
+## Usage *not within* Liquibase Community
 
 ```shell
 lpm <command>
@@ -46,7 +89,10 @@ lpm <command>
 * update
 * upgrade
 
-## Autocompletion
+
+
+
+## Autocompletion scripts for pre-Liquibase 5.0+ versions
 
 lpm can generate shell completions for multiple shells. The following shells are available:
 
@@ -103,4 +149,3 @@ For instructions on releasing LPM, see [RELEASING.md](RELEASING.md).
 ## Adding an Extension
 
 https://github.com/liquibase/liquibase-package-manager/blob/master/CONTRIBUTING.md
-
