@@ -1,5 +1,9 @@
 name: Create Release
 
+permissions:
+  contents: write
+  pull-requests: write
+
 on:
   push:
     branches:
@@ -10,8 +14,35 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
       - name: Create Release Draft
         id: create-release
         uses: release-drafter/release-drafter@v6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update VERSION file with draft release version
+        if: steps.create-release.outputs.tag_name != ''
+        run: |
+          TAG_NAME="${{ steps.create-release.outputs.tag_name }}"
+          VERSION="${TAG_NAME#v}"
+          echo "Updating VERSION file to: $VERSION"
+          echo "$VERSION" > VERSION
+          
+          # Configure git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Commit and push if VERSION changed
+          if git diff --quiet VERSION; then
+            echo "VERSION file unchanged"
+          else
+            git add VERSION
+            git commit -m "Update VERSION to $VERSION [skip ci]"
+            git push origin master
+            echo "✅ VERSION file updated to $VERSION"
+          fi

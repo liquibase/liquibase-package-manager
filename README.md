@@ -144,7 +144,41 @@ This project also includes software governed by the Mozilla Public License, v. 2
 
 ## Releasing LPM
 
-For instructions on releasing LPM, see [RELEASING.md](RELEASING.md).
+LPM uses an **automated release process** with minimal manual intervention.
+
+### Quick Release Guide for Maintainers
+
+**3-Step Release Process:**
+
+1. **Bump Version** - Run the "Bump Version" GitHub Action
+   - Select `patch`, `minor`, or `major`
+   - Automatically updates VERSION file and creates tag
+
+2. **Build Artifacts** - Run the "Attach Artifact to Release" GitHub Action
+   - Builds for all platforms (darwin, linux, windows, s390x)
+   - Generates checksums for all platforms
+   - Uploads artifacts to draft release
+
+3. **Publish** - Review and publish the draft release on GitHub
+   - VERSION file automatically syncs after publishing
+
+**That's it!** ✨ The entire process is now mostly automated.
+
+### For Contributors: PR Labeling Guidelines
+
+To help with automated changelog generation, please label your PRs:
+
+- `feature` or `enhancement` - New features (🚀 Features section)
+- `bug` or `fix` - Bug fixes (🐛 Bug Fixes section)
+- `documentation` - Documentation changes (📚 Documentation section)
+- `dependencies` - Dependency updates (📦 Dependencies section)
+- `security` - Security fixes (🔒 Security section)
+
+Most labels are automatically applied based on file paths and PR titles!
+
+### Detailed Documentation
+
+For complete release process documentation, troubleshooting, and best practices, see [RELEASING.md](RELEASING.md).
 
 ## Adding an Extension
 

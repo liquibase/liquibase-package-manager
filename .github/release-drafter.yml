@@ -1,4 +1,98 @@
+version-resolver:
+  major:
+    labels:
+      - 'breaking'
+      - 'major'
+  minor:
+    labels:
+      - 'feature'
+      - 'enhancement'
+      - 'minor'
+  patch:
+    labels:
+      - 'bug'
+      - 'bugfix'
+      - 'fix'
+      - 'patch'
+      - 'dependencies'
+      - 'security'
+  default: patch
+
+autolabeler:
+  - label: 'dependencies'
+    files:
+      - 'go.mod'
+      - 'go.sum'
+      - '.github/workflows/*'
+    branch:
+      - '/dependabot/.*/'
+  - label: 'bug'
+    title:
+      - '/fix/i'
+      - '/bug/i'
+  - label: 'feature'
+    title:
+      - '/feat/i'
+      - '/feature/i'
+  - label: 'documentation'
+    files:
+      - '*.md'
+      - 'docs/**/*'
+
+categories:
+  - title: '🚀 Features'
+    labels:
+      - 'feature'
+      - 'enhancement'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'bug'
+      - 'bugfix'
+      - 'fix'
+  - title: '📚 Documentation'
+    labels:
+      - 'documentation'
+      - 'docs'
+  - title: '🔧 Maintenance'
+    labels:
+      - 'maintenance'
+      - 'refactor'
+      - 'chore'
+  - title: '📦 Dependencies'
+    labels:
+      - 'dependencies'
+  - title: '🔒 Security'
+    labels:
+      - 'security'
+  - title: '⚡ Performance'
+    labels:
+      - 'performance'
+  - title: '🧪 Testing'
+    labels:
+      - 'test'
+      - 'tests'
+  - title: '🏗️ Build & CI'
+    labels:
+      - 'build'
+      - 'ci'
+      - 'github-actions'
+
+exclude-labels:
+  - 'skip-changelog'
+  - 'duplicate'
+  - 'invalid'
+  - 'wontfix'
+
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+change-title-escapes: '\<*_&'
+
 template: |
-  ## What’s Changed
+  ## What's Changed
 
   $CHANGES
+
+  ## Contributors
+
+  Thanks to all contributors who made this release possible! 🎉
+  
+  $CONTRIBUTORS

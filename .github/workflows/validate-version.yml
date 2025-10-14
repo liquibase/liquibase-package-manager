@@ -1,0 +1,233 @@
+name: Validate VERSION File
+
+on:
+  pull_request:
+    paths:
+      - 'VERSION'
+    branches:
+      - master
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  validate-version:
+    name: Validate VERSION File
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout PR code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Get current VERSION from PR
+        id: pr-version
+        run: |
+          VERSION=$(cat VERSION | tr -d '\n' | tr -d ' ')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "PR VERSION: $VERSION"
+
+      - name: Get base VERSION from master
+        id: base-version
+        run: |
+          git fetch origin master
+          git checkout origin/master -- VERSION
+          BASE_VERSION=$(cat VERSION | tr -d '\n' | tr -d ' ')
+          echo "version=$BASE_VERSION" >> $GITHUB_OUTPUT
+          echo "Base VERSION: $BASE_VERSION"
+          # Restore PR VERSION
+          git checkout ${{ github.head_ref }} -- VERSION || git checkout HEAD -- VERSION
+
+      - name: Validate VERSION format
+        id: validate-format
+        run: |
+          VERSION="${{ steps.pr-version.outputs.version }}"
+          
+          # Check if version matches semantic versioning format (X.Y.Z)
+          if [[ ! $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "valid=false" >> $GITHUB_OUTPUT
+            echo "error=VERSION '$VERSION' does not match semantic versioning format (X.Y.Z)" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          echo "valid=true" >> $GITHUB_OUTPUT
+          echo "✅ VERSION format is valid"
+
+      - name: Compare versions
+        id: compare-versions
+        run: |
+          PR_VERSION="${{ steps.pr-version.outputs.version }}"
+          BASE_VERSION="${{ steps.base-version.outputs.version }}"
+          
+          if [ "$PR_VERSION" = "$BASE_VERSION" ]; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "⚠️ VERSION unchanged: $PR_VERSION"
+            exit 0
+          fi
+          
+          echo "changed=true" >> $GITHUB_OUTPUT
+          
+          # Parse versions
+          IFS='.' read -r PR_MAJOR PR_MINOR PR_PATCH <<< "$PR_VERSION"
+          IFS='.' read -r BASE_MAJOR BASE_MINOR BASE_PATCH <<< "$BASE_VERSION"
+          
+          # Compare versions
+          if [ "$PR_MAJOR" -lt "$BASE_MAJOR" ]; then
+            echo "valid=false" >> $GITHUB_OUTPUT
+            echo "error=VERSION decreased (major): $BASE_VERSION -> $PR_VERSION" >> $GITHUB_OUTPUT
+          elif [ "$PR_MAJOR" -eq "$BASE_MAJOR" ] && [ "$PR_MINOR" -lt "$BASE_MINOR" ]; then
+            echo "valid=false" >> $GITHUB_OUTPUT
+            echo "error=VERSION decreased (minor): $BASE_VERSION -> $PR_VERSION" >> $GITHUB_OUTPUT
+          elif [ "$PR_MAJOR" -eq "$BASE_MAJOR" ] && [ "$PR_MINOR" -eq "$BASE_MINOR" ] && [ "$PR_PATCH" -lt "$BASE_PATCH" ]; then
+            echo "valid=false" >> $GITHUB_OUTPUT
+            echo "error=VERSION decreased (patch): $BASE_VERSION -> $PR_VERSION" >> $GITHUB_OUTPUT
+          else
+            echo "valid=true" >> $GITHUB_OUTPUT
+            
+            # Determine bump type
+            if [ "$PR_MAJOR" -gt "$BASE_MAJOR" ]; then
+              echo "bump_type=major" >> $GITHUB_OUTPUT
+            elif [ "$PR_MINOR" -gt "$BASE_MINOR" ]; then
+              echo "bump_type=minor" >> $GITHUB_OUTPUT
+            else
+              echo "bump_type=patch" >> $GITHUB_OUTPUT
+            fi
+            
+            echo "✅ VERSION increased properly: $BASE_VERSION -> $PR_VERSION"
+          fi
+
+      - name: Check if tag exists
+        id: check-tag
+        run: |
+          VERSION="${{ steps.pr-version.outputs.version }}"
+          if git rev-parse "v$VERSION" >/dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "⚠️ Tag v$VERSION already exists"
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "✅ Tag v$VERSION does not exist yet"
+          fi
+
+      - name: Comment on PR - Success
+        if: steps.validate-format.outputs.valid == 'true' && steps.compare-versions.outputs.valid == 'true' && steps.check-tag.outputs.exists == 'false' && steps.compare-versions.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prVersion = '${{ steps.pr-version.outputs.version }}';
+            const baseVersion = '${{ steps.base-version.outputs.version }}';
+            const bumpType = '${{ steps.compare-versions.outputs.bump_type }}';
+            
+            const body = `## ✅ VERSION Validation Passed
+            
+            **Change:** \`${baseVersion}\` → \`${prVersion}\`
+            
+            **Bump Type:** ${bumpType}
+            
+            The VERSION file has been validated successfully:
+            - ✅ Format is valid (semantic versioning)
+            - ✅ Version has increased
+            - ✅ Tag does not exist yet
+            
+            This PR is ready for review!`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+
+      - name: Comment on PR - VERSION unchanged
+        if: steps.compare-versions.outputs.changed == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const version = '${{ steps.pr-version.outputs.version }}';
+            
+            const body = `## ℹ️ VERSION Unchanged
+            
+            The VERSION file has not changed in this PR (still \`${version}\`).
+            
+            If this is intentional, you can ignore this message.`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+
+      - name: Comment on PR - Failure
+        if: steps.validate-format.outputs.valid == 'false' || steps.compare-versions.outputs.valid == 'false' || steps.check-tag.outputs.exists == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prVersion = '${{ steps.pr-version.outputs.version }}';
+            const baseVersion = '${{ steps.base-version.outputs.version }}';
+            const formatValid = '${{ steps.validate-format.outputs.valid }}';
+            const compareValid = '${{ steps.compare-versions.outputs.valid }}';
+            const tagExists = '${{ steps.check-tag.outputs.exists }}';
+            const formatError = '${{ steps.validate-format.outputs.error }}';
+            const compareError = '${{ steps.compare-versions.outputs.error }}';
+            
+            let errors = [];
+            
+            if (formatValid === 'false') {
+              errors.push(`❌ ${formatError}`);
+            }
+            
+            if (compareValid === 'false') {
+              errors.push(`❌ ${compareError}`);
+            }
+            
+            if (tagExists === 'true') {
+              errors.push(`❌ Tag v${prVersion} already exists in the repository`);
+            }
+            
+            const body = `## ❌ VERSION Validation Failed
+            
+            **Attempted Change:** \`${baseVersion}\` → \`${prVersion}\`
+            
+            ${errors.join('\n')}
+            
+            **How to fix:**
+            
+            - Ensure VERSION follows semantic versioning (X.Y.Z)
+            - VERSION should only increase (never decrease)
+            - The version tag should not already exist
+            
+            **Recommended:**
+            Use the automated \`Bump Version\` workflow instead of manually editing the VERSION file.`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+
+      - name: Fail if validation failed
+        if: steps.validate-format.outputs.valid == 'false' || steps.compare-versions.outputs.valid == 'false' || steps.check-tag.outputs.exists == 'true'
+        run: |
+          echo "❌ VERSION validation failed"
+          exit 1
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## VERSION Validation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**PR VERSION:** ${{ steps.pr-version.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Base VERSION:** ${{ steps.base-version.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.validate-format.outputs.valid }}" = "true" ] && [ "${{ steps.compare-versions.outputs.valid }}" = "true" ] && [ "${{ steps.check-tag.outputs.exists }}" = "false" ]; then
+            echo "✅ **Status:** Validation passed" >> $GITHUB_STEP_SUMMARY
+            if [ "${{ steps.compare-versions.outputs.changed }}" = "true" ]; then
+              echo "**Bump Type:** ${{ steps.compare-versions.outputs.bump_type }}" >> $GITHUB_STEP_SUMMARY
+            fi
+          else
+            echo "❌ **Status:** Validation failed" >> $GITHUB_STEP_SUMMARY
+          fi
