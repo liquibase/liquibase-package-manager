@@ -161,8 +161,11 @@ LPM uses an **automated release process** with minimal manual intervention.
 
 3. **Publish** - Review and publish the draft release on GitHub
    - VERSION file automatically syncs after publishing
+   - Docker repository automatically updated with PR
 
 **That's it!** ✨ The entire process is now mostly automated.
+
+**Bonus:** After publishing, a PR is automatically created in the [liquibase/docker](https://github.com/liquibase/docker) repository to update the LPM version in all Dockerfiles.
 
 ### For Contributors: PR Labeling Guidelines
 

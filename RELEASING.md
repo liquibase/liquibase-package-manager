@@ -56,6 +56,14 @@ That's it! ✨
 │     • Syncs VERSION file with published release tag             │
 │     • Updates internal/app/VERSION                              │
 │     • Commits changes to master                                 │
+└────────────────┬────────────────────────────────────────────────┘
+                 │
+                 ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  6. Update Docker Repo Workflow (Automatic on release publish)  │
+│     • Extracts checksums for linux-amd64 and linux-arm64        │
+│     • Updates Dockerfile, Dockerfile.alpine, DockerfileSecure   │
+│     • Creates PR in liquibase/docker repository                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -167,6 +175,38 @@ When you publish the release:
 
 ---
 
+### Step 6: Docker Repository Updated Automatically
+
+**What happens automatically:**
+
+When you publish the release:
+
+1. The **Update Docker Repository** workflow runs automatically
+2. It downloads the `checksums.txt` from the release
+3. It extracts SHA256 checksums for:
+   - `linux-amd64` (x86_64)
+   - `linux-arm64` (aarch64)
+4. It checks out the `liquibase/docker` repository
+5. It updates three Dockerfiles:
+   - `Dockerfile`
+   - `Dockerfile.alpine`
+   - `DockerfileSecure`
+6. It creates a PR in the docker repository with:
+   - Updated LPM version
+   - Updated SHA256 checksums for both architectures
+   - Professional PR description with all changes
+   - Labels: `lpm`, `dependencies`, `automated`
+
+**Action required:**
+
+1. Review the PR in the [liquibase/docker repository](https://github.com/liquibase/docker/pulls)
+2. Verify the checksums match the release
+3. Merge the PR to trigger Docker image builds
+
+**Note:** This requires a `BOT_TOKEN` secret to be configured with write access to the `liquibase/docker` repository.
+
+---
+
 ## Workflow Files Reference
 
 | Workflow | Trigger | Purpose |
@@ -176,6 +216,7 @@ When you publish the release:
 | `attach-artifact-release.yml` | Manual | Build and upload release artifacts |
 | `validate-version.yml` | PR with VERSION changes | Validate VERSION file changes |
 | `publish-release.yml` | Release published | Sync VERSION file after publish |
+| `update-docker-repo.yml` | Release published/Manual | Update LPM in docker repository |
 | `test.yml` | PR/Push to master | Run tests and quality checks |
 | `nightly-e2e-tests.yml` | Schedule/Manual | Run end-to-end tests |
 | `nightly-update-packages.yml` | Schedule/Manual/PR | Update packages.json |
