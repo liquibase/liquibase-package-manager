@@ -1,16 +1,17 @@
 # How to Release LPM
 
-This document describes the **automated release process** for LPM. The process has been significantly streamlined to reduce manual steps and prevent version inconsistencies.
+This document describes the **fully automated release process** for LPM using Release Drafter and GitHub Actions.
 
 ## Quick Start (TL;DR)
 
-**For a standard patch release:**
+**To create a release:**
 
-1. Run the "Bump Version" workflow (select `patch`)
-2. Run the "Attach Artifact to Release" workflow (leave version empty)
-3. Publish the draft release on GitHub
+1. Merge PRs to `master` (labeled appropriately: `feature`, `bug`, `breaking`, etc.)
+2. Review the auto-generated draft release on GitHub
+3. Click **Publish release**
+4. Wait ~5-10 minutes for artifacts to build and attach automatically
 
-That's it! ✨
+That's it! Everything else happens automatically. ✨
 
 ---
 
@@ -18,52 +19,49 @@ That's it! ✨
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│  1. Bump Version Workflow (Manual)                              │
-│     • Calculates new version (patch/minor/major)                │
-│     • Updates VERSION file                                      │
-│     • Creates git tag                                           │
-│     • Pushes to master                                          │
+│  1. Merge PRs to master                                         │
+│     • Ensure PRs are labeled (feature, bug, breaking, etc.)     │
+│     • Labels determine version bump (major/minor/patch)         │
 └────────────────┬────────────────────────────────────────────────┘
                  │
                  ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│  2. Create Release Workflow (Automatic on push to master)       │
+│  2. Release Drafter Updates Draft (Automatic on push)           │
 │     • Creates/updates draft release                             │
-│     • Generates changelog from merged PRs                       │
-│     • Updates VERSION file with draft version                   │
+│     • Calculates next version from PR labels                    │
+│     • Generates categorized changelog                           │
+│     • NO artifacts yet - just changelog                         │
 └────────────────┬────────────────────────────────────────────────┘
                  │
                  ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│  3. Attach Artifact Workflow (Manual)                           │
-│     • Reads VERSION from file (or accepts custom version)       │
-│     • Builds artifacts for all platforms                        │
-│     • Generates SHA256 checksums for ALL platforms              │
-│     • Uploads artifacts + checksums.txt to release              │
-└────────────────┬────────────────────────────────────────────────┘
-                 │
-                 ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  4. Review and Publish (Manual)                                 │
+│  3. Review and Publish (Manual - ONLY manual step)              │
 │     • Review the draft release on GitHub                        │
-│     • Verify all artifacts are attached                         │
+│     • Verify changelog is accurate                              │
 │     • Click "Publish release"                                   │
 └────────────────┬────────────────────────────────────────────────┘
                  │
                  ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│  5. Sync VERSION Workflow (Automatic on release publish)        │
-│     • Syncs VERSION file with published release tag             │
-│     • Updates internal/app/VERSION                              │
-│     • Commits changes to master                                 │
-└────────────────┬────────────────────────────────────────────────┘
-                 │
-                 ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  6. Update Docker Repo Workflow (Automatic on release publish)  │
-│     • Extracts checksums for linux-amd64 and linux-arm64        │
-│     • Updates Dockerfile, Dockerfile.alpine, DockerfileSecure   │
-│     • Creates PR in liquibase/docker repository                 │
+│  4. Post-Publish Automation (Automatic - runs in parallel)      │
+│     ┌───────────────────────────────────────────────────────┐   │
+│     │ A. Build & Attach Artifacts (~5-10 min)              │   │
+│     │    • Builds for all 6 platforms                       │   │
+│     │    • Generates SHA256 checksums                       │   │
+│     │    • Uploads artifacts to published release           │   │
+│     └───────────────────────────────────────────────────────┘   │
+│     ┌───────────────────────────────────────────────────────┐   │
+│     │ B. Sync VERSION File (~10 sec)                        │   │
+│     │    • Updates VERSION file to match release            │   │
+│     │    • Updates internal/app/VERSION                     │   │
+│     │    • Commits to master                                │   │
+│     └───────────────────────────────────────────────────────┘   │
+│     ┌───────────────────────────────────────────────────────┐   │
+│     │ C. Update Docker Repository (~30 sec)                 │   │
+│     │    • Extracts checksums from release                  │   │
+│     │    • Updates Dockerfiles in liquibase/docker          │   │
+│     │    • Creates PR with changes                          │   │
+│     └───────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -71,211 +69,249 @@ That's it! ✨
 
 ## Detailed Step-by-Step Guide
 
-### Step 1: Bump the Version
+### Step 1: Merge PRs to Master
 
-**Option A: Automated Bump (Recommended)**
+**How versioning works:**
 
-1. Go to **Actions** → **Bump Version**
-2. Click **Run workflow**
-3. Select version bump type:
-   - `patch` - Bug fixes (0.2.9 → 0.2.10)
-   - `minor` - New features (0.2.9 → 0.3.0)
-   - `major` - Breaking changes (0.2.9 → 1.0.0)
-4. Or enter a custom version (optional)
-5. Click **Run workflow**
+The version is automatically determined by PR labels:
 
-This will:
-- ✅ Update the `VERSION` file
-- ✅ Create a git commit
-- ✅ Create and push a git tag (e.g., `v0.2.10`)
-- ✅ Trigger the release drafter
+| Label | Version Bump | Example |
+|-------|-------------|---------|
+| `breaking`, `major` | Major | 0.2.9 → 1.0.0 |
+| `feature`, `enhancement`, `minor` | Minor | 0.2.9 → 0.3.0 |
+| `bug`, `bugfix`, `fix`, `patch`, `dependencies`, `security` | Patch | 0.2.9 → 0.2.10 |
+| None | Patch (default) | 0.2.9 → 0.2.10 |
 
-**Option B: Manual Bump (Not Recommended)**
+**Before merging your PR:**
+1. Add appropriate labels to your PR
+2. Verify the PR title and description are clear
+3. Merge to `master`
 
-If you must bump the version manually:
-
-1. Update the `VERSION` file
-2. Commit: `git commit -m "Bump version to X.Y.Z"`
-3. Tag: `git tag -a vX.Y.Z -m "Release vX.Y.Z"`
-4. Push: `git push origin master --tags`
-
-⚠️ **Warning:** Manual version bumps will be validated by the `Validate VERSION` workflow on PR.
+**Pro tip:** You can merge multiple PRs before releasing. Release Drafter will accumulate all changes in the draft release.
 
 ---
 
-### Step 2: Draft Release Created Automatically
+### Step 2: Draft Release Maintained Automatically
 
 **What happens automatically:**
 
-When you push to `master` (either through the Bump Version workflow or a merged PR):
+When you push to `master`:
 
 1. The **Create Release** workflow runs automatically
-2. A draft release is created/updated with:
+2. Release Drafter creates/updates a draft release with:
+   - Next version calculated from PR labels
    - Automatically categorized changelog (🚀 Features, 🐛 Bug Fixes, etc.)
    - List of contributors
-   - Version calculated from PR labels
-3. The `VERSION` file is synced with the draft release version
 
-**No action required** - just verify the draft release looks correct on GitHub.
+**Important**: The draft release contains **ONLY the changelog** at this point. Artifacts are built AFTER you publish.
 
----
-
-### Step 3: Build and Attach Artifacts
-
-1. Go to **Actions** → **Attach Artifact to Release**
-2. Click **Run workflow**
-3. Leave version **empty** (it will read from VERSION file) OR enter a custom version
-4. Leave release-id **empty** (it will use the latest draft)
-5. Click **Run workflow**
-
-This workflow will:
-- ✅ Build artifacts for all platforms:
-  - `darwin` (macOS Intel)
-  - `darwin-arm64` (macOS Apple Silicon)
-  - `linux` (Linux AMD64)
-  - `linux-arm64` (Linux ARM64)
-  - `s390x` (IBM System z)
-  - `windows` (Windows AMD64)
-- ✅ Calculate SHA256 checksums for **ALL** platforms
-- ✅ Upload all artifacts to the draft release
-- ✅ Generate and upload a `checksums.txt` file
-- ✅ Display a comprehensive summary with all checksums
-
-**Build time:** ~5-10 minutes (runs in parallel)
+**No action required** - Release Drafter maintains a single draft release that gets updated with each merge to master.
 
 ---
 
-### Step 4: Review and Publish the Release
+### Step 3: Review and Publish the Release (ONLY MANUAL STEP)
+
+This is the **only manual step** in the entire process.
 
 1. Go to the [Releases page](https://github.com/liquibase/liquibase-package-manager/releases)
 2. Find the draft release (should be at the top)
 3. **Review:**
    - ✅ Version number is correct
    - ✅ Changelog is accurate and well-formatted
-   - ✅ All 6 platform artifacts are attached
-   - ✅ `checksums.txt` file is attached
+   - ✅ All PRs are properly categorized
 4. Edit the release notes if needed
 5. Click **Publish release**
 
----
-
-### Step 5: VERSION File Synced Automatically
-
-**What happens automatically:**
-
-When you publish the release:
-
-1. The **Sync VERSION on Release Publish** workflow runs automatically
-2. It extracts the version from the release tag
-3. It updates the `VERSION` file if different
-4. It updates `internal/app/VERSION`
-5. It commits and pushes to master
-
-**No action required** - the VERSION file will always stay in sync with published releases.
+**Note**: There will be no artifacts on the draft yet - they're built after you publish.
 
 ---
 
-### Step 6: Docker Repository Updated Automatically
+### Step 4: Post-Publish Automation (Runs Automatically)
 
 **What happens automatically:**
 
-When you publish the release:
+When you click "Publish release", **three workflows** run in parallel:
 
-1. The **Update Docker Repository** workflow runs automatically
-2. It downloads the `checksums.txt` from the release
-3. It extracts SHA256 checksums for:
-   - `linux-amd64` (x86_64)
-   - `linux-arm64` (aarch64)
-4. It checks out the `liquibase/docker` repository
-5. It updates three Dockerfiles:
+#### A. Build and Attach Artifacts (~5-10 minutes)
+
+The **Build and Attach Artifacts** workflow:
+1. Builds artifacts for all platforms:
+   - `darwin` (macOS Intel)
+   - `darwin-arm64` (macOS Apple Silicon)
+   - `linux` (Linux AMD64)
+   - `linux-arm64` (Linux ARM64)
+   - `s390x` (IBM System z)
+   - `windows` (Windows AMD64)
+2. Calculates SHA256 checksums for **ALL** platforms
+3. Uploads all artifacts to the published release
+4. Generates and uploads a `checksums.txt` file
+
+**Duration**: ~5-10 minutes (builds run in parallel)
+
+**Result**: All 6 platform binaries + checksums.txt attached to the published release
+
+#### B. Sync VERSION File (~10 seconds)
+
+The **Sync VERSION on Release Publish** workflow:
+1. Extracts version from release tag
+2. Updates `VERSION` file if different
+3. Updates `internal/app/VERSION`
+4. Commits and pushes to master
+
+**Duration**: ~10 seconds
+
+**Result**: VERSION file in master always matches the latest published release
+
+#### C. Update Docker Repository (~30 seconds)
+
+The **Update Docker Repository** workflow:
+1. Downloads `checksums.txt` from the release
+2. Extracts SHA256 checksums for linux-amd64 and linux-arm64
+3. Updates three Dockerfiles in `liquibase/docker` repository:
    - `Dockerfile`
    - `Dockerfile.alpine`
    - `DockerfileSecure`
-6. It creates a PR in the docker repository with:
-   - Updated LPM version
-   - Updated SHA256 checksums for both architectures
-   - Professional PR description with all changes
-   - Labels: `lpm`, `dependencies`, `automated`
+4. Creates a PR with all changes
 
-**Action required:**
+**Duration**: ~30 seconds
 
-1. Review the PR in the [liquibase/docker repository](https://github.com/liquibase/docker/pulls)
-2. Verify the checksums match the release
-3. Merge the PR to trigger Docker image builds
-
-**Note:** This requires a `BOT_TOKEN` secret to be configured with write access to the `liquibase/docker` repository.
+**Result**: PR created in [liquibase/docker](https://github.com/liquibase/docker/pulls) ready for review
 
 ---
 
-## Workflow Files Reference
+### Step 5: Review Docker PR
 
-| Workflow | Trigger | Purpose |
-|----------|---------|--------|
-| `bump-version.yml` | Manual | Bump VERSION file and create tag |
-| `create-release.yml` | Push to master | Create/update draft release |
-| `attach-artifact-release.yml` | Manual | Build and upload release artifacts |
-| `validate-version.yml` | PR with VERSION changes | Validate VERSION file changes |
-| `publish-release.yml` | Release published | Sync VERSION file after publish |
-| `update-docker-repo.yml` | Release published/Manual | Update LPM in docker repository |
-| `test.yml` | PR/Push to master | Run tests and quality checks |
-| `nightly-e2e-tests.yml` | Schedule/Manual | Run end-to-end tests |
-| `nightly-update-packages.yml` | Schedule/Manual/PR | Update packages.json |
+**Action required (optional but recommended):**
+
+1. Go to the [liquibase/docker repository](https://github.com/liquibase/docker/pulls)
+2. Find the PR titled "Update LPM to vX.Y.Z"
+3. Verify the checksums match the release
+4. Merge the PR to trigger Docker image builds
+
+**Note**: Docker repo updates require a `BOT_TOKEN` secret with write access to `liquibase/docker`.
+
+---
+
+## Important Notes
+
+### Artifacts Are Built AFTER Publishing
+
+**This is by design** for several reasons:
+
+1. **Simplicity**: One trigger (publish) for everything
+2. **Standard pattern**: Most projects using Release Drafter work this way
+3. **No cross-workflow issues**: Avoids GitHub Actions token limitations
+4. **Faster process**: No waiting for builds before you can publish
+
+**What this means:**
+- The draft release has **no artifacts** - only changelog
+- When you publish, artifacts build automatically (~5-10 minutes)
+- Users downloading immediately after publish may need to wait for artifacts
+
+**If you need to review artifacts before publishing:**
+- Manually trigger the "Build and Attach Artifacts" workflow on the draft
+- Review the artifacts
+- Then publish when ready
 
 ---
 
 ## PR Labeling for Better Changelogs
 
-The release drafter automatically categorizes PRs based on labels. Use these labels on your PRs:
+Release Drafter automatically categorizes PRs based on labels. Use these labels on your PRs:
 
 | Label | Category | Version Bump |
 |-------|----------|-------------|
-| `feature`, `enhancement` | 🚀 Features | `minor` |
-| `bug`, `bugfix`, `fix` | 🐛 Bug Fixes | `patch` |
+| `feature`, `enhancement`, `minor` | 🚀 Features | `minor` |
+| `bug`, `bugfix`, `fix`, `patch` | 🐛 Bug Fixes | `patch` |
 | `documentation`, `docs` | 📚 Documentation | - |
 | `dependencies` | 📦 Dependencies | `patch` |
 | `security` | 🔒 Security | `patch` |
 | `breaking`, `major` | - | `major` |
+| `maintenance`, `refactor`, `chore` | 🔧 Maintenance | - |
+| `performance` | ⚡ Performance | - |
+| `test`, `tests` | 🧪 Testing | - |
+| `build`, `ci`, `github-actions` | 🏗️ Build & CI | - |
 | `skip-changelog` | (excluded) | - |
 
 **Auto-labeling** is configured for:
 - PRs modifying `go.mod`/`go.sum` → `dependencies`
+- PRs from dependabot branches → `dependencies`
 - PRs with "fix" or "bug" in title → `bug`
 - PRs with "feat" or "feature" in title → `feature`
 - PRs modifying `*.md` files → `documentation`
 
 ---
 
+## Workflow Files Reference
+
+| Workflow | Trigger | Purpose | Duration |
+|----------|---------|---------|----------|
+| `create-release.yml` | Push to master | Create/update draft release via Release Drafter | ~5 sec |
+| `attach-artifact-release.yml` | Release published | Build and upload release artifacts | ~5-10 min |
+| `publish-release.yml` | Release published | Sync VERSION file after publish | ~10 sec |
+| `update-docker-repo.yml` | Release published | Update LPM in docker repository | ~30 sec |
+
+---
+
+## Manual Workflow Dispatch (If Needed)
+
+While the process is fully automated, you can manually trigger workflows if needed:
+
+### Manually Build and Attach Artifacts Before Publishing
+
+If you want to review artifacts before publishing:
+
+1. Go to **Actions** → **Build and Attach Artifacts**
+2. Click **Run workflow**
+3. Leave version **empty** (auto-detects from latest draft)
+4. Leave release-id **empty** (uses latest draft)
+5. Click **Run workflow**
+6. Wait for artifacts to build (~5-10 minutes)
+7. Review artifacts on the draft release
+8. Publish when ready
+
+### Manually Update Docker Repository
+
+If the automatic Docker update fails:
+
+1. Go to **Actions** → **Update Docker Repository**
+2. Click **Run workflow**
+3. Enter the LPM version (e.g., `0.2.15` - without 'v' prefix)
+4. Leave checksums empty (will fetch from release)
+5. Click **Run workflow**
+
+---
+
 ## Troubleshooting
+
+### Artifacts not appearing after publish
+
+**Problem:** Published release but no artifacts showing up.
+
+**Solution:**
+1. Go to **Actions** tab
+2. Check the "Build and Attach Artifacts" workflow run
+3. If failed, check logs for errors
+4. Common issues:
+   - Go module download failures → Retry the workflow
+   - Build errors → Fix code, create new release
+5. If successful, artifacts should appear within 5-10 minutes
 
 ### VERSION file out of sync
 
 **Problem:** VERSION file doesn't match the latest release.
 
 **Solution:**
-```bash
-# Get the latest release tag
-LATEST_TAG=$(git describe --tags --abbrev=0)
-VERSION=${LATEST_TAG#v}
-
-# Update VERSION file
-echo "$VERSION" > VERSION
-
-# Commit and push
-git add VERSION
-git commit -m "Sync VERSION to $VERSION"
-git push origin master
-```
-
-### Build artifacts failed
-
-**Problem:** "Attach Artifact to Release" workflow failed.
-
-**Solution:**
-1. Check the workflow logs for specific errors
-2. Common issues:
-   - Go module download failures → Retry the workflow
-   - Build errors → Fix the code and re-run
-3. Re-run the workflow after fixing issues
+1. Check the "Sync VERSION on Release Publish" workflow logs
+2. If failed, manually trigger it or run:
+   ```bash
+   LATEST_TAG=$(git describe --tags --abbrev=0)
+   VERSION=${LATEST_TAG#v}
+   echo "$VERSION" > VERSION
+   git add VERSION
+   git commit -m "Sync VERSION to $VERSION"
+   git push origin master
+   ```
 
 ### Draft release not created
 
@@ -285,69 +321,100 @@ git push origin master
 1. Check the "Create Release" workflow logs
 2. Ensure you have proper permissions
 3. Verify `release-drafter.yml` configuration is valid
-4. Manually trigger the workflow if needed
+4. Check that PRs have appropriate labels
 
-### Version validation failed on PR
+### Docker PR not created
 
-**Problem:** PR with VERSION changes fails validation.
+**Problem:** No PR created in docker repository after release.
 
 **Solution:**
-1. Read the validation error comment on the PR
-2. Common issues:
-   - Version format incorrect (must be X.Y.Z)
-   - Version decreased (not allowed)
-   - Tag already exists
-3. Fix the VERSION file or use the "Bump Version" workflow instead
+1. Verify `BOT_TOKEN` secret is configured with write access to `liquibase/docker`
+2. Check "Update Docker Repository" workflow logs
+3. Manually trigger the workflow if needed
 
 ---
 
-## Manual Override (Emergency)
+## Emergency Manual Release
 
-If automation fails and you need to release manually:
+If all automation fails (extremely rare):
 
-1. **Update VERSION file:**
+1. **Create tag:**
+   ```bash
+   git tag -a vX.Y.Z -m "Release vX.Y.Z"
+   git push origin --tags
+   ```
+
+2. **Create release on GitHub:**
+   - Go to Releases → Draft a new release
+   - Select the tag you just created
+   - Write release notes
+   - Click **Publish release**
+
+3. **Manually trigger artifact build:**
+   - Go to Actions → "Build and Attach Artifacts"
+   - Run workflow with the version number
+
+4. **Update VERSION file:**
    ```bash
    echo "X.Y.Z" > VERSION
    git add VERSION
-   git commit -m "Bump version to X.Y.Z"
+   git commit -m "Sync VERSION to X.Y.Z"
+   git push origin master
    ```
-
-2. **Create and push tag:**
-   ```bash
-   git tag -a vX.Y.Z -m "Release vX.Y.Z"
-   git push origin master --tags
-   ```
-
-3. **Build artifacts locally:**
-   ```bash
-   make release
-   ```
-
-4. **Create release manually on GitHub:**
-   - Go to Releases → Draft a new release
-   - Set tag to `vX.Y.Z`
-   - Upload artifacts from `bin/` directories
-   - Generate checksums: `sha256sum bin/*/*.zip > checksums.txt`
-   - Upload `checksums.txt`
-   - Publish the release
 
 ---
 
 ## Best Practices
 
 ✅ **DO:**
-- Use the "Bump Version" workflow for version bumps
-- Label PRs appropriately for better changelogs
+- Label PRs appropriately for accurate changelogs and versioning
 - Review draft releases before publishing
-- Verify all artifacts are attached before publishing
+- Wait for all 3 post-publish workflows to complete (~10 minutes total)
 - Test releases in non-production environments first
+- Keep PR titles clear and descriptive
 
 ❌ **DON'T:**
-- Manually edit VERSION file (use the workflow)
-- Skip the artifact attachment step
-- Publish releases without reviewing
-- Use random version numbers (follow semver)
+- Manually edit VERSION file (it syncs automatically on publish)
+- Publish releases without reviewing the changelog
+- Skip labeling PRs (affects versioning and categorization)
 - Delete tags without good reason
+- Force push to master
+
+---
+
+## Timeline: From Merge to Complete Release
+
+| Step | Action | Duration | Manual? |
+|------|--------|----------|---------|
+| 1. | Merge PR to master | Instant | ✋ Manual |
+| 2. | Release Drafter updates draft | ~5 sec | ✅ Auto |
+| 3. | Review and publish release | Variable | ✋ Manual |
+| 4. | Build artifacts (parallel) | ~5-10 min | ✅ Auto |
+| 5. | Sync VERSION file (parallel) | ~10 sec | ✅ Auto |
+| 6. | Create Docker PR (parallel) | ~30 sec | ✅ Auto |
+| 7. | Review and merge Docker PR | Variable | ✋ Manual (optional) |
+
+**Total automated time after publishing**: ~5-10 minutes
+
+**Total manual steps**: 2 (publish release, merge Docker PR)
+
+---
+
+## Comparison: Old vs New Process
+
+| Aspect | Old Manual Process | New Automated Process |
+|--------|-------------------|---------------------|
+| Manual Steps | ~5-7 steps | 1 step (publish) |
+| Version Management | Manual bump | Automatic via PR labels |
+| Artifact Building | Manual trigger before publish | Automatic after publish |
+| VERSION File Sync | Manual | Automatic |
+| Docker Updates | Manual | Automatic PR |
+| Time to Release | ~20-30 minutes | ~5-10 minutes |
+| Error Prone | High | Low |
+| Can Review Artifacts | Yes (before publish) | No (after publish)* |
+| Follows Best Practices | Partial | ✅ Fully compliant |
+
+\* *You can manually trigger artifact build on draft if needed for review*
 
 ---
 
@@ -366,11 +433,21 @@ If you encounter issues with the release process:
 
 ## Changelog
 
-**2025-10-14:** Complete automation overhaul
+**2025-10-16:** Refactored to standard Release Drafter pattern (v2)
+- **BREAKING**: Artifacts now build AFTER publishing (not before)
+- Fixed critical workflow trigger issue (GITHUB_TOKEN limitation)
+- Artifacts attach to published release automatically
+- Simplified to truly single manual step: publish release
+- All post-publish automation runs in parallel
+- Aligned with industry-standard Release Drafter usage
+
+**2025-10-16:** Initial refactor to Release Drafter pattern (v1)
+- Removed manual version bumping (automatic via PR labels)
+- Made artifact building automatic (attempted on draft update)
+- Reduced manual steps from 3 to 1
+
+**2025-10-14:** Original automation implementation
 - Added automated VERSION bumping workflow
 - Enhanced release drafter with categorization
-- Replaced deprecated GitHub Actions
 - Added SHA256 checksums for all platforms
-- Added VERSION file validation
-- Added automatic VERSION sync on release publish
-- Reduced manual steps from 10+ to 3
+- Added automatic Docker repository updates

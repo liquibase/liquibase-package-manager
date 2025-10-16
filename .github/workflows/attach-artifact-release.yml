@@ -1,14 +1,16 @@
-name: Attach Artifact to Release
+name: Build and Attach Artifacts
 
 permissions:
   contents: write
   id-token: write
 
 on:
+  release:
+    types: [published]
   workflow_dispatch:
     inputs:
       version:
-        description: "LPM version to release (leave empty to use VERSION file)"
+        description: "LPM version to release (leave empty to auto-detect from latest draft)"
         required: false
         type: string
       release-id:
@@ -32,8 +34,13 @@ jobs:
       - name: Determine version
         id: determine-version
         run: |
-          # Use input version if provided, otherwise read from VERSION file
-          if [ -n "${{ inputs.version }}" ]; then
+          # For automatic triggers (release created/edited), extract from tag
+          if [ "${{ github.event_name }}" = "release" ]; then
+            TAG_NAME="${{ github.event.release.tag_name }}"
+            VERSION="${TAG_NAME#v}"
+            echo "Using version from release tag: $VERSION"
+          # For manual triggers, use input or VERSION file
+          elif [ -n "${{ inputs.version }}" ]; then
             VERSION="${{ inputs.version }}"
             echo "Using input version: $VERSION"
           else
@@ -46,62 +53,54 @@ jobs:
       - name: Get release information
         id: get-release
         run: |
-          # Use provided release ID or get latest draft
-          if [ -n "${{ inputs.release-id }}" ]; then
+          # For automatic triggers (release created/edited), use event data
+          if [ "${{ github.event_name }}" = "release" ]; then
+            RELEASE_ID="${{ github.event.release.id }}"
+            UPLOAD_URL="${{ github.event.release.upload_url }}"
+            echo "Using release from event: $RELEASE_ID"
+          # For manual triggers, use provided release ID or get latest draft
+          elif [ -n "${{ inputs.release-id }}" ]; then
             RELEASE_ID="${{ inputs.release-id }}"
             echo "Using provided release ID: $RELEASE_ID"
+            UPLOAD_URL=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID" | \
+              jq -r '.upload_url')
           else
             RELEASE_ID=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
               "https://api.github.com/repos/${{ github.repository }}/releases" | \
               jq -r '[.[] | select(.draft == true)][0].id')
             echo "Found latest draft release ID: $RELEASE_ID"
+            UPLOAD_URL=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID" | \
+              jq -r '.upload_url')
           fi
-          
+
           if [ "$RELEASE_ID" = "null" ] || [ -z "$RELEASE_ID" ]; then
             echo "Error: No draft release found"
             exit 1
           fi
-          
-          # Get upload URL
-          UPLOAD_URL=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID" | \
-            jq -r '.upload_url')
-          
+
           echo "release_id=$RELEASE_ID" >> $GITHUB_OUTPUT
           echo "upload_url=$UPLOAD_URL" >> $GITHUB_OUTPUT
           echo "RELEASE_ID=$RELEASE_ID" >> $GITHUB_ENV
 
-      - name: List and delete old artifacts
+      - name: Check existing artifacts
         run: |
           RELEASE_ID="${{ steps.get-release.outputs.release_id }}"
           echo "Checking for existing artifacts in release $RELEASE_ID..."
-          
+
           ARTIFACTS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID/assets" | \
-            jq -r '.[].id')
-          
-          if [ -n "$ARTIFACTS" ]; then
-            echo "Deleting old artifacts..."
-            for ARTIFACT_ID in $ARTIFACTS; do
-              curl -s -X DELETE -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-                "https://api.github.com/repos/${{ github.repository }}/releases/assets/$ARTIFACT_ID"
-              echo "Deleted artifact ID: $ARTIFACT_ID"
-            done
-          else
-            echo "No existing artifacts found"
-          fi
+            jq -r '.[].name')
 
-      - name: Update release name and tag
-        run: |
-          RELEASE_ID="${{ steps.get-release.outputs.release_id }}"
-          VERSION="${{ steps.determine-version.outputs.version }}"
-          
-          curl -s -X PATCH -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Content-Type: application/json" \
-            "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID" \
-            -d '{"tag_name": "v'"$VERSION"'", "name": "v'"$VERSION"'"}'
-          
-          echo "✅ Updated release to v$VERSION"
+          if [ -n "$ARTIFACTS" ]; then
+            echo "⚠️  Release already has artifacts:"
+            echo "$ARTIFACTS"
+            echo ""
+            echo "Note: New artifacts will be added alongside existing ones."
+          else
+            echo "✅ No existing artifacts found - clean slate"
+          fi
 
   build-and-upload:
     name: Build ${{ matrix.arch.zip_name }}
@@ -172,7 +171,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: v${{ env.VERSION }}
-          draft: true
           files: ${{ steps.checksum.outputs.artifact_path }}
 
       - name: Save checksum to artifact
@@ -220,12 +218,11 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: v${{ env.VERSION }}
-          draft: true
           files: checksums.txt
 
       - name: Summary
         run: |
-          echo "## 🎉 Release Build Complete" >> $GITHUB_STEP_SUMMARY
+          echo "## 🎉 Release Artifacts Built and Uploaded" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Version:** v${VERSION}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
@@ -234,9 +231,6 @@ jobs:
           cat checksums.txt >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "✅ All artifacts uploaded successfully!" >> $GITHUB_STEP_SUMMARY
+          echo "✅ All artifacts built and attached to the published release!" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Next Steps:**" >> $GITHUB_STEP_SUMMARY
-          echo "1. Review the draft release" >> $GITHUB_STEP_SUMMARY
-          echo "2. Verify all artifacts are attached" >> $GITHUB_STEP_SUMMARY
-          echo "3. Publish the release when ready" >> $GITHUB_STEP_SUMMARY
+          echo "**Release:** https://github.com/${{ github.repository }}/releases/tag/v${VERSION}" >> $GITHUB_STEP_SUMMARY
