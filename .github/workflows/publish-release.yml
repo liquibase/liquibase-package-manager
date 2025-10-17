@@ -54,8 +54,8 @@ jobs:
         run: |
           NEW_VERSION="${{ steps.get-version.outputs.version }}"
           
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "liquibot"
+          git config user.email "liquibot@liquibase.org"
           
           git add VERSION
           git commit -m "Sync VERSION to $NEW_VERSION after release [skip ci]"
