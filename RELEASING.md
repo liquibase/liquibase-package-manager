@@ -15,6 +15,35 @@ That's it! Everything else happens automatically. ✨
 
 ---
 
+## Prerequisites
+
+Before the automated release process can work, the following must be configured:
+
+### Required Secrets and Permissions
+
+1. **AWS OIDC Authentication** (for `publish-release.yml` and `update-docker-repo.yml`):
+   - Repository secret: `LIQUIBASE_VAULT_OIDC_ROLE_ARN`
+   - AWS role with permissions to access AWS Secrets Manager
+   - OIDC trust relationship configured for GitHub Actions
+
+2. **AWS Secrets Manager** (path: `/vault/liquibase`):
+   - Must contain: `LIQUIBASE_GITHUB_APP_ID`
+   - Must contain: `LIQUIBASE_GITHUB_APP_PRIVATE_KEY`
+
+3. **GitHub App Configuration**:
+   - GitHub App with write permissions to `contents` in this repository
+   - GitHub App with write permissions to `contents` and `pull-requests` in `liquibase/docker` repository
+   - App must be installed in the `liquibase` organization
+
+4. **Repository Permissions**:
+   - Workflows have `contents: write` for creating releases and commits
+   - Workflows have `pull-requests: write` for creating PRs
+   - Workflows have `id-token: write` for AWS OIDC authentication
+
+**Note**: If any of these prerequisites are missing, the automation workflows will fail. Contact repository administrators to set up these requirements.
+
+---
+
 ## Release Process Overview
 
 ```
@@ -43,21 +72,24 @@ That's it! Everything else happens automatically. ✨
                  │
                  ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│  4. Post-Publish Automation (Automatic - runs in parallel)      │
+│  4. Post-Publish Automation (Automatic - 2 parallel, 1 sequential)│
 │     ┌───────────────────────────────────────────────────────┐   │
-│     │ A. Build & Attach Artifacts (~5-10 min)              │   │
+│     │ A. Build & Attach Artifacts (~5-10 min) - PARALLEL   │   │
 │     │    • Builds for all 6 platforms                       │   │
 │     │    • Generates SHA256 checksums                       │   │
 │     │    • Uploads artifacts to published release           │   │
-│     └───────────────────────────────────────────────────────┘   │
+│     └──────────────────┬────────────────────────────────────┘   │
 │     ┌───────────────────────────────────────────────────────┐   │
-│     │ B. Sync VERSION File (~10 sec)                        │   │
+│     │ B. Sync VERSION File (~10 sec) - PARALLEL            │   │
 │     │    • Updates VERSION file to match release            │   │
 │     │    • Updates internal/app/VERSION                     │   │
 │     │    • Commits to master                                │   │
 │     └───────────────────────────────────────────────────────┘   │
+│                        │                                         │
+│                        ▼ (waits for A to complete)               │
 │     ┌───────────────────────────────────────────────────────┐   │
-│     │ C. Update Docker Repository (~30 sec)                 │   │
+│     │ C. Update Docker Repository (~30 sec) - SEQUENTIAL   │   │
+│     │    • Triggers after Build & Attach completes          │   │
 │     │    • Extracts checksums from release                  │   │
 │     │    • Updates Dockerfiles in liquibase/docker          │   │
 │     │    • Creates PR with changes                          │   │
@@ -130,7 +162,7 @@ This is the **only manual step** in the entire process.
 
 **What happens automatically:**
 
-When you click "Publish release", **three workflows** run in parallel:
+When you click "Publish release", **two workflows** run immediately in parallel, and a **third workflow** runs after the first completes:
 
 #### A. Build and Attach Artifacts (~5-10 minutes)
 
@@ -162,18 +194,19 @@ The **Sync VERSION on Release Publish** workflow:
 
 **Result**: VERSION file in master always matches the latest published release
 
-#### C. Update Docker Repository (~30 seconds)
+#### C. Update Docker Repository (~30 seconds, runs AFTER artifact build)
 
 The **Update Docker Repository** workflow:
-1. Downloads `checksums.txt` from the release
-2. Extracts SHA256 checksums for linux-amd64 and linux-arm64
-3. Updates three Dockerfiles in `liquibase/docker` repository:
+1. **Triggers when**: The "Build and Attach Artifacts" workflow completes successfully
+2. Downloads `checksums.txt` from the release
+3. Extracts SHA256 checksums for linux-amd64 and linux-arm64
+4. Updates three Dockerfiles in `liquibase/docker` repository:
    - `Dockerfile`
    - `Dockerfile.alpine`
    - `DockerfileSecure`
-4. Creates a PR with all changes
+5. Creates a PR with all changes
 
-**Duration**: ~30 seconds
+**Duration**: ~30 seconds (but starts only after artifacts are built, so ~5-10 minutes after publish)
 
 **Result**: PR created in [liquibase/docker](https://github.com/liquibase/docker/pulls) ready for review
 
@@ -184,11 +217,11 @@ The **Update Docker Repository** workflow:
 **Action required (optional but recommended):**
 
 1. Go to the [liquibase/docker repository](https://github.com/liquibase/docker/pulls)
-2. Find the PR titled "Update LPM to vX.Y.Z"
+2. Find the PR titled "Update LPM to vX.Y.Z" (created ~5-10 minutes after publishing)
 3. Verify the checksums match the release
 4. Merge the PR to trigger Docker image builds
 
-**Note**: Docker repo updates require a `BOT_TOKEN` secret with write access to `liquibase/docker`.
+**Note**: Docker repo updates require proper authentication configuration (see Prerequisites section below).
 
 ---
 
@@ -249,7 +282,7 @@ Release Drafter automatically categorizes PRs based on labels. Use these labels 
 | `create-release.yml` | Push to master | Create/update draft release via Release Drafter | ~5 sec |
 | `attach-artifact-release.yml` | Release published | Build and upload release artifacts | ~5-10 min |
 | `publish-release.yml` | Release published | Sync VERSION file after publish | ~10 sec |
-| `update-docker-repo.yml` | Release published | Update LPM in docker repository | ~30 sec |
+| `update-docker-repo.yml` | `attach-artifact-release.yml` completion | Update LPM in docker repository | ~30 sec |
 
 ---
 
@@ -328,9 +361,13 @@ If the automatic Docker update fails:
 **Problem:** No PR created in docker repository after release.
 
 **Solution:**
-1. Verify `BOT_TOKEN` secret is configured with write access to `liquibase/docker`
-2. Check "Update Docker Repository" workflow logs
-3. Manually trigger the workflow if needed
+1. Verify authentication prerequisites are met (see Prerequisites section):
+   - AWS OIDC role configured with `LIQUIBASE_VAULT_OIDC_ROLE_ARN` secret
+   - GitHub App credentials in AWS Secrets Manager at `/vault/liquibase`
+   - GitHub App has write permissions to `liquibase/docker` repository
+2. Check "Update Docker Repository" workflow logs for authentication or API errors
+3. Verify "Build and Attach Artifacts" workflow completed successfully (Docker update triggers after it)
+4. Manually trigger the workflow if needed
 
 ---
 
@@ -384,17 +421,17 @@ If all automation fails (extremely rare):
 
 ## Timeline: From Merge to Complete Release
 
-| Step | Action | Duration | Manual? |
-|------|--------|----------|---------|
-| 1. | Merge PR to master | Instant | ✋ Manual |
-| 2. | Release Drafter updates draft | ~5 sec | ✅ Auto |
-| 3. | Review and publish release | Variable | ✋ Manual |
-| 4. | Build artifacts (parallel) | ~5-10 min | ✅ Auto |
-| 5. | Sync VERSION file (parallel) | ~10 sec | ✅ Auto |
-| 6. | Create Docker PR (parallel) | ~30 sec | ✅ Auto |
-| 7. | Review and merge Docker PR | Variable | ✋ Manual (optional) |
+| Step | Action | Duration | Manual? | Parallelism |
+|------|--------|----------|---------|-------------|
+| 1. | Merge PR to master | Instant | ✋ Manual | - |
+| 2. | Release Drafter updates draft | ~5 sec | ✅ Auto | - |
+| 3. | Review and publish release | Variable | ✋ Manual | - |
+| 4. | Build artifacts | ~5-10 min | ✅ Auto | Parallel with step 5 |
+| 5. | Sync VERSION file | ~10 sec | ✅ Auto | Parallel with step 4 |
+| 6. | Create Docker PR | ~30 sec | ✅ Auto | Sequential (after step 4) |
+| 7. | Review and merge Docker PR | Variable | ✋ Manual (optional) | - |
 
-**Total automated time after publishing**: ~5-10 minutes
+**Total automated time after publishing**: ~5-10 minutes (steps 4-6 combined)
 
 **Total manual steps**: 2 (publish release, merge Docker PR)
 
@@ -433,12 +470,18 @@ If you encounter issues with the release process:
 
 ## Changelog
 
+**2025-10-17:** Documentation corrections
+- Fixed incorrect workflow trigger description for `update-docker-repo.yml`
+- Clarified that Docker update workflow runs AFTER artifact build completes, not in parallel
+- Added Prerequisites section documenting required AWS OIDC, secrets, and GitHub App configuration
+- Updated timeline diagram and table to show sequential vs parallel workflow execution
+- Corrected references to `BOT_TOKEN` to point to GitHub App authentication via vault
+
 **2025-10-16:** Refactored to standard Release Drafter pattern (v2)
 - **BREAKING**: Artifacts now build AFTER publishing (not before)
 - Fixed critical workflow trigger issue (GITHUB_TOKEN limitation)
 - Artifacts attach to published release automatically
 - Simplified to truly single manual step: publish release
-- All post-publish automation runs in parallel
 - Aligned with industry-standard Release Drafter usage
 
 **2025-10-16:** Initial refactor to Release Drafter pattern (v1)
