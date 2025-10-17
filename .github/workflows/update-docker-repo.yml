@@ -2,7 +2,7 @@ name: Update Docker Repository with New LPM Version
 
 on:
   workflow_run:
-    workflows: ["Sync VERSION on Release Publish"]
+    workflows: ["Build and Attach Artifacts"]
     types:
       - completed
   workflow_dispatch:
