@@ -1,18 +1,22 @@
-name: Attach Artifact to Release
+name: Build and Attach Artifacts
 
 permissions:
   contents: write
   id-token: write
 
 on:
+  release:
+    types: [published]
   workflow_dispatch:
     inputs:
       version:
-        description: "LPM version to release"
-        required: true
-
-env:
-  VERSION: ${{ inputs.version }}
+        description: "LPM version to release (leave empty to auto-detect from latest draft)"
+        required: false
+        type: string
+      release-id:
+        description: "Release ID (leave empty to use latest draft)"
+        required: false
+        type: string
 
 jobs:
   prepare-release:
@@ -20,50 +24,86 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       upload_url: ${{ steps.get-release.outputs.upload_url }}
+      release_id: ${{ steps.get-release.outputs.release_id }}
+      version: ${{ steps.determine-version.outputs.version }}
 
     steps:
-      - uses: actions/checkout@v5
+      - name: Checkout code
+        uses: actions/checkout@v5
 
-      - name: Get latest draft release ID
+      - name: Determine version
+        id: determine-version
+        run: |
+          # For automatic triggers (release created/edited), extract from tag
+          if [ "${{ github.event_name }}" = "release" ]; then
+            TAG_NAME="${{ github.event.release.tag_name }}"
+            VERSION="${TAG_NAME#v}"
+            echo "Using version from release tag: $VERSION"
+          # For manual triggers, use input or VERSION file
+          elif [ -n "${{ inputs.version }}" ]; then
+            VERSION="${{ inputs.version }}"
+            echo "Using input version: $VERSION"
+          else
+            VERSION=$(cat VERSION | tr -d '\n' | tr -d ' ')
+            echo "Using VERSION file: $VERSION"
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Get release information
         id: get-release
         run: |
-          LATEST_DRAFT_RELEASE=$(curl -X GET -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases?per_page=1" | jq -r 'if .[].draft == true then .[].id else empty end')
-          LATEST_DRAFT_RELEASE_URL=$(curl -X GET -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases?per_page=1" | jq -r 'if .[].draft == true then .[].upload_url else empty end')
-          echo "Latest Draft Release ID: $LATEST_DRAFT_RELEASE"
-          echo "Latest Draft Release upload_url: $LATEST_DRAFT_RELEASE_URL"
-          echo "RELEASE_ID=$LATEST_DRAFT_RELEASE" >> $GITHUB_ENV
-          echo "upload_url=$LATEST_DRAFT_RELEASE_URL" >> $GITHUB_OUTPUT
+          # For automatic triggers (release created/edited), use event data
+          if [ "${{ github.event_name }}" = "release" ]; then
+            RELEASE_ID="${{ github.event.release.id }}"
+            UPLOAD_URL="${{ github.event.release.upload_url }}"
+            echo "Using release from event: $RELEASE_ID"
+          # For manual triggers, use provided release ID or get latest draft
+          elif [ -n "${{ inputs.release-id }}" ]; then
+            RELEASE_ID="${{ inputs.release-id }}"
+            echo "Using provided release ID: $RELEASE_ID"
+            UPLOAD_URL=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID" | \
+              jq -r '.upload_url')
+          else
+            RELEASE_ID=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              "https://api.github.com/repos/${{ github.repository }}/releases" | \
+              jq -r '[.[] | select(.draft == true)][0].id')
+            echo "Found latest draft release ID: $RELEASE_ID"
+            UPLOAD_URL=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID" | \
+              jq -r '.upload_url')
+          fi
 
-      - name: List artifacts in release
-        if: env.RELEASE_ID != '' && env.RELEASE_ID != null
-        id: list-artifacts
+          if [ "$RELEASE_ID" = "null" ] || [ -z "$RELEASE_ID" ]; then
+            echo "Error: No draft release found"
+            exit 1
+          fi
+
+          echo "release_id=$RELEASE_ID" >> $GITHUB_OUTPUT
+          echo "upload_url=$UPLOAD_URL" >> $GITHUB_OUTPUT
+          echo "RELEASE_ID=$RELEASE_ID" >> $GITHUB_ENV
+
+      - name: Check existing artifacts
         run: |
-          RELEASE_ID="${{ env.RELEASE_ID }}"
-          ARTIFACTS=$(curl -X GET -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID/assets" | jq -r '.[].id')
-          echo "Artifacts to delete: $ARTIFACTS"
-          ARTIFACTS_CLEANED=$(echo "$ARTIFACTS" | tr -s '[:space:]' ',' | sed 's/,$//')
-          echo "ARTIFACTS_TO_DELETE=$ARTIFACTS_CLEANED" >> $GITHUB_ENV
+          RELEASE_ID="${{ steps.get-release.outputs.release_id }}"
+          echo "Checking for existing artifacts in release $RELEASE_ID..."
 
-      - name: Delete artifacts
-        if: env.ARTIFACTS_TO_DELETE != null
-        run: |
-          RELEASE_ID="${{ env.RELEASE_ID }}"
-          ARTIFACTS_TO_DELETE="${{ env.ARTIFACTS_TO_DELETE }}"
-          IFS=',' read -ra values <<< "$ARTIFACTS_TO_DELETE"
-          for value in "${values[@]}"; do
-            curl -X DELETE -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/assets/$value"
-            echo "Deleted artifact ID: $value"
-          done
+          ARTIFACTS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID/assets" | \
+            jq -r '.[].name')
 
-      - name: Edit Release
-        uses: irongut/EditRelease@v1.2.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          id: ${{ env.RELEASE_ID }}
-          name: v${{ env.VERSION }}
-          replacename: true
+          if [ -n "$ARTIFACTS" ]; then
+            echo "⚠️  Release already has artifacts:"
+            echo "$ARTIFACTS"
+            echo ""
+            echo "Note: New artifacts will be added alongside existing ones."
+          else
+            echo "✅ No existing artifacts found - clean slate"
+          fi
 
-  attach-to-release:
+  build-and-upload:
+    name: Build ${{ matrix.arch.zip_name }}
     runs-on: ubuntu-latest
     needs: prepare-release
     strategy:
@@ -78,45 +118,119 @@ jobs:
             { folder: windows, zip_name: windows },
           ]
 
+    env:
+      VERSION: ${{ needs.prepare-release.outputs.version }}
+
     steps:
-      - uses: actions/checkout@v5
+      - name: Checkout code
+        uses: actions/checkout@v5
 
       - name: Setup Go
         uses: actions/setup-go@v6
         with:
           go-version: "^1.25"
-
-      - name: Setup GO environment
-        run: |
-          go mod download
+          cache: true
 
       - name: Update VERSION file
-        run: echo $VERSION > VERSION
+        run: echo "$VERSION" > VERSION
 
-      - name: Release Artifact
-        run: make release
+      - name: Build artifact for ${{ matrix.arch.zip_name }}
+        run: |
+          case "${{ matrix.arch.folder }}" in
+            darwin_amd64)
+              make darwin_amd64
+              ;;
+            darwin_arm64)
+              make darwin_arm64
+              ;;
+            linux_amd64)
+              make linux_amd64
+              ;;
+            linux_arm64)
+              make linux_arm64
+              ;;
+            s390x)
+              make s390x
+              ;;
+            windows)
+              make windows
+              ;;
+          esac
 
-      - name: Attach artifact to release
-        uses: actions/upload-release-asset@v1.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Calculate SHA256 checksum
+        id: checksum
+        run: |
+          ARTIFACT_PATH="bin/${{ matrix.arch.folder }}/lpm-${VERSION}-${{ matrix.arch.zip_name }}.zip"
+          SHA256=$(sha256sum "$ARTIFACT_PATH" | awk '{print $1}')
+          echo "sha256=$SHA256" >> $GITHUB_OUTPUT
+          echo "artifact_path=$ARTIFACT_PATH" >> $GITHUB_OUTPUT
+          echo "SHA256 for ${{ matrix.arch.zip_name }}: $SHA256"
+
+      - name: Upload artifact to release
+        uses: softprops/action-gh-release@v2
         with:
-          upload_url: ${{ needs.prepare-release.outputs.upload_url }}
-          asset_path: bin/${{ matrix.arch.folder }}/lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip
-          asset_name: lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip
-          asset_content_type: application/zip
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: v${{ env.VERSION }}
+          files: ${{ steps.checksum.outputs.artifact_path }}
 
-      - name: Calculate SHA256 hash
-        if: matrix.arch.zip_name == 'linux' || matrix.arch.zip_name == 'linux-arm64'
-        id: calculate-sha256
+      - name: Save checksum to artifact
         run: |
-          sha256sum bin/${{ matrix.arch.folder }}/lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip | awk '{ print $1 }' > sha256.txt
-          SHA256=$(cat sha256.txt)
-          echo "SHA256=$SHA256" >> $GITHUB_ENV
-          echo "SHA256 hash: $SHA256"
+          mkdir -p checksums
+          echo "${{ steps.checksum.outputs.sha256 }}  lpm-${VERSION}-${{ matrix.arch.zip_name }}.zip" > checksums/${{ matrix.arch.zip_name }}.txt
 
-      - name: Upload SHA256 hash to job summary
-        if: matrix.arch.zip_name == 'linux' || matrix.arch.zip_name == 'linux-arm64'
+      - name: Upload checksum artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: checksum-${{ matrix.arch.zip_name }}
+          path: checksums/${{ matrix.arch.zip_name }}.txt
+          retention-days: 1
+
+      - name: Add to job summary
         run: |
-          echo "### :white_check_mark: SHA256 for ${{ matrix.arch.zip_name }}" >> $GITHUB_STEP_SUMMARY
-          echo "- lpm-${{ env.VERSION }}-${{ matrix.arch.zip_name }}.zip: $SHA256" >> $GITHUB_STEP_SUMMARY
+          echo "### ✅ ${{ matrix.arch.zip_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Artifact:** lpm-${VERSION}-${{ matrix.arch.zip_name }}.zip" >> $GITHUB_STEP_SUMMARY
+          echo "- **SHA256:** \`${{ steps.checksum.outputs.sha256 }}\`" >> $GITHUB_STEP_SUMMARY
+
+  generate-checksums-file:
+    name: Generate Checksums File
+    runs-on: ubuntu-latest
+    needs: [prepare-release, build-and-upload]
+    env:
+      VERSION: ${{ needs.prepare-release.outputs.version }}
+
+    steps:
+      - name: Download all checksum artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: checksum-*
+          path: checksums
+
+      - name: Combine checksums into single file
+        run: |
+          cd checksums
+          cat checksum-*/*.txt | sort > ../checksums.txt
+          cd ..
+          echo "=== Combined Checksums ==="
+          cat checksums.txt
+
+      - name: Upload checksums file to release
+        uses: softprops/action-gh-release@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: v${{ env.VERSION }}
+          files: checksums.txt
+
+      - name: Summary
+        run: |
+          echo "## 🎉 Release Artifacts Built and Uploaded" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Version:** v${VERSION}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### SHA256 Checksums" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          cat checksums.txt >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ All artifacts built and attached to the published release!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Release:** https://github.com/${{ github.repository }}/releases/tag/v${VERSION}" >> $GITHUB_STEP_SUMMARY

@@ -1,0 +1,243 @@
+name: Update Docker Repository with New LPM Version
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      lpm-version:
+        description: 'LPM version to update (without v prefix)'
+        required: true
+        type: string
+      sha256-amd64:
+        description: 'SHA256 for linux-amd64 (leave empty to fetch from release)'
+        required: false
+        type: string
+      sha256-arm64:
+        description: 'SHA256 for linux-arm64 (leave empty to fetch from release)'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  update-docker-repo:
+    name: Update LPM in Docker Repository
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Extract version from release
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "release" ]; then
+            TAG_NAME="${{ github.event.release.tag_name }}"
+            VERSION="${TAG_NAME#v}"
+            echo "version=$VERSION" >> $GITHUB_OUTPUT
+            echo "Using version from release: $VERSION"
+          else
+            VERSION="${{ inputs.lpm-version }}"
+            echo "version=$VERSION" >> $GITHUB_OUTPUT
+            echo "Using manual input version: $VERSION"
+          fi
+
+      - name: Download checksums file
+        id: download-checksums
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          
+          # Download checksums.txt from release
+          echo "Downloading checksums for version $VERSION..."
+          curl -sfL -o checksums.txt \
+            "https://github.com/liquibase/liquibase-package-manager/releases/download/v${VERSION}/checksums.txt"
+          
+          if [ $? -ne 0 ]; then
+            echo "❌ Failed to download checksums.txt"
+            echo "Trying to fetch from release assets..."
+            
+            # Fallback: try to get checksums from release API
+            curl -sfL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              "https://api.github.com/repos/liquibase/liquibase-package-manager/releases/tags/v${VERSION}" \
+              > release.json
+            
+            CHECKSUMS_URL=$(jq -r '.assets[] | select(.name == "checksums.txt") | .browser_download_url' release.json)
+            
+            if [ -n "$CHECKSUMS_URL" ] && [ "$CHECKSUMS_URL" != "null" ]; then
+              curl -sfL -o checksums.txt "$CHECKSUMS_URL"
+            else
+              echo "❌ checksums.txt not found in release assets"
+              exit 1
+            fi
+          fi
+          
+          echo "✅ Downloaded checksums.txt"
+          cat checksums.txt
+
+      - name: Extract SHA256 checksums
+        id: checksums
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          
+          # Use manual input if provided, otherwise extract from checksums.txt
+          if [ -n "${{ inputs.sha256-amd64 }}" ]; then
+            SHA256_AMD64="${{ inputs.sha256-amd64 }}"
+            echo "Using manual SHA256 for amd64: $SHA256_AMD64"
+          else
+            SHA256_AMD64=$(grep "lpm-${VERSION}-linux.zip" checksums.txt | awk '{print $1}')
+            echo "Extracted SHA256 for amd64: $SHA256_AMD64"
+          fi
+          
+          if [ -n "${{ inputs.sha256-arm64 }}" ]; then
+            SHA256_ARM64="${{ inputs.sha256-arm64 }}"
+            echo "Using manual SHA256 for arm64: $SHA256_ARM64"
+          else
+            SHA256_ARM64=$(grep "lpm-${VERSION}-linux-arm64.zip" checksums.txt | awk '{print $1}')
+            echo "Extracted SHA256 for arm64: $SHA256_ARM64"
+          fi
+          
+          # Validate checksums
+          if [ -z "$SHA256_AMD64" ] || [ ${#SHA256_AMD64} -ne 64 ]; then
+            echo "❌ Invalid SHA256 for amd64: $SHA256_AMD64"
+            exit 1
+          fi
+          
+          if [ -z "$SHA256_ARM64" ] || [ ${#SHA256_ARM64} -ne 64 ]; then
+            echo "❌ Invalid SHA256 for arm64: $SHA256_ARM64"
+            exit 1
+          fi
+          
+          echo "sha256_amd64=$SHA256_AMD64" >> $GITHUB_OUTPUT
+          echo "sha256_arm64=$SHA256_ARM64" >> $GITHUB_OUTPUT
+          
+          echo "✅ SHA256 checksums validated"
+
+      - name: Checkout docker repository
+        uses: actions/checkout@v5
+        with:
+          repository: liquibase/docker
+          token: ${{ secrets.BOT_TOKEN }}
+          ref: main
+
+      - name: Update Dockerfile
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          SHA256_AMD64="${{ steps.checksums.outputs.sha256_amd64 }}"
+          SHA256_ARM64="${{ steps.checksums.outputs.sha256_arm64 }}"
+          
+          echo "Updating Dockerfile..."
+          sed -i "s/^ARG LPM_VERSION=.*/ARG LPM_VERSION=${VERSION}/" Dockerfile
+          sed -i "s/^ARG LPM_SHA256=.*/ARG LPM_SHA256=${SHA256_AMD64}/" Dockerfile
+          sed -i "s/^ARG LPM_SHA256_ARM=.*/ARG LPM_SHA256_ARM=${SHA256_ARM64}/" Dockerfile
+          
+          echo "✅ Updated Dockerfile"
+          grep -A 2 "ARG LPM_VERSION" Dockerfile
+
+      - name: Update Dockerfile.alpine
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          SHA256_AMD64="${{ steps.checksums.outputs.sha256_amd64 }}"
+          SHA256_ARM64="${{ steps.checksums.outputs.sha256_arm64 }}"
+          
+          echo "Updating Dockerfile.alpine..."
+          sed -i "s/^ARG LPM_VERSION=.*/ARG LPM_VERSION=${VERSION}/" Dockerfile.alpine
+          sed -i "s/^ARG LPM_SHA256=.*/ARG LPM_SHA256=${SHA256_AMD64}/" Dockerfile.alpine
+          sed -i "s/^ARG LPM_SHA256_ARM=.*/ARG LPM_SHA256_ARM=${SHA256_ARM64}/" Dockerfile.alpine
+          
+          echo "✅ Updated Dockerfile.alpine"
+          grep -A 2 "ARG LPM_VERSION" Dockerfile.alpine
+
+      - name: Update DockerfileSecure
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          SHA256_AMD64="${{ steps.checksums.outputs.sha256_amd64 }}"
+          SHA256_ARM64="${{ steps.checksums.outputs.sha256_arm64 }}"
+          
+          echo "Updating DockerfileSecure..."
+          sed -i "s/^ARG LPM_VERSION=.*/ARG LPM_VERSION=${VERSION}/" DockerfileSecure
+          sed -i "s/^ARG LPM_SHA256=.*/ARG LPM_SHA256=${SHA256_AMD64}/" DockerfileSecure
+          sed -i "s/^ARG LPM_SHA256_ARM=.*/ARG LPM_SHA256_ARM=${SHA256_ARM64}/" DockerfileSecure
+          
+          echo "✅ Updated DockerfileSecure"
+          grep -A 2 "ARG LPM_VERSION" DockerfileSecure
+
+      - name: Check for changes
+        id: check-changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "⚠️ No changes detected"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "✅ Changes detected"
+            echo "=== Changes ==="
+            git diff
+          fi
+
+      - name: Create Pull Request
+        if: steps.check-changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          commit-message: "Update LPM to version ${{ steps.version.outputs.version }}"
+          committer: "liquibot <liquibot@liquibase.org>"
+          author: "liquibot <liquibot@liquibase.org>"
+          branch: "update-lpm-${{ steps.version.outputs.version }}"
+          delete-branch: true
+          title: "Update LPM to v${{ steps.version.outputs.version }}"
+          body: |
+            ## Update LPM Version
+            
+            This PR updates the Liquibase Package Manager (LPM) to version **${{ steps.version.outputs.version }}**.
+            
+            ### Changes
+            
+            - **LPM Version:** `${{ steps.version.outputs.version }}`
+            - **SHA256 (amd64):** `${{ steps.checksums.outputs.sha256_amd64 }}`
+            - **SHA256 (arm64):** `${{ steps.checksums.outputs.sha256_arm64 }}`
+            
+            ### Files Updated
+            
+            - [x] `Dockerfile`
+            - [x] `Dockerfile.alpine`
+            - [x] `DockerfileSecure`
+            
+            ### Release Information
+            
+            - **Release:** https://github.com/liquibase/liquibase-package-manager/releases/tag/v${{ steps.version.outputs.version }}
+            - **Automated by:** [Update Docker Repository workflow](https://github.com/liquibase/liquibase-package-manager/actions/workflows/update-docker-repo.yml)
+            
+            ### Verification
+            
+            The checksums have been automatically extracted from the official release and validated.
+            
+            Please review and merge this PR to update the Docker images with the new LPM version.
+            
+            ---
+            
+            🤖 *This PR was automatically created by the LPM release automation.*
+          labels: |
+            lpm
+            dependencies
+            automated
+          draft: false
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Update Docker Repository Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**LPM Version:** ${{ steps.version.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "**SHA256 (amd64):** \`${{ steps.checksums.outputs.sha256_amd64 }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**SHA256 (arm64):** \`${{ steps.checksums.outputs.sha256_arm64 }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.check-changes.outputs.changed }}" = "true" ]; then
+            echo "✅ **Status:** PR created successfully" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Next Steps:**" >> $GITHUB_STEP_SUMMARY
+            echo "1. Review the PR in the [liquibase/docker repository](https://github.com/liquibase/docker/pulls)" >> $GITHUB_STEP_SUMMARY
+            echo "2. Verify the checksums match the release" >> $GITHUB_STEP_SUMMARY
+            echo "3. Merge the PR to trigger Docker image builds" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "ℹ️ **Status:** No changes needed (version already up to date)" >> $GITHUB_STEP_SUMMARY
+          fi
