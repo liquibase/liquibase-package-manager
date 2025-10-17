@@ -494,6 +494,13 @@
         "algorithm": "SHA1",
         "checksum": "6624c40b606e96680fdb99ed6d6771985d354395",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.0.1",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/3.0.1/databricks-jdbc-3.0.1.jar",
+        "algorithm": "SHA1",
+        "checksum": "81148ef3cd61e531464f28fa8a248b031eb92d0b",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -3397,6 +3404,62 @@
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/13.2.0.jre11/mssql-jdbc-13.2.0.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "8edad0d3b7ccdef50a8e6597f4fc69e23e30ba4c",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "10.2.4",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/10.2.4.jre11/mssql-jdbc-10.2.4.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "f13e5dfaa21b3c4c9c92f8821b778f6fd0231b58",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "11.2.4",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/11.2.4.jre11/mssql-jdbc-11.2.4.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "2586d91fafde653bfaeaeab9176d2fda970ff893",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "12.2.1",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.2.1.jre11/mssql-jdbc-12.2.1.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "f307498884d896fc1efeaa1c3ec48252e09a9e16",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "12.4.3",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.4.3.jre11/mssql-jdbc-12.4.3.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "104fc17da057223cedebd08aae3b9f58931bdcac",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "12.6.5",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.6.5.jre11/mssql-jdbc-12.6.5.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "3b41a0a98e9f79d63e86ff797152f6f6ba161409",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "12.8.2",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.8.2.jre11/mssql-jdbc-12.8.2.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "f473dcb3e52ace2ea7329eb3d99cc6320e35349a",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "12.10.2",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.10.2.jre11/mssql-jdbc-12.10.2.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "ee97088ca7c42afa6f38b457b76845207ca50a9d",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "13.2.1",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/13.2.1.jre11/mssql-jdbc-13.2.1.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "406aa00b60c1b30e1bb02e469530dd2e21f2eace",
         "liquibaseCore": ""
       }
     ]
@@ -6627,6 +6690,13 @@
         "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.26.1/snowflake-jdbc-3.26.1.jar",
         "algorithm": "SHA1",
         "checksum": "3fbbbe9a3771b6f2f5c4dfafcf37434d7febe8bd",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.27.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.27.0/snowflake-jdbc-3.27.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "86de2f3f372c35789d95d6a59c8bff3dbb96521a",
         "liquibaseCore": ""
       }
     ]
@@ -15474,6 +15544,13 @@
         "algorithm": "SHA1",
         "checksum": "9ffe8b672e8ea61114ff58cffbf5bcbf848770d9",
         "liquibaseCore": "4.33.0"
+      },
+      {
+        "tag": "5.0.0",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-neo4j/5.0.0/liquibase-neo4j-5.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "7bfa9696462e07f55a32160c08f85a0a29a7f25c",
+        "liquibaseCore": ""
       }
     ]
   },
