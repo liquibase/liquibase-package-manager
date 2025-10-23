@@ -501,6 +501,13 @@
         "algorithm": "SHA1",
         "checksum": "81148ef3cd61e531464f28fa8a248b031eb92d0b",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "2.7.5",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.7.5/databricks-jdbc-2.7.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "287e058bfa1da79db4802082741278246d118cc3",
+        "liquibaseCore": ""
       }
     ]
   },
