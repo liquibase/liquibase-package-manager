@@ -12,7 +12,7 @@ jobs:
       matrix:
         liquibase: [4.6.0, 4.16.1]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - uses: actions/setup-go@v6
         with:

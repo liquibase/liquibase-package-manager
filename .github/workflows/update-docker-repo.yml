@@ -145,7 +145,7 @@ jobs:
           echo "✅ SHA256 checksums validated"
 
       - name: Checkout docker repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           repository: liquibase/docker
           ref: main
