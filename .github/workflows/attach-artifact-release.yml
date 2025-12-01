@@ -179,7 +179,7 @@ jobs:
           echo "${{ steps.checksum.outputs.sha256 }}  lpm-${VERSION}-${{ matrix.arch.zip_name }}.zip" > checksums/${{ matrix.arch.zip_name }}.txt
 
       - name: Upload checksum artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: checksum-${{ matrix.arch.zip_name }}
           path: checksums/${{ matrix.arch.zip_name }}.txt
