@@ -9,64 +9,65 @@ This is **lpm** (Liquibase Package Manager) - a Go-based CLI tool for managing L
 ## Key Architecture
 
 ### Core Components
-- **CLI Layer**: Built with Cobra framework in `cmd/lpm/` with platform-specific entry points
+- **CLI Layer**: Built with Cobra framework in `cmd/lpm/` - `darwin.go` serves as the main entry point for Unix-like systems and Linux, `windows.go` for Windows
 - **Application Layer**: Core business logic in `internal/app/` with embedded package metadata
-- **Package Management**: Handles package discovery, installation, and lifecycle in `internal/app/packages/`
+- **Commands**: Individual commands (add, install, remove, search, etc.) in `internal/app/commands/`
+- **Package Management**: Package structs and operations in `internal/app/packages/`
 - **Liquibase Integration**: Auto-detection and version management in `internal/app/utils/Liquibase.go`
 - **Populator**: Automated package discovery from Maven/GitHub repositories in `cmd/populator/`
 
 ### Package System
-- **Package Registry**: Centralized metadata in `internal/app/packages.json` (embedded at build time)
-- **Module Definitions**: Package sources defined in `cmd/populator/modules.go`
-- **Categories**: Packages organized as `extension`, `driver`, or `pro`
-- **Artifactory Support**: Maven Central and GitHub release integration
+- **Package Registry**: `internal/app/packages.json` is embedded at build time via Go's `//go:embed` directive
+- **Module Definitions**: Package sources defined in `cmd/populator/modules.go` with `Module` structs
+- **Categories**: `Extension`, `Driver`, or `Pro` (enum in populator, string in JSON)
+- **Artifactory Types**: `Maven{}` for Maven Central or `Github{}` for GitHub releases
 
 ### Installation Strategy
-- **Global Mode**: Installs to `$LIQUIBASE_HOME/lib/` (default behavior)
+- **Global Mode** (default): Installs to `$LIQUIBASE_HOME/lib/`
 - **Local Mode**: Installs to `./liquibase_libs/` in current directory
-- **Auto-detection**: Automatically locates Liquibase installations via environment variables or common paths
+- **Auto-detection**: Locates Liquibase via `LIQUIBASE_HOME` env var or common paths
 
 ## Common Development Commands
 
 ### Build and Test
 ```bash
-# Build for current platform
+# Build for current platform (outputs to ./bin/lpm)
 make build
 
-# Run unit tests with coverage
+# Run unit tests with coverage and static analysis
 make test
 
-# View test coverage report
+# View test coverage in browser
 make cover
 
-# Run end-to-end tests
+# Run all end-to-end tests
 make e2e
 
-# Generate cross-platform releases
+# Run specific e2e test
+make test-search   # also: test-add, test-install, test-list, test-remove, test-version, test-completion, test-help
+
+# Run a single unit test
+go test -v ./internal/app/packages -run TestPackageName
+
+# Generate cross-platform release artifacts
 make release
 ```
 
-### Development Workflow
+### Package Metadata Updates
 ```bash
-# Update package metadata from sources
+# Regenerate packages.json from Maven/GitHub sources
 make generateExtensionPackages
-
-# Build single binary for local testing
-make build
-
-# Test specific command end-to-end
-make test-search  # or test-add, test-install, etc.
 ```
 
 ### Adding New Packages
 
-1. **Add module definition** in `cmd/populator/modules.go`:
+1. **Add module definition** in `cmd/populator/modules.go` inside `func init()`:
    ```go
    {
        name:        "package-name",
        category:    Extension, // or Driver, Pro
        url:         "https://repo1.maven.org/maven2/...",
-       artifactory: Maven{}, // or Github{}
+       artifactory: Maven{}, // or Github{} with owner/repo fields
    }
    ```
 
@@ -79,47 +80,41 @@ make test-search  # or test-add, test-install, etc.
    }
    ```
 
-3. **Generate updated metadata**:
-   ```bash
-   make generateExtensionPackages
-   ```
+3. **Regenerate metadata**: Push changes and a CI workflow auto-populates version details, or run `make generateExtensionPackages` locally.
 
 ## Testing
 
 ### Unit Tests
-- Located in `internal/app/` with `_test.go` suffix
-- Use `go test` with coverage reporting
-- Static analysis with `staticcheck`
+- Located alongside source files with `_test.go` suffix in `internal/app/`
+- Run with `go test -v ./internal/app/...`
+- Static analysis: `staticcheck ./internal/app/...`
 
 ### End-to-End Tests
 - YAML-based test definitions in `tests/endtoend/`
-- Execute with `vexrun` test runner
-- Cover all major CLI commands and workflows
+- Uses `vexrun` test runner (downloaded automatically by `make test-setup`)
+- Test files: `add.yml`, `completion.yml`, `help.yml`, `install.yml`, `list.yml`, `remove.yml`, `search.yml`, `version.yml`
 
 ### Mock Data
 - Test fixtures in `tests/mocks/`
-- Includes sample Liquibase installations and package files
 
 ## Build System
 
-### Multi-Platform Support
-- Cross-compilation for Darwin (Intel/ARM), Linux (x86_64/ARM64), Windows, and s390x
-- Automated artifact packaging with version-specific naming
-- Release automation via GitHub Actions
+### Version Management
+- Version stored in `VERSION` file at project root
+- Copied to `internal/app/VERSION` during build (embedded via `//go:embed`)
 
-### Dependencies
-- **Go 1.23.8**: Primary language runtime
-- **Cobra**: CLI framework and command structure
-- **go-version**: Semantic version handling
-- **oauth2**: GitHub API authentication for package discovery
+### Multi-Platform Targets
+- `darwin_amd64`, `darwin_arm64`: macOS Intel and Apple Silicon
+- `linux_amd64`, `linux_arm64`, `s390x`: Linux variants
+- `windows`: Windows x64
 
-## Package Categories
-
-- **Extensions**: Community and commercial Liquibase extensions for specific databases
-- **Drivers**: JDBC drivers for database connectivity
-- **Pro**: Commercial Liquibase Pro features and integrations
+### Key Dependencies
+- **Go 1.25+**: See go.mod for exact version
+- **Cobra** (`github.com/spf13/cobra`): CLI framework
+- **go-version** (`github.com/hashicorp/go-version`): Semantic versioning
+- **gopom** (`github.com/vifraa/gopom`): Maven POM parsing
+- **go-github** + **oauth2**: GitHub API for release discovery
 
 ## Environment Variables
 
-- `LIQUIBASE_HOME`: Primary installation directory (recommended to set)
-- Used for auto-detection of Liquibase installations and lib directories
+- `LIQUIBASE_HOME`: Primary Liquibase installation directory (strongly recommended to set)
