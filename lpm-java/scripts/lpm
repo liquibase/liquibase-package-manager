@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+
+# Liquibase Package Manager (lpm) launcher script
+# Requires Java 17 or higher
+
+check_version() {
+  # Get the full Java version output and redirect stderr to stdout
+  JAVA_VERSION_OUTPUT=$("$1" -version 2>&1)
+
+  # Extract the version number using awk
+  JAVA_VERSION=$(echo "$JAVA_VERSION_OUTPUT" | awk -F '"' '/version/ {print $2}')
+
+  # Extract the major version
+  JAVA_MAJOR_VERSION=$(echo "$JAVA_VERSION" | cut -d'.' -f1)
+
+  # Handle cases like "1.8.0_..." vs "11.0.0_..."
+  if [[ "$JAVA_MAJOR_VERSION" == "1" ]]; then
+    JAVA_MAJOR_VERSION=$(echo "$JAVA_VERSION" | cut -d'.' -f2)
+  fi
+
+  # Check the major version
+  if [[ "$JAVA_MAJOR_VERSION" -lt 17 ]]; then
+    echo "ERROR: Java version is $JAVA_MAJOR_VERSION. lpm requires Java 17 or higher."
+    echo "Please install Java 17 or higher, or set JAVA_HOME to a Java 17+ installation."
+    exit 1
+  fi
+}
+
+# Determine LPM_HOME if not set
+if [ ! -n "${LPM_HOME+x}" ]; then
+  # Resolve links - $0 may be a symlink
+  PRG="$0"
+  while [ -h "$PRG" ] ; do
+    ls=$(ls -ld "$PRG")
+    link=$(expr "$ls" : '.*-> \(.*\)$')
+    if expr "$link" : '/.*' > /dev/null; then
+      PRG="$link"
+    else
+      PRG=$(dirname "$PRG")/"$link"
+    fi
+  done
+
+  # Get the directory containing this script
+  LPM_HOME=$(dirname "$PRG")
+
+  # Go up one level if we're in the bin directory
+  if [[ "$(basename "$LPM_HOME")" == "bin" ]]; then
+    LPM_HOME=$(dirname "$LPM_HOME")
+  fi
+
+  # Make it fully qualified
+  LPM_HOME=$(cd "$LPM_HOME" && pwd)
+fi
+
+# Find the JAR file
+LPM_JAR="$LPM_HOME/lib/lpm.jar"
+if [ ! -f "$LPM_JAR" ]; then
+  # Try looking in target directory (development mode)
+  LPM_JAR=$(find "$LPM_HOME" -name "lpm-*.jar" -path "*/target/*" ! -name "*-sources.jar" ! -name "*-javadoc.jar" 2>/dev/null | head -1)
+  if [ -z "$LPM_JAR" ] || [ ! -f "$LPM_JAR" ]; then
+    echo "ERROR: Cannot find lpm.jar. Please ensure lpm is properly installed."
+    echo "Searched in: $LPM_HOME/lib/lpm.jar"
+    exit 1
+  fi
+fi
+
+# Find Java
+if [ -z "${JAVA_HOME}" ]; then
+  # Check for bundled JRE
+  if [ -d "${LPM_HOME}/jre" ]; then
+    JAVA_HOME="$LPM_HOME/jre"
+  fi
+fi
+
+if [ -n "${JAVA_HOME}" ]; then
+  if [ ! -d "$JAVA_HOME" ]; then
+    echo "ERROR: JAVA_HOME is set to \"$JAVA_HOME\" but it does not exist." >&2
+    exit 1
+  fi
+  JAVA_PATH="${JAVA_HOME}/bin/java"
+else
+  JAVA_PATH="$(which java 2>/dev/null)"
+  if [ -z "${JAVA_PATH}" ]; then
+    echo "ERROR: Cannot find java in your path."
+    echo "Install Java 17+ or set the JAVA_HOME environment variable."
+    exit 1
+  fi
+fi
+
+# Set default JAVA_OPTS if not defined
+JAVA_OPTS="${JAVA_OPTS-}"
+
+# Check Java version
+check_version "$JAVA_PATH"
+
+# Run lpm
+exec "${JAVA_PATH}" $JAVA_OPTS -jar "$LPM_JAR" "$@"
