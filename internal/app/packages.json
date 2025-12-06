@@ -84,6 +84,13 @@
         "algorithm": "SHA1",
         "checksum": "173c0532cf01a417f5c8ca6b13b2c0354f05a4e0",
         "liquibaseCore": "5.0.1"
+      },
+      {
+        "tag": "v1.0.4",
+        "path": "https://github.com/liquibase/liquibase-aws-license-service/releases/download/v1.0.4/liquibase-aws-license-service-1.0.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "d3c4d6d1f5835f967f5b60b916afd2e43039840e",
+        "liquibaseCore": ""
       }
     ]
   },
