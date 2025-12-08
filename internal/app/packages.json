@@ -90,7 +90,7 @@
         "path": "https://github.com/liquibase/liquibase-aws-license-service/releases/download/v1.0.4/liquibase-aws-license-service-1.0.4.jar",
         "algorithm": "SHA1",
         "checksum": "d3c4d6d1f5835f967f5b60b916afd2e43039840e",
-        "liquibaseCore": ""
+        "liquibaseCore": "5.0.1"
       }
     ]
   },
