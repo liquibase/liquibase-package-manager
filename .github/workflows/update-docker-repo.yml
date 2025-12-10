@@ -208,7 +208,7 @@ jobs:
 
       - name: Create Pull Request
         if: steps.check-changes.outputs.changed == 'true'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ steps.get-token.outputs.token }}
           commit-message: "Update LPM to version ${{ steps.version.outputs.version }}"
