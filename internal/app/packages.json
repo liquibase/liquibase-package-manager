@@ -543,6 +543,13 @@
         "algorithm": "SHA1",
         "checksum": "5f850ae09a6d73307975c4a22cbc5a62cf8addd3",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.0.6",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/3.0.6/databricks-jdbc-3.0.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "0accebc8b2951e76c608146ec79eb2058e13d1e8",
+        "liquibaseCore": ""
       }
     ]
   },
