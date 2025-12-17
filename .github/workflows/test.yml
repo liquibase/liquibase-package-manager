@@ -10,6 +10,7 @@ on:
 permissions:
   id-token: write
   contents: read
+  security-events: write
 
 jobs:
   test:
@@ -54,3 +55,9 @@ jobs:
 
       - name: Build
         run: make build
+
+  govulncheck:
+    uses: ./.github/workflows/govulncheck.yml
+    permissions:
+      contents: read
+      security-events: write
