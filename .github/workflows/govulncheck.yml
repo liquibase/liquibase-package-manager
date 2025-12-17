@@ -22,11 +22,14 @@ jobs:
 
       - name: Run govulncheck
         uses: golang/govulncheck-action@v1
+        with:
+          repo-checkout: false
 
       - name: Generate SARIF report
         uses: golang/govulncheck-action@v1
         if: always()
         with:
+          repo-checkout: false
           output-format: sarif
           output-file: govulncheck.sarif
 
