@@ -13,6 +13,8 @@ permissions:
 jobs:
   govulncheck:
     runs-on: ubuntu-latest
+    env:
+      GOOS: linux  # Avoid platform-specific file conflicts (darwin.go/windows.go)
     steps:
       - uses: actions/checkout@v6
 
