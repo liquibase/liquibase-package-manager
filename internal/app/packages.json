@@ -543,6 +543,27 @@
         "algorithm": "SHA1",
         "checksum": "5f850ae09a6d73307975c4a22cbc5a62cf8addd3",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "2.7.6",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.7.6/databricks-jdbc-2.7.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "f0f57d1e1cc3551ade1e72bdf5ea4dbc29584f64",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.0.6",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/3.0.6/databricks-jdbc-3.0.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "0accebc8b2951e76c608146ec79eb2058e13d1e8",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.0.7",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/3.0.7/databricks-jdbc-3.0.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "af61d5e5f2def64b93ae1bfc6ef0c71afc8d12c4",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -4377,6 +4398,20 @@
         "algorithm": "SHA1",
         "checksum": "8ed7a307cfdb58c7d08983440411e178730cab04",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "2.7.13",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.7.13/mariadb-java-client-2.7.13.jar",
+        "algorithm": "SHA1",
+        "checksum": "517cfc6762b19c50d6c53eb228e2f3c62624ea24",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.5.7",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.5.7/mariadb-java-client-3.5.7.jar",
+        "algorithm": "SHA1",
+        "checksum": "452ea913ff32dcd58e816565ebebb1abf8fae82e",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -6753,6 +6788,13 @@
         "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.27.1/snowflake-jdbc-3.27.1.jar",
         "algorithm": "SHA1",
         "checksum": "802d8aed2795b3fcba799fbf845b2d14a196bd00",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.28.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.28.0/snowflake-jdbc-3.28.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "e0c622fe6b802bae980ef510ca26c571a66a5af0",
         "liquibaseCore": ""
       }
     ]
