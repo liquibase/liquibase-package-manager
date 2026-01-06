@@ -17,8 +17,9 @@ var (
 	globalpath      string
 	globalpathFiles []fs.FileInfo
 	packs           packages.Packages
-    global          bool
-    dryRun bool
+	global          bool
+	dryRun          bool
+	skipExisting    bool
 )
 
 var rootCmd = &cobra.Command{

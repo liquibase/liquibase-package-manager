@@ -69,6 +69,22 @@ Note: If run as an independent binary outside liquibase, or with pre-5.0 version
 - `liquibase lpm upgrade --all` = upgrade lpm + all packages
 - `liquibase lpm upgrade <package>` = upgrade specific package
 
+### Command Flags
+
+#### `lpm add`
+
+| Flag | Description |
+|------|-------------|
+| `--global`, `-g` | Add packages to the global Liquibase installation |
+| `--skip-existing` | Skip packages that are already installed instead of failing (useful for CI/CD) |
+
+**CI/CD Usage**: For idempotent installations in CI/CD pipelines, use the `--skip-existing` flag:
+
+```shell
+liquibase lpm add postgresql mysql --global --skip-existing
+```
+
+This ensures the command succeeds (exit 0) even if packages are already installed.
 
 ## Usage *not within* Liquibase Community
 

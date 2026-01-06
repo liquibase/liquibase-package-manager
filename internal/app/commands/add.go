@@ -58,9 +58,13 @@ var addCmd = &cobra.Command{
 				}
 			}
 			if p.InClassPath(app.ClasspathFiles) {
-                v := p.GetInstalledVersion(app.ClasspathFiles)
-                fmt.Println(p.Name + "@" + v.Tag + " is already installed.")
-                fmt.Println(name + " can not be installed.")
+				installedVer := p.GetInstalledVersion(app.ClasspathFiles)
+				if skipExisting {
+					fmt.Println(p.Name + "@" + installedVer.Tag + " is already installed. Skipping.")
+					continue
+				}
+				fmt.Println(p.Name + "@" + installedVer.Tag + " is already installed.")
+				fmt.Println(name + " can not be installed.")
 				errors.Exit("Consider running `lpm upgrade`.", 1)
 			}
 			if !v.PathIsHTTP() {
@@ -94,4 +98,5 @@ var addCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(addCmd)
 	addCmd.Flags().BoolVarP(&global, "global", "g", false, "add package globally")
+	addCmd.Flags().BoolVar(&skipExisting, "skip-existing", false, "skip packages that are already installed instead of failing")
 }
