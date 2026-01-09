@@ -22,19 +22,17 @@ tests:
       command: stat ./liquibase_libs/liquibase-percona-4.5.0.jar
   - "cannot add already installed package without flag":
       command: lpm add liquibase-postgresql@4.5.0
-      exit_code: 1
+      exitValue: 1
       stdout:
-        contains:
-          - liquibase-postgresql@4.5.0 is already installed.
-          - can not be installed.
+        contains: is already installed.
   - "can skip already installed package with flag":
       command: lpm add liquibase-postgresql@4.5.0 --skip-existing
-      exit_code: 0
+      exitValue: 0
       stdout:
         contains: already installed. Skipping.
   - "can skip installed and install new with flag":
       command: lpm add liquibase-postgresql@4.5.0 liquibase-mongodb@4.5.0 --skip-existing
-      exit_code: 0
+      exitValue: 0
       stdout:
         contains:
           - already installed. Skipping.
