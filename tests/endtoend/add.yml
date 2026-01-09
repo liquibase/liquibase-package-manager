@@ -29,5 +29,13 @@ tests:
           - can not be installed
   - "can skip already installed package with flag":
       command: lpm add liquibase-postgresql@4.5.0 --skip-existing
+      exit_code: 0
       stdout:
         contains: already installed. Skipping.
+  - "can skip installed and install new with flag":
+      command: lpm add liquibase-postgresql@4.5.0 liquibase-mongodb@4.5.0 --skip-existing
+      exit_code: 0
+      stdout:
+        contains:
+          - already installed. Skipping.
+          - successfully installed in classpath.
