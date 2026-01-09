@@ -25,8 +25,8 @@ tests:
       exit_code: 1
       stdout:
         contains:
-          - liquibase-postgresql@4.5.0 is already installed
-          - can not be installed
+          - liquibase-postgresql@4.5.0 is already installed.
+          - can not be installed.
   - "can skip already installed package with flag":
       command: lpm add liquibase-postgresql@4.5.0 --skip-existing
       exit_code: 0
