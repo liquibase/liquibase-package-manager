@@ -6,10 +6,10 @@ tests:
           - Easily manage external dependencies for Database Development.
           - Search for, install, and uninstall liquibase drivers, extensions, and utilities.
           - lpm [command]
-          - add         Add Packages
+          - add         Add packages to the liquibase.json file and to this Liquibase installation
           - completion  Generate the autocompletion script for the specified shell
           - help        Help about any command
-          - install     Install Packages from liquibase.json
+          - install     Install packages listed in liquibase.json file
           - list        List Installed Packages
           - remove      Removes Package
           - search      Search for Packages
