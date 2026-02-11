@@ -1,13 +1,13 @@
 module package-manager
 
-go 1.25.5
+go 1.25.7
 
 require (
 	github.com/google/go-github/v39 v39.2.0
 	github.com/hashicorp/go-version v1.8.0
 	github.com/spf13/cobra v1.10.2
 	github.com/vifraa/gopom v1.0.0
-	golang.org/x/oauth2 v0.34.0
+	golang.org/x/oauth2 v0.35.0
 )
 
 require (
