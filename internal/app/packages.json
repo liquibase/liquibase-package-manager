@@ -14815,6 +14815,26 @@
     ]
   },
   {
+    "name": "liquibase-mongodb-extension-by-harness",
+    "category": "extension",
+    "versions": [
+      {
+        "tag": "1.0.0-4.24.0",
+        "path": "https://us-maven.pkg.dev/gar-prod-setup/harness-maven-public/io/harness/liquibase-mongodb-dbops-extension/1.0.0-4.24.0/liquibase-mongodb-dbops-extension-1.0.0-4.24.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "3d0f36665955911475f03516b1d427df9c8e64d1",
+        "liquibaseCore": "4.24.0"
+      },
+      {
+        "tag": "1.1.0-4.24.0",
+        "path": "https://us-maven.pkg.dev/gar-prod-setup/harness-maven-public/io/harness/liquibase-mongodb-dbops-extension/1.1.0-4.24.0/liquibase-mongodb-dbops-extension-1.1.0-4.24.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "dd44370a4b27b2af5f6ca1a31c403ce9637a8273",
+        "liquibaseCore": "4.24.0"
+      }
+    ]
+  },
+  {
     "name": "liquibase-mssql",
     "category": "extension",
     "versions": [

@@ -358,6 +358,13 @@ func init() {
             artifactory: Maven{},
         },
         {
+            name:        "liquibase-mongodb-extension-by-harness",
+            category:    Extension,
+            url:         "https://us-maven.pkg.dev/gar-prod-setup/harness-maven-public/io/harness/liquibase-mongodb-dbops-extension",
+            filePrefix:  "liquibase-mongodb-dbops-extension-",
+            artifactory: Maven{},
+        },
+        {
             name:        "liquibase-mssql",
             category:    Extension,
             url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mssql",
