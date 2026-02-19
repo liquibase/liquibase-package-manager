@@ -162,22 +162,15 @@ This project also includes software governed by the Mozilla Public License, v. 2
 
 LPM uses an **automated release process** with minimal manual intervention.
 
-### Quick Release Guide for Maintainers
+### Quick Release Guide
 
-**3-Step Release Process:**
+To create a release:
 
-1. **Bump Version** - Run the "Bump Version" GitHub Action
-   - Select `patch`, `minor`, or `major`
-   - Automatically updates VERSION file and creates tag
+    Merge PRs to master (labeled appropriately: feature, bug, breaking, etc.)
+    Review the auto-generated draft release on GitHub
+    Click Publish release
+    Wait ~5-10 minutes for artifacts to build and attach automatically
 
-2. **Build Artifacts** - Run the "Attach Artifact to Release" GitHub Action
-   - Builds for all platforms (darwin, linux, windows, s390x)
-   - Generates checksums for all platforms
-   - Uploads artifacts to draft release
-
-3. **Publish** - Review and publish the draft release on GitHub
-   - VERSION file automatically syncs after publishing
-   - Docker repository automatically updated with PR
 
 **That's it!** ✨ The entire process is now mostly automated.
 
