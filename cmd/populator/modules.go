@@ -27,12 +27,6 @@ func init() {
             excludeSuffix: "RC",
         },
         {
-            name:        "liquibase-io-runner",
-            category:    Extension,
-            url:         "https://repo1.maven.org/maven2/org/liquibase/io/ext/liquibase-io-runner",
-            artifactory: Maven{},
-        },
-        {
             name:        "liquibase-aws-license-service",
             category:    Pro,
             owner:       "liquibase",
@@ -82,12 +76,6 @@ func init() {
             artifactory: Github{},
             owner:       "liquibase",
             repo:        "protobuf-generator",
-        },
-        {
-            name:        "liquibase-s3-extension",
-            category:    Pro,
-            url:         "https://repo1.maven.org/maven2/org/liquibase/liquibase-s3-extension",
-            artifactory: Maven{},
         },
         {
             name:        "liquibase-aws-secrets-manager",
@@ -156,13 +144,6 @@ func init() {
             name:        "custom-datatype-converter",
             category:    Extension,
             url:         "https://maven.liquibase.com/org/liquibase/ext/datatype/custom-datatype-converter",
-            artifactory: Maven{},
-        },
-        {
-            name:        "mongodb",
-            category:    Driver,
-            url:         "https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver",
-            filePrefix:  "mongo-java-driver-",
             artifactory: Maven{},
         },
         {
