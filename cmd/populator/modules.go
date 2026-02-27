@@ -27,12 +27,6 @@ func init() {
             excludeSuffix: "RC",
         },
         {
-            name:        "liquibase-io-runner",
-            category:    Extension,
-            url:         "https://repo1.maven.org/maven2/org/liquibase/io/ext/liquibase-io-runner",
-            artifactory: Maven{},
-        },
-        {
             name:        "liquibase-aws-license-service",
             category:    Pro,
             owner:       "liquibase",
@@ -75,13 +69,6 @@ func init() {
             category:    Extension,
             url:         "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-git-resource",
             artifactory: Maven{},
-        },
-        {
-            name:        "protobuf-generator",
-            category:    Extension,
-            artifactory: Github{},
-            owner:       "liquibase",
-            repo:        "protobuf-generator",
         },
         {
             name:        "liquibase-s3-extension",
@@ -144,12 +131,6 @@ func init() {
             name:        "growthbook",
             category:    Pro,
             url:         "https://maven.liquibase.com/org/liquibase/ext/precondition/growthbook",
-            artifactory: Maven{},
-        },
-        {
-            name:        "launchdarkly",
-            category:    Pro,
-            url:         "https://maven.liquibase.com/org/liquibase/ext/precondition/launchdarkly",
             artifactory: Maven{},
         },
         {
