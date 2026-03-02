@@ -20,40 +20,6 @@
     ]
   },
   {
-    "name": "liquibase-io-runner",
-    "category": "extension",
-    "versions": [
-      {
-        "tag": "0.1.28",
-        "path": "https://repo1.maven.org/maven2/org/liquibase/io/ext/liquibase-io-runner/0.1.28/liquibase-io-runner-0.1.28.jar",
-        "algorithm": "SHA1",
-        "checksum": "6fad7774ffd0d51fa8ee095fca736b028e2c3c1c",
-        "liquibaseCore": "4.30.0"
-      },
-      {
-        "tag": "0.1.29",
-        "path": "https://repo1.maven.org/maven2/org/liquibase/io/ext/liquibase-io-runner/0.1.29/liquibase-io-runner-0.1.29.jar",
-        "algorithm": "SHA1",
-        "checksum": "0b13b2b64e19d37c4e74913f69eede5e979d4654",
-        "liquibaseCore": "4.30.0"
-      },
-      {
-        "tag": "0.1.30",
-        "path": "https://repo1.maven.org/maven2/org/liquibase/io/ext/liquibase-io-runner/0.1.30/liquibase-io-runner-0.1.30.jar",
-        "algorithm": "SHA1",
-        "checksum": "2d24a5c60cc2aa054cf905b43f6328d87a95c33c",
-        "liquibaseCore": "4.30.0"
-      },
-      {
-        "tag": "0.2.0",
-        "path": "https://repo1.maven.org/maven2/org/liquibase/io/ext/liquibase-io-runner/0.2.0/liquibase-io-runner-0.2.0.jar",
-        "algorithm": "SHA1",
-        "checksum": "8ddcbbedd5024dbcca4db0421cc7959b47d58906",
-        "liquibaseCore": "4.32.0"
-      }
-    ]
-  },
-  {
     "name": "liquibase-aws-license-service",
     "category": "extension",
     "versions": [
@@ -1062,103 +1028,6 @@
     ]
   },
   {
-    "name": "protobuf-generator",
-    "category": "extension",
-    "versions": [
-      {
-        "tag": "v0.1.0",
-        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.1.0/protobuf-generator-0.1.0.jar",
-        "algorithm": "SHA1",
-        "checksum": "384532ec901c0842ab45a933b2e7bcdacd18310f",
-        "liquibaseCore": "4.16.1"
-      },
-      {
-        "tag": "v0.2.0",
-        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.2.0/protobuf-generator-0.2.0.jar",
-        "algorithm": "SHA1",
-        "checksum": "1d46cae33e5e40186925a54432cfd5dd3172c095",
-        "liquibaseCore": "4.16.1"
-      },
-      {
-        "tag": "v0.2.1",
-        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.2.1/protobuf-generator-0.2.1.jar",
-        "algorithm": "SHA1",
-        "checksum": "de90cc80797dd55034671958639cf8d0c608bb43",
-        "liquibaseCore": "4.16.1"
-      },
-      {
-        "tag": "v0.3.0",
-        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.3.0/protobuf-generator-0.3.0.jar",
-        "algorithm": "SHA1",
-        "checksum": "036ea68a5b4f0a512100329c1c09b0ba01f061a5",
-        "liquibaseCore": "4.16.1"
-      },
-      {
-        "tag": "v0.3.1",
-        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.3.1/protobuf-generator-0.3.1.jar",
-        "algorithm": "SHA1",
-        "checksum": "d9e6d8003cce372c718e7f70cd7725d37c1be139",
-        "liquibaseCore": "4.16.1"
-      },
-      {
-        "tag": "v0.3.2",
-        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.3.2/protobuf-generator-0.3.2.jar",
-        "algorithm": "SHA1",
-        "checksum": "45e2e179312922d3d240958ef9c5fd3ecc95aa1b",
-        "liquibaseCore": "4.17.1"
-      },
-      {
-        "tag": "v0.3.3",
-        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.3.3/protobuf-generator-0.3.3.jar",
-        "algorithm": "SHA1",
-        "checksum": "21f64402b752c577db94dc584f7eebdceaa9d000",
-        "liquibaseCore": "4.18.0"
-      },
-      {
-        "tag": "v0.3.4",
-        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.3.4/protobuf-generator-0.3.4.jar",
-        "algorithm": "SHA1",
-        "checksum": "ec52203f2e7990f00c9cd5a6050686eaa1957756",
-        "liquibaseCore": "4.18.0"
-      },
-      {
-        "tag": "v0.3.5",
-        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.3.5/protobuf-generator-0.3.5.jar",
-        "algorithm": "SHA1",
-        "checksum": "830ba9a741f61f2d0905e66206a6a089b277cd43",
-        "liquibaseCore": "4.23.0"
-      },
-      {
-        "tag": "v0.3.6",
-        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.3.6/protobuf-generator-0.3.6.jar",
-        "algorithm": "SHA1",
-        "checksum": "d16cfd407bd7eb945749872e223401783dc72fce",
-        "liquibaseCore": "4.23.0"
-      },
-      {
-        "tag": "v0.3.7",
-        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.3.7/protobuf-generator-0.3.7.jar",
-        "algorithm": "SHA1",
-        "checksum": "2d98b5f70e459dcb46375b8b1aa41ca135ddca28",
-        "liquibaseCore": "4.23.0"
-      },
-      {
-        "tag": "v0.3.8",
-        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.3.8/protobuf-generator-0.3.8.jar",
-        "algorithm": "SHA1",
-        "checksum": "7efb45e0137c5167e814da12cf8f74e98c3924d6",
-        "liquibaseCore": "4.26.0"
-      },
-      {
-        "tag": "v0.3.9",
-        "path": "https://github.com/liquibase/protobuf-generator/releases/download/v0.3.9/protobuf-generator-0.3.9.jar",
-        "algorithm": "SHA1",
-        "checksum": "a62719f8b7055dcecc43103ce4d37d9b2c6282fb",
-        "liquibaseCore": "4.26.0"
-      }
-    ]
-  },
-  {
     "name": "liquibase-s3-extension",
     "category": "pro",
     "versions": [
@@ -1417,19 +1286,6 @@
         "path": "https://maven.liquibase.com/org/liquibase/ext/precondition/growthbook/0.0.1/growthbook-0.0.1.jar",
         "algorithm": "SHA1",
         "checksum": "e050232e4b7e5d0facdfc6f56e7cfff820021cd2",
-        "liquibaseCore": "4.9.1"
-      }
-    ]
-  },
-  {
-    "name": "launchdarkly",
-    "category": "pro",
-    "versions": [
-      {
-        "tag": "0.0.1",
-        "path": "https://maven.liquibase.com/org/liquibase/ext/precondition/launchdarkly/0.0.1/launchdarkly-0.0.1.jar",
-        "algorithm": "SHA1",
-        "checksum": "6d9023d69a8ac8e45bd7627caf855143923b6107",
         "liquibaseCore": "4.9.1"
       }
     ]
