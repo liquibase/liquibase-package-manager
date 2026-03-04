@@ -152,7 +152,7 @@ You will need to start a new shell for this setup to take effect.
 
 ## License
 
-This project is licensed under the Apache License 2.0. See the LICENSE file for details.
+This project is licensed under the Functional Source License, Version 1.1, ALv2 Future License (FSL-1.1-ALv2). See the LICENSE file for details.
 
 This project also includes software governed by the Mozilla Public License, v. 2.0.
 
