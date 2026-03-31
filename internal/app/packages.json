@@ -10253,6 +10253,13 @@
         "algorithm": "SHA1",
         "checksum": "64153d7488bbf25c040f3b0f004177bc05b36b22",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "9.6.0",
+        "path": "https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/9.6.0/mysql-connector-j-9.6.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "0a76b3cf1facc2faca4b6e34c1a63ef5e7840131",
+        "liquibaseCore": ""
       }
     ]
   },
