@@ -108,7 +108,7 @@ make test-search  # or test-add, test-install, etc.
 - Release automation via GitHub Actions
 
 ### Dependencies
-- **Go 1.23.8**: Primary language runtime
+- **Go 1.25.9**: Primary language runtime
 - **Cobra**: CLI framework and command structure
 - **go-version**: Semantic version handling
 - **oauth2**: GitHub API authentication for package discovery
