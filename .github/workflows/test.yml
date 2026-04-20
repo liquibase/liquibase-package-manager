@@ -3,7 +3,7 @@ name: PR Quality Gate
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     types: [opened, synchronize, reopened]
 

@@ -41,7 +41,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          ref: main
+          ref: master
           fetch-depth: 0
           token: ${{ steps.get-token.outputs.token }}
 
@@ -85,7 +85,7 @@ jobs:
           
           git add VERSION
           git commit -m "Sync VERSION to $NEW_VERSION after release [skip ci]"
-          git push origin main
+          git push origin master
           
           echo "✅ VERSION file synced to $NEW_VERSION"
 
@@ -97,7 +97,7 @@ jobs:
           
           git add internal/app/VERSION
           git commit -m "Update internal VERSION to $NEW_VERSION [skip ci]" || echo "No changes to internal/app/VERSION"
-          git push origin main || echo "Nothing to push"
+          git push origin master || echo "Nothing to push"
 
       - name: Summary
         run: |
@@ -109,7 +109,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           
           if [ "${{ steps.update-version.outputs.updated }}" = "true" ]; then
-            echo "✅ VERSION file updated and committed to main" >> $GITHUB_STEP_SUMMARY
+            echo "✅ VERSION file updated and committed to master" >> $GITHUB_STEP_SUMMARY
           else
             echo "✅ VERSION file already in sync" >> $GITHUB_STEP_SUMMARY
           fi
