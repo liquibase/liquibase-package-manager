@@ -166,7 +166,7 @@ LPM uses an **automated release process** with minimal manual intervention.
 
 To create a release:
 
-    Merge PRs to main (labeled appropriately: feature, bug, breaking, etc.)
+    Merge PRs to master (labeled appropriately: feature, bug, breaking, etc.)
     Review the auto-generated draft release on GitHub
     Click Publish release
     Wait ~5-10 minutes for artifacts to build and attach automatically
@@ -194,4 +194,4 @@ For complete release process documentation, troubleshooting, and best practices,
 
 ## Adding an Extension
 
-https://github.com/liquibase/liquibase-package-manager/blob/main/CONTRIBUTING.md
+https://github.com/liquibase/liquibase-package-manager/blob/master/CONTRIBUTING.md
