@@ -6,8 +6,8 @@
 1. Enable public access for your fork
 1. Make your code changes
 1. Commit your changes (`git commit -am 'Add some feature/folder'`)
-1. Push your changes (`git push origin master`)
-1. Create a Pull Request to [master](https://github.com/liquibase/liquibase-package-manager) branch.
+1. Push your changes (`git push origin main`)
+1. Create a Pull Request to [main](https://github.com/liquibase/liquibase-package-manager) branch.
 
 ## Important Guidelines!
 

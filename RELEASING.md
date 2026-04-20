@@ -6,7 +6,7 @@ This document describes the **fully automated release process** for LPM using Re
 
 **To create a release:**
 
-1. Merge PRs to `master` (labeled appropriately: `feature`, `bug`, `breaking`, etc.)
+1. Merge PRs to `main` (labeled appropriately: `feature`, `bug`, `breaking`, etc.)
 2. Review the auto-generated draft release on GitHub
 3. Click **Publish release**
 4. Wait ~5-10 minutes for artifacts to build and attach automatically
@@ -48,7 +48,7 @@ Before the automated release process can work, the following must be configured:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│  1. Merge PRs to master                                         │
+│  1. Merge PRs to main                                           │
 │     • Ensure PRs are labeled (feature, bug, breaking, etc.)     │
 │     • Labels determine version bump (major/minor/patch)         │
 └────────────────┬────────────────────────────────────────────────┘
@@ -83,7 +83,7 @@ Before the automated release process can work, the following must be configured:
 │     │ B. Sync VERSION File (~10 sec) - PARALLEL            │   │
 │     │    • Updates VERSION file to match release            │   │
 │     │    • Updates internal/app/VERSION                     │   │
-│     │    • Commits to master                                │   │
+│     │    • Commits to main                                  │   │
 │     └───────────────────────────────────────────────────────┘   │
 │                        │                                         │
 │                        ▼ (waits for A to complete)               │
@@ -101,7 +101,7 @@ Before the automated release process can work, the following must be configured:
 
 ## Detailed Step-by-Step Guide
 
-### Step 1: Merge PRs to Master
+### Step 1: Merge PRs to Main
 
 **How versioning works:**
 
@@ -117,7 +117,7 @@ The version is automatically determined by PR labels:
 **Before merging your PR:**
 1. Add appropriate labels to your PR
 2. Verify the PR title and description are clear
-3. Merge to `master`
+3. Merge to `main`
 
 **Pro tip:** You can merge multiple PRs before releasing. Release Drafter will accumulate all changes in the draft release.
 
@@ -127,7 +127,7 @@ The version is automatically determined by PR labels:
 
 **What happens automatically:**
 
-When you push to `master`:
+When you push to `main`:
 
 1. The **Create Release** workflow runs automatically
 2. Release Drafter creates/updates a draft release with:
@@ -137,7 +137,7 @@ When you push to `master`:
 
 **Important**: The draft release contains **ONLY the changelog** at this point. Artifacts are built AFTER you publish.
 
-**No action required** - Release Drafter maintains a single draft release that gets updated with each merge to master.
+**No action required** - Release Drafter maintains a single draft release that gets updated with each merge to main.
 
 ---
 
@@ -188,11 +188,11 @@ The **Sync VERSION on Release Publish** workflow:
 1. Extracts version from release tag
 2. Updates `VERSION` file if different
 3. Updates `internal/app/VERSION`
-4. Commits and pushes to master
+4. Commits and pushes to main
 
 **Duration**: ~10 seconds
 
-**Result**: VERSION file in master always matches the latest published release
+**Result**: VERSION file in main always matches the latest published release
 
 #### C. Update Docker Repository (~30 seconds, runs AFTER artifact build)
 
@@ -279,7 +279,7 @@ Release Drafter automatically categorizes PRs based on labels. Use these labels 
 
 | Workflow | Trigger | Purpose | Duration |
 |----------|---------|---------|----------|
-| `create-release.yml` | Push to master | Create/update draft release via Release Drafter | ~5 sec |
+| `create-release.yml` | Push to main | Create/update draft release via Release Drafter | ~5 sec |
 | `attach-artifact-release.yml` | Release published | Build and upload release artifacts | ~5-10 min |
 | `publish-release.yml` | Release published | Sync VERSION file after publish | ~10 sec |
 | `update-docker-repo.yml` | `attach-artifact-release.yml` completion | Update LPM in docker repository | ~30 sec |
@@ -343,12 +343,12 @@ If the automatic Docker update fails:
    echo "$VERSION" > VERSION
    git add VERSION
    git commit -m "Sync VERSION to $VERSION"
-   git push origin master
+   git push origin main
    ```
 
 ### Draft release not created
 
-**Problem:** No draft release after pushing to master.
+**Problem:** No draft release after pushing to main.
 
 **Solution:**
 1. Check the "Create Release" workflow logs
@@ -396,7 +396,7 @@ If all automation fails (extremely rare):
    echo "X.Y.Z" > VERSION
    git add VERSION
    git commit -m "Sync VERSION to X.Y.Z"
-   git push origin master
+   git push origin main
    ```
 
 ---
@@ -415,7 +415,7 @@ If all automation fails (extremely rare):
 - Publish releases without reviewing the changelog
 - Skip labeling PRs (affects versioning and categorization)
 - Delete tags without good reason
-- Force push to master
+- Force push to main
 
 ---
 
@@ -423,7 +423,7 @@ If all automation fails (extremely rare):
 
 | Step | Action | Duration | Manual? | Parallelism |
 |------|--------|----------|---------|-------------|
-| 1. | Merge PR to master | Instant | ✋ Manual | - |
+| 1. | Merge PR to main | Instant | ✋ Manual | - |
 | 2. | Release Drafter updates draft | ~5 sec | ✅ Auto | - |
 | 3. | Review and publish release | Variable | ✋ Manual | - |
 | 4. | Build artifacts | ~5-10 min | ✅ Auto | Parallel with step 5 |
