@@ -30,10 +30,13 @@ func init() {
 // GetVersions from Github
 func (g Github) GetVersions(m Module) []*version.Version {
 	rr, _, _ := client.Repositories.ListReleases(context.Background(), m.owner, m.repo, &github.ListOptions{})
-	versions := make([]*version.Version, len(rr))
-	for i, r := range rr {
-		v, _ := version.NewVersion(r.GetTagName())
-		versions[i] = v
+	versions := make([]*version.Version, 0, len(rr))
+	for _, r := range rr {
+		v, err := version.NewVersion(r.GetTagName())
+		if err != nil {
+			continue
+		}
+		versions = append(versions, v)
 	}
 	sort.Sort(version.Collection(versions))
 	return versions

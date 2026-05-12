@@ -65,10 +65,13 @@ func (mav Maven) GetVersions(m Module) []*version.Version {
 	}
 
 	// Sort Versions
-	versions := make([]*version.Version, len(versionsRaw))
-	for i, raw := range versionsRaw {
-		v, _ := version.NewVersion(raw)
-		versions[i] = v
+	versions := make([]*version.Version, 0, len(versionsRaw))
+	for _, raw := range versionsRaw {
+		v, err := version.NewVersion(raw)
+		if err != nil {
+			continue
+		}
+		versions = append(versions, v)
 	}
 	sort.Sort(version.Collection(versions))
 	return versions
