@@ -15497,7 +15497,7 @@
         "tag": "5.0.2",
         "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-mssql/5.0.2/liquibase-mssql-5.0.2.jar",
         "algorithm": "SHA1",
-        "checksum": "This tool has been identified as abusive",
+        "checksum": "8e960aa6cf7c3ceaeae8e48ebfc1298845a8b8dd",
         "liquibaseCore": "5.0.2"
       }
     ]
