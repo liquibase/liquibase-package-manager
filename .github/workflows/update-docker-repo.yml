@@ -290,7 +290,7 @@ jobs:
 
       - name: Upload outcome artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: outcome-${{ strategy.job-index }}
           path: outcome-*.txt
@@ -303,11 +303,11 @@ jobs:
     name: Run summary
     needs: [prepare, update-repo]
     runs-on: ubuntu-latest
-    if: always()
+    if: always() && needs.prepare.result != 'skipped'
 
     steps:
       - name: Download all outcome artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           pattern: outcome-*
           merge-multiple: true
