@@ -25,6 +25,12 @@ on:
         type: boolean
         default: false
 
+# Serialize runs so two releases in quick succession cannot race on the shared
+# "latest release" resolution or open conflicting PRs; queue instead of cancelling.
+concurrency:
+  group: update-docker-repo
+  cancel-in-progress: false
+
 # Permissions are scoped per job (least privilege) — only update-repo needs id-token: write for AWS OIDC.
 jobs:
   # ─── Stage 1: Compute version + checksums ONCE ───────────────────────────────
@@ -33,6 +39,7 @@ jobs:
   prepare:
     name: Prepare version and checksums
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     permissions:
       contents: read  # read public release data via GITHUB_TOKEN
@@ -45,21 +52,35 @@ jobs:
       - name: Extract version from release
         id: version
         run: |
+          set -euo pipefail
           if [ "${{ github.event_name }}" = "workflow_run" ]; then
-            # Get the latest published release tag for this repo
+            # On workflow_run, resolve the most recently PUBLISHED release. At our
+            # release cadence that is the release that just triggered the upstream
+            # "Build and Attach Artifacts" run, and the workflow-level concurrency
+            # group serializes runs so two releases cannot race here. Draft releases
+            # have a null published_at, which jq sorts last after reverse, so they
+            # are never selected.
             TAG_NAME=$(gh api \
               -H "Accept: application/vnd.github+json" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
               /repos/${{ github.repository }}/releases \
               --jq 'sort_by(.published_at) | reverse | .[0].tag_name')
             VERSION="${TAG_NAME#v}"
-            echo "version=$VERSION" >> "$GITHUB_OUTPUT"
             echo "Using version from latest release: $VERSION"
           else
             VERSION="$LPM_VERSION_INPUT"
-            echo "version=$VERSION" >> "$GITHUB_OUTPUT"
             echo "Using manual input version: $VERSION"
           fi
+
+          # Validate the version format before it flows into a URL, sed, and a
+          # branch name. Mirrors the strict SHA gate below and also fails fast on an
+          # empty/unresolved version (e.g. a transient gh-api failure) at its root.
+          if ! echo "$VERSION" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "::error::Invalid or unresolved LPM version: '$VERSION' (expected N.N.N)"
+            exit 1
+          fi
+
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LPM_VERSION_INPUT: ${{ inputs.lpm-version }}
@@ -69,6 +90,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -euo pipefail
           VERSION="${{ steps.version.outputs.version }}"
 
           # Download checksums.txt from release
@@ -102,14 +124,18 @@ jobs:
           INPUT_SHA256_AMD64: ${{ inputs.sha256-amd64 }}
           INPUT_SHA256_ARM64: ${{ inputs.sha256-arm64 }}
         run: |
+          set -euo pipefail
           # Use dispatch overrides when BOTH are supplied; otherwise parse from checksums.txt
           if [ -n "$INPUT_SHA256_AMD64" ] && [ -n "$INPUT_SHA256_ARM64" ]; then
             SHA256_AMD64="$INPUT_SHA256_AMD64"
             SHA256_ARM64="$INPUT_SHA256_ARM64"
             echo "Using manually supplied SHA256 overrides"
           else
-            SHA256_AMD64=$(grep "lpm-${VERSION}-linux.zip" checksums.txt | awk '{print $1}')
-            SHA256_ARM64=$(grep "lpm-${VERSION}-linux-arm64.zip" checksums.txt | awk '{print $1}')
+            # -F: match the asset name literally so the dots are not regex wildcards.
+            # || true: a no-match is handled by the 64-hex validation gate below,
+            # not by aborting under pipefail with a confusing error.
+            SHA256_AMD64=$(grep -F "lpm-${VERSION}-linux.zip" checksums.txt | awk '{print $1}' || true)
+            SHA256_ARM64=$(grep -F "lpm-${VERSION}-linux-arm64.zip" checksums.txt | awk '{print $1}' || true)
 
             # Fall back to individual override if only one was supplied
             if [ -n "$INPUT_SHA256_AMD64" ]; then
@@ -141,6 +167,7 @@ jobs:
     name: "Update ${{ matrix.repo }}"
     needs: prepare
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     if: ${{ needs.prepare.result == 'success' }}
     permissions:
       contents: read   # checkout target repos uses the App token, not GITHUB_TOKEN
@@ -288,9 +315,13 @@ jobs:
           elif [ "$DRY_RUN" = "true" ]; then
             OUTCOME="dry-run-would-create"
             PR_URL=""
-          else
+          elif [ -n "${{ steps.create-pr.outputs.pull-request-url }}" ]; then
             OUTCOME="created"
             PR_URL="${{ steps.create-pr.outputs.pull-request-url }}"
+          else
+            # PR step ran but produced no URL (rare) — report honestly, don't claim "created".
+            OUTCOME="no-pr"
+            PR_URL=""
           fi
           echo "${{ matrix.repo }}|${OUTCOME}|${PR_URL}" > "outcome-${REPO_SAFE}.txt"
           echo "Recorded outcome for ${{ matrix.repo }}: ${OUTCOME}"
@@ -310,6 +341,7 @@ jobs:
     name: Run summary
     needs: [prepare, update-repo]
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     if: always() && needs.prepare.result != 'skipped'
     permissions:
       contents: read
