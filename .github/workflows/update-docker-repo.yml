@@ -25,10 +25,7 @@ on:
         type: boolean
         default: false
 
-permissions:
-  contents: read
-  id-token: write  # Required for AWS OIDC in every job
-
+# Permissions are scoped per job (least privilege) — only update-repo needs id-token: write for AWS OIDC.
 jobs:
   # ─── Stage 1: Compute version + checksums ONCE ───────────────────────────────
   # This job uses only GITHUB_TOKEN (read-only) to read public release data.
@@ -37,6 +34,8 @@ jobs:
     name: Prepare version and checksums
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    permissions:
+      contents: read  # read public release data via GITHUB_TOKEN
     outputs:
       version:      ${{ steps.version.outputs.version }}
       sha256_amd64: ${{ steps.checksums.outputs.sha256_amd64 }}
@@ -57,12 +56,13 @@ jobs:
             echo "version=$VERSION" >> "$GITHUB_OUTPUT"
             echo "Using version from latest release: $VERSION"
           else
-            VERSION="${{ inputs.lpm-version }}"
+            VERSION="$LPM_VERSION_INPUT"
             echo "version=$VERSION" >> "$GITHUB_OUTPUT"
             echo "Using manual input version: $VERSION"
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LPM_VERSION_INPUT: ${{ inputs.lpm-version }}
 
       - name: Download checksums file
         id: download-checksums
@@ -95,24 +95,26 @@ jobs:
 
       - name: Extract and validate SHA256 checksums
         id: checksums
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          INPUT_SHA256_AMD64: ${{ inputs.sha256-amd64 }}
+          INPUT_SHA256_ARM64: ${{ inputs.sha256-arm64 }}
         run: |
-          VERSION="${{ steps.version.outputs.version }}"
-
           # Use dispatch overrides when BOTH are supplied; otherwise parse from checksums.txt
-          if [ -n "${{ inputs.sha256-amd64 }}" ] && [ -n "${{ inputs.sha256-arm64 }}" ]; then
-            SHA256_AMD64="${{ inputs.sha256-amd64 }}"
-            SHA256_ARM64="${{ inputs.sha256-arm64 }}"
+          if [ -n "$INPUT_SHA256_AMD64" ] && [ -n "$INPUT_SHA256_ARM64" ]; then
+            SHA256_AMD64="$INPUT_SHA256_AMD64"
+            SHA256_ARM64="$INPUT_SHA256_ARM64"
             echo "Using manually supplied SHA256 overrides"
           else
             SHA256_AMD64=$(grep "lpm-${VERSION}-linux.zip" checksums.txt | awk '{print $1}')
             SHA256_ARM64=$(grep "lpm-${VERSION}-linux-arm64.zip" checksums.txt | awk '{print $1}')
 
             # Fall back to individual override if only one was supplied
-            if [ -n "${{ inputs.sha256-amd64 }}" ]; then
-              SHA256_AMD64="${{ inputs.sha256-amd64 }}"
+            if [ -n "$INPUT_SHA256_AMD64" ]; then
+              SHA256_AMD64="$INPUT_SHA256_AMD64"
             fi
-            if [ -n "${{ inputs.sha256-arm64 }}" ]; then
-              SHA256_ARM64="${{ inputs.sha256-arm64 }}"
+            if [ -n "$INPUT_SHA256_ARM64" ]; then
+              SHA256_ARM64="$INPUT_SHA256_ARM64"
             fi
           fi
 
@@ -138,6 +140,9 @@ jobs:
     needs: prepare
     runs-on: ubuntu-latest
     if: ${{ needs.prepare.result == 'success' }}
+    permissions:
+      contents: read   # checkout target repos uses the App token, not GITHUB_TOKEN
+      id-token: write  # AWS OIDC → Vault → GitHub App token mint
     strategy:
       fail-fast: false  # One repo failing must not cancel others (R6)
       matrix:
@@ -192,9 +197,9 @@ jobs:
             fi
             # NOTE: ^ARG LPM_SHA256= matches amd64 ONLY — the trailing = cannot match
             # LPM_SHA256_ARM= (which has _ARM before the =). The = boundary is load-bearing.
-            sed -i "s/^ARG LPM_VERSION=.*/ARG LPM_VERSION=${VERSION}/"            "$f"
-            sed -i "s/^ARG LPM_SHA256=.*/ARG LPM_SHA256=${SHA256_AMD64}/"         "$f"
-            sed -i "s/^ARG LPM_SHA256_ARM=.*/ARG LPM_SHA256_ARM=${SHA256_ARM64}/" "$f"
+            sed -i "s|^ARG LPM_VERSION=.*|ARG LPM_VERSION=${VERSION}|"            "$f"
+            sed -i "s|^ARG LPM_SHA256=.*|ARG LPM_SHA256=${SHA256_AMD64}|"         "$f"
+            sed -i "s|^ARG LPM_SHA256_ARM=.*|ARG LPM_SHA256_ARM=${SHA256_ARM64}|" "$f"
             echo "Updated $f:"
             grep -E "^ARG LPM_(VERSION|SHA256|SHA256_ARM)=" "$f"
           done
@@ -268,6 +273,8 @@ jobs:
       - name: Record outcome
         id: record
         if: always()
+        env:
+          DRY_RUN: ${{ inputs.dry-run }}
         run: |
           REPO_SAFE=$(echo "${{ matrix.repo }}" | tr '/' '-')
           if [ "${{ job.status }}" = "failure" ]; then
@@ -276,7 +283,7 @@ jobs:
           elif [ "${{ steps.check.outputs.outcome }}" = "noop" ]; then
             OUTCOME="noop"
             PR_URL=""
-          elif [ "${{ inputs.dry-run }}" = "true" ]; then
+          elif [ "$DRY_RUN" = "true" ]; then
             OUTCOME="dry-run-would-create"
             PR_URL=""
           else
@@ -302,6 +309,8 @@ jobs:
     needs: [prepare, update-repo]
     runs-on: ubuntu-latest
     if: always() && needs.prepare.result != 'skipped'
+    permissions:
+      contents: read
 
     steps:
       - name: Download all outcome artifacts
