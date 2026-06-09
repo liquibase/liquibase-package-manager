@@ -204,6 +204,7 @@ jobs:
           app-id: ${{ env.LIQUIBASE_GITHUB_APP_ID }}
           private-key: ${{ env.LIQUIBASE_GITHUB_APP_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
+          repositories: ${{ matrix.repo }}  # scope the token to just this target repo (least privilege)
 
       - name: Checkout ${{ matrix.repo }}
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -211,6 +212,7 @@ jobs:
           repository: ${{ matrix.repo }}
           ref: main
           token: ${{ steps.app-token.outputs.token }}
+          persist-credentials: false  # peter-evans uses the token input directly; don't leave it in git config
 
       - name: Update LPM ARGs in Dockerfiles
         env:

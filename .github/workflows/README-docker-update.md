@@ -16,7 +16,7 @@ isolated job, so a failure in one repo never blocks the others.
 
 ## Workflow structure
 
-```
+```text
 Trigger (workflow_run success | workflow_dispatch)
   │
   ├─ prepare          (runs once — resolves version + checksums)
@@ -180,4 +180,4 @@ not be shortened.
 If the consumer list grows large or needs to be shared across multiple workflows,
 the inline matrix can be replaced with an external `consumers.json` file and a
 `fromJSON(steps.load.outputs.matrix)` dynamic matrix. This is not needed at the
-current scale of 3–4 repos.
+current scale of 2 repos.
