@@ -71,19 +71,19 @@ jobs:
 
           # Download checksums.txt from release
           echo "Downloading checksums for version $VERSION..."
-          if ! curl -sfL -o checksums.txt \
+          if ! curl -sfL --proto '=https' --proto-redir '=https' -o checksums.txt \
             "https://github.com/liquibase/liquibase-package-manager/releases/download/v${VERSION}/checksums.txt"; then
             echo "Direct download failed. Trying release assets API..."
 
             # Fallback: resolve the asset URL via the GitHub releases API
-            curl -sfL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            curl -sfL --proto '=https' --proto-redir '=https' -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
               "https://api.github.com/repos/liquibase/liquibase-package-manager/releases/tags/v${VERSION}" \
               > release.json
 
             CHECKSUMS_URL=$(jq -r '.assets[] | select(.name == "checksums.txt") | .browser_download_url' release.json)
 
             if [ -n "$CHECKSUMS_URL" ] && [ "$CHECKSUMS_URL" != "null" ]; then
-              curl -sfL -o checksums.txt "$CHECKSUMS_URL"
+              curl -sfL --proto '=https' --proto-redir '=https' -o checksums.txt "$CHECKSUMS_URL"
             else
               echo "::error::checksums.txt not found in release assets for v${VERSION}"
               exit 1
