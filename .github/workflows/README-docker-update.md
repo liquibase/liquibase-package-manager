@@ -23,8 +23,7 @@ Trigger (workflow_run success | workflow_dispatch)
   │
   ├─ update-repo      (needs: prepare, fail-fast: false)
   │    ├─ liquibase/liquibase job
-  │    ├─ liquibase/liquibase-pro job   ← see P1/P2 notes below
-  │    └─ liquibase/docker job          ← TODO: remove after TECHOPS-366
+  │    └─ liquibase/liquibase-pro job   ← see P1/P2 notes below
   │
   └─ summary          (needs: [prepare, update-repo], if: always())
 ```
@@ -40,7 +39,6 @@ via a job output — job outputs are not treated as secrets and can leak in logs
 |------|---------------|
 | `liquibase/liquibase` | `docker/Dockerfile` `docker/Dockerfile.alpine` |
 | `liquibase/liquibase-pro` | `core/docker/Dockerfile` `core/docker/Dockerfile.alpine` `docker/Dockerfile` *(placeholder — confirm P1 before first release)* |
-| `liquibase/docker` | `Dockerfile` `Dockerfile.alpine` `DockerfileSecure` *(TODO: remove after TECHOPS-366)* |
 
 Each matrix entry has two fields: `repo` and `files` (space-delimited list of paths
 relative to the repo root). No other workflow logic needs to change when the list changes.
@@ -63,9 +61,6 @@ That's the only change required (R9).
 ## How to remove a consumer repo
 
 Delete its `include` entry from the matrix. No other YAML changes are needed.
-
-For `liquibase/docker` specifically, removal is tracked in **TECHOPS-366** and should
-happen when that repo is archived.
 
 ---
 
@@ -101,7 +96,7 @@ means the file set in the matrix is wrong (**P1**).
 The matrix runs with `fail-fast: false`. This means:
 
 - If `liquibase/liquibase-pro` fails (e.g. a 403 because the App is not installed),
-  the `liquibase/liquibase` and `liquibase/docker` jobs still run and open their PRs.
+  the `liquibase/liquibase` job still runs and opens its PR.
 - The overall workflow run is marked **failed** if ANY matrix job fails. This is
   **intentional alerting** — not a bug. Check the Summary tab for the per-repo breakdown.
 
