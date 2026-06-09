@@ -1,156 +1,190 @@
-# Docker Repository Auto-Update
+# Docker Repository Auto-Update — Consumer Fanout
 
-This workflow automatically updates the LPM version in the `liquibase/docker` repository when a new LPM release is published.
+When a new LPM release is published, this workflow automatically propagates the updated version
+and checksums to every consumer Docker repository in one run. Each consumer repo gets its own
+isolated job, so a failure in one repo never blocks the others.
 
-## How It Works
+## Quick path
 
-### Automatic Trigger (Recommended)
+1. Publish a new LPM release (or dispatch manually).
+2. The `prepare` job resolves the version and validates both SHA256 checksums.
+3. The `update-repo` matrix job fans out — one job per consumer repo.
+4. Each job opens a PR in its target repo (or records "no-op" if already up to date).
+5. The `summary` job renders a per-repo outcome table in the run's Step Summary.
 
-When you **publish** a release in the `liquibase-package-manager` repository:
+---
 
-1. The workflow automatically runs
-2. Extracts the version from the release tag
-3. Downloads the `checksums.txt` file from the release
-4. Extracts SHA256 checksums for `linux-amd64` and `linux-arm64`
-5. Updates three Dockerfiles in the `liquibase/docker` repository:
-   - `Dockerfile`
-   - `Dockerfile.alpine`
-   - `DockerfileSecure`
-6. Creates a PR in the docker repository
+## Workflow structure
 
-### Manual Trigger
+```
+Trigger (workflow_run success | workflow_dispatch)
+  │
+  ├─ prepare          (runs once — resolves version + checksums)
+  │
+  ├─ update-repo      (needs: prepare, fail-fast: false)
+  │    ├─ liquibase/liquibase job
+  │    ├─ liquibase/liquibase-pro job   ← see P1/P2 notes below
+  │    └─ liquibase/docker job          ← TODO: remove after TECHOPS-366
+  │
+  └─ summary          (needs: [prepare, update-repo], if: always())
+```
 
-You can also manually trigger the workflow:
+The GitHub App token is **re-minted inside each matrix job**. It is never passed
+via a job output — job outputs are not treated as secrets and can leak in logs.
 
-1. Go to **Actions** → **Update Docker Repository with New LPM Version**
-2. Click **Run workflow**
-3. Enter:
-   - **lpm-version**: Version without 'v' prefix (e.g., `0.2.15`)
-   - **sha256-amd64**: (Optional) Leave empty to auto-fetch from release
-   - **sha256-arm64**: (Optional) Leave empty to auto-fetch from release
-4. Click **Run workflow**
+---
 
-## Prerequisites
+## Consumer matrix
 
-### Required Secret
+| Repo | Files updated |
+|------|---------------|
+| `liquibase/liquibase` | `docker/Dockerfile` `docker/Dockerfile.alpine` |
+| `liquibase/liquibase-pro` | `core/docker/Dockerfile` `core/docker/Dockerfile.alpine` `docker/Dockerfile` *(placeholder — confirm P1 before first release)* |
+| `liquibase/docker` | `Dockerfile` `Dockerfile.alpine` `DockerfileSecure` *(TODO: remove after TECHOPS-366)* |
 
-The workflow requires a `BOT_TOKEN` secret with:
-- Write access to the `liquibase/docker` repository
-- Ability to create branches and pull requests
+Each matrix entry has two fields: `repo` and `files` (space-delimited list of paths
+relative to the repo root). No other workflow logic needs to change when the list changes.
 
-To set up the token:
+---
 
-1. Create a GitHub Personal Access Token (classic) or Fine-grained token with:
-   - Repository access: `liquibase/docker`
-   - Permissions: `Contents: Read and Write`, `Pull Requests: Read and Write`
-2. Add it as a repository secret named `BOT_TOKEN` in the `liquibase-package-manager` repository
+## How to add a consumer repo
 
-## What Gets Updated
+Add one entry to the `strategy.matrix.include` list in `update-docker-repo.yml`:
 
-### Dockerfile Variables
+```yaml
+- repo: org/repo-name
+  files: "path/to/Dockerfile path/to/Dockerfile.alpine"
+```
 
-In each Dockerfile, three ARG variables are updated:
+That's the only change required (R9).
+
+---
+
+## How to remove a consumer repo
+
+Delete its `include` entry from the matrix. No other YAML changes are needed.
+
+For `liquibase/docker` specifically, removal is tracked in **TECHOPS-366** and should
+happen when that repo is archived.
+
+---
+
+## Workflow inputs (workflow_dispatch)
+
+| Input | Required | Default | Description |
+|-------|----------|---------|-------------|
+| `lpm-version` | Yes | — | Version without `v` prefix (e.g. `0.3.5`) |
+| `sha256-amd64` | No | *(auto-fetched)* | Override SHA256 for `linux-amd64`; leave empty to fetch from release |
+| `sha256-arm64` | No | *(auto-fetched)* | Override SHA256 for `linux-arm64`; leave empty to fetch from release |
+| `dry-run` | No | `false` | Show diff and skip PR creation — use this to test without side effects |
+
+### Dry-run usage
+
+The `dry-run` input lets you validate the full pipeline (checkout, sed, git diff)
+against the real target repos without opening any PRs:
+
+1. Go to **Actions → Update Docker Repository with New LPM Version → Run workflow**.
+2. Set `lpm-version` to a known released version (e.g. `0.3.5`).
+3. Set `dry-run: true`.
+4. Each matrix job will check out the repo, run the sed updates, and print the diff
+   (or "already up to date") — but will not create a PR.
+5. The Summary tab shows `dry-run-would-create` or `noop` per repo.
+
+A dry-run that returns a 403 on a checkout confirms the GitHub App is not installed
+on that repo (**P2 blocker**). A dry-run with an empty or wrong diff on `liquibase-pro`
+means the file set in the matrix is wrong (**P1**).
+
+---
+
+## Partial-failure semantics
+
+The matrix runs with `fail-fast: false`. This means:
+
+- If `liquibase/liquibase-pro` fails (e.g. a 403 because the App is not installed),
+  the `liquibase/liquibase` and `liquibase/docker` jobs still run and open their PRs.
+- The overall workflow run is marked **failed** if ANY matrix job fails. This is
+  **intentional alerting** — not a bug. Check the Summary tab for the per-repo breakdown.
+
+Do not mistake a partial run for a complete success just because some repos got PRs.
+
+---
+
+## Preconditions before first real release
+
+### P2 (HIGH — blocks all private-repo jobs)
+
+The Liquibase GitHub App (`LIQUIBASE_GITHUB_APP_ID`) must be installed on every target
+repo with `contents: write` and `pull-requests: write`. This is required on
+`liquibase/liquibase-pro` (private) in particular.
+
+Fastest confirmation: run a `dry-run` dispatch. A 403 on checkout means the App is
+not yet installed.
+
+### P1 (MED — blocks liquibase-pro job)
+
+The exact live Dockerfile set for `liquibase/liquibase-pro` is unconfirmed. The current
+placeholder (`core/docker/Dockerfile`, `core/docker/Dockerfile.alpine`, `docker/Dockerfile`)
+must be verified against the actual repo by someone with read access, then updated in the
+matrix `files` field before merging.
+
+The workflow will fail loudly on a missing file (`::error::` annotation + exit 1), so a
+wrong path breaks only the `liquibase-pro` job — other repos are unaffected.
+
+---
+
+## Out-of-scope repos
+
+The following repos pin an older LPM version intentionally and are **not managed by this
+workflow**. Do not add them to the matrix.
+
+| Repo | Pinned LPM version | Reason |
+|------|--------------------|--------|
+| `liquibase/liquibase-test-harness` | 0.2.3 | Test infra; version pinned by test team |
+| `liquibase/mongodemo` | 0.2.0 | Demo repo; version pinned intentionally |
+| `liquibase/flow-demo` | 0.1.7 | Demo repo; version pinned intentionally |
+| `liquibase/devops-misc` | 0.1.3 | Infra repo; version pinned intentionally |
+
+---
+
+## What gets updated in each Dockerfile
+
+Three `ARG` lines are updated per file:
 
 ```dockerfile
-ARG LPM_VERSION=0.2.15
+ARG LPM_VERSION=<version>
 ARG LPM_SHA256=<sha256 for linux-amd64>
 ARG LPM_SHA256_ARM=<sha256 for linux-arm64>
 ```
 
-### Files Updated
+The `^ARG LPM_SHA256=` sed pattern matches the amd64 line only. The trailing `=` is
+a boundary that cannot match `LPM_SHA256_ARM=` — the anchor is load-bearing and must
+not be shortened.
 
-- `Dockerfile` - Standard Ubuntu-based image
-- `Dockerfile.alpine` - Alpine Linux-based image
-- `DockerfileSecure` - Secure/licensed image
-
-## PR Details
-
-The automatically created PR includes:
-
-- **Title**: `Update LPM to v{version}`
-- **Labels**: `lpm`, `dependencies`, `automated`
-- **Description**: 
-  - Version being updated
-  - SHA256 checksums for both architectures
-  - List of files changed
-  - Link to the LPM release
-  - Verification notes
+---
 
 ## Troubleshooting
 
-### "checksums.txt not found"
+| Symptom | Cause | Fix |
+|---------|-------|-----|
+| Job fails with 403 on checkout | GitHub App not installed on target repo | Confirm P2: install App with `contents:write` + `pull-requests:write` |
+| `Listed file not found: path/to/Dockerfile` | Matrix `files` has a wrong path | Confirm P1: update matrix entry to the actual live file paths |
+| `Invalid or missing SHA256` | checksums.txt entry not found, or value not 64 hex chars | Check release assets contain `checksums.txt`; or supply overrides via dispatch inputs |
+| Overall run failed, some repos got PRs | `fail-fast:false` — one job failed, others continued | Check Summary tab for the failed repo; the partial result is the intended behavior |
+| "No changes detected" for a repo | That repo is already at the target version | Expected no-op; no action needed |
+| PR already exists on branch `update-lpm-<version>` | Workflow re-triggered for same version | `peter-evans/create-pull-request` updates the existing PR; no duplicate |
 
-**Cause**: The checksums file wasn't uploaded to the release.
+---
 
-**Solution**: Ensure the "Attach Artifact to Release" workflow completes successfully before publishing.
+## Related workflows
 
-### "Invalid SHA256"
+- `attach-artifact-release.yml` — generates `checksums.txt` (must succeed before this workflow runs)
+- `publish-release.yml` — syncs the internal VERSION file after a release
 
-**Cause**: Checksum doesn't match expected format (64 characters).
+---
 
-**Solution**: 
-1. Check that `checksums.txt` contains valid checksums
-2. Manually trigger the workflow with correct checksums
+## Future options (deferred)
 
-### "No changes detected"
-
-**Cause**: Docker repository already has the same version/checksums.
-
-**Solution**: This is expected if the version was already updated. No action needed.
-
-### "PR creation failed"
-
-**Cause**: Missing or invalid `BOT_TOKEN` secret.
-
-**Solution**:
-1. Verify `BOT_TOKEN` is configured in repository secrets
-2. Check token has correct permissions
-3. Ensure token hasn't expired
-
-## Manual Update (Fallback)
-
-If automation fails, you can manually update the docker repository:
-
-```bash
-# Clone docker repository
-git clone https://github.com/liquibase/docker.git
-cd docker
-
-# Update version and checksums
-VERSION="0.2.15"
-SHA256_AMD64="..."  # Get from release
-SHA256_ARM64="..."  # Get from release
-
-# Update all Dockerfiles
-for file in Dockerfile Dockerfile.alpine DockerfileSecure; do
-  sed -i "s/^ARG LPM_VERSION=.*/ARG LPM_VERSION=${VERSION}/" $file
-  sed -i "s/^ARG LPM_SHA256=.*/ARG LPM_SHA256=${SHA256_AMD64}/" $file
-  sed -i "s/^ARG LPM_SHA256_ARM=.*/ARG LPM_SHA256_ARM=${SHA256_ARM64}/" $file
-done
-
-# Create branch and PR
-git checkout -b update-lpm-${VERSION}
-git add Dockerfile Dockerfile.alpine DockerfileSecure
-git commit -m "Update LPM to version ${VERSION}"
-git push origin update-lpm-${VERSION}
-# Then create PR on GitHub
-```
-
-## Testing
-
-To test the workflow without creating a real PR:
-
-1. Fork the `liquibase/docker` repository to your account
-2. Update the workflow to use your fork:
-   ```yaml
-   repository: YOUR_USERNAME/docker
-   ```
-3. Run the workflow manually
-4. Verify the PR is created in your fork
-5. Review changes and delete the test PR
-
-## Related Workflows
-
-- `attach-artifact-release.yml` - Generates the checksums file
-- `publish-release.yml` - Syncs VERSION file after release
-- Both run before this workflow in the release process
+If the consumer list grows large or needs to be shared across multiple workflows,
+the inline matrix can be replaced with an external `consumers.json` file and a
+`fromJSON(steps.load.outputs.matrix)` dynamic matrix. This is not needed at the
+current scale of 3–4 repos.
