@@ -66,6 +66,8 @@ jobs:
 
       - name: Download checksums file
         id: download-checksums
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION="${{ steps.version.outputs.version }}"
 
@@ -76,7 +78,7 @@ jobs:
             echo "Direct download failed. Trying release assets API..."
 
             # Fallback: resolve the asset URL via the GitHub releases API
-            curl -sfL --proto '=https' --proto-redir '=https' -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            curl -sfL --proto '=https' --proto-redir '=https' -H "Authorization: token $GH_TOKEN" \
               "https://api.github.com/repos/liquibase/liquibase-package-manager/releases/tags/v${VERSION}" \
               > release.json
 
