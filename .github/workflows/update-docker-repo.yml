@@ -144,8 +144,8 @@ jobs:
         include:
           - repo: liquibase/liquibase
             files: "docker/Dockerfile docker/Dockerfile.alpine"
-          - repo: liquibase/liquibase-pro  # PRIVATE — needs App install (P2) + live-file confirm (P1)
-            files: "core/docker/Dockerfile core/docker/Dockerfile.alpine docker/Dockerfile"
+          - repo: liquibase/liquibase-pro  # PRIVATE — needs App install (P2). core/docker/* is legacy and must NOT be updated; only docker/Dockerfile is live.
+            files: "docker/Dockerfile"
 
     steps:
       # Token re-minted here per-job — never passed via job output (see TECHOPS-603 design Decision 1)

@@ -23,7 +23,7 @@ Trigger (workflow_run success | workflow_dispatch)
   │
   ├─ update-repo      (needs: prepare, fail-fast: false)
   │    ├─ liquibase/liquibase job
-  │    └─ liquibase/liquibase-pro job   ← see P1/P2 notes below
+  │    └─ liquibase/liquibase-pro job   ← see P2 note below
   │
   └─ summary          (needs: [prepare, update-repo], if: always())
 ```
@@ -38,7 +38,7 @@ via a job output — job outputs are not treated as secrets and can leak in logs
 | Repo | Files updated |
 |------|---------------|
 | `liquibase/liquibase` | `docker/Dockerfile` `docker/Dockerfile.alpine` |
-| `liquibase/liquibase-pro` | `core/docker/Dockerfile` `core/docker/Dockerfile.alpine` `docker/Dockerfile` *(placeholder — confirm P1 before first release)* |
+| `liquibase/liquibase-pro` | `docker/Dockerfile` *(`core/docker/*` is legacy — intentionally NOT updated)* |
 
 Each matrix entry has two fields: `repo` and `files` (space-delimited list of paths
 relative to the repo root). No other workflow logic needs to change when the list changes.
@@ -86,8 +86,7 @@ against the real target repos without opening any PRs:
 5. The Summary tab shows `dry-run-would-create` or `noop` per repo.
 
 A dry-run that returns a 403 on a checkout confirms the GitHub App is not installed
-on that repo (**P2 blocker**). A dry-run with an empty or wrong diff on `liquibase-pro`
-means the file set in the matrix is wrong (**P1**).
+on that repo (**P2 blocker**).
 
 ---
 
@@ -115,14 +114,13 @@ repo with `contents: write` and `pull-requests: write`. This is required on
 Fastest confirmation: run a `dry-run` dispatch. A 403 on checkout means the App is
 not yet installed.
 
-### P1 (MED — blocks liquibase-pro job)
+### liquibase-pro live file set (confirmed)
 
-The exact live Dockerfile set for `liquibase/liquibase-pro` is unconfirmed. The current
-placeholder (`core/docker/Dockerfile`, `core/docker/Dockerfile.alpine`, `docker/Dockerfile`)
-must be verified against the actual repo by someone with read access, then updated in the
-matrix `files` field before merging.
+`liquibase/liquibase-pro` updates **only `docker/Dockerfile`**. The `core/docker/`
+Dockerfiles are **legacy and must NOT be added** to the matrix — they are intentionally
+left unmanaged.
 
-The workflow will fail loudly on a missing file (`::error::` annotation + exit 1), so a
+The workflow fails loudly on a missing file (`::error::` annotation + exit 1), so a
 wrong path breaks only the `liquibase-pro` job — other repos are unaffected.
 
 ---
@@ -162,7 +160,7 @@ not be shortened.
 | Symptom | Cause | Fix |
 |---------|-------|-----|
 | Job fails with 403 on checkout | GitHub App not installed on target repo | Confirm P2: install App with `contents:write` + `pull-requests:write` |
-| `Listed file not found: path/to/Dockerfile` | Matrix `files` has a wrong path | Confirm P1: update matrix entry to the actual live file paths |
+| `Listed file not found: path/to/Dockerfile` | Matrix `files` has a wrong path | Update the matrix entry to the actual live file path |
 | `Invalid or missing SHA256` | checksums.txt entry not found, or value not 64 hex chars | Check release assets contain `checksums.txt`; or supply overrides via dispatch inputs |
 | Overall run failed, some repos got PRs | `fail-fast:false` — one job failed, others continued | Check Summary tab for the failed repo; the partial result is the intended behavior |
 | "No changes detected" for a repo | That repo is already at the target version | Expected no-op; no action needed |
