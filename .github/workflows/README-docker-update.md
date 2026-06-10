@@ -54,7 +54,7 @@ Add one entry to the `strategy.matrix.include` list in `update-docker-repo.yml`:
   files: "path/to/Dockerfile path/to/Dockerfile.alpine"
 ```
 
-That's the only change required (R9).
+That's the only change required.
 
 ---
 
