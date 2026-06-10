@@ -276,10 +276,10 @@ jobs:
             echo "---"
             echo
             echo "*This PR was automatically created by the [LPM release automation](https://github.com/liquibase/liquibase-package-manager/actions/workflows/update-docker-repo.yml).*"
-          } > pr-body.md
+          } > "$RUNNER_TEMP/pr-body.md"
           {
             echo "body<<EOF"
-            cat pr-body.md
+            cat "$RUNNER_TEMP/pr-body.md"
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
