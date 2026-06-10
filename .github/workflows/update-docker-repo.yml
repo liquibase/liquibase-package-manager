@@ -19,18 +19,170 @@ on:
         description: "SHA256 for linux-arm64 (leave empty to fetch from release)"
         required: false
         type: string
+      dry-run:
+        description: "Update + show diff but DO NOT open PRs"
+        required: false
+        type: boolean
+        default: false
 
-permissions:
-  contents: read
-  id-token: write
+# Serialize runs so two releases in quick succession cannot race on the shared
+# "latest release" resolution or open conflicting PRs; queue instead of cancelling.
+concurrency:
+  group: update-docker-repo
+  cancel-in-progress: false
 
+# Permissions are scoped per job (least privilege) — only update-repo needs id-token: write for AWS OIDC.
 jobs:
-  update-docker-repo:
-    name: Update LPM in Docker Repository
+  # ─── Stage 1: Compute version + checksums ONCE ───────────────────────────────
+  # This job uses only GITHUB_TOKEN (read-only) to read public release data.
+  # The GitHub App token is re-minted per matrix job and NEVER emitted as output.
+  prepare:
+    name: Prepare version and checksums
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    permissions:
+      contents: read  # read public release data via GITHUB_TOKEN
+    outputs:
+      version:      ${{ steps.version.outputs.version }}
+      sha256_amd64: ${{ steps.checksums.outputs.sha256_amd64 }}
+      sha256_arm64: ${{ steps.checksums.outputs.sha256_arm64 }}
 
     steps:
+      - name: Extract version from release
+        id: version
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_run" ]; then
+            # On workflow_run, resolve the most recently PUBLISHED release. At our
+            # release cadence that is the release that just triggered the upstream
+            # "Build and Attach Artifacts" run, and the workflow-level concurrency
+            # group serializes runs so two releases cannot race here. Draft releases
+            # have a null published_at, which jq sorts last after reverse, so they
+            # are never selected.
+            TAG_NAME=$(gh api \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              /repos/${{ github.repository }}/releases \
+              --jq 'sort_by(.published_at) | reverse | .[0].tag_name')
+            VERSION="${TAG_NAME#v}"
+            echo "Using version from latest release: $VERSION"
+          else
+            VERSION="$LPM_VERSION_INPUT"
+            echo "Using manual input version: $VERSION"
+          fi
+
+          # Validate the version format before it flows into a URL, sed, and a
+          # branch name. Mirrors the strict SHA gate below and also fails fast on an
+          # empty/unresolved version (e.g. a transient gh-api failure) at its root.
+          if ! echo "$VERSION" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "::error::Invalid or unresolved LPM version: '$VERSION' (expected N.N.N)"
+            exit 1
+          fi
+
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LPM_VERSION_INPUT: ${{ inputs.lpm-version }}
+
+      - name: Download checksums file
+        id: download-checksums
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          VERSION="${{ steps.version.outputs.version }}"
+
+          # Download checksums.txt from release
+          echo "Downloading checksums for version $VERSION..."
+          if ! curl -sfL --proto '=https' --proto-redir '=https' -o checksums.txt \
+            "https://github.com/liquibase/liquibase-package-manager/releases/download/v${VERSION}/checksums.txt"; then
+            echo "Direct download failed. Trying release assets API..."
+
+            # Fallback: resolve the asset URL via the GitHub releases API
+            curl -sfL --proto '=https' --proto-redir '=https' -H "Authorization: token $GH_TOKEN" \
+              "https://api.github.com/repos/liquibase/liquibase-package-manager/releases/tags/v${VERSION}" \
+              > release.json
+
+            CHECKSUMS_URL=$(jq -r '.assets[] | select(.name == "checksums.txt") | .browser_download_url' release.json)
+
+            if [ -n "$CHECKSUMS_URL" ] && [ "$CHECKSUMS_URL" != "null" ]; then
+              curl -sfL --proto '=https' --proto-redir '=https' -o checksums.txt "$CHECKSUMS_URL"
+            else
+              echo "::error::checksums.txt not found in release assets for v${VERSION}"
+              exit 1
+            fi
+          fi
+
+          echo "Downloaded checksums.txt:"
+          cat checksums.txt
+
+      - name: Extract and validate SHA256 checksums
+        id: checksums
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          INPUT_SHA256_AMD64: ${{ inputs.sha256-amd64 }}
+          INPUT_SHA256_ARM64: ${{ inputs.sha256-arm64 }}
+        run: |
+          set -euo pipefail
+          # Use dispatch overrides when BOTH are supplied; otherwise parse from checksums.txt
+          if [ -n "$INPUT_SHA256_AMD64" ] && [ -n "$INPUT_SHA256_ARM64" ]; then
+            SHA256_AMD64="$INPUT_SHA256_AMD64"
+            SHA256_ARM64="$INPUT_SHA256_ARM64"
+            echo "Using manually supplied SHA256 overrides"
+          else
+            # -F: match the asset name literally so the dots are not regex wildcards.
+            # || true: a no-match is handled by the 64-hex validation gate below,
+            # not by aborting under pipefail with a confusing error.
+            SHA256_AMD64=$(grep -F "lpm-${VERSION}-linux.zip" checksums.txt | awk '{print $1}' || true)
+            SHA256_ARM64=$(grep -F "lpm-${VERSION}-linux-arm64.zip" checksums.txt | awk '{print $1}' || true)
+
+            # Fall back to individual override if only one was supplied
+            if [ -n "$INPUT_SHA256_AMD64" ]; then
+              SHA256_AMD64="$INPUT_SHA256_AMD64"
+            fi
+            if [ -n "$INPUT_SHA256_ARM64" ]; then
+              SHA256_ARM64="$INPUT_SHA256_ARM64"
+            fi
+          fi
+
+          # Each SHA must be exactly 64 hex chars — anything else aborts all matrix jobs
+          if [ -z "$SHA256_AMD64" ] || ! echo "$SHA256_AMD64" | grep -qE '^[0-9a-f]{64}$'; then
+            echo "::error::Invalid or missing SHA256 for amd64 (got: '$SHA256_AMD64'). Expected exactly 64 hex characters."
+            exit 1
+          fi
+          if [ -z "$SHA256_ARM64" ] || ! echo "$SHA256_ARM64" | grep -qE '^[0-9a-f]{64}$'; then
+            echo "::error::Invalid or missing SHA256 for arm64 (got: '$SHA256_ARM64'). Expected exactly 64 hex characters."
+            exit 1
+          fi
+
+          echo "sha256_amd64=$SHA256_AMD64" >> "$GITHUB_OUTPUT"
+          echo "sha256_arm64=$SHA256_ARM64" >> "$GITHUB_OUTPUT"
+          echo "SHA256 checksums validated (amd64: ${SHA256_AMD64:0:8}..., arm64: ${SHA256_ARM64:0:8}...)"
+
+  # ─── Stage 2: Fan out — one job per consumer repo ────────────────────────────
+  # Token is RE-MINTED here per job. It is NEVER passed as a job output.
+  # See TECHOPS-603 design Decision 1: credentials must not cross job boundaries.
+  update-repo:
+    name: "Update ${{ matrix.repo }}"
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: ${{ needs.prepare.result == 'success' }}
+    permissions:
+      contents: read   # checkout target repos uses the App token, not GITHUB_TOKEN
+      id-token: write  # AWS OIDC → Vault → GitHub App token mint
+    strategy:
+      fail-fast: false  # One repo failing must not cancel others (R6)
+      matrix:
+        include:
+          - repo: liquibase/liquibase
+            files: "docker/Dockerfile docker/Dockerfile.alpine"
+          - repo: liquibase/liquibase-pro  # PRIVATE — needs App install (P2). core/docker/* is legacy and must NOT be updated; only docker/Dockerfile is live.
+            files: "docker/Dockerfile"
+
+    steps:
+      # Token re-minted here per-job — never passed via job output (see TECHOPS-603 design Decision 1)
       - name: Configure AWS credentials for vault access
         uses: aws-actions/configure-aws-credentials@ec61189d14ec14c8efccab744f656cffd0e33f37 # v6.1.0
         with:
@@ -46,231 +198,184 @@ jobs:
           parse-json-secrets: true
 
       - name: Get GitHub App token
-        id: get-token
+        id: app-token
         uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
         with:
           app-id: ${{ env.LIQUIBASE_GITHUB_APP_ID }}
           private-key: ${{ env.LIQUIBASE_GITHUB_APP_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
+          repositories: ${{ matrix.repo }}  # scope the token to just this target repo (least privilege)
 
-      - name: Extract version from release
-        id: version
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_run" ]; then
-            # Get the release that triggered the upstream workflow
-            TAG_NAME=$(gh api \
-              -H "Accept: application/vnd.github+json" \
-              -H "X-GitHub-Api-Version: 2022-11-28" \
-              /repos/${{ github.repository }}/releases \
-              --jq 'sort_by(.published_at) | reverse | .[0].tag_name')
-            VERSION="${TAG_NAME#v}"
-            echo "version=$VERSION" >> $GITHUB_OUTPUT
-            echo "Using version from latest release: $VERSION"
-          else
-            VERSION="${{ inputs.lpm-version }}"
-            echo "version=$VERSION" >> $GITHUB_OUTPUT
-            echo "Using manual input version: $VERSION"
-          fi
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Download checksums file
-        id: download-checksums
-        run: |
-          VERSION="${{ steps.version.outputs.version }}"
-
-          # Download checksums.txt from release
-          echo "Downloading checksums for version $VERSION..."
-          curl -sfL -o checksums.txt \
-            "https://github.com/liquibase/liquibase-package-manager/releases/download/v${VERSION}/checksums.txt"
-
-          if [ $? -ne 0 ]; then
-            echo "❌ Failed to download checksums.txt"
-            echo "Trying to fetch from release assets..."
-            
-            # Fallback: try to get checksums from release API
-            curl -sfL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-              "https://api.github.com/repos/liquibase/liquibase-package-manager/releases/tags/v${VERSION}" \
-              > release.json
-            
-            CHECKSUMS_URL=$(jq -r '.assets[] | select(.name == "checksums.txt") | .browser_download_url' release.json)
-            
-            if [ -n "$CHECKSUMS_URL" ] && [ "$CHECKSUMS_URL" != "null" ]; then
-              curl -sfL -o checksums.txt "$CHECKSUMS_URL"
-            else
-              echo "❌ checksums.txt not found in release assets"
-              exit 1
-            fi
-          fi
-
-          echo "✅ Downloaded checksums.txt"
-          cat checksums.txt
-
-      - name: Extract SHA256 checksums
-        id: checksums
-        run: |
-          VERSION="${{ steps.version.outputs.version }}"
-
-          # Use manual input if provided, otherwise extract from checksums.txt
-          if [ -n "${{ inputs.sha256-amd64 }}" ]; then
-            SHA256_AMD64="${{ inputs.sha256-amd64 }}"
-            echo "Using manual SHA256 for amd64: $SHA256_AMD64"
-          else
-            SHA256_AMD64=$(grep "lpm-${VERSION}-linux.zip" checksums.txt | awk '{print $1}')
-            echo "Extracted SHA256 for amd64: $SHA256_AMD64"
-          fi
-
-          if [ -n "${{ inputs.sha256-arm64 }}" ]; then
-            SHA256_ARM64="${{ inputs.sha256-arm64 }}"
-            echo "Using manual SHA256 for arm64: $SHA256_ARM64"
-          else
-            SHA256_ARM64=$(grep "lpm-${VERSION}-linux-arm64.zip" checksums.txt | awk '{print $1}')
-            echo "Extracted SHA256 for arm64: $SHA256_ARM64"
-          fi
-
-          # Validate checksums
-          if [ -z "$SHA256_AMD64" ] || [ ${#SHA256_AMD64} -ne 64 ]; then
-            echo "❌ Invalid SHA256 for amd64: $SHA256_AMD64"
-            exit 1
-          fi
-
-          if [ -z "$SHA256_ARM64" ] || [ ${#SHA256_ARM64} -ne 64 ]; then
-            echo "❌ Invalid SHA256 for arm64: $SHA256_ARM64"
-            exit 1
-          fi
-
-          echo "sha256_amd64=$SHA256_AMD64" >> $GITHUB_OUTPUT
-          echo "sha256_arm64=$SHA256_ARM64" >> $GITHUB_OUTPUT
-
-          echo "✅ SHA256 checksums validated"
-
-      - name: Checkout docker repository
+      - name: Checkout ${{ matrix.repo }}
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          repository: liquibase/docker
+          repository: ${{ matrix.repo }}
           ref: main
-          token: ${{ steps.get-token.outputs.token }}
+          token: ${{ steps.app-token.outputs.token }}
+          persist-credentials: false  # peter-evans uses the token input directly; don't leave it in git config
 
-      - name: Update Dockerfile
+      - name: Update LPM ARGs in Dockerfiles
+        env:
+          VERSION:      ${{ needs.prepare.outputs.version }}
+          SHA256_AMD64: ${{ needs.prepare.outputs.sha256_amd64 }}
+          SHA256_ARM64: ${{ needs.prepare.outputs.sha256_arm64 }}
         run: |
-          VERSION="${{ steps.version.outputs.version }}"
-          SHA256_AMD64="${{ steps.checksums.outputs.sha256_amd64 }}"
-          SHA256_ARM64="${{ steps.checksums.outputs.sha256_arm64 }}"
-
-          echo "Updating Dockerfile..."
-          sed -i "s/^ARG LPM_VERSION=.*/ARG LPM_VERSION=${VERSION}/" Dockerfile
-          sed -i "s/^ARG LPM_SHA256=.*/ARG LPM_SHA256=${SHA256_AMD64}/" Dockerfile
-          sed -i "s/^ARG LPM_SHA256_ARM=.*/ARG LPM_SHA256_ARM=${SHA256_ARM64}/" Dockerfile
-
-          echo "✅ Updated Dockerfile"
-          grep -A 2 "ARG LPM_VERSION" Dockerfile
-
-      - name: Update Dockerfile.alpine
-        run: |
-          VERSION="${{ steps.version.outputs.version }}"
-          SHA256_AMD64="${{ steps.checksums.outputs.sha256_amd64 }}"
-          SHA256_ARM64="${{ steps.checksums.outputs.sha256_arm64 }}"
-
-          echo "Updating Dockerfile.alpine..."
-          sed -i "s/^ARG LPM_VERSION=.*/ARG LPM_VERSION=${VERSION}/" Dockerfile.alpine
-          sed -i "s/^ARG LPM_SHA256=.*/ARG LPM_SHA256=${SHA256_AMD64}/" Dockerfile.alpine
-          sed -i "s/^ARG LPM_SHA256_ARM=.*/ARG LPM_SHA256_ARM=${SHA256_ARM64}/" Dockerfile.alpine
-
-          echo "✅ Updated Dockerfile.alpine"
-          grep -A 2 "ARG LPM_VERSION" Dockerfile.alpine
-
-      - name: Update DockerfileSecure
-        run: |
-          VERSION="${{ steps.version.outputs.version }}"
-          SHA256_AMD64="${{ steps.checksums.outputs.sha256_amd64 }}"
-          SHA256_ARM64="${{ steps.checksums.outputs.sha256_arm64 }}"
-
-          echo "Updating DockerfileSecure..."
-          sed -i "s/^ARG LPM_VERSION=.*/ARG LPM_VERSION=${VERSION}/" DockerfileSecure
-          sed -i "s/^ARG LPM_SHA256=.*/ARG LPM_SHA256=${SHA256_AMD64}/" DockerfileSecure
-          sed -i "s/^ARG LPM_SHA256_ARM=.*/ARG LPM_SHA256_ARM=${SHA256_ARM64}/" DockerfileSecure
-
-          echo "✅ Updated DockerfileSecure"
-          grep -A 2 "ARG LPM_VERSION" DockerfileSecure
+          set -euo pipefail
+          for f in ${{ matrix.files }}; do
+            if [ ! -f "$f" ]; then
+              echo "::error::Listed file not found: $f (check matrix files[] for ${{ matrix.repo }})"
+              exit 1
+            fi
+            # NOTE: ^ARG LPM_SHA256= matches amd64 ONLY — the trailing = cannot match
+            # LPM_SHA256_ARM= (which has _ARM before the =). The = boundary is load-bearing.
+            sed -i "s|^ARG LPM_VERSION=.*|ARG LPM_VERSION=${VERSION}|"            "$f"
+            sed -i "s|^ARG LPM_SHA256=.*|ARG LPM_SHA256=${SHA256_AMD64}|"         "$f"
+            sed -i "s|^ARG LPM_SHA256_ARM=.*|ARG LPM_SHA256_ARM=${SHA256_ARM64}|" "$f"
+            echo "Updated $f:"
+            grep -E "^ARG LPM_(VERSION|SHA256|SHA256_ARM)=" "$f"
+          done
 
       - name: Check for changes
-        id: check-changes
+        id: check
         run: |
           if git diff --quiet; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-            echo "⚠️ No changes detected"
+            echo "outcome=noop" >> "$GITHUB_OUTPUT"
+            echo "No changes for ${{ matrix.repo }} — already up to date"
           else
-            echo "changed=true" >> $GITHUB_OUTPUT
-            echo "✅ Changes detected"
-            echo "=== Changes ==="
+            echo "outcome=changed" >> "$GITHUB_OUTPUT"
             git diff
           fi
 
+      - name: Build PR body
+        id: body
+        if: steps.check.outputs.outcome == 'changed'
+        run: |
+          VERSION="${{ needs.prepare.outputs.version }}"
+          SHA256_AMD64="${{ needs.prepare.outputs.sha256_amd64 }}"
+          SHA256_ARM64="${{ needs.prepare.outputs.sha256_arm64 }}"
+          {
+            echo "Updates LPM to **v${VERSION}** in \`${{ matrix.repo }}\`."
+            echo
+            echo "- **LPM_VERSION:** \`${VERSION}\`"
+            echo "- **LPM_SHA256 (amd64):** \`${SHA256_AMD64}\`"
+            echo "- **LPM_SHA256_ARM (arm64):** \`${SHA256_ARM64}\`"
+            echo
+            echo "### Files Updated"
+            for f in ${{ matrix.files }}; do echo "- \`$f\`"; done
+            echo
+            echo "Release: https://github.com/liquibase/liquibase-package-manager/releases/tag/v${VERSION}"
+            echo
+            echo "---"
+            echo
+            echo "*This PR was automatically created by the [LPM release automation](https://github.com/liquibase/liquibase-package-manager/actions/workflows/update-docker-repo.yml).*"
+          } > pr-body.md
+          {
+            echo "body<<EOF"
+            cat pr-body.md
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
       - name: Create Pull Request
-        if: steps.check-changes.outputs.changed == 'true'
+        if: steps.check.outputs.outcome == 'changed' && inputs.dry-run != true
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        id: create-pr
         with:
-          token: ${{ steps.get-token.outputs.token }}
-          commit-message: "Update LPM to version ${{ steps.version.outputs.version }}"
+          token: ${{ steps.app-token.outputs.token }}
+          commit-message: "Update LPM to version ${{ needs.prepare.outputs.version }}"
           committer: "liquibot <liquibot@liquibase.org>"
           author: "liquibot <liquibot@liquibase.org>"
-          branch: "update-lpm-${{ steps.version.outputs.version }}"
+          branch: "update-lpm-${{ needs.prepare.outputs.version }}"
           delete-branch: true
-          title: "Update LPM to v${{ steps.version.outputs.version }}"
-          body: |
-            ## Update LPM Version
-
-            This PR updates the Liquibase Package Manager (LPM) to version **${{ steps.version.outputs.version }}**.
-
-            ### Changes
-
-            - **LPM Version:** `${{ steps.version.outputs.version }}`
-            - **SHA256 (amd64):** `${{ steps.checksums.outputs.sha256_amd64 }}`
-            - **SHA256 (arm64):** `${{ steps.checksums.outputs.sha256_arm64 }}`
-
-            ### Files Updated
-
-            - [x] `Dockerfile`
-            - [x] `Dockerfile.alpine`
-            - [x] `DockerfileSecure`
-
-            ### Release Information
-
-            - **Release:** https://github.com/liquibase/liquibase-package-manager/releases/tag/v${{ steps.version.outputs.version }}
-            - **Automated by:** [Update Docker Repository workflow](https://github.com/liquibase/liquibase-package-manager/actions/workflows/update-docker-repo.yml)
-
-            ### Verification
-
-            The checksums have been automatically extracted from the official release and validated.
-
-            Please review and merge this PR to update the Docker images with the new LPM version.
-
-            ---
-
-            🤖 *This PR was automatically created by the LPM release automation.*
+          title: "Update LPM to v${{ needs.prepare.outputs.version }}"
+          body: ${{ steps.body.outputs.body }}
           labels: |
             lpm
             dependencies
             automated
           draft: false
 
-      - name: Summary
-        if: always()
+      - name: Dry-run diff output
+        if: steps.check.outputs.outcome == 'changed' && inputs.dry-run == true
         run: |
-          echo "## Update Docker Repository Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**LPM Version:** ${{ steps.version.outputs.version }}" >> $GITHUB_STEP_SUMMARY
-          echo "**SHA256 (amd64):** \`${{ steps.checksums.outputs.sha256_amd64 }}\`" >> $GITHUB_STEP_SUMMARY
-          echo "**SHA256 (arm64):** \`${{ steps.checksums.outputs.sha256_arm64 }}\`" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "DRY RUN: would create PR for ${{ matrix.repo }}"
+          echo "--- diff ---"
+          git diff
 
-          if [ "${{ steps.check-changes.outputs.changed }}" = "true" ]; then
-            echo "✅ **Status:** PR created successfully" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "**Next Steps:**" >> $GITHUB_STEP_SUMMARY
-            echo "1. Review the PR in the [liquibase/docker repository](https://github.com/liquibase/docker/pulls)" >> $GITHUB_STEP_SUMMARY
-            echo "2. Verify the checksums match the release" >> $GITHUB_STEP_SUMMARY
-            echo "3. Merge the PR to trigger Docker image builds" >> $GITHUB_STEP_SUMMARY
+      - name: Record outcome
+        id: record
+        if: always()
+        env:
+          DRY_RUN: ${{ inputs.dry-run }}
+        run: |
+          REPO_SAFE=$(echo "${{ matrix.repo }}" | tr '/' '-')
+          if [ "${{ job.status }}" = "failure" ]; then
+            OUTCOME="failed"
+            PR_URL=""
+          elif [ "${{ steps.check.outputs.outcome }}" = "noop" ]; then
+            OUTCOME="noop"
+            PR_URL=""
+          elif [ "$DRY_RUN" = "true" ]; then
+            OUTCOME="dry-run-would-create"
+            PR_URL=""
+          elif [ -n "${{ steps.create-pr.outputs.pull-request-url }}" ]; then
+            OUTCOME="created"
+            PR_URL="${{ steps.create-pr.outputs.pull-request-url }}"
           else
-            echo "ℹ️ **Status:** No changes needed (version already up to date)" >> $GITHUB_STEP_SUMMARY
+            # PR step ran but produced no URL (rare) — report honestly, don't claim "created".
+            OUTCOME="no-pr"
+            PR_URL=""
           fi
+          echo "${{ matrix.repo }}|${OUTCOME}|${PR_URL}" > "outcome-${REPO_SAFE}.txt"
+          echo "Recorded outcome for ${{ matrix.repo }}: ${OUTCOME}"
+
+      - name: Upload outcome artifact
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: outcome-${{ strategy.job-index }}
+          path: outcome-*.txt
+
+  # ─── Stage 3: Aggregate per-repo outcomes into one summary ───────────────────
+  # This job is INFORMATIONAL — its pass/fail does not override the matrix result.
+  # If any update-repo job failed, the overall run is already marked failed.
+  # needs: [prepare, update-repo] so that needs.prepare.outputs.version is accessible here.
+  summary:
+    name: Run summary
+    needs: [prepare, update-repo]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: always() && needs.prepare.result != 'skipped'
+    permissions:
+      contents: read
+
+    steps:
+      - name: Download all outcome artifacts
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          pattern: outcome-*
+          merge-multiple: true
+
+      - name: Render step summary table
+        run: |
+          {
+            echo "## LPM Update Summary"
+            echo ""
+            echo "**LPM Version:** ${{ needs.prepare.outputs.version }}"
+            echo ""
+            echo "| Repo | Outcome | PR |"
+            echo "|------|---------|-----|"
+
+            for f in outcome-*.txt; do
+              [ -f "$f" ] || continue
+              IFS='|' read -r repo outcome pr_url < "$f"
+              if [ -n "$pr_url" ]; then
+                PR_CELL="[PR]($pr_url)"
+              else
+                PR_CELL="—"
+              fi
+              echo "| \`${repo}\` | ${outcome} | ${PR_CELL} |"
+            done
+
+            echo ""
+            echo "> **Note:** If any repo job failed, the overall run is marked \`failed\`. This is intentional alerting — check the per-repo rows above for details."
+          } >> "$GITHUB_STEP_SUMMARY"
