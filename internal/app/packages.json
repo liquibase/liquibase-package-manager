@@ -60,9 +60,16 @@
       },
       {
         "tag": "v1.0.5",
-        "path": "https://github.com/liquibase/liquibase-aws-license-service/releases/download/v1.0.5/liquibase-aws-license-service-1.0.5_proguard_base.jar",
+        "path": "https://github.com/liquibase/liquibase-aws-license-service/releases/download/v1.0.5/liquibase-aws-license-service-1.0.5.jar",
         "algorithm": "SHA1",
-        "checksum": "a1287b35929c4760958c2eb58d33880b3010dc52",
+        "checksum": "98979ea2c043e708de1ce32e73a8888cfcb4e99a",
+        "liquibaseCore": "5.0.3"
+      },
+      {
+        "tag": "v1.0.6",
+        "path": "https://github.com/liquibase/liquibase-aws-license-service/releases/download/v1.0.6/liquibase-aws-license-service-1.0.6.jar",
+        "algorithm": "SHA1",
+        "checksum": "7f156c9086a4ee01f67e4c7ac84fee32187dc53b",
         "liquibaseCore": "5.0.3"
       }
     ]
