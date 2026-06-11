@@ -64,6 +64,13 @@
         "algorithm": "SHA1",
         "checksum": "a1287b35929c4760958c2eb58d33880b3010dc52",
         "liquibaseCore": "5.0.3"
+      },
+      {
+        "tag": "v1.0.6",
+        "path": "https://github.com/liquibase/liquibase-aws-license-service/releases/download/v1.0.6/liquibase-aws-license-service-1.0.6_proguard_base.jar",
+        "algorithm": "SHA1",
+        "checksum": "5f3fcaceb716b520a952e4b4ddd48ffcd1df5ba0",
+        "liquibaseCore": "5.0.3"
       }
     ]
   },
