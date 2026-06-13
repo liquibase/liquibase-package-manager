@@ -4415,6 +4415,34 @@
         "algorithm": "SHA1",
         "checksum": "272078c15f3f45051aa4ff5630d563dd0969d834",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "2.7.14",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.7.14/mariadb-java-client-2.7.14.jar",
+        "algorithm": "SHA1",
+        "checksum": "6a6606ba2d5fedc4edaf8fc9ba2a7bec9a3893b8",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.3.5",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.3.5/mariadb-java-client-3.3.5.jar",
+        "algorithm": "SHA1",
+        "checksum": "48f2e74b165bb11fd56e32d2ca27efe876896370",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.4.3",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.4.3/mariadb-java-client-3.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "2ff9e0ba2ad6fbcfa0aa3abf5a2bf0ae1bf95c2e",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.5.9",
+        "path": "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.5.9/mariadb-java-client-3.5.9.jar",
+        "algorithm": "SHA1",
+        "checksum": "69e11e3cf29d42088d3fcf689c313079b52d6277",
+        "liquibaseCore": ""
       }
     ]
   },
