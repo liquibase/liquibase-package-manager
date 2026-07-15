@@ -22,11 +22,16 @@ jobs:
         with:
           go-version: "1.25.11"
 
+      # TECHOPS-911: install govulncheck directly instead of golang/govulncheck-action.
+      # That composite pins its internal actions/checkout + actions/setup-go by tag,
+      # which the enterprise "require SHA-pinned actions" policy blocks. Running the tool
+      # directly uses only this workflow's own SHA-pinned checkout/setup-go, so it complies.
+      - name: Install govulncheck
+        run: go install golang.org/x/vuln/cmd/govulncheck@latest
+
       # Symbol-level scan — fails build if code calls a vulnerable function
       - name: Run govulncheck (symbol-level)
-        uses: golang/govulncheck-action@b625fbe08f3bccbe446d94fbf87fcc875a4f50ee # v1.0.4
-        with:
-          repo-checkout: false
+        run: govulncheck ./...
 
       # Module-level scan — fails build if any dependency has a known CVE (matches Docker Scout behavior).
       # -C cmd/lpm is required: -scan module does not accept package patterns (e.g. ./...), so
