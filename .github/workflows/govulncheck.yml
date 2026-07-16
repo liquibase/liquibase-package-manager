@@ -22,30 +22,33 @@ jobs:
         with:
           go-version: "1.25.12"
 
-      # TECHOPS-911: install govulncheck directly instead of golang/govulncheck-action.
-      # That composite pins its internal actions/checkout + actions/setup-go by tag,
-      # which the enterprise "require SHA-pinned actions" policy blocks. Running the tool
-      # directly uses only this workflow's own SHA-pinned checkout/setup-go, so it complies.
-      - name: Install govulncheck
-        # Pinned (not @latest) so CI is reproducible — a floating scanner version
-        # can turn CI red on an unrelated day when a new advisory ships.
-        run: go install golang.org/x/vuln/cmd/govulncheck@v1.6.0
+      # TECHOPS-911: run govulncheck via a pinned Go tool dependency (the go.mod
+      # `tool` directive) instead of the golang/govulncheck-action composite. That
+      # composite pins its internal actions/checkout + actions/setup-go by tag, which
+      # the enterprise "require SHA-pinned actions" policy blocks; driving the tool from
+      # this workflow uses only our own SHA-pinned checkout/setup-go, so it complies.
+      #
+      # `go tool govulncheck` (not `go install …@version`) builds and runs the version
+      # locked in go.mod/go.sum, so the scanner AND all its transitive deps are
+      # checksum-verified and reproducible — satisfies SonarCloud githubactions:S8545
+      # ("Go dependencies should be locked to verified versions"), which a floating
+      # `@version` install trips.
 
       # Symbol-level scan — fails build if code calls a vulnerable function
       - name: Run govulncheck (symbol-level)
-        run: govulncheck ./...
+        run: go tool govulncheck ./...
 
       # Module-level scan — fails build if any dependency has a known CVE (matches Docker Scout behavior).
       # -C cmd/lpm is required: -scan module does not accept package patterns (e.g. ./...), so
       # govulncheck defaults to the current directory. The repo root has no .go files, so it must be
       # pointed at a subdirectory. cmd/lpm has no separate go.mod, so this still scans the root module.
       - name: Run govulncheck (module-level)
-        run: govulncheck -C cmd/lpm -scan module
+        run: go tool govulncheck -C cmd/lpm -scan module
 
       # SARIF upload for GitHub Security tab (module-level for full visibility)
       - name: Generate module-level SARIF report
         if: always()
-        run: govulncheck -C cmd/lpm -scan module -format sarif > govulncheck.sarif || true
+        run: go tool govulncheck -C cmd/lpm -scan module -format sarif > govulncheck.sarif || true
 
       - name: Upload SARIF to GitHub Security
         uses: github/codeql-action/upload-sarif@c10b8064de6f491fea524254123dbe5e09572f13 # v4.35.1
