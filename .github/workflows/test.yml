@@ -47,11 +47,17 @@ jobs:
             ,/vault/liquibase
           parse-json-secrets: true
 
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@ffc3010689be73b8e5ae0c57ce35968afd7909e8 # v5.0.0
+      # TECHOPS-911: SonarSource/sonarcloud-github-action is deprecated and forwards to
+      # sonarsource/sonarqube-scan-action@v5.0.0 by tag, which the enterprise "require
+      # SHA-pinned actions" policy blocks. Use the maintained scanner pinned to a full
+      # SHA (its only nested action, actions/cache, is SHA-pinned in this release, so it
+      # is policy-compliant). SONAR_HOST_URL targets SonarQube Cloud (formerly SonarCloud).
+      - name: SonarQube Cloud Scan
+        uses: sonarsource/sonarqube-scan-action@2f77a1ec69fb1d595b06f35ab27e97605bdef703 # v5.3.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ env.SONAR_TOKEN }}
+          SONAR_HOST_URL: https://sonarcloud.io
 
       - name: Build
         run: make build
