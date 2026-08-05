@@ -33,7 +33,6 @@ jobs:
       # checksum-verified and reproducible — satisfies SonarCloud githubactions:S8545
       # ("Go dependencies should be locked to verified versions"), which a floating
       # `@version` install trips.
-
       # Symbol-level scan — fails build if code calls a vulnerable function
       - name: Run govulncheck (symbol-level)
         run: go tool govulncheck ./...
