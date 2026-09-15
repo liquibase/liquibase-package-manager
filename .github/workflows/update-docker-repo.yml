@@ -184,7 +184,7 @@ jobs:
     steps:
       # Token re-minted here per-job — never passed via job output (see TECHOPS-603 design Decision 1)
       - name: Configure AWS credentials for vault access
-        uses: aws-actions/configure-aws-credentials@ec61189d14ec14c8efccab744f656cffd0e33f37 # v6.1.0
+        uses: aws-actions/configure-aws-credentials@e7f100cf4c008499ea8adda475de1042d6975c7b # v6.2.0
         with:
           role-to-assume: ${{ secrets.LIQUIBASE_VAULT_OIDC_ROLE_ARN }}
           aws-region: us-east-1
