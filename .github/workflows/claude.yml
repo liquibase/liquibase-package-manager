@@ -26,10 +26,35 @@ permissions:
 
 jobs:
   claude:
+    # Trusted authors only, as a pre-filter rather than the security boundary. Every
+    # trigger above is public: issue_comment and issues fire for any GitHub account. This
+    # job calls build-logic's claude.yml, which assumes the vault OIDC role and reads
+    # /vault/liquibase before invoking the action, so without an author gate anyone who
+    # writes "@claude" causes a credential load. Bot senders are excluded so a bot echoing
+    # the mention cannot chain into a run.
+    #
+    # author_association is deliberately loose (MEMBER is any org member, COLLABORATOR
+    # includes read and triage), so claude-code-action's own write-or-admin actor check
+    # stays as the finer-grained control. The only advantage this gate has over it is
+    # timing: GitHub evaluates an `if:` before a runner exists, so a rejected event never
+    # reaches the vault at all. Scoping the secret outranks both and is TECHOPS-1108.
+    #
+    # build-logic's claude.yml now carries the same gate, so this is belt and braces
+    # rather than the only control. Kept here because a job skipped by the caller never
+    # starts the called workflow at all. [TECHOPS-1269]
+    #
+    # author_association hangs off a different object per event (comment, review, issue),
+    # which is why the check is repeated per branch rather than hoisted out. On
+    # `issues: assigned` that object is the issue, so the value read is the issue author's
+    # association and not the assigner's: a member assigning an outsider's "@claude" issue
+    # is skipped. Intentional, because the body Claude would then act on is still
+    # attacker-authored.
     if: |
-      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude')) ||
-      (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
+      github.event.sender.type != 'Bot' && (
+        (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude') && contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)) ||
+        (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude') && contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)) ||
+        (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude') && contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.review.author_association)) ||
+        (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')) && contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association))
+      )
     uses: liquibase/build-logic/.github/workflows/claude.yml@main
     secrets: inherit
