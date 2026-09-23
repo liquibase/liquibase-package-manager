@@ -1,13 +1,13 @@
 module package-manager
 
-go 1.25.13
+go 1.26.0
 
 require (
 	github.com/google/go-github/v55 v55.0.0
 	github.com/hashicorp/go-version v1.9.0
 	github.com/spf13/cobra v1.10.2
 	github.com/vifraa/gopom v1.0.0
-	golang.org/x/oauth2 v0.36.0
+	golang.org/x/oauth2 v0.37.0
 )
 
 require (
