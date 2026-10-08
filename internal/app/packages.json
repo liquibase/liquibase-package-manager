@@ -188,6 +188,13 @@
         "algorithm": "SHA1",
         "checksum": "7c1a70f4df2f5256732a813f00902cd127e69411",
         "liquibaseCore": "5.0.3"
+      },
+      {
+        "tag": "5.0.4",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-databricks/5.0.4/liquibase-databricks-5.0.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "ccba139426c6b0eca673e8008c566576bf612d03",
+        "liquibaseCore": "5.0.4"
       }
     ]
   },
@@ -628,6 +635,20 @@
         "algorithm": "SHA1",
         "checksum": "028caca40aa2e98b79a58b1352de47ed9a94d675",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "2.8.4",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/2.8.4/databricks-jdbc-2.8.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "c3f19710167403057d8adaf26ba8a1c303b94736",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "3.4.3",
+        "path": "https://repo1.maven.org/maven2/com/databricks/databricks-jdbc/3.4.3/databricks-jdbc-3.4.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "bb43835394945fdf4cc3a4832859fdf49e038513",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -991,6 +1012,13 @@
         "algorithm": "SHA1",
         "checksum": "6fa662bc2d64b2d3e0225aa73de4537b28e5be35",
         "liquibaseCore": "5.0.3"
+      },
+      {
+        "tag": "5.0.4",
+        "path": "https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-bigquery/5.0.4/liquibase-bigquery-5.0.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "09822c989fdf115a7ad1f7107a0bb7eaed5b2e36",
+        "liquibaseCore": "5.0.4"
       }
     ]
   },
@@ -3234,6 +3262,13 @@
         "algorithm": "SHA1",
         "checksum": "a6e1bd21b412d6ffb3df23cd13d507bc2cc9e37d",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "42.7.14",
+        "path": "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.7.14/postgresql-42.7.14.jar",
+        "algorithm": "SHA1",
+        "checksum": "0e7c94ce80cb1dd9875ff44ffe6a40a8aaa3eefd",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -3554,6 +3589,13 @@
         "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/13.4.0.jre11/mssql-jdbc-13.4.0.jre11.jar",
         "algorithm": "SHA1",
         "checksum": "061d769c8a7dd4870fd85099ab55fbc6040b1997",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "13.6.0",
+        "path": "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/13.6.0.jre11/mssql-jdbc-13.6.0.jre11.jar",
+        "algorithm": "SHA1",
+        "checksum": "9c438510cb1e19d2db0a152e9f719a32f11e1177",
         "liquibaseCore": ""
       }
     ]
@@ -5492,6 +5534,20 @@
         "algorithm": "SHA1",
         "checksum": "686180ad33981ad943fdc0ab381e619b2c2fdfe5",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "2.5.250",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/2.5.250/h2-2.5.250.jar",
+        "algorithm": "SHA1",
+        "checksum": "c04a84d307abe871451edbcc71e00b43a2a3ee33",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "2.5.252",
+        "path": "https://repo1.maven.org/maven2/com/h2database/h2/2.5.252/h2-2.5.252.jar",
+        "algorithm": "SHA1",
+        "checksum": "993ba74eafa574df15f4809f8082a12f67cad34b",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -6960,6 +7016,27 @@
         "algorithm": "SHA1",
         "checksum": "3364a85b80a36261aad809900bcf44898e6df236",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "4.3.3",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/4.3.3/snowflake-jdbc-4.3.3.jar",
+        "algorithm": "SHA1",
+        "checksum": "0e5653d4181a1c6a5651c0bfcace98df7b0e2fe6",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "4.3.4",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/4.3.4/snowflake-jdbc-4.3.4.jar",
+        "algorithm": "SHA1",
+        "checksum": "9a523e59c9d79073a1bee23e5116f9f1cd4b4e6b",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "4.4.0",
+        "path": "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/4.4.0/snowflake-jdbc-4.4.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "27d3ce654461a80119a75c3b7dcde907c9ae7263",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -7867,6 +7944,13 @@
         "algorithm": "SHA1",
         "checksum": "13b01a41289286bd3211e8158864d132f9bac3b0",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "3.53.4.0",
+        "path": "https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.53.4.0/sqlite-jdbc-3.53.4.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "47e21dd53efe1524fe0df6965cb65003ffe17172",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -8349,6 +8433,13 @@
         "algorithm": "SHA1",
         "checksum": "0b98d982b902cafc710b24d24b66ef6af17bd1dc",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "21.23.0.0",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/jdbc/ojdbc8/21.23.0.0/ojdbc8-21.23.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "f1c8f87f82937445fa1a9abbc8358f4fe04cdc75",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -8815,6 +8906,13 @@
         "path": "https://repo1.maven.org/maven2/com/oracle/database/jdbc/ojdbc11/23.26.3.0.0/ojdbc11-23.26.3.0.0.jar",
         "algorithm": "SHA1",
         "checksum": "6936aba69cb7142aac36a53ed920af563b0e1dd1",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "21.23.0.0",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/jdbc/ojdbc11/21.23.0.0/ojdbc11-21.23.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "02dff94f9f2ba95bac8150a42db59b8ab7c6bf12",
         "liquibaseCore": ""
       }
     ]
@@ -9305,6 +9403,13 @@
         "algorithm": "SHA1",
         "checksum": "20a9247b60b3575248ea223483ec3b2dc89ec2c4",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "21.23.0.0",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/security/oraclepki/21.23.0.0/oraclepki-21.23.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "4b753e49cc3668d4610b66f4ec7f8f5c51eaa562",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -9710,6 +9815,13 @@
         "algorithm": "SHA1",
         "checksum": "a2b9bab9c44883761d090efb4c74b5474d78f858",
         "liquibaseCore": ""
+      },
+      {
+        "tag": "21.23.0.0",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/security/osdt_cert/21.23.0.0/osdt_cert-21.23.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "a2b9bab9c44883761d090efb4c74b5474d78f858",
+        "liquibaseCore": ""
       }
     ]
   },
@@ -10112,6 +10224,13 @@
       {
         "tag": "21.22.0.0",
         "path": "https://repo1.maven.org/maven2/com/oracle/database/security/osdt_core/21.22.0.0/osdt_core-21.22.0.0.jar",
+        "algorithm": "SHA1",
+        "checksum": "acff0ae38296af300d3da12e6e3fae3c166aa80f",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "21.23.0.0",
+        "path": "https://repo1.maven.org/maven2/com/oracle/database/security/osdt_core/21.23.0.0/osdt_core-21.23.0.0.jar",
         "algorithm": "SHA1",
         "checksum": "acff0ae38296af300d3da12e6e3fae3c166aa80f",
         "liquibaseCore": ""
@@ -10743,6 +10862,20 @@
         "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.30/mysql-connector-java-8.0.30.jar",
         "algorithm": "SHA1",
         "checksum": "b26dd6e4e917d3d4726c34d09d2fd67df7c1dd37",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "8.0.32",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.32/mysql-connector-java-8.0.32.jar",
+        "algorithm": "SHA1",
+        "checksum": "This tool has been identified as abusive",
+        "liquibaseCore": ""
+      },
+      {
+        "tag": "8.0.33",
+        "path": "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.33/mysql-connector-java-8.0.33.jar",
+        "algorithm": "SHA1",
+        "checksum": "This tool has been identified as abusive",
         "liquibaseCore": ""
       }
     ]
