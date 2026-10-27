@@ -8,7 +8,6 @@ import (
 	"golang.org/x/oauth2"
 	"os"
 	"package-manager/internal/app/packages"
-	"package-manager/internal/app/utils"
 	"sort"
 	"strings"
 )
@@ -65,7 +64,7 @@ func (g Github) GetNewVersions(m Module, p packages.Package) packages.Package {
 			}
 			if strings.Contains(a.GetName(), "sha1") {
 				ver.Algorithm = "SHA1"
-				ver.CheckSum = string(utils.HTTPUtil{}.Get(a.GetBrowserDownloadURL()))[0:40] //Get first 40 character of SHA1 only
+				ver.CheckSum = GetSHA1FromURL(a.GetBrowserDownloadURL())
 			}
 		}
 
