@@ -1,6 +1,6 @@
 module package-manager
 
-go 1.26.10
+go 1.26.11
 
 require (
 	github.com/google/go-github/v55 v55.0.0
