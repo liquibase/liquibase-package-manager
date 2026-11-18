@@ -6,7 +6,6 @@ import (
 	"io"
 	"net/http"
 	"package-manager/internal/app/packages"
-	"package-manager/internal/app/utils"
 	"sort"
 	"strings"
 )
@@ -114,12 +113,7 @@ func (mav Maven) GetNewVersions(m Module, p packages.Package) packages.Package {
 
 		ver.Path = url + filename + ".jar"
 		ver.Algorithm = "SHA1"
-		sha := string(utils.HTTPUtil{}.Get(ver.Path + ".sha1"))
-		if strings.Contains(sha, "html") {
-			ver.CheckSum = ""
-		} else {
-			ver.CheckSum = sha[0:40] //Get first 40 character of SHA1 only
-		}
+		ver.CheckSum = GetSHA1FromURL(ver.Path + ".sha1")
 
 		// Older versions might have bad version patters ending up with a missing sha. Don't add them.
 		if ver.CheckSum != "" {
