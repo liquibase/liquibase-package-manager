@@ -21,7 +21,7 @@ Before the automated release process can work, the following must be configured:
 
 ### Required Secrets and Permissions
 
-1. **AWS OIDC Authentication** (for `publish-release.yml` and `update-docker-repo.yml`):
+1. **AWS OIDC Authentication** (for `attach-artifact-release.yml` and `update-docker-repo.yml`):
    - Repository secret: `LIQUIBASE_VAULT_OIDC_ROLE_ARN`
    - AWS role with permissions to access AWS Secrets Manager
    - OIDC trust relationship configured for GitHub Actions
@@ -162,7 +162,9 @@ This is the **only manual step** in the entire process.
 
 **What happens automatically:**
 
-When you click "Publish release", **two workflows** run immediately in parallel, and a **third workflow** runs after the first completes:
+When you click "Publish release", **Build and Attach Artifacts** starts and waits for approval.
+A reviewer on the `release` environment (not the person who published) approves the pending deployment in the run.
+After approval the artifact builds and the VERSION sync run in parallel, and **Update Docker Repository** runs once the run succeeds:
 
 #### A. Build and Attach Artifacts (~5-10 minutes)
 
@@ -184,7 +186,7 @@ The **Build and Attach Artifacts** workflow:
 
 #### B. Sync VERSION File (~10 seconds)
 
-The **Sync VERSION on Release Publish** workflow:
+The **Sync VERSION File** job in **Build and Attach Artifacts** (release events only):
 1. Extracts version from release tag
 2. Updates `VERSION` file if different
 3. Updates `internal/app/VERSION`
@@ -280,8 +282,7 @@ Release Drafter automatically categorizes PRs based on labels. Use these labels 
 | Workflow | Trigger | Purpose | Duration |
 |----------|---------|---------|----------|
 | `create-release.yml` | Push to main | Create/update draft release via Release Drafter | ~5 sec |
-| `attach-artifact-release.yml` | Release published | Build and upload release artifacts | ~5-10 min |
-| `publish-release.yml` | Release published | Sync VERSION file after publish | ~10 sec |
+| `attach-artifact-release.yml` | Release published | Build and upload release artifacts, sync VERSION file | ~5-10 min |
 | `update-docker-repo.yml` | `attach-artifact-release.yml` completion | Update LPM in docker repository | ~30 sec |
 
 ---
@@ -299,9 +300,10 @@ If you want to review artifacts before publishing:
 3. Leave version **empty** (auto-detects from latest draft)
 4. Leave release-id **empty** (uses latest draft)
 5. Click **Run workflow**
-6. Wait for artifacts to build (~5-10 minutes)
-7. Review artifacts on the draft release
-8. Publish when ready
+6. Have a `release` environment reviewer approve the run (run it from `main`; other branches are rejected)
+7. Wait for artifacts to build (~5-10 minutes)
+8. Review artifacts on the draft release
+9. Publish when ready
 
 ### Manually Update Docker Repository
 
@@ -335,8 +337,8 @@ If the automatic Docker update fails:
 **Problem:** VERSION file doesn't match the latest release.
 
 **Solution:**
-1. Check the "Sync VERSION on Release Publish" workflow logs
-2. If failed, manually trigger it or run:
+1. Check the "Sync VERSION File" job logs in the "Build and Attach Artifacts" run
+2. If failed, re-run the failed job or run:
    ```bash
    LATEST_TAG=$(git describe --tags --abbrev=0)
    VERSION=${LATEST_TAG#v}
