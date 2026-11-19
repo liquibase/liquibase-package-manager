@@ -283,72 +283,57 @@ jobs:
 
       - name: Extract version from release tag
         id: get-version
+        env:
+          TAG_NAME: ${{ github.event.release.tag_name }}
         run: |
-          TAG_NAME="${{ github.event.release.tag_name }}"
           VERSION="${TAG_NAME#v}"
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "Extracted version: $VERSION from tag: $TAG_NAME"
 
-      - name: Read current VERSION file
-        id: current-version
-        run: |
-          CURRENT_VERSION=$(cat VERSION | tr -d '\n' | tr -d ' ')
-          echo "current=$CURRENT_VERSION" >> $GITHUB_OUTPUT
-          echo "Current VERSION file: $CURRENT_VERSION"
-
-      - name: Update VERSION file if different
+      # Checks both files, so a re-run repairs a partial sync; real commit or push errors fail the job.
+      - name: Sync VERSION files
         id: update-version
+        env:
+          NEW_VERSION: ${{ steps.get-version.outputs.version }}
         run: |
-          NEW_VERSION="${{ steps.get-version.outputs.version }}"
-          CURRENT_VERSION="${{ steps.current-version.outputs.current }}"
-          
-          if [ "$NEW_VERSION" = "$CURRENT_VERSION" ]; then
-            echo "updated=false" >> $GITHUB_OUTPUT
-            echo "✅ VERSION file already matches release: $NEW_VERSION"
-          else
-            echo "$NEW_VERSION" > VERSION
-            echo "updated=true" >> $GITHUB_OUTPUT
-            echo "📝 Updated VERSION file: $CURRENT_VERSION -> $NEW_VERSION"
+          set -euo pipefail
+          echo "$NEW_VERSION" > VERSION
+          cp VERSION internal/app/VERSION
+
+          if git diff --quiet -- VERSION internal/app/VERSION; then
+            echo "updated=false" >> "$GITHUB_OUTPUT"
+            echo "✅ VERSION files already match release: $NEW_VERSION"
+            exit 0
           fi
 
-      - name: Commit and push VERSION change
-        if: steps.update-version.outputs.updated == 'true'
-        run: |
-          NEW_VERSION="${{ steps.get-version.outputs.version }}"
-          
           git config --local user.email "64099989+liquibot@users.noreply.github.com"
           git config --local user.name "liquibot"
-          
-          git add VERSION
+          git add VERSION internal/app/VERSION
           git commit -m "Sync VERSION to $NEW_VERSION after release [skip ci]"
           git push origin main
-          
-          echo "✅ VERSION file synced to $NEW_VERSION"
-
-      - name: Update internal VERSION file
-        if: steps.update-version.outputs.updated == 'true'
-        run: |
-          NEW_VERSION="${{ steps.get-version.outputs.version }}"
-          cp VERSION internal/app/VERSION
-          
-          git add internal/app/VERSION
-          git commit -m "Update internal VERSION to $NEW_VERSION [skip ci]" || echo "No changes to internal/app/VERSION"
-          git push origin main || echo "Nothing to push"
+          echo "updated=true" >> "$GITHUB_OUTPUT"
+          echo "✅ VERSION files synced to $NEW_VERSION"
 
       - name: Summary
+        env:
+          RELEASE_NAME: ${{ github.event.release.name }}
+          TAG_NAME: ${{ github.event.release.tag_name }}
+          RELEASE_URL: ${{ github.event.release.html_url }}
+          VERSION: ${{ steps.get-version.outputs.version }}
+          UPDATED: ${{ steps.update-version.outputs.updated }}
         run: |
-          echo "## Release Published - VERSION Sync" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Release:** ${{ github.event.release.name }}" >> $GITHUB_STEP_SUMMARY
-          echo "**Tag:** ${{ github.event.release.tag_name }}" >> $GITHUB_STEP_SUMMARY
-          echo "**Version:** ${{ steps.get-version.outputs.version }}" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          
-          if [ "${{ steps.update-version.outputs.updated }}" = "true" ]; then
-            echo "✅ VERSION file updated and committed to main" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "✅ VERSION file already in sync" >> $GITHUB_STEP_SUMMARY
-          fi
-          
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Release URL:** ${{ github.event.release.html_url }}" >> $GITHUB_STEP_SUMMARY
+          {
+            echo "## Release Published - VERSION Sync"
+            echo ""
+            echo "**Release:** $RELEASE_NAME"
+            echo "**Tag:** $TAG_NAME"
+            echo "**Version:** $VERSION"
+            echo ""
+            if [ "$UPDATED" = "true" ]; then
+              echo "✅ VERSION files updated and committed to main"
+            else
+              echo "✅ VERSION files already in sync"
+            fi
+            echo ""
+            echo "**Release URL:** $RELEASE_URL"
+          } >> "$GITHUB_STEP_SUMMARY"
