@@ -170,8 +170,7 @@ not be shortened.
 
 ## Related workflows
 
-- `attach-artifact-release.yml` — generates `checksums.txt` (must succeed before this workflow runs)
-- `publish-release.yml` — syncs the internal VERSION file after a release
+- `attach-artifact-release.yml` — generates `checksums.txt` and syncs the VERSION files (must succeed before this workflow runs)
 
 ---
 
