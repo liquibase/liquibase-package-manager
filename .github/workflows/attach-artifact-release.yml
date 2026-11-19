@@ -33,66 +33,90 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
+      # Event and input values come in through env, never ${{ }} inside run. [TECHOPS-1714]
       - name: Determine version
         id: determine-version
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          TAG_NAME: ${{ github.event.release.tag_name }}
+          INPUT_VERSION: ${{ inputs.version }}
         run: |
-          # For automatic triggers (release created/edited), extract from tag
-          if [ "${{ github.event_name }}" = "release" ]; then
-            TAG_NAME="${{ github.event.release.tag_name }}"
+          # For automatic triggers (release published), extract from tag
+          if [ "$EVENT_NAME" = "release" ]; then
             VERSION="${TAG_NAME#v}"
             echo "Using version from release tag: $VERSION"
           # For manual triggers, use input or VERSION file
-          elif [ -n "${{ inputs.version }}" ]; then
-            VERSION="${{ inputs.version }}"
+          elif [ -n "$INPUT_VERSION" ]; then
+            VERSION="$INPUT_VERSION"
             echo "Using input version: $VERSION"
           else
-            VERSION=$(cat VERSION | tr -d '\n' | tr -d ' ')
+            VERSION=$(tr -d '\n ' < VERSION)
             echo "Using VERSION file: $VERSION"
           fi
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          # VERSION feeds GITHUB_ENV, make and file names, so only accept a plain version.
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+([-.][0-9A-Za-z.-]+)?$ ]]; then
+            echo "Error: '$VERSION' is not a valid version (expected X.Y.Z)"
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
 
       - name: Get release information
         id: get-release
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_RELEASE_ID: ${{ github.event.release.id }}
+          EVENT_UPLOAD_URL: ${{ github.event.release.upload_url }}
+          INPUT_RELEASE_ID: ${{ inputs.release-id }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
         run: |
-          # For automatic triggers (release created/edited), use event data
-          if [ "${{ github.event_name }}" = "release" ]; then
-            RELEASE_ID="${{ github.event.release.id }}"
-            UPLOAD_URL="${{ github.event.release.upload_url }}"
+          # For automatic triggers (release published), use event data
+          if [ "$EVENT_NAME" = "release" ]; then
+            RELEASE_ID="$EVENT_RELEASE_ID"
+            UPLOAD_URL="$EVENT_UPLOAD_URL"
             echo "Using release from event: $RELEASE_ID"
           # For manual triggers, use provided release ID or get latest draft
-          elif [ -n "${{ inputs.release-id }}" ]; then
-            RELEASE_ID="${{ inputs.release-id }}"
+          elif [ -n "$INPUT_RELEASE_ID" ]; then
+            RELEASE_ID="$INPUT_RELEASE_ID"
             echo "Using provided release ID: $RELEASE_ID"
-            UPLOAD_URL=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-              "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID" | \
-              jq -r '.upload_url')
           else
-            RELEASE_ID=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-              "https://api.github.com/repos/${{ github.repository }}/releases" | \
+            RELEASE_ID=$(curl -s -H "Authorization: token $GH_TOKEN" \
+              "https://api.github.com/repos/$REPO/releases" | \
               jq -r '[.[] | select(.draft == true)][0].id')
             echo "Found latest draft release ID: $RELEASE_ID"
-            UPLOAD_URL=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-              "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID" | \
-              jq -r '.upload_url')
           fi
 
           if [ "$RELEASE_ID" = "null" ] || [ -z "$RELEASE_ID" ]; then
             echo "Error: No draft release found"
             exit 1
           fi
+          # The ID goes into API URLs and GITHUB_ENV, so it must be numeric.
+          if ! [[ "$RELEASE_ID" =~ ^[0-9]+$ ]]; then
+            echo "Error: release ID '$RELEASE_ID' is not numeric"
+            exit 1
+          fi
 
-          echo "release_id=$RELEASE_ID" >> $GITHUB_OUTPUT
-          echo "upload_url=$UPLOAD_URL" >> $GITHUB_OUTPUT
-          echo "RELEASE_ID=$RELEASE_ID" >> $GITHUB_ENV
+          if [ "$EVENT_NAME" != "release" ]; then
+            UPLOAD_URL=$(curl -s -H "Authorization: token $GH_TOKEN" \
+              "https://api.github.com/repos/$REPO/releases/$RELEASE_ID" | \
+              jq -r '.upload_url')
+          fi
+
+          echo "release_id=$RELEASE_ID" >> "$GITHUB_OUTPUT"
+          echo "upload_url=$UPLOAD_URL" >> "$GITHUB_OUTPUT"
+          echo "RELEASE_ID=$RELEASE_ID" >> "$GITHUB_ENV"
 
       - name: Check existing artifacts
+        env:
+          RELEASE_ID: ${{ steps.get-release.outputs.release_id }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
         run: |
-          RELEASE_ID="${{ steps.get-release.outputs.release_id }}"
           echo "Checking for existing artifacts in release $RELEASE_ID..."
 
-          ARTIFACTS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID/assets" | \
+          ARTIFACTS=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/$REPO/releases/$RELEASE_ID/assets" | \
             jq -r '.[].name')
 
           if [ -n "$ARTIFACTS" ]; then
