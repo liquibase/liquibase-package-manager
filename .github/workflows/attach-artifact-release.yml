@@ -244,8 +244,9 @@ jobs:
   sync-version:
     name: Sync VERSION File
     runs-on: ubuntu-latest
-    # Runs after the approved prepare-release job; a manual dispatch has no release to sync.
-    needs: prepare-release
+    # Runs after the builds, so a failed build doesn't leave VERSION ahead of a release with no assets.
+    # A manual dispatch has no release to sync.
+    needs: [prepare-release, generate-checksums-file]
     if: github.event_name == 'release'
 
     steps:

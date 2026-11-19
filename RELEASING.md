@@ -8,8 +8,9 @@ This document describes the **fully automated release process** for LPM using Re
 
 1. Merge PRs to `main` (labeled appropriately: `feature`, `bug`, `breaking`, etc.)
 2. Review the auto-generated draft release on GitHub
-3. Click **Publish release**
-4. Wait ~5-10 minutes for artifacts to build and attach automatically
+3. Click **Publish release** (the tag must be `vX.Y.Z`)
+4. Ask a `release` environment reviewer (not you) to approve the pending **Build and Attach Artifacts** run
+5. Wait ~5-10 minutes for artifacts to build and attach automatically
 
 That's it! Everything else happens automatically. ✨
 
@@ -39,6 +40,11 @@ Before the automated release process can work, the following must be configured:
    - Workflows have `contents: write` for creating releases and commits
    - Workflows have `pull-requests: write` for creating PRs
    - Workflows have `id-token: write` for AWS OIDC authentication
+
+5. **`release` Environment** (managed in `liquibase-infrastructure`, `github/liquibase/repos/public/package-manager-release-environment.tf`, from [liquibase/liquibase-infrastructure#4800](https://github.com/liquibase/liquibase-infrastructure/pull/4800)):
+   - Required reviewers: `abrackx`, `filipelautert`, `rberezen`, `jnewton03`, `jandroav`, `sayaliM0412`
+   - The person who published the release or started the run cannot approve it, and admins cannot bypass it
+   - Only `v*` tags and `main` can deploy to it
 
 **Note**: If any of these prerequisites are missing, the automation workflows will fail. Contact repository administrators to set up these requirements.
 
@@ -72,15 +78,15 @@ Before the automated release process can work, the following must be configured:
                  │
                  ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│  4. Post-Publish Automation (Automatic - 2 parallel, 1 sequential)│
+│  4. Post-Publish Automation (Automatic, after approval)         │
 │     ┌───────────────────────────────────────────────────────┐   │
-│     │ A. Build & Attach Artifacts (~5-10 min) - PARALLEL   │   │
+│     │ A. Build & Attach Artifacts (~5-10 min)               │   │
 │     │    • Builds for all 6 platforms                       │   │
 │     │    • Generates SHA256 checksums                       │   │
 │     │    • Uploads artifacts to published release           │   │
 │     └──────────────────┬────────────────────────────────────┘   │
 │     ┌───────────────────────────────────────────────────────┐   │
-│     │ B. Sync VERSION File (~10 sec) - PARALLEL            │   │
+│     │ B. Sync VERSION File (~10 sec) - after A              │   │
 │     │    • Updates VERSION file to match release            │   │
 │     │    • Updates internal/app/VERSION                     │   │
 │     │    • Commits to main                                  │   │
@@ -149,6 +155,9 @@ This is the **only manual step** in the entire process.
 2. Find the draft release (should be at the top)
 3. **Review:**
    - ✅ Version number is correct
+   - ✅ Tag is `vX.Y.Z`.
+     Release Drafter leaves the draft untagged, so type the tag with the `v` prefix.
+     A bare tag such as `0.3.9` fails the gated run and leaves a published release with no binaries.
    - ✅ Changelog is accurate and well-formatted
    - ✅ All PRs are properly categorized
 4. Edit the release notes if needed
@@ -164,7 +173,13 @@ This is the **only manual step** in the entire process.
 
 When you click "Publish release", **Build and Attach Artifacts** starts and waits for approval.
 A reviewer on the `release` environment (not the person who published) approves the pending deployment in the run.
-After approval the artifact builds and the VERSION sync run in parallel, and **Update Docker Repository** runs once the run succeeds:
+After approval the artifacts build, then the VERSION file syncs, and **Update Docker Repository** runs once the run succeeds.
+
+**If the approval is rejected or times out:** the release is already published and stays live with no binaries.
+A pending deployment times out after 30 days.
+Either re-run the **Build and Attach Artifacts** run (**Re-run all jobs**) and have a reviewer approve it, or delete the release and its tag if it should not ship.
+If the tag was wrong (no `v` prefix), re-running is rejected again: delete the release and its tag, then publish again with a `vX.Y.Z` tag.
+
 
 #### A. Build and Attach Artifacts (~5-10 minutes)
 
@@ -428,8 +443,8 @@ If all automation fails (extremely rare):
 | 1. | Merge PR to main | Instant | ✋ Manual | - |
 | 2. | Release Drafter updates draft | ~5 sec | ✅ Auto | - |
 | 3. | Review and publish release | Variable | ✋ Manual | - |
-| 4. | Build artifacts | ~5-10 min | ✅ Auto | Parallel with step 5 |
-| 5. | Sync VERSION file | ~10 sec | ✅ Auto | Parallel with step 4 |
+| 4. | Build artifacts | ~5-10 min | ✅ Auto | After approval |
+| 5. | Sync VERSION file | ~10 sec | ✅ Auto | Sequential (after step 4) |
 | 6. | Create Docker PR | ~30 sec | ✅ Auto | Sequential (after step 4) |
 | 7. | Review and merge Docker PR | Variable | ✋ Manual (optional) | - |
 
