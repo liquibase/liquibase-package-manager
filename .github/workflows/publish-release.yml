@@ -15,19 +15,11 @@ jobs:
 
     steps:
 
-      - name: Configure AWS credentials for vault access
-        uses: aws-actions/configure-aws-credentials@e7f100cf4c008499ea8adda475de1042d6975c7b # v6.2.0
+      - name: Get the GitHub App credentials from vault
+        uses: liquibase/build-logic/.github/actions/setup-aws-vault@2003fece51886ec69cda3df1cb4520b3ceeb2e0c # main
         with:
-          role-to-assume: ${{ secrets.LIQUIBASE_VAULT_OIDC_ROLE_ARN }}
-          aws-region: us-east-1
-
-      - name: Get secrets from vault
-        id: vault-secrets
-        uses: aws-actions/aws-secretsmanager-get-secrets@2297f9a879480a9e3af9b293ed15c70caf8e1c88 # v3.0.2
-        with:
-          secret-ids: |
-            ,/vault/liquibase
-          parse-json-secrets: true
+          group: github-app-liquibase
+          role-arn: ${{ secrets.VAULT_GROUPED_GITHUB_APP_LIQUIBASE_ROLE_ARN }}
 
       - name: Get GitHub App token
         id: get-token
