@@ -22,6 +22,8 @@ jobs:
   prepare-release:
     name: Prepare Release
     runs-on: ubuntu-latest
+    # Waits for a reviewer; every other job needs this one, so one approval covers the release. [TECHOPS-1714]
+    environment: release
     outputs:
       upload_url: ${{ steps.get-release.outputs.upload_url }}
       release_id: ${{ steps.get-release.outputs.release_id }}
@@ -31,66 +33,90 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
+      # Event and input values come in through env, never ${{ }} inside run. [TECHOPS-1714]
       - name: Determine version
         id: determine-version
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          TAG_NAME: ${{ github.event.release.tag_name }}
+          INPUT_VERSION: ${{ inputs.version }}
         run: |
-          # For automatic triggers (release created/edited), extract from tag
-          if [ "${{ github.event_name }}" = "release" ]; then
-            TAG_NAME="${{ github.event.release.tag_name }}"
+          # For automatic triggers (release published), extract from tag
+          if [ "$EVENT_NAME" = "release" ]; then
             VERSION="${TAG_NAME#v}"
             echo "Using version from release tag: $VERSION"
           # For manual triggers, use input or VERSION file
-          elif [ -n "${{ inputs.version }}" ]; then
-            VERSION="${{ inputs.version }}"
+          elif [ -n "$INPUT_VERSION" ]; then
+            VERSION="$INPUT_VERSION"
             echo "Using input version: $VERSION"
           else
-            VERSION=$(cat VERSION | tr -d '\n' | tr -d ' ')
+            VERSION=$(tr -d '\n ' < VERSION)
             echo "Using VERSION file: $VERSION"
           fi
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          # VERSION feeds GITHUB_ENV, make and file names, so only accept a plain version.
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+([-.][0-9A-Za-z.-]+)?$ ]]; then
+            echo "Error: '$VERSION' is not a valid version (expected X.Y.Z)"
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
 
       - name: Get release information
         id: get-release
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_RELEASE_ID: ${{ github.event.release.id }}
+          EVENT_UPLOAD_URL: ${{ github.event.release.upload_url }}
+          INPUT_RELEASE_ID: ${{ inputs.release-id }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
         run: |
-          # For automatic triggers (release created/edited), use event data
-          if [ "${{ github.event_name }}" = "release" ]; then
-            RELEASE_ID="${{ github.event.release.id }}"
-            UPLOAD_URL="${{ github.event.release.upload_url }}"
+          # For automatic triggers (release published), use event data
+          if [ "$EVENT_NAME" = "release" ]; then
+            RELEASE_ID="$EVENT_RELEASE_ID"
+            UPLOAD_URL="$EVENT_UPLOAD_URL"
             echo "Using release from event: $RELEASE_ID"
           # For manual triggers, use provided release ID or get latest draft
-          elif [ -n "${{ inputs.release-id }}" ]; then
-            RELEASE_ID="${{ inputs.release-id }}"
+          elif [ -n "$INPUT_RELEASE_ID" ]; then
+            RELEASE_ID="$INPUT_RELEASE_ID"
             echo "Using provided release ID: $RELEASE_ID"
-            UPLOAD_URL=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-              "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID" | \
-              jq -r '.upload_url')
           else
-            RELEASE_ID=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-              "https://api.github.com/repos/${{ github.repository }}/releases" | \
+            RELEASE_ID=$(curl -s -H "Authorization: token $GH_TOKEN" \
+              "https://api.github.com/repos/$REPO/releases" | \
               jq -r '[.[] | select(.draft == true)][0].id')
             echo "Found latest draft release ID: $RELEASE_ID"
-            UPLOAD_URL=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-              "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID" | \
-              jq -r '.upload_url')
           fi
 
           if [ "$RELEASE_ID" = "null" ] || [ -z "$RELEASE_ID" ]; then
             echo "Error: No draft release found"
             exit 1
           fi
+          # The ID goes into API URLs and GITHUB_ENV, so it must be numeric.
+          if ! [[ "$RELEASE_ID" =~ ^[0-9]+$ ]]; then
+            echo "Error: release ID '$RELEASE_ID' is not numeric"
+            exit 1
+          fi
 
-          echo "release_id=$RELEASE_ID" >> $GITHUB_OUTPUT
-          echo "upload_url=$UPLOAD_URL" >> $GITHUB_OUTPUT
-          echo "RELEASE_ID=$RELEASE_ID" >> $GITHUB_ENV
+          if [ "$EVENT_NAME" != "release" ]; then
+            UPLOAD_URL=$(curl -s -H "Authorization: token $GH_TOKEN" \
+              "https://api.github.com/repos/$REPO/releases/$RELEASE_ID" | \
+              jq -r '.upload_url')
+          fi
+
+          echo "release_id=$RELEASE_ID" >> "$GITHUB_OUTPUT"
+          echo "upload_url=$UPLOAD_URL" >> "$GITHUB_OUTPUT"
+          echo "RELEASE_ID=$RELEASE_ID" >> "$GITHUB_ENV"
 
       - name: Check existing artifacts
+        env:
+          RELEASE_ID: ${{ steps.get-release.outputs.release_id }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
         run: |
-          RELEASE_ID="${{ steps.get-release.outputs.release_id }}"
           echo "Checking for existing artifacts in release $RELEASE_ID..."
 
-          ARTIFACTS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/releases/$RELEASE_ID/assets" | \
+          ARTIFACTS=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/$REPO/releases/$RELEASE_ID/assets" | \
             jq -r '.[].name')
 
           if [ -n "$ARTIFACTS" ]; then
@@ -238,3 +264,92 @@ jobs:
           echo "✅ All artifacts built and attached to the published release!" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Release:** https://github.com/${{ github.repository }}/releases/tag/v${VERSION}" >> $GITHUB_STEP_SUMMARY
+
+  sync-version:
+    name: Sync VERSION File
+    runs-on: ubuntu-latest
+    # Runs after the builds, so a failed build doesn't leave VERSION ahead of a release with no assets.
+    # A manual dispatch has no release to sync.
+    needs: [prepare-release, generate-checksums-file]
+    if: github.event_name == 'release'
+
+    steps:
+
+      - name: Get the GitHub App credentials from vault
+        uses: liquibase/build-logic/.github/actions/setup-aws-vault@2003fece51886ec69cda3df1cb4520b3ceeb2e0c # main
+        with:
+          group: github-app-liquibase
+          role-arn: ${{ secrets.VAULT_GROUPED_GITHUB_APP_LIQUIBASE_ROLE_ARN }}
+
+      - name: Get GitHub App token
+        id: get-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ env.LIQUIBASE_GITHUB_APP_ID }}
+          private-key: ${{ env.LIQUIBASE_GITHUB_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          permission-contents: write
+
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ steps.get-token.outputs.token }}
+
+      - name: Extract version from release tag
+        id: get-version
+        env:
+          TAG_NAME: ${{ github.event.release.tag_name }}
+        run: |
+          VERSION="${TAG_NAME#v}"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Extracted version: $VERSION from tag: $TAG_NAME"
+
+      # Checks both files, so a re-run repairs a partial sync; real commit or push errors fail the job.
+      - name: Sync VERSION files
+        id: update-version
+        env:
+          NEW_VERSION: ${{ steps.get-version.outputs.version }}
+        run: |
+          set -euo pipefail
+          echo "$NEW_VERSION" > VERSION
+          cp VERSION internal/app/VERSION
+
+          if git diff --quiet -- VERSION internal/app/VERSION; then
+            echo "updated=false" >> "$GITHUB_OUTPUT"
+            echo "✅ VERSION files already match release: $NEW_VERSION"
+            exit 0
+          fi
+
+          git config --local user.email "64099989+liquibot@users.noreply.github.com"
+          git config --local user.name "liquibot"
+          git add VERSION internal/app/VERSION
+          git commit -m "Sync VERSION to $NEW_VERSION after release [skip ci]"
+          git push origin main
+          echo "updated=true" >> "$GITHUB_OUTPUT"
+          echo "✅ VERSION files synced to $NEW_VERSION"
+
+      - name: Summary
+        env:
+          RELEASE_NAME: ${{ github.event.release.name }}
+          TAG_NAME: ${{ github.event.release.tag_name }}
+          RELEASE_URL: ${{ github.event.release.html_url }}
+          VERSION: ${{ steps.get-version.outputs.version }}
+          UPDATED: ${{ steps.update-version.outputs.updated }}
+        run: |
+          {
+            echo "## Release Published - VERSION Sync"
+            echo ""
+            echo "**Release:** $RELEASE_NAME"
+            echo "**Tag:** $TAG_NAME"
+            echo "**Version:** $VERSION"
+            echo ""
+            if [ "$UPDATED" = "true" ]; then
+              echo "✅ VERSION files updated and committed to main"
+            else
+              echo "✅ VERSION files already in sync"
+            fi
+            echo ""
+            echo "**Release URL:** $RELEASE_URL"
+          } >> "$GITHUB_STEP_SUMMARY"
