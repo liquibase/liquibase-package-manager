@@ -23,11 +23,11 @@ Before the automated release process can work, the following must be configured:
 ### Required Secrets and Permissions
 
 1. **AWS OIDC Authentication** (for `attach-artifact-release.yml` and `update-docker-repo.yml`):
-   - Repository secret: `LIQUIBASE_VAULT_OIDC_ROLE_ARN`
-   - AWS role with permissions to access AWS Secrets Manager
+   - Repository secret: `VAULT_GROUPED_GITHUB_APP_LIQUIBASE_ROLE_ARN`, set by liquibase-infrastructure
+   - AWS role with permissions to read only that grouped secret
    - OIDC trust relationship configured for GitHub Actions
 
-2. **AWS Secrets Manager** (path: `/vault/liquibase`):
+2. **AWS Secrets Manager** (path: `/vault/grouped/github-app-liquibase`):
    - Must contain: `LIQUIBASE_GITHUB_APP_ID`
    - Must contain: `LIQUIBASE_GITHUB_APP_PRIVATE_KEY`
 
@@ -379,8 +379,8 @@ If the automatic Docker update fails:
 
 **Solution:**
 1. Verify authentication prerequisites are met (see Prerequisites section):
-   - AWS OIDC role configured with `LIQUIBASE_VAULT_OIDC_ROLE_ARN` secret
-   - GitHub App credentials in AWS Secrets Manager at `/vault/liquibase`
+   - AWS OIDC role configured with `VAULT_GROUPED_GITHUB_APP_LIQUIBASE_ROLE_ARN` secret
+   - GitHub App credentials in AWS Secrets Manager at `/vault/grouped/github-app-liquibase`
    - GitHub App has write permissions to `liquibase/docker` repository
 2. Check "Update Docker Repository" workflow logs for authentication or API errors
 3. Verify "Build and Attach Artifacts" workflow completed successfully (Docker update triggers after it)
