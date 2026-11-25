@@ -30,7 +30,7 @@ jobs:
     # trigger above is public: issue_comment and issues fire for any GitHub account. This
     # job calls build-logic's claude.yml, which mints a Claude API token for the run, so
     # without an author gate anyone who writes "@claude" causes a token mint. It reads no
-    # vault secret; workflows that need one read only their own grouped secret,
+    # vault secret; workflows that need vault keys read only the grouped secrets they need,
     # /vault/grouped/<group> (TECHOPS-1108). Bot senders are excluded so a bot echoing the
     # mention cannot chain into a run.
     #
