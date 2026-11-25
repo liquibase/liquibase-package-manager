@@ -28,10 +28,11 @@ jobs:
   claude:
     # Trusted authors only, as a pre-filter rather than the security boundary. Every
     # trigger above is public: issue_comment and issues fire for any GitHub account. This
-    # job calls build-logic's claude.yml, which assumes the vault OIDC role and reads
-    # /vault/liquibase before invoking the action, so without an author gate anyone who
-    # writes "@claude" causes a credential load. Bot senders are excluded so a bot echoing
-    # the mention cannot chain into a run.
+    # job calls build-logic's claude.yml, which mints a Claude API token for the run, so
+    # without an author gate anyone who writes "@claude" causes a token mint. It reads no
+    # vault secret; workflows that need one read only their own grouped secret,
+    # /vault/grouped/<group> (TECHOPS-1108). Bot senders are excluded so a bot echoing the
+    # mention cannot chain into a run.
     #
     # author_association is deliberately loose (MEMBER is any org member, COLLABORATOR
     # includes read and triage), so claude-code-action's own write-or-admin actor check
