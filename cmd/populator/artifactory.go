@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"package-manager/internal/app/packages"
+	"regexp"
 	"strings"
 )
 
@@ -34,6 +35,36 @@ func GetPomFromURL(url string) *gopom.Project {
 		log.Fatal(err)
 	}
 	return pom
+}
+
+var sha1Pattern = regexp.MustCompile(`^[0-9a-f]{40}$`)
+
+// GetSHA1FromURL get SHA1 checksum from remote .sha1 file URL.
+// Returns an empty string if the request fails or the response is not a valid SHA1,
+// e.g. an error page or a rate limit message from the repository.
+func GetSHA1FromURL(url string) string {
+	resp, err := http.Get(url)
+	if err != nil {
+		log.Printf("Unable to download %s: %v", url, err)
+		return ""
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		log.Printf("Unable to download %s: HTTP %d", url, resp.StatusCode)
+		return ""
+	}
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		log.Printf("Unable to read %s: %v", url, err)
+		return ""
+	}
+	// .sha1 files may contain "<checksum>  <filename>", so take the first field only
+	fields := strings.Fields(string(body))
+	if len(fields) == 0 || !sha1Pattern.MatchString(strings.ToLower(fields[0])) {
+		log.Printf("Invalid SHA1 checksum in %s", url)
+		return ""
+	}
+	return strings.ToLower(fields[0])
 }
 
 // GetCoreVersionFromPom get liquibase core version string from POM object
