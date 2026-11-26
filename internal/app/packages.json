@@ -10274,7 +10274,7 @@
         "tag": "21.23.0.0",
         "path": "https://repo1.maven.org/maven2/com/oracle/database/security/osdt_core/21.23.0.0/osdt_core-21.23.0.0.jar",
         "algorithm": "SHA1",
-        "checksum": "This tool has been identified as abusive",
+        "checksum": "acff0ae38296af300d3da12e6e3fae3c166aa80f",
         "liquibaseCore": ""
       }
     ]
